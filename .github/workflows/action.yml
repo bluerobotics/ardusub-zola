@@ -1,0 +1,22 @@
+on: [push, pull_request]
+
+name: Test and Deploy
+jobs:
+  Test&Deploy:
+    runs-on: ubuntu-latest
+    steps:
+    - name: Checkout
+      uses: actions/checkout@master
+      with:
+        submodules: recursive
+    - name: Run Zola
+      uses: shalzz/zola-deploy-action@master
+      env:
+        BUILD_ONLY: true
+        BUILD_FLAGS: --base-url https://docs.bluerobotics.com/ardusub-zola
+    - name: Deploy 🚀
+      uses: JamesIves/github-pages-deploy-action@4.1.5
+      if: success() && github.event_name != 'pull_request'
+      with:
+        branch: gh-pages
+        folder: public
