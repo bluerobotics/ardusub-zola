@@ -8,6 +8,8 @@ weight = 10
 draft = false
 [extra]
 lead = 'Be aware that <strong>B.E.T.A may not be stable</strong> and <strong>changes will occur</strong> during the development.'
+toc = true
+top = false
 +++
 ## Download
 
