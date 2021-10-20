@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://docs.bluerobotics.com/ardusub-zola/sitemap.xml
