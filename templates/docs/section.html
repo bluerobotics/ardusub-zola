@@ -30,15 +30,11 @@
             {% endfor %}
             {% for s in index.subsections %}
               {% set subsection = get_section(path=s) %}
-              {% if subsection.pages %}
-                {% for page in subsection.pages %}
-                <div class="card my-3">
-                  <div class="card-body">
-                    <a class="stretched-link" href="{{ page.permalink }}">{{ page.title }} &rarr;</a>
-                  </div>
+              <div class="card my-3">
+                <div class="card-body">
+                  <a class="stretched-link" href="{{ subsection.permalink }}">{{ subsection.title }} &rarr;</a>
                 </div>
-                {% endfor %}                                    
-              {% endif %}
+              </div>
             {% endfor %}
           </div>
         </article>
