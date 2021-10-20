@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://docs.bluerobotics.com/ardusub-zola/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://docs.bluerobotics.com/ardusub-zola/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://docs.bluerobotics.com/ardusub-zola/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>Configuration / Usage | ArduSub</title>
+<meta name="description" content="Companion Docker configuration instructions.">
+<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Software",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Companion",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/companion/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "1.0",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  5 ,
+            "name": "Configuration",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://docs.bluerobotics.com/ardusub-zola/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://docs.bluerobotics.com/ardusub-zola/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://docs.bluerobotics.com/ardusub-zola/favicon-16x16.png">
+  
+    <link rel="manifest" href="https://docs.bluerobotics.com/ardusub-zola/site.webmanifest">
+  
+
+
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://docs.bluerobotics.com/ardusub-zola">ArduSub</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/bluerobotics/ardusub-zola"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+					
+						<li class="nav-item  active">
+							<a class="nav-link" href="https://docs.bluerobotics.com/ardusub-zola/"></a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+			
+					
+					
+					
+					
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#network-configuration">Network Configuration</a></li>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#new-web-interface">New Web Interface</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#interface-access">Interface Access</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#interface-features">Interface Features</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#updating-releases">Updating &#x2F; Releases</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#connect-wifi">Connect Wifi</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#select-version">Select Version</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#cleaning-up">Cleaning Up</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#connect-to-qgroundcontrol">Connect to QGroundControl</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#qgc-4-1">QGC 4.1</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#camera-streams">Camera Streams</a></li>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>Configuration &#x2F; Usage</h1>
+        
+        <h2 id="network-configuration">Network Configuration</h2>
+<p>Your topside computer’s network configuration should be the same as for the previous Companion software. 
+To configure it, you can follow our <a href="https://www.ardusub.com/quick-start/installing-companion.html#network-setup">network setup instructions</a>.</p>
+<h2 id="new-web-interface">New Web Interface</h2>
+<p>The new Companion software is designed to be a modular collection of services, which generally each provide a REST API, documentation, and a development webpage.
+The web interface monitors the autopilot and other main software components, and also listens for and displays connections from other HTTP servers (on TCP ports) and docker containers, so you can keep your own integrations isolated from the normal Companion release/update cycle.</p>
+<h3 id="interface-access">Interface Access</h3>
+<p>You can access companion via the old IP address (<a href="http://192.168.2.2/">192.168.2.2</a>) or via <a href="http://companion.local/">companion.local</a>.</p>
+<h3 id="interface-features">Interface Features</h3>
+<p>When you first open the web interface, you'll see a page that looks like this:
+<img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/main-page.png" alt="Main Page" /></p>
+<p>Of particular note is the header, which contains:</p>
+<ul>
+<li>the main hamburger menu (top left corner), for managing your flight controller and accessing some useful tools, and</li>
+<li>health, wifi, network, and notification indicators (top right corner)</li>
+</ul>
+<h2 id="updating-releases">Updating / Releases</h2>
+<p>There are 3 types of releases on the new Companion:</p>
+<ol>
+<li>Stable releases (not available during the B.E.T.A. period)
+<ul>
+<li>Stable versions with long-term support</li>
+</ul>
+</li>
+<li>B.E.T.A. releases
+<ul>
+<li>Versions that will be released after an internal test</li>
+</ul>
+</li>
+<li>Master releases (highly volatile, not recommended)
+<ul>
+<li>The very latest features, that may not have been tested yet</li>
+</ul>
+</li>
+</ol>
+<p>We recommend using only the B.E.T.A. releases.</p>
+<p>Versions and change-logs are on the <a href="https://github.com/bluerobotics/companion-docker/releases">GitHub versions page</a></p>
+<h3 id="connect-wifi">Connect Wifi</h3>
+<p>When starting out, it's important to connect to wifi so you can update to the latest suitable release.</p>
+<ol>
+<li>
+<p>First, click the wifi indicator to scan for available wifi networks</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/wifi-scan.png" alt="Wifi Scan" /></p>
+</li>
+<li>
+<p>Select the desired network, type in the password, and click connect</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/wifi-login.png" alt="Wifi Login" /></p>
+</li>
+<li>
+<p>Once connected, the wifi icon will change to show the signal strength, and the connected wifi network will be selected on the menu</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/wifi-confirm.png" alt="Wifi Confirm" /></p>
+</li>
+</ol>
+<h3 id="select-version">Select Version</h3>
+<p>Now that your Companion has an internet connection, you can perform the update to the latest available version.</p>
+<ol>
+<li>
+<p>Click on the hamburger menu</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/version-menu.png" alt="Version Menu" /></p>
+</li>
+<li>
+<p>Under <strong>tools</strong>, select <strong>Version-Chooser</strong></p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/version-chooser.png" alt="Version Chooser" /></p>
+</li>
+<li>
+<p>If you're already on the latest version, the right side of your Local Version will be blank. If not, you should see a blue <strong>Update</strong> button.</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/version-update.png" alt="Version Update" /></p>
+</li>
+<li>
+<p>It's also possible to update between different versions (in both directions)</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/version-options.png" alt="Version Options" /></p>
+</li>
+<li>
+<p>Once the update button is clicked the update process will run.
+Please wait until it finishes - it will automatically reload the webpage for you.</p>
+</li>
+</ol>
+<h3 id="cleaning-up">Cleaning Up</h3>
+<p>After finishing an update, we highly recommend resetting to default settings, and rebooting your companion computer</p>
+<h4 id="reset-settings">Reset Settings</h4>
+<ol>
+<li>
+<p>Open the settings menu</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/settings-open.png" alt="Settings Open" /></p>
+</li>
+<li>
+<p>Click reset settings</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/settings-reset.png" alt="Settings Reset" /></p>
+</li>
+</ol>
+<h4 id="reboot">Reboot</h4>
+<ol>
+<li>
+<p>Open the power menu</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/power-open.png" alt="Power Open" /></p>
+</li>
+<li>
+<p>And restart the system</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/power-restart.png" alt="Power Restart" /></p>
+</li>
+</ol>
+<h2 id="connect-to-qgroundcontrol">Connect to QGroundControl</h2>
+<blockquote>
+<p><strong>Note:</strong> This configuration will not be necessary if you are running the latest QGC available (master), that has mdns support, with the latest Windows, MacOS or Linux configured with avahi.</p>
+</blockquote>
+<p>When starting the web interface, you'll likely see a message that says</p>
+<blockquote>
+<p>New Companion doesn't provide a fixed UDP Client endpoint on 192.168.2.1 anymore. For new connections Companion now provides an UDP Server locally on port 14550. For connecting QGroundControl, for example, please go to Comm Links and create an UDP endpoint pointing to companion.local or Companion's IP address (e.g.:192.168.2.2), on port 14550.</p>
+</blockquote>
+<p>This section steps through that process.</p>
+<h3 id="qgc-4-1"><a href="https://github.com/mavlink/qgroundcontrol/releases/tag/v4.1.4">QGC 4.1</a></h3>
+<ol>
+<li>
+<p>Click the QGC logo in the top left corner, and select &quot;Application Settings&quot;</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/qgc-application-settings.jpg" alt="QGC Application Settings" /></p>
+</li>
+<li>
+<p>Select &quot;Comm Links&quot; in the sidebar, and &quot;Add&quot; a new one</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/qgc-comm-links.png" alt="QGC Comm Links" /></p>
+</li>
+<li>
+<p>Give the link a name, select UDP, specify port 14550, and add the Server Address</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/qgc-link-details.png" alt="QGC Link Details" /></p>
+</li>
+<li>
+<p>Click &quot;OK&quot; to confirm the link creation</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/qgc-confirm-link.png" alt="QGC Confirm Link" /></p>
+</li>
+<li>
+<p>Select your new link and click &quot;Connect&quot;</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/qgc-connect-link.png" alt="QGC Connect Link" /></p>
+</li>
+<li>
+<p>QGC should now be able to communicate with the Pixhawk (assuming Companion is connected, and your computer's network settings have been configured correctly)</p>
+</li>
+</ol>
+<h2 id="camera-streams">Camera Streams</h2>
+<blockquote>
+<p><strong>Note:</strong> A connected H264 camera should be automatically configured as a default stream by the camera manager when you start Companion. If not, make sure your camera is properly connected, and that Companion is on the latest available version. Reset settings and restart companion if necessary.</p>
+</blockquote>
+<p>The new Companion software is capable of configuring and streaming multiple cameras simultaneously. Only one will be set up as the default stream, so if it's not the one you wanted (or if you want several streams) then these instructions cover how to set up a stream manually.</p>
+<ol>
+<li>
+<p>Go to Autopilot / Video in the hamburger menu of the web interface</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/video-menu.png" alt="Video Menu" /></p>
+</li>
+<li>
+<p>Click &quot;Add Stream&quot; on the desired camera</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/video-select.png" alt="Video Select" /></p>
+</li>
+<li>
+<p>Specify a name, select the stream properties, and click &quot;Create&quot;</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/video-stream.png" alt="Video Stream" /></p>
+</li>
+</ol>
+
+        
+          
+<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;companion&#x2F;1.0&#x2F;configuration.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+  <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;companion&#x2F;1.0&#x2F;installation&#x2F;">
+    <div class="card my-1">
+      <div class="card-body py-2">
+        &larr; Installation
+      </div>
+    </div>
+  </a>
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Powered by <a href="https://www.getzola.org/">Zola</a> and <a href="https://github.com/ES-Alexander/adidoks">AdiDoks</a>. Sponsored by <a href="http://www.bluerobotics.com/">Blue Robotics</a>.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Code under <a href="https://github.com/ArduPilot/ardupilot/blob/master/COPYING.txt">GPLv3 License</a>. Documentation under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-NC-SA 4.0</a>.</li>
+					  
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script src="https://docs.bluerobotics.com/ardusub-zola/js/main.js" defer></script>
+
+  <script src="https://docs.bluerobotics.com/ardusub-zola/plugins/elasticlunr.min.js" defer></script>
+  <script src="https://docs.bluerobotics.com/ardusub-zola/search_index.en.js" defer></script>
+  <script src="https://docs.bluerobotics.com/ardusub-zola/js/search.js" defer></script>
+
+  
+</body>
+</html>

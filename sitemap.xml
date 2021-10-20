@@ -3,4 +3,21 @@
     <url>
         <loc>https://docs.bluerobotics.com/ardusub-zola/</loc>
     </url>
+    <url>
+        <loc>https://docs.bluerobotics.com/ardusub-zola/software/</loc>
+    </url>
+    <url>
+        <loc>https://docs.bluerobotics.com/ardusub-zola/software/companion/</loc>
+    </url>
+    <url>
+        <loc>https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/</loc>
+    </url>
+    <url>
+        <loc>https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/</loc>
+        <lastmod>2021-10-20T22:20:00+00:00</lastmod>
+    </url>
+    <url>
+        <loc>https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/installation/</loc>
+        <lastmod>2021-10-20T20:30:00+00:00</lastmod>
+    </url>
 </urlset>
