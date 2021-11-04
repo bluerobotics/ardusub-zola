@@ -83,15 +83,7 @@ Now that your Companion has an internet connection, you can perform the update t
 
 ### Cleaning Up
 
-After finishing an update, we highly recommend resetting to default settings, and rebooting your companion computer
-
-#### Reset Settings
-1. Open the settings menu
-
-   ![Settings Open](settings-open.png)
-1. Click reset settings
-
-   ![Settings Reset](settings-reset.png)
+After finishing an update, we highly recommend doing a reboot procedure on your companion computer
 
 #### Reboot
 1. Open the power menu
