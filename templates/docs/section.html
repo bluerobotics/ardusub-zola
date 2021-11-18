@@ -28,12 +28,19 @@
                 </div>
               </div>
             {% endfor %}
-            {% for s in index.subsections %}
+            {# Have the newest version first #}
+            {% set subsections = index.subsections | sort | reverse %}
+            {% for s in subsections %}
               {% set subsection = get_section(path=s) %}
+              {% set_global subsection_title = subsection.title ~ ' →' %}
+              {# Check if section is versioned #}
+              {% if 'document_version' in subsection.extra %}
+                {% set_global subsection_title = subsection.extra.document_version ~ ' - Version →' %}
+              {% endif %}
               <div class="card my-3">
-                <div class="card-body">
-                  <a class="stretched-link" href="{{ subsection.permalink }}">{{ subsection.title }} &rarr;</a>
-                </div>
+                  <div class="card-body">
+                    <a class="stretched-link" href="{{ subsection.permalink }}">{{ subsection_title }}</a>
+                  </div>
               </div>
             {% endfor %}
           </div>
