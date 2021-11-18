@@ -19,6 +19,8 @@ build_search_index = true
 include_title = true
 # Whether to include the description of the page/section in the index
 include_description = false
+# Whether to include the path of the page/section in the index
+include_path = true
 # Whether to include the rendered content of the page/section in the index
 include_content = true
 
