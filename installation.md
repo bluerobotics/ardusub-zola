@@ -17,7 +17,7 @@ The new Companion is a ground-up rewrite, so needs to be downloaded and flashed 
 It is compatible with both **Raspberry Pi 3** and **Raspberry Pi 4**, so choose your poison.
 
 The latest available beta image is:
-- [1.0.0.beta5](https://s3.amazonaws.com/downloads.bluerobotics.com/Pi/experimental/companion-docker-14-nov-2021-1.0.0-beta5.img.zip) (14-nov-2021)
+- [1.0.0-beta.14](https://s3.amazonaws.com/downloads.bluerobotics.com/BlueOS/releases/blueos-1.0.0-beta.14.img) (4-mar-2022)
 
 ## Flash
 
