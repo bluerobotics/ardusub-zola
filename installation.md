@@ -7,17 +7,17 @@ sort_by = "weight"
 weight = 10
 draft = false
 [extra]
-lead = 'Be aware that <strong>B.E.T.A may not be stable</strong> and <strong>changes will occur</strong> during the development.'
+lead = 'Now with a stable release! Be aware that if you have a <strong>B.E.T.A</strong> before <strong>1.0.0 release</strong> a fresh SD card flash is necessary.'
 toc = true
 top = false
 +++
 ## Download
 
-The new Companion is a ground-up rewrite, so needs to be downloaded and flashed to an SD card. 
-It is compatible with both **Raspberry Pi 3** and **Raspberry Pi 4**, so choose your poison.
+BlueOS is a ground-up rewrite software to replace Companion, to use, it's necessary downloaded and flash an SD card.
+It is compatible with both **Raspberry Pi 3** and **Raspberry Pi 4**.
 
-The latest available beta image is:
-- [1.0.0-beta.15](https://s3.amazonaws.com/downloads.bluerobotics.com/BlueOS/releases/blueos-1.0.0-beta.15.img) (8-mar-2022)
+The latest available stable version is:
+- [1.0.1](https://github.com/bluerobotics/BlueOS-docker/releases/download/1.0.1/BlueOS-raspberry.zip) (06-april-2022)
 
 ## Flash
 
@@ -29,7 +29,7 @@ We recommend using a fresh SD card, with at least 4GB capacity.
 
 ## Run
 
-1. Eject your SD card with the new Companion software
+1. Eject your SD card with the new BlueOS software
 1. Insert it into your Raspberry Pi, and power it up!
 
 The first boot may take a couple of minutes, as it expands the filesystem to the new SD card capacity. It should take around 2 minutes for a 16GB class 10 SD card.
