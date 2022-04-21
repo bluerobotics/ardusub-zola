@@ -5,7 +5,9 @@ document.addEventListener('keydown', inputFocus);
 
 function inputFocus(e) {
 
-  if (e.keyCode === 191 ) {
+  if (e.keyCode === 191
+      && document.activeElement.tagName !== "INPUT"
+      && document.activeElement.tagName !== "TEXTAREA") {
     e.preventDefault();
     userinput.focus();
   }
@@ -35,8 +37,11 @@ Source:
 document.addEventListener('keydown',suggestionFocus);
 
 function suggestionFocus(e){
-
   const focusableSuggestions= suggestions.querySelectorAll('a');
+  if (suggestions.classList.contains('d-none')
+      || focusableSuggestions.length === 0) {
+    return;
+  }
   const focusable= [...focusableSuggestions];
   const index = focusable.indexOf(document.activeElement);
 

@@ -48,7 +48,7 @@
 
 <title>Configuration / Usage | ArduSub</title>
 <meta name="description" content="BlueOS Docker configuration instructions.">
-<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/">
+<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/">
 
 
 
@@ -103,11 +103,14 @@
           {
             "@type": "ListItem",
             "position":  3 ,
-            "name": "Companion",
-            "item": "https://docs.bluerobotics.com/ardusub-zola/software/companion/"
+            "name": "Onboard",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/"
           },
         
       
+        
+        
+        
         
         
         
@@ -121,8 +124,8 @@
           {
             "@type": "ListItem",
             "position":  4 ,
-            "name": "1.0",
-            "item": "https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/"
+            "name": "Blueos 1.0",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/"
           },
         
       
@@ -140,7 +143,7 @@
             "@type": "ListItem",
             "position":  5 ,
             "name": "Configuration",
-            "item": "https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/"
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/"
           },
         
       
@@ -151,12 +154,14 @@
 
 
 
+
+
   <meta name="theme-color" content="#fff">
   <link rel="apple-touch-icon" sizes="180x180" href="https://docs.bluerobotics.com/ardusub-zola/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="https://docs.bluerobotics.com/ardusub-zola/favicon-32x32.png">
   <link rel="icon" type="image/png" sizes="16x16" href="https://docs.bluerobotics.com/ardusub-zola/favicon-16x16.png">
   
-    <link rel="manifest" href="https://docs.bluerobotics.com/ardusub-zola/site.webmanifest">
+    <link rel="manifest" href="https://docs.bluerobotics.com/ardusub-zola/site.webmanifest" crossorigin>
   
 
 
@@ -192,6 +197,8 @@
 		</ul>
 		<div class="collapse navbar-collapse order-4 order-md-1">
 			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+				
 				
 					
 						<li class="nav-item  active">
@@ -241,32 +248,32 @@
   			<nav id="TableOfContents">
   					<ul>
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#network-configuration">Network Configuration</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#network-configuration">Network Configuration</a></li>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#new-web-interface">New Web Interface</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#new-web-interface">New Web Interface</a></li>
   							
   									<ul>
   											
-  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#interface-access">Interface Access</a></li>
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#interface-access">Interface Access</a></li>
   											
-  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#interface-features">Interface Features</a></li>
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#interface-features">Interface Features</a></li>
   											
   									</ul>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#updating-releases">Updating &#x2F; Releases</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#updating-releases">Updating &#x2F; Releases</a></li>
   							
   									<ul>
   											
-  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#connect-wifi">Connect Wifi</a></li>
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#connect-wifi">Connect Wifi</a></li>
   											
-  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#select-version">Select Version</a></li>
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#select-version">Select Version</a></li>
   											
   									</ul>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/companion/1.0/configuration/#camera-streams">Camera Streams</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#camera-streams">Camera Streams</a></li>
   							
   							
   					</ul>
@@ -377,7 +384,7 @@ Please wait until it finishes - it will automatically reload the webpage for you
 
         
           
-<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;companion&#x2F;1.0&#x2F;configuration.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
+<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.0&#x2F;configuration.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
 
         
         
@@ -387,7 +394,7 @@ Please wait until it finishes - it will automatically reload the webpage for you
   
   
   
-  <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;companion&#x2F;1.0&#x2F;installation&#x2F;">
+  <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.0&#x2F;installation&#x2F;">
     <div class="card my-1">
       <div class="card-body py-2">
         &larr; Installation
@@ -444,11 +451,11 @@ Please wait until it finishes - it will automatically reload the webpage for you
   
 
   
-<script src="https://docs.bluerobotics.com/ardusub-zola/js/main.js" defer></script>
+<script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/js/main.js" defer></script>
 
-  <script src="https://docs.bluerobotics.com/ardusub-zola/plugins/elasticlunr.min.js" defer></script>
-  <script src="https://docs.bluerobotics.com/ardusub-zola/search_index.en.js" defer></script>
-  <script src="https://docs.bluerobotics.com/ardusub-zola/js/search.js" defer></script>
+<script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/plugins/elasticlunr.min.js" defer></script>
+  <script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/search_index.en.js" defer></script>
+  <script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/js/search.js" defer></script>
 
   
 </body>
