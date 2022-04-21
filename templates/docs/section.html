@@ -35,7 +35,7 @@
               {% set_global subsection_title = subsection.title ~ ' →' %}
               {# Check if section is versioned #}
               {% if 'document_version' in subsection.extra %}
-                {% set_global subsection_title = subsection.extra.document_version ~ ' - Version →' %}
+                {% set_global subsection_title = subsection.title ~ ' - ' ~ subsection.extra.document_version ~ ' →' %}
               {% endif %}
               <div class="card my-3">
                   <div class="card-body">
