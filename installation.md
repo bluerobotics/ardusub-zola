@@ -13,7 +13,7 @@ top = false
 +++
 ## Download
 
-BlueOS is a ground-up rewrite software to replace Companion, to use, it's necessary downloaded and flash an SD card.
+BlueOS is a ground-up rewrite software to replace Companion. To use it you'll need to download and flash an SD card.
 It is compatible with both **Raspberry Pi 3** and **Raspberry Pi 4**.
 
 The latest available stable version is:
@@ -33,3 +33,16 @@ We recommend using a fresh SD card, with at least 4GB capacity.
 1. Insert it into your Raspberry Pi, and power it up!
 
 The first boot may take a couple of minutes, as it expands the filesystem to the new SD card capacity. It should take around 2 minutes for a 16GB class 10 SD card.
+
+## Updates
+
+Once BlueOS is installed, updating to a different version is simple.
+
+The BlueOS Version Chooser offers several major robustness and versatility improvements over the previous 'latest update only' approach, which should benefit both users and developers:
+- it supports multiple [release types](../overview/#release-types)
+- it supports changing forwards _and backwards_ between versions
+- previously installed versions are stored locally, and can be easily switched between
+- it is less likely to fail during an update
+- it is better at detecting and resolving failures that occur
+- if an undetected failure somehow occurs (or if a broken version gets installed) it's possible to easily roll back to a working version from on the device, manual upload, or downloaded from the internet
+- it runs independently, so is still available even in an extreme case like the main web interface being broken
