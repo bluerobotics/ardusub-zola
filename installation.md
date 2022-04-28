@@ -1,6 +1,6 @@
 +++
 title = "Installation"
-description = "Companion Docker installation instructions."
+description = "BlueOS installation instructions."
 date = 2021-10-20T20:30:00+00:00
 template = "docs/page.html"
 sort_by = "weight"
