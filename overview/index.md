@@ -22,7 +22,7 @@ There are many upcoming features, including support for [third party packages](h
 
 ## BlueOS principles and goals
 
-As the core development team we've tried to envision the future of the onboard computer, and the features that will require. Our initial ideas have been distilled into the following core ideas, many of which are already built in to the BlueOS of today:
+As the core development team we've tried to envision the future of the onboard computer, and the features that will require. Our initial ideas have been distilled into the following core concepts, many of which are already built in to the BlueOS of today:
 
 * An interface that is **simple by default but powerful when needed** - the user has the power to change anything they desire and customize the full experience
 * **Designed to focus on what matters**, improving user access to information and controls with a human-friendly UI and UX
@@ -30,7 +30,7 @@ As the core development team we've tried to envision the future of the onboard c
 * **Advanced error handling and detection**, making any problems clear to the user and developers, along with how to fix them
 * **Simplify development**, providing full access to our services API and modular development model
 * **Encourage contributions**, [the project is open source](https://github.com/bluerobotics/BlueOS-docker)!
-* **Portable and flexible**, you should be able to run on a Raspberry Pi 3/4 or any SBC with Linux operating system
+* **Portable and flexible**, you should be able to run on a Raspberry Pi 3/4 or any SBC with Linux operating system, contributions are welcomed
 * **Highly functional with low CPU usage**, the entire system is built to run efficiently
 * **Developed on solid foundations**, critical parts or intensive workforce services are designed using the most advanced languages and features available for stability
 
@@ -43,10 +43,10 @@ BlueOS has most of the features from the old Companion, and some hotly-requested
 
 | Feature | Companion | BlueOS | Both |  |
 |---|---|---|---|---|
-| **Hardware** | Raspberry Pi 3B required | Raspberry Pi 3B / 3B+ / 4B supported;<br>Other Linux-based SBCs to come
+| **Hardware** | Raspberry Pi 3B required | Raspberry Pi 3B / 3B+ / 4B supported;<br>Other Linux-based SBCs images to come;<br>You can install from scratch using the installation script in any Linux computer. (Modifications may be necessary for your hardware configuration)
 | **WIFI manager** | Connect to a *single network* | Connect to and manage *multiple networks*, like a cellphone or computer WIFI manager | Visible and hidden networks supported |  |
 | **Ethernet manager** | *Single* DHCP *or* static network | *Multiple* static IPs *and* DHCP configuration | DHCP client or server |  |
-| **Camera manager** | Select a *single* camera to stream over UDP<br>Supports Raspberry Pi cameras ([except HQ Camera](https://discuss.bluerobotics.com/t/raspberry-pi-camera-stream-not-working/11976/18))<br>Supports a single audio stream over UDP | Easily manage *multiple streams*<br><br>RTSP and WebRTC support coming soon ([#1000](https://github.com/bluerobotics/BlueOS-docker/issues/1000))<br><br>Raspberry Pi cameras<br>*not yet supported* ([#991](https://github.com/bluerobotics/BlueOS-docker/issues/991))<br><br>Audio streaming<br>*not yet supported* ([#990](https://github.com/bluerobotics/BlueOS-docker/issues/990)) | H264-encoded streams only |  |
+| **Camera manager** | Select a *single* camera to stream over UDP<br>Supports Raspberry Pi cameras ([except HQ Camera](https://discuss.bluerobotics.com/t/raspberry-pi-camera-stream-not-working/11976/18))<br>Supports a single audio stream over UDP | Easily manage *multiple streams*<br><br>UDP, RTSP and support coming soon for WebRTC ([#1000](https://github.com/bluerobotics/BlueOS-docker/issues/1000))<br><br>Raspberry Pi cameras<br>*not yet supported* ([#991](https://github.com/bluerobotics/BlueOS-docker/issues/991))<br><br>Audio streaming<br>*not yet supported* ([#990](https://github.com/bluerobotics/BlueOS-docker/issues/990)) | H264-encoded streams only |  |
 | **NMEA support** | - | - | Conveys GPS positions to the vehicle |  |
 | **Ping Sonar Devices** | Ping Sonar distance estimates can be *sent via MAVLink* | Devices can be *hot-plugged*<br><br>MAVLink pipeline<br>*not yet supported* ([#264](https://github.com/bluerobotics/BlueOS-docker/issues/264)) | Ping Sonar and Ping360 can connect with [Ping Viewer](https://docs.bluerobotics.com/ping-viewer/) |  |
 | **ArduPilot Firmware** | *ArduSub-only* downloads | *General ArduPilot* downloads;<br>*select vehicle* to update | `stable`, `beta`, and `devel` releases, custom uploads, and restore default parameters |  |
@@ -56,10 +56,11 @@ BlueOS has most of the features from the old Companion, and some hotly-requested
 | **Log Viewer** | - | *Visualise and analyse logs* from the browser |  |  |
 | **Web Terminal** | Access Linux terminal from the browser | Access Linux terminal with a tmux session from the browser | Web terminal client |  |
 | **Version Chooser** | Update to *latest stable only* | *Easily update/downgrade* between versions, including locally stored;<br>Includes *stable, beta, and master* releases*;<br>Available even if main site failing |  |  |
-| **System information** | Basic usage statistics, list of connected devices | Provides all the necessary information about the operating system, running processes, CPU, memory, disk, network usage and status |  |  |
+| **System information** | Basic usage statistics, list of connected devices | Provides all the necessary information about the hardware, operating system, running processes, CPU, memory, disk, network usage and status |  |  |
 | **Notification system** | - | Notifications about issues, new releases, and the status of your system. |  |  |
 | **Network test** | - | Check *real time latency* | Check upload and download speed from the surface computer to the vehicle |  |
-| **MAVLink inspector** | See latest MAVLink messages via mavlink2rest | see and *inspect MAVLink messages in real time* from the browser | MAVLink2REST is available |  |
+| **MAVLink inspector** | See latest MAVLink messages via MAVLink2REST | see and *inspect MAVLink messages in real time* from the browser | MAVLink2REST is available |  |
+| **Water Linked** | Supports UGPS and DVL-A50 | [DVL-A50 package available](https://discuss.bluerobotics.com/t/external-integrations-extensions/10912#integration-example-dvl-5);<br>UGPS *not yet supported* |  |
 
 ## Release Types
 BlueOS has multiple release types, to allow choosing your preferred balance between access to the latest fixes and improvements, and stability of the software. The three release types are:
