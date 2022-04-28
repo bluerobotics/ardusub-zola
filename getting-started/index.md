@@ -1,6 +1,6 @@
 +++
-title = "Configuration / Usage"
-description = "BlueOS Docker configuration instructions."
+title = "Getting Started"
+description = "BlueOS getting started instructions."
 date = 2021-10-20T22:20:00+00:00
 template = "docs/page.html"
 sort_by = "weight"
