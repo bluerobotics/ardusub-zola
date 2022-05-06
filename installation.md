@@ -36,13 +36,8 @@ The first boot may take a couple of minutes, as it expands the filesystem to the
 
 ## Updates
 
-Once BlueOS is installed, updating to a different version is simple.
+Once BlueOS is installed, updating to a different version is simple via the [Version Chooser](./advanced-usage/#version-chooser).
 
-The BlueOS Version Chooser offers several major robustness and versatility improvements over the previous 'latest update only' approach, which should benefit both users and developers:
-- it supports multiple [release types](../overview/#release-types)
-- it supports changing forwards _and backwards_ between versions
-- previously installed versions are stored locally, and can be easily switched between
-- it is less likely to fail during an update
-- it is better at detecting and resolving failures that occur
-- if an undetected failure somehow occurs (or if a broken version gets installed) it's possible to easily roll back to a working version from on the device, manual upload, or downloaded from the internet
-- it runs independently, so is still available even in an extreme case like the main web interface being broken
+## Manual Installation
+
+For developers with alternative hardware, or who would rather install over a pre-installed base operating system / image, BlueOS provides an [install directory](https://github.com/bluerobotics/BlueOS-docker/tree/master/install) with utilities to help perform manual/software-based installations.

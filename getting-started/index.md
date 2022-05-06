@@ -36,17 +36,7 @@ Of particular note is the header, which contains:
 
 ## Updating / Releases
 
-There are 3 types of releases for BlueOS:
-1. Stable releases
-   - Stable versions with long-term support
-2. B.E.T.A. releases
-   - Versions that will be released after an internal test
-3. Master releases (highly volatile, not recommended)
-   - The very latest features, that may not have been tested yet
-
-We recommend using only the stable releases.
-
-Versions and change-logs are on the [GitHub versions page](https://github.com/bluerobotics/blueos-docker/releases)
+BlueOS supports [multiple release types](../overview/#release-types) - we recommend the latest stable version for most people. Releases and change-logs are available on the [GitHub releases page](https://github.com/bluerobotics/blueos-docker/releases).
 
 ### Connect Wifi
 
@@ -69,30 +59,17 @@ Now that your BlueOS has an internet connection, you can perform the update to t
 1. Click on the hamburger menu
 
    ![Version Menu](version-menu.png)
-1. Under **tools**, select **Version-Chooser**
+1. Under **tools**, select [**Version-Chooser**](../advanced-usage/#version-chooser)
 
    ![Version Chooser](version-chooser.png)
 1. If you're already on the latest version, the right side of your Local Version will be blank. If not, you should see a blue **Update** button.
 
    <img src="version-update.png" width="650">
-2. It's also possible to update between different versions (When pirate mode is enabled)
-
-   <img src="version-options.png" width="650">
-3. Once the update button is clicked the update process will run.
+1. Once the update button is clicked the update process will run.
    Please wait until it finishes - it will automatically reload the webpage for you.
 
 ## Camera Streams
 
-> **Note:** A connected H264 camera should be automatically configured as a default stream by the camera manager when you start BlueOS. If not, make sure your camera is properly connected, and that BlueOS is on the latest available version. Reset settings and restart BlueOS if necessary.
+BlueOS is capable of configuring and streaming multiple cameras simultaneously. The first time it boots, it will automatically detect any connected H264-capable cameras and start streaming them. If not, make sure your camera is properly connected, and that BlueOS is on the latest available version. Reset settings and restart BlueOS if necessary.
 
-The BlueOS software is capable of configuring and streaming multiple cameras simultaneously. Only one will be set up as the default stream, so if it's not the one you wanted (or if you want several streams) then these instructions cover how to set up a stream manually.
-
-1. Go to Autopilot / Video in the hamburger menu of the web interface
-
-   ![Video Menu](video-menu.png)
-1. Click "Add Stream" on the desired camera
-
-   ![Video Select](video-select.png)
-1. Specify a name, select the stream properties, and click "Create"
-
-   ![Video Stream](video-stream.png)
+Additional information is available in the [Video](../advanced-usage/#video) section of the [Advanced Usage](../advanced-usage) page.
