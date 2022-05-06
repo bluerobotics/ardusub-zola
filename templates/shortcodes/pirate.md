@@ -1,4 +1,4 @@
-<div class="pirate" style="color:grey;display:contents">
+<div class="pirate" style="color:grey;display:block;">
 
 {{ body }}
 
