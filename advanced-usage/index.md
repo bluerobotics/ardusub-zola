@@ -23,6 +23,7 @@ features see the [Overview](../overview/#feature-comparison) instead.
 The default BlueOS interface is simplified, and shows only the major tools that
 most people are likely to find useful. Full functionality is available via 
 "Pirate Mode", which can be enabled from the [settings in the sidebar](#settings).
+Note that Pirate Mode is advanced/development mode, and should be used with care.
 
 This documentation by default shows the full functionality interface, to provide
 an overview of _all_ functionality instead of a limited subset, but if you're only
@@ -69,7 +70,11 @@ On the right side of the header you'll find:
 - System status
    - Heartbeat icon pulses with vehicle heartbeat, and goes red if heartbeat is lost
    - On click shows onboard computer temperature, voltage, and current usage
-   - Additional warning icons appear if onboard computer is too hot or under-powered
+   - Additional warning icons appear if a problem is detected on the onboard computer:
+      - High disk usage
+      - CPU overheating
+      - CPU throttling
+      - CPU under voltage
 {{ easy_image(src="system-status", width=200) }}
 
 #### Sidebar
@@ -87,6 +92,7 @@ conveniently accessing available pages, tools, and services.
    - Remove existing camera/endpoint/bridges configuration
 - Pirate mode toggle
    - Access or hide advanced functionality
+   - Advanced users only - pirate mode is not recommended for normal use
 - Dark mode toggle
    - Change between light and dark viewing modes
 
@@ -105,7 +111,7 @@ conveniently accessing available pages, tools, and services.
    - Generally sufficient for most 'reboot' requirements
 {% end %}
 {% pirate() %}
-- Restart core container
+- Restart core container (same as "Soft restart")
    - Restart the core BlueOS docker container
    - Generally sufficient for most 'reboot' requirements
 {% end %}
@@ -143,6 +149,7 @@ options to:
       - Select desired release and stability level
          - Official - The latest stable release. Recommended for most users.
          - Stable - A production-ready release. Suitable for most users.
+            - e.g. `Stable-4.0.3`
          - Beta - In-testing release, with new features and improvements, aiming
          to become stable. May have bugs.
          - Dev - Development branch, with all the newest features. Intentionally
@@ -171,7 +178,8 @@ connected at that time, with UDP streams counting up from port 5600
 {% pirate() %}
       - It's also possible to manually reset _only_ the camera settings by deleting
       the file `/root/.config/mavlink-camera-manager/settings.json` via
-      [the file browser](#file-browser) or [the terminal](#terminal)
+      [the file browser](#file-browser) or [the terminal](#terminal), or starting
+      the camera manager inside the tmux session with the `--reset` flag
 {% end %}
 
 - After the initial startup, settings are saved and persistent across reboots
@@ -235,6 +243,7 @@ excessive resources.
 {{ easy_image(src="system-info-processes", width=600) }}
 {{ easy_image(src="system-info-monitor", width=600) }}
 {{ easy_image(src="system-info-network", width=600) }}
+{{ easy_image(src="system-info-kernel", width=600, class="pirate") }}
 {{ easy_image(src="system-info-about", width=600) }}
 
 ### Network Test
@@ -281,6 +290,12 @@ listed with
 [network configuration](../getting-started/#interface-access), and where relevant
 - its API documentation (in a live-testable form)
 - the current API version
+
+Any service that provides an http server with a
+[title tag](https://www.w3schools.com/tags/tag_title.asp) will be displayed.
+Documentation can also be parsed if
+- it follows the swagger/open api spec, and 
+- is available at `/docs` or `/v1.0/ui`
 {% end %}
 {{ easy_image(src="available-services", width=600, class="pirate") }}
 
@@ -318,8 +333,8 @@ The File Browser allows viewing, editing, downloading, and uploading BlueOS file
 {% end %}
 {{ easy_image(src="nmea-injector", width=600, class="pirate") }}
 {% pirate() %}
-- Setup requires a socket for the NMEA device to connect to, and a MAVLink ID for
-the component that will send the location data to the vehicle
+- Setup requires a UDP socket for the NMEA device to connect to, and a MAVLink ID
+for the component that will send the location data to the vehicle
 {% end %}
 {{ easy_image(src="nmea-example", width=400, class="pirate") }}
 
@@ -332,6 +347,7 @@ The terminal provides
    - Useful for seeing logs as they update live
    - Can kill services if necessary
 - Access to the underlying device via the `red-pill` utility
+   - Can return to the docker using the `exit` command, or pressing `CTRL+d`
 {% end %}
 {{ easy_image(src="terminal", width=600, class="pirate") }}
 
