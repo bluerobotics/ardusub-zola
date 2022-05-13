@@ -46,9 +46,9 @@
 
 	
 
-<title>Configuration / Usage | ArduSub</title>
-<meta name="description" content="BlueOS Docker configuration instructions.">
-<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/">
+<title>Getting Started | ArduSub</title>
+<meta name="description" content="BlueOS getting started instructions.">
+<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/getting-started/">
 
 
 
@@ -137,13 +137,16 @@
         
         
         
+        
+        
+        
           
           
           {
             "@type": "ListItem",
             "position":  5 ,
-            "name": "Configuration",
-            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/"
+            "name": "Getting Started",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/getting-started/"
           },
         
       
@@ -248,32 +251,32 @@
   			<nav id="TableOfContents">
   					<ul>
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#network-configuration">Network Configuration</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/getting-started/#network-configuration">Network Configuration</a></li>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#new-web-interface">New Web Interface</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/getting-started/#new-web-interface">New Web Interface</a></li>
   							
   									<ul>
   											
-  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#interface-access">Interface Access</a></li>
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/getting-started/#interface-access">Interface Access</a></li>
   											
-  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#interface-features">Interface Features</a></li>
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/getting-started/#interface-features">Interface Features</a></li>
   											
   									</ul>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#updating-releases">Updating &#x2F; Releases</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/getting-started/#updating-releases">Updating &#x2F; Releases</a></li>
   							
   									<ul>
   											
-  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#connect-wifi">Connect Wifi</a></li>
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/getting-started/#connect-wifi">Connect Wifi</a></li>
   											
-  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#select-version">Select Version</a></li>
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/getting-started/#select-version">Select Version</a></li>
   											
   									</ul>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/configuration/#camera-streams">Camera Streams</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/getting-started/#camera-streams">Camera Streams</a></li>
   							
   							
   					</ul>
@@ -283,7 +286,7 @@
   
 
       <main class="docs-content col-lg-11 col-xl-9">
-        <h1>Configuration &#x2F; Usage</h1>
+        <h1>Getting Started</h1>
         
         <h2 id="network-configuration">Network Configuration</h2>
 <p>Your topside computer’s network configuration should be the same as for the previous Companion software.
@@ -302,26 +305,7 @@ The web interface monitors the autopilot and other main software components, and
 <li>health, wifi, network, and notification indicators (top right corner)</li>
 </ul>
 <h2 id="updating-releases">Updating / Releases</h2>
-<p>There are 3 types of releases for BlueOS:</p>
-<ol>
-<li>Stable releases
-<ul>
-<li>Stable versions with long-term support</li>
-</ul>
-</li>
-<li>B.E.T.A. releases
-<ul>
-<li>Versions that will be released after an internal test</li>
-</ul>
-</li>
-<li>Master releases (highly volatile, not recommended)
-<ul>
-<li>The very latest features, that may not have been tested yet</li>
-</ul>
-</li>
-</ol>
-<p>We recommend using only the stable releases.</p>
-<p>Versions and change-logs are on the <a href="https://github.com/bluerobotics/blueos-docker/releases">GitHub versions page</a></p>
+<p>BlueOS supports <a href="../overview/#release-types">multiple release types</a> - we recommend the latest stable version for most people. Releases and change-logs are available on the <a href="https://github.com/bluerobotics/blueos-docker/releases">GitHub releases page</a>.</p>
 <h3 id="connect-wifi">Connect Wifi</h3>
 <p>When starting out, it's important to connect to wifi so you can update to the latest suitable release.</p>
 <ol>
@@ -346,7 +330,7 @@ The web interface monitors the autopilot and other main software components, and
 <p><img src="version-menu.png" alt="Version Menu" /></p>
 </li>
 <li>
-<p>Under <strong>tools</strong>, select <strong>Version-Chooser</strong></p>
+<p>Under <strong>tools</strong>, select <a href="../advanced-usage/#version-chooser"><strong>Version-Chooser</strong></a></p>
 <p><img src="version-chooser.png" alt="Version Chooser" /></p>
 </li>
 <li>
@@ -354,37 +338,17 @@ The web interface monitors the autopilot and other main software components, and
 <img src="version-update.png" width="650">
 </li>
 <li>
-<p>It's also possible to update between different versions (When pirate mode is enabled)</p>
-<img src="version-options.png" width="650">
-</li>
-<li>
 <p>Once the update button is clicked the update process will run.
 Please wait until it finishes - it will automatically reload the webpage for you.</p>
 </li>
 </ol>
 <h2 id="camera-streams">Camera Streams</h2>
-<blockquote>
-<p><strong>Note:</strong> A connected H264 camera should be automatically configured as a default stream by the camera manager when you start BlueOS. If not, make sure your camera is properly connected, and that BlueOS is on the latest available version. Reset settings and restart BlueOS if necessary.</p>
-</blockquote>
-<p>The BlueOS software is capable of configuring and streaming multiple cameras simultaneously. Only one will be set up as the default stream, so if it's not the one you wanted (or if you want several streams) then these instructions cover how to set up a stream manually.</p>
-<ol>
-<li>
-<p>Go to Autopilot / Video in the hamburger menu of the web interface</p>
-<p><img src="video-menu.png" alt="Video Menu" /></p>
-</li>
-<li>
-<p>Click &quot;Add Stream&quot; on the desired camera</p>
-<p><img src="video-select.png" alt="Video Select" /></p>
-</li>
-<li>
-<p>Specify a name, select the stream properties, and click &quot;Create&quot;</p>
-<p><img src="video-stream.png" alt="Video Stream" /></p>
-</li>
-</ol>
+<p>BlueOS is capable of configuring and streaming multiple cameras simultaneously. The first time it boots, it will automatically detect any connected H264-capable cameras and start streaming them. If not, make sure your camera is properly connected, and that BlueOS is on the latest available version. Reset settings and restart BlueOS if necessary.</p>
+<p>Additional information is available in the <a href="../advanced-usage/#video">Video</a> section of the <a href="../advanced-usage">Advanced Usage</a> page.</p>
 
         
           
-<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.0&#x2F;configuration.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
+<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.0&#x2F;getting-started.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
 
         
         
@@ -408,14 +372,13 @@ Please wait until it finishes - it will automatically reload the webpage for you
   
   
   
-    
-    
-    
-      
-      
-        
-      
-    
+    <a class="ms-auto" href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.0&#x2F;advanced-usage&#x2F;">
+      <div class="card my-1">
+        <div class="card-body py-2">
+          Advanced Usage &rarr;
+        </div>
+      </div>
+    </a>
   
 </div>
 

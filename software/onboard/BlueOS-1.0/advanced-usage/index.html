@@ -1,0 +1,944 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://docs.bluerobotics.com/ardusub-zola/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://docs.bluerobotics.com/ardusub-zola/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://docs.bluerobotics.com/ardusub-zola/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>Advanced Usage | ArduSub</title>
+<meta name="description" content="BlueOS advanced usage documentation.">
+<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Software",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Onboard",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Blueos 1.0",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  5 ,
+            "name": "Advanced Usage",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://docs.bluerobotics.com/ardusub-zola/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://docs.bluerobotics.com/ardusub-zola/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://docs.bluerobotics.com/ardusub-zola/favicon-16x16.png">
+  
+    <link rel="manifest" href="https://docs.bluerobotics.com/ardusub-zola/site.webmanifest" crossorigin>
+  
+
+
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://docs.bluerobotics.com/ardusub-zola">ArduSub</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/bluerobotics/ardusub-zola"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+				
+				
+					
+						<li class="nav-item  active">
+							<a class="nav-link" href="https://docs.bluerobotics.com/ardusub-zola/"></a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+			
+					
+					
+					
+					
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#general-information">General Information</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#pirate-mode">Pirate Mode</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#main">Main</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#vehicle">Vehicle</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#general">General</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#firmware">Firmware</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#log-browser">Log Browser</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#video">Video</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#endpoints">Endpoints</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#tools">Tools</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#system-information">System Information</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#network-test">Network Test</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#version-chooser">Version Chooser</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#available-services">Available Services</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#bridges">Bridges</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#file-browser">File Browser</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#nmea-injector">NMEA Injector</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#terminal">Terminal</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#mavlink-inspector">MAVLink Inspector</a></li>
+  											
+  									</ul>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>Advanced Usage</h1>
+        
+        <h2 id="general-information">General Information</h2>
+<p>This documentation page is for detailed information about the services and pages
+in the BlueOS web interface. For a higher level list and direct comparison of
+features see the <a href="../overview/#feature-comparison">Overview</a> instead.</p>
+<h3 id="pirate-mode">Pirate Mode</h3>
+<p>The default BlueOS interface is simplified, and shows only the major tools that
+most people are likely to find useful. Full functionality is available via 
+&quot;Pirate Mode&quot;, which can be enabled from the <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#settings">settings in the sidebar</a>.
+Note that Pirate Mode is advanced/development mode, and should be used with care.</p>
+<p>This documentation by default shows the full functionality interface, to provide
+an overview of <em>all</em> functionality instead of a limited subset, but if you're only
+interested in the basic functionality you can click the button below:</p>
+<div style="text-align:center;padding-bottom:15px;">
+<!-- functionality code at bottom of file -->
+<button onclick="toggle_advanced()" id="pirate_toggle">
+    hide advanced functionality
+</button>
+</div>
+<p>Any pages that are extended by (or only available in) Pirate Mode are shown in
+<a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#settings">dark mode</a>, and described with grey text.</p>
+<h3 id="main">Main</h3>
+<p>When you first open BlueOS, you'll see a window like the following:</p>
+<div class="simple" style="display:none;padding-bottom:15px;">
+<img src="main-simple.png" alt="Main (simple mode)" width=600 >
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="main-pirate.png" alt="Main (pirate mode)" width=600 >
+</div>
+<h4 id="indicators-and-network-configuration">Indicators and Network Configuration</h4>
+<p>On the right side of the header you'll find:</p>
+<ul>
+<li>Notifications
+<ul>
+<li>Press broom to clear notifications</li>
+<li>Press cog to toggle showing old messages</li>
+</ul>
+</li>
+</ul>
+<div style="padding-bottom:15px;">
+<img src="notifications.png" alt="Notifications" width=350 >
+</div>
+<ul>
+<li>Ethernet + static IP management - choose between:
+<ul>
+<li>A static IP</li>
+<li>A DHCP server</li>
+<li>A dynamic IP</li>
+</ul>
+</li>
+</ul>
+<div style="padding-bottom:15px;">
+<img src="ethernet.png" alt="Ethernet" width=350 >
+</div>
+<div style="padding-bottom:15px;">
+<img src="ethernet-example.png" alt="Ethernet Example" width=250 >
+</div>
+<ul>
+<li>Wifi network management
+<ul>
+<li>Choose a network to connect to</li>
+<li>Forget, connect to, or a force a new password for a saved network</li>
+</ul>
+</li>
+</ul>
+<div style="padding-bottom:15px;">
+<img src="wifi.png" alt="Wifi" width=350 >
+</div>
+<div style="padding-bottom:15px;">
+<img src="wifi-example.png" alt="Wifi Example" width=250 >
+</div>
+<ul>
+<li>System status
+<ul>
+<li>Heartbeat icon pulses with vehicle heartbeat, and goes red if heartbeat is lost</li>
+<li>On click shows onboard computer temperature, voltage, and current usage</li>
+<li>Additional warning icons appear if a problem is detected on the onboard computer:
+<ul>
+<li>High disk usage</li>
+<li>CPU overheating</li>
+<li>CPU throttling</li>
+<li>CPU under voltage</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div style="padding-bottom:15px;">
+<img src="system-status.png" alt="System Status" width=200 >
+</div>
+<h4 id="sidebar">Sidebar</h4>
+<p>The burger menu at the top left of the header opens up the side-bar, for
+conveniently accessing available pages, tools, and services.</p>
+<div class="simple" style="display:none;padding-bottom:15px;">
+<img src="sidebar-simple.png" alt="Sidebar (simple mode)" width=200 >
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="sidebar-pirate.png" alt="Sidebar (pirate mode)" width=200 >
+</div>
+<h5 id="settings">Settings</h5>
+<div class="simple" style="display:none;padding-bottom:15px;">
+<img src="settings-simple.png" alt="Settings (simple mode)" width=300 >
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="settings-pirate.png" alt="Settings (pirate mode)" width=300 >
+</div>
+<ul>
+<li>Reset BlueOS settings
+<ul>
+<li>Remove existing camera/endpoint/bridges configuration</li>
+</ul>
+</li>
+<li>Pirate mode toggle
+<ul>
+<li>Access or hide advanced functionality</li>
+<li>Advanced users only - pirate mode is not recommended for normal use</li>
+</ul>
+</li>
+<li>Dark mode toggle
+<ul>
+<li>Change between light and dark viewing modes</li>
+</ul>
+</li>
+</ul>
+<h5 id="power">Power</h5>
+<div class="simple" style="display:none;padding-bottom:15px;">
+<img src="power-simple.png" alt="Power (simple mode)" width=300 >
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="power-pirate.png" alt="Power (pirate mode)" width=300 >
+</div>
+<ul>
+<li>Power off
+<ul>
+<li>Shut down onboard computer</li>
+<li>Recommended before turning off vehicle power</li>
+</ul>
+</li>
+<li>Reboot
+<ul>
+<li>Reboot onboard computer</li>
+</ul>
+</li>
+</ul>
+<div class="simple" style="display:none">
+<ul>
+<li>Soft restart
+<ul>
+<li>Do a software-restart of BlueOS (without restarting the computer)</li>
+<li>Generally sufficient for most 'reboot' requirements</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<ul>
+<li>Restart core container (same as &quot;Soft restart&quot;)
+<ul>
+<li>Restart the core BlueOS docker container</li>
+<li>Generally sufficient for most 'reboot' requirements</li>
+</ul>
+</li>
+</ul>
+</div>
+<h5 id="feedback">Feedback</h5>
+<div style="padding-bottom:15px;">
+<img src="feedback.png" alt="Feedback" width=300 >
+</div>
+<p>Submit feedback about BlueOS via:</p>
+<ul>
+<li>Issues on the GitHub repository (allows easily tracking changes, 
+and notification when complete/fixed)</li>
+<li>Posts on the Blue Robotics forum (allows easy discussion with the community)</li>
+<li>Messages in the Blue Robotics Slack (for internal use)</li>
+</ul>
+<h2 id="vehicle">Vehicle</h2>
+<h3 id="general">General</h3>
+<p>The &quot;General&quot; page provides basic info about the active autopilot, along with
+options to:</p>
+<ul>
+<li>Change board (select a connected board, or run an 
+<a href="https://www.ardusub.com/developers/sitl.html">SITL</a> simulation)</li>
+<li>Restart the autopilot</li>
+</ul>
+<div class="pirate" style="color:grey;display:block;">
+<ul>
+<li>Start the autopilot</li>
+<li>Stop the autopilot</li>
+</ul>
+</div>
+<div class="simple" style="display:none;padding-bottom:15px;">
+<img src="general-simple.png" alt="General (simple mode)" width=600 >
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="general-pirate.png" alt="General (pirate mode)" width=600 >
+</div>
+<h3 id="firmware">Firmware</h3>
+<ul>
+<li><a href="ardupilot.org">ArduPilot</a> family of firmwares only</li>
+<li>Choose firmware to install
+<ul>
+<li>Select from the online repository
+<ul>
+<li>Select vehicle type (Sub / Rover / Plane / Copter)</li>
+<li>Select desired release and stability level
+<ul>
+<li>Official - The latest stable release. Recommended for most users.</li>
+<li>Stable - A production-ready release. Suitable for most users.
+<ul>
+<li>e.g. <code>Stable-4.0.3</code></li>
+</ul>
+</li>
+<li>Beta - In-testing release, with new features and improvements, aiming
+to become stable. May have bugs.</li>
+<li>Dev - Development branch, with all the newest features. Intentionally
+unstable (changes quickly), and possible untested/dangerous.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Upload a custom firmware file from the surface computer</li>
+<li>Restore the default (ArduSub) firmware for the connected flight controller</li>
+</ul>
+</li>
+<li>Flash firmware onto a connected compatible flight controller board</li>
+</ul>
+<div style="padding-bottom:15px;">
+<img src="firmware.png" alt="Firmware" width=600 >
+</div>
+<h3 id="log-browser">Log Browser</h3>
+<ul>
+<li>Built in version of 
+<a href="https://ardupilot.org/copter/docs/common-uavlogviewer.html">UAV LogViewer</a>
+for powerful analysis of vehicle telemetry</li>
+<li>Currently only set up to fetch logs automatically from Linux-based autopilots
+<ul>
+<li>e.g. Pixhawk <strong>not</strong> yet supported</li>
+</ul>
+</li>
+</ul>
+<div style="padding-bottom:15px;">
+<img src="log-browser.png" alt="Log Browser" width=600 >
+</div>
+<h3 id="video">Video</h3>
+<ul>
+<li>BlueOS automatically detects H264-encoded video streams</li>
+<li>The first time BlueOS starts up it will auto-configure any cameras that are 
+connected at that time, with UDP streams counting up from port 5600
+<ul>
+<li>e.g. a second camera at first startup would be streamed to port 5601</li>
+<li>Auto-configuration also occurs if the <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#settings">settings are reset</a></li>
+</ul>
+</li>
+</ul>
+<div class="pirate" style="color:grey;display:block;">
+<ul>
+<li>It's also possible to manually reset <em>only</em> the camera settings by deleting
+the file <code>/root/.config/mavlink-camera-manager/settings.json</code> via
+<a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#file-browser">the file browser</a> or <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#terminal">the terminal</a>, or starting
+the camera manager inside the tmux session with the <code>--reset</code> flag</li>
+</ul>
+</div>
+<ul>
+<li>After the initial startup, settings are saved and persistent across reboots
+<ul>
+<li>Further changes require manually re-configuring streams</li>
+<li>New streams need to be manually added
+<ul>
+<li>The stream endpoint should be set to <code>udp://&lt;surface-IP&gt;:&lt;port&gt;</code></li>
+<li>e.g. <code>udp://192.168.2.1:5601</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The streams are also presented via MAVLink, so QGroundControl (v4.1.7) can
+toggle between them without needing to know specific ports.</li>
+</ul>
+<div style="text-align:center;">
+<div style="padding-bottom:15px;">
+<img src="qgc_switch_streams.png" alt="Qgc_switch_streams" width=400 >
+</div>
+</div>
+<ul>
+<li>Camera settings (brightness, exposure, etc) that are exposed via UVC can be
+configured with the &quot;Configure&quot; button</li>
+<li>Switching streams in QGroundControl while recording stops the current recording
+<ul>
+<li>If you are regularly switching streams it may be worth doing a screen recording
+either instead of or as well as recording the base video</li>
+</ul>
+</li>
+<li>QGroundControl does not yet support displaying multiple streams simultaneously
+<ul>
+<li>Additional streams can be processed/viewed/recorded by <a href="https://discuss.bluerobotics.com/t/how-to-stream-another-cameras-video/9573/3#receiving-the-stream-7">the options discussed
+here</a></li>
+</ul>
+</li>
+<li>Raspberry Pi cameras are <strong>not yet supported</strong> in the pre-built releases/images
+<ul>
+<li>It is possible to do a custom installation on Raspberry Pi OS Buster or
+manually enable the legacy camera stack on Bullseye if necessary</li>
+</ul>
+</li>
+</ul>
+<div class="simple" style="display:none;padding-bottom:15px;">
+<img src="video-simple.png" alt="Video (simple mode)" width=600 >
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="video-pirate.png" alt="Video (pirate mode)" width=600 >
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<h3 id="endpoints">Endpoints</h3>
+<p>The endpoint manager allows managing the serial and UDP MAVLink endpoints and
+routing configurations.</p>
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="endpoints.png" alt="Endpoints" width=600 >
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<ul>
+<li>Endpoints intended for internal BlueOS operations are configured to the
+loopback IP <code>127.0.0.1</code></li>
+<li>Server endpoints for external use are configured to the localhost IP (e.g.
+<code>0.0.0.0</code>; <code>192.168.2.2</code> may also work)</li>
+<li>Client endpoints for external use are configured to the external IP (e.g.
+<code>192.168.2.1</code>)</li>
+<li>Client endpoints seem to operate more stably than server ones</li>
+<li>Unprotected endpoints can be removed or disabled:</li>
+</ul>
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="endpoints-disable-delete.png" alt="Endpoints Disable Delete" width=400 >
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<ul>
+<li>Modifying an endpoint is not possible - a new one must be created instead
+<ul>
+<li>e.g. some users may wish to set up a UDP endpoint for connecting to with
+Pymavlink from the surface:</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="endpoints-pymavlink-example.png" alt="Endpoints Pymavlink ExampleExample" width=400 >
+</div>
+<h2 id="tools">Tools</h2>
+<h3 id="system-information">System Information</h3>
+<p>The system information page provides useful information about the processes,
+network configuration, and computer system BlueOS is running on. It can be
+useful for troubleshooting, and finding if a particular program is using
+excessive resources.</p>
+<div style="padding-bottom:15px;">
+<img src="system-info-processes.png" alt="System Info Processes" width=600 >
+</div>
+<div style="padding-bottom:15px;">
+<img src="system-info-monitor.png" alt="System Info Monitor" width=600 >
+</div>
+<div style="padding-bottom:15px;">
+<img src="system-info-network.png" alt="System Info Network" width=600 >
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="system-info-kernel.png" alt="System Info Kernel" width=600 >
+</div>
+<div style="padding-bottom:15px;">
+<img src="system-info-about.png" alt="System Info About" width=600 >
+</div>
+<h3 id="network-test">Network Test</h3>
+<p>The Network Test page measures real-time latency between BlueOS and the surface
+computer, and allows checking the upload and download speeds between them.</p>
+<div style="padding-bottom:15px;">
+<img src="network-test.png" alt="Network Test" width=600 >
+</div>
+<h3 id="version-chooser">Version Chooser</h3>
+<p>The Version Chooser is a major component in the robust backbone of BlueOS. It
+runs independently from the main interface, and is monitored such that if it
+somehow fails a backup version will be run in its place.</p>
+<div class="simple" style="display:none;padding-bottom:15px;">
+<img src="version-chooser-simple.png" alt="Version Chooser (simple mode)" width=600 >
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="version-chooser-pirate.png" alt="Version Chooser (pirate mode)" width=600 >
+</div>
+<ul>
+<li>The simplified interface provides an easy way to update to the latest version
+that is <a href="../overview/#release-types">as stable or more stable</a> than the currently installed version</li>
+</ul>
+<div class="pirate" style="color:grey;display:block;">
+<ul>
+<li>The full interface supports easily changing forwards <em>and backwards</em> between
+versions
+<ul>
+<li>Previously-installed versions are kept locally on the device, unless
+manually deleted, which provides an easy route for roll-backs to undesired
+changes (e.g. during development)</li>
+</ul>
+</li>
+<li>Allows loading remote versions (including from custom docker-hub repositories)</li>
+<li>Allows manually uploading docker images from the surface computer</li>
+<li>If an undetected failure somehow occurs in BlueOS (or if a broken version gets
+installed) it's possible to easily roll back to a working version from
+<ul>
+<li>on the device</li>
+<li>manual upload, or</li>
+<li>downloaded from the internet</li>
+</ul>
+</li>
+<li>If necessary, the underlying service can be accessed directly at TCP port <code>8081</code>
+<ul>
+<li>e.g. http://blueos.local:8081</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<h3 id="available-services">Available Services</h3>
+<p>The Available Services page provides developer access to the underlying http
+server interfaces of the services upon which BlueOS is based. Each service is
+listed with </p>
+<ul>
+<li>the port it is served at</li>
+<li>a meaningful name</li>
+<li>a web-page link using the active 
+<a href="../getting-started/#interface-access">network configuration</a>, and where relevant</li>
+<li>its API documentation (in a live-testable form)</li>
+<li>the current API version</li>
+</ul>
+<p>Any service that provides an http server with a
+<a href="https://www.w3schools.com/tags/tag_title.asp">title tag</a> will be displayed.
+Documentation can also be parsed if</p>
+<ul>
+<li>it follows the swagger/open api spec, and </li>
+<li>is available at <code>/docs</code> or <code>/v1.0/ui</code></li>
+</ul>
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="available-services.png" alt="Available Services" width=600 >
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<h3 id="bridges">Bridges</h3>
+<p>The Bridges page allows creating high performance links between serial devices
+that are connected to the onboard computer, to a UDP port.</p>
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="bridges.png" alt="Bridges" width=600 >
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<ul>
+<li>NOTE: UDP-based systems do not guarantee packet delivery or sequential alignment</li>
+<li>Bridges to external devices will generally use the localhost IP <code>0.0.0.0</code></li>
+<li>Bridges to internal programs can use the loopback IP <code>127.0.0.1</code></li>
+</ul>
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="bridges-example.png" alt="Bridges Example" width=400 >
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<h3 id="file-browser">File Browser</h3>
+<p>The File Browser allows viewing, editing, downloading, and uploading BlueOS files</p>
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="file-browser.png" alt="File Browser" width=600 >
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<blockquote>
+<p><strong>NOTE:</strong> There is 
+<a href="https://github.com/bluerobotics/BlueOS-docker/issues/1004">a known issue</a>
+where the File Browser does not load properly with certain browsers. It is
+fixed in the 1.1.x beta releases, but in the interim for current stable
+releases it's possible to access the underlying service at 
+http://blueos.local:7777</p>
+</blockquote>
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<h3 id="nmea-injector">NMEA Injector</h3>
+<ul>
+<li>Conveys GPS positions (from an NMEA device) to the vehicle via MAVLink messages</li>
+</ul>
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="nmea-injector.png" alt="Nmea Injector" width=600 >
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<ul>
+<li>Setup requires a UDP socket for the NMEA device to connect to, and a MAVLink ID
+for the component that will send the location data to the vehicle</li>
+</ul>
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="nmea-example.png" alt="Nmea Example" width=400 >
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<h3 id="terminal">Terminal</h3>
+<p>The terminal provides</p>
+<ul>
+<li>A tmux session</li>
+<li>Direct access into the core BlueOS docker container</li>
+<li>Ready access to the tmux sessions of the core services (<code>CTRL+b s</code>)
+<ul>
+<li>Useful for seeing logs as they update live</li>
+<li>Can kill services if necessary</li>
+</ul>
+</li>
+<li>Access to the underlying device via the <code>red-pill</code> utility
+<ul>
+<li>Can return to the docker using the <code>exit</code> command, or pressing <code>CTRL+d</code></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="terminal.png" alt="Terminal" width=600 >
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<h3 id="mavlink-inspector">MAVLink Inspector</h3>
+<p>The MAVLink Inspector provides real-time access to the MAVLink messages being
+sent to the topside computer. It is possible to</p>
+<ul>
+<li>filter for particular messages</li>
+<li>view past and current messages</li>
+<li>click on messages to see their full details</li>
+</ul>
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="mavlink-inspector.png" alt="Mavlink Inspector" width=600 >
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<p>Future improvements will include plotting and comparisons, along with more
+powerful filtering options.</p>
+</div>
+<script type="text/javascript">
+    function toggle_advanced() {
+        if (document.querySelector('.pirate').style.display == 'none') {
+            var show = '.pirate';
+            var hide = '.simple';
+            var buttonPrefix = "hide";
+        } else {
+            var show = '.simple';
+            var hide = '.pirate';
+            var buttonPrefix = "show";
+        }
+        [].forEach.call(document.querySelectorAll(show), function(el) {
+            el.style.display = 'block';
+        });
+        [].forEach.call(document.querySelectorAll(hide), function(el) {
+            el.style.display = 'none';
+        });
+        document.getElementById("pirate_toggle").textContent = 
+            buttonPrefix+" advanced functionality";
+    }
+</script>
+
+        
+          
+<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.0&#x2F;advanced-usage.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+  <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.0&#x2F;getting-started&#x2F;">
+    <div class="card my-1">
+      <div class="card-body py-2">
+        &larr; Getting Started
+      </div>
+    </div>
+  </a>
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Powered by <a href="https://www.getzola.org/">Zola</a> and <a href="https://github.com/ES-Alexander/adidoks">AdiDoks</a>. Sponsored by <a href="http://www.bluerobotics.com/">Blue Robotics</a>.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Code under <a href="https://github.com/ArduPilot/ardupilot/blob/master/COPYING.txt">GPLv3 License</a>. Documentation under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-NC-SA 4.0</a>.</li>
+					  
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/js/main.js" defer></script>
+
+<script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/plugins/elasticlunr.min.js" defer></script>
+  <script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/search_index.en.js" defer></script>
+  <script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/js/search.js" defer></script>
+
+  
+</body>
+</html>
