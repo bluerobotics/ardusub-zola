@@ -334,6 +334,11 @@ interested in the basic functionality you can click the button below:</p>
 <p>Any pages that are extended by (or only available in) Pirate Mode are shown in
 <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#settings">dark mode</a>, and described with grey text.</p>
 <h3 id="main">Main</h3>
+<div class="pirate" style="color:grey;display:block;">
+<em>
+<p><strong>Based On:</strong> blueos-frontend | Port:<code>80</code></p>
+</em>
+</div>
 <p>When you first open BlueOS, you'll see a window like the following:</p>
 <div class="simple" style="display:none;padding-bottom:15px;">
 <img src="main-simple.png" alt="Main (simple mode)" width=600 >
@@ -343,25 +348,25 @@ interested in the basic functionality you can click the button below:</p>
 </div>
 <h4 id="indicators-and-network-configuration">Indicators and Network Configuration</h4>
 <p>On the right side of the header you'll find:</p>
-<ul>
-<li>Notifications
+<h5 id="notifications">Notifications</h5>
 <ul>
 <li>Press broom to clear notifications</li>
 <li>Press cog to toggle showing old messages</li>
 </ul>
-</li>
-</ul>
 <div style="padding-bottom:15px;">
 <img src="notifications.png" alt="Notifications" width=350 >
 </div>
-<ul>
-<li>Ethernet + static IP management - choose between:
+<h5 id="ethernet-static-ip-management">Ethernet + static IP management</h5>
+<div class="pirate" style="color:grey;display:block;">
+<em>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS-docker/tree/1.0.1/core/services/cable_guy">Cable Guy</a> | Port:<code>9090</code></p>
+</em>
+</div>
+<p>Choose between:</p>
 <ul>
 <li>A static IP</li>
 <li>A DHCP server</li>
 <li>A dynamic IP</li>
-</ul>
-</li>
 </ul>
 <div style="padding-bottom:15px;">
 <img src="ethernet.png" alt="Ethernet" width=350 >
@@ -369,13 +374,15 @@ interested in the basic functionality you can click the button below:</p>
 <div style="padding-bottom:15px;">
 <img src="ethernet-example.png" alt="Ethernet Example" width=250 >
 </div>
-<ul>
-<li>Wifi network management
+<h5 id="wifi-network-management">Wifi network management</h5>
+<div class="pirate" style="color:grey;display:block;">
+<em>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS-docker/tree/1.0.1/core/services/wifi">Wifi Manager</a> | Port:<code>9000</code></p>
+</em>
+</div>
 <ul>
 <li>Choose a network to connect to</li>
 <li>Forget, connect to, or a force a new password for a saved network</li>
-</ul>
-</li>
 </ul>
 <div style="padding-bottom:15px;">
 <img src="wifi.png" alt="Wifi" width=350 >
@@ -383,8 +390,7 @@ interested in the basic functionality you can click the button below:</p>
 <div style="padding-bottom:15px;">
 <img src="wifi-example.png" alt="Wifi Example" width=250 >
 </div>
-<ul>
-<li>System status
+<h5 id="system-status">System status</h5>
 <ul>
 <li>Heartbeat icon pulses with vehicle heartbeat, and goes red if heartbeat is lost</li>
 <li>On click shows onboard computer temperature, voltage, and current usage</li>
@@ -394,8 +400,6 @@ interested in the basic functionality you can click the button below:</p>
 <li>CPU overheating</li>
 <li>CPU throttling</li>
 <li>CPU under voltage</li>
-</ul>
-</li>
 </ul>
 </li>
 </ul>
@@ -477,16 +481,23 @@ conveniently accessing available pages, tools, and services.</p>
 </ul>
 </div>
 <h5 id="feedback">Feedback</h5>
-<div style="padding-bottom:15px;">
-<img src="feedback.png" alt="Feedback" width=300 >
+<div class="simple" style="display:none;padding-bottom:15px;">
+<img src="feedback-simple.png" alt="Feedback (simple mode)" width=300 >
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="feedback-pirate.png" alt="Feedback (pirate mode)" width=300 >
 </div>
 <p>Submit feedback about BlueOS via:</p>
 <ul>
-<li>Issues on the GitHub repository (allows easily tracking changes, 
+<li><a href="https://github.com/bluerobotics/BlueOS-docker/issues">Issues on the GitHub repository</a> (allows easily tracking changes, 
 and notification when complete/fixed)</li>
-<li>Posts on the Blue Robotics forum (allows easy discussion with the community)</li>
+<li>Posts on <a href="https://discuss.bluerobotics.com">the Blue Robotics forum</a> (allows easy discussion with the community)</li>
+</ul>
+<div class="pirate" style="color:grey;display:block;">
+<ul>
 <li>Messages in the Blue Robotics Slack (for internal use)</li>
 </ul>
+</div>
 <h2 id="vehicle">Vehicle</h2>
 <h3 id="general">General</h3>
 <p>The &quot;General&quot; page provides basic info about the active autopilot, along with
@@ -509,6 +520,11 @@ options to:</p>
 <img src="general-pirate.png" alt="General (pirate mode)" width=600 >
 </div>
 <h3 id="firmware">Firmware</h3>
+<div class="pirate" style="color:grey;display:block;">
+<em>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS-docker/tree/1.0.1/core/services/ardupilot_manager">ArduPilot Manager</a> | Port:<code>8000</code></p>
+</em>
+</div>
 <ul>
 <li><a href="ardupilot.org">ArduPilot</a> family of firmwares only</li>
 <li>Choose firmware to install
@@ -542,10 +558,13 @@ unstable (changes quickly), and possible untested/dangerous.</li>
 <img src="firmware.png" alt="Firmware" width=600 >
 </div>
 <h3 id="log-browser">Log Browser</h3>
+<div class="pirate" style="color:grey;display:block;">
+<em>
+<p><strong>Based On:</strong> <a href="https://ardupilot.org/copter/docs/common-uavlogviewer.html">UAV LogViewer</a> </p>
+</em>
+</div>
 <ul>
-<li>Built in version of 
-<a href="https://ardupilot.org/copter/docs/common-uavlogviewer.html">UAV LogViewer</a>
-for powerful analysis of vehicle telemetry</li>
+<li>Built in log viewer for powerful analysis of vehicle telemetry</li>
 <li>Currently only set up to fetch logs automatically from Linux-based autopilots
 <ul>
 <li>e.g. Pixhawk <strong>not</strong> yet supported</li>
@@ -556,12 +575,17 @@ for powerful analysis of vehicle telemetry</li>
 <img src="log-browser.png" alt="Log Browser" width=600 >
 </div>
 <h3 id="video">Video</h3>
+<div class="pirate" style="color:grey;display:block;">
+<em>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/mavlink-camera-manager/">MAVLink Camera Manager</a> | Port:<code>6020</code></p>
+</em>
+</div>
 <ul>
 <li>BlueOS automatically detects H264-encoded video streams</li>
 <li>The first time BlueOS starts up it will auto-configure any cameras that are 
-connected at that time, with UDP streams counting up from port 5600
+connected at that time, with UDP streams counting up from port <code>5600</code>
 <ul>
-<li>e.g. a second camera at first startup would be streamed to port 5601</li>
+<li>e.g. a second camera at first startup would be streamed to port <code>5601</code></li>
 <li>Auto-configuration also occurs if the <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#settings">settings are reset</a></li>
 </ul>
 </li>
@@ -624,6 +648,9 @@ manually enable the legacy camera stack on Bullseye if necessary</li>
 </div>
 <div class="pirate" style="color:grey;display:block;">
 <h3 id="endpoints">Endpoints</h3>
+</div>
+{{ service(service="ArduPilot Manager", port=8000, link="/services/ardupilot_manager", based=true) }
+<div class="pirate" style="color:grey;display:block;">
 <p>The endpoint manager allows managing the serial and UDP MAVLink endpoints and
 routing configurations.</p>
 </div>
@@ -660,6 +687,11 @@ Pymavlink from the surface:</li>
 </div>
 <h2 id="tools">Tools</h2>
 <h3 id="system-information">System Information</h3>
+<div class="pirate" style="color:grey;display:block;">
+<em>
+<p><strong>Based On:</strong> System Information | Port:<code>6030</code></p>
+</em>
+</div>
 <p>The system information page provides useful information about the processes,
 network configuration, and computer system BlueOS is running on. It can be
 useful for troubleshooting, and finding if a particular program is using
@@ -680,12 +712,22 @@ excessive resources.</p>
 <img src="system-info-about.png" alt="System Info About" width=600 >
 </div>
 <h3 id="network-test">Network Test</h3>
+<div class="pirate" style="color:grey;display:block;">
+<em>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS-docker/tree/1.0.1/core/services/pardal">Pardal</a> | Port:<code>9120</code></p>
+</em>
+</div>
 <p>The Network Test page measures real-time latency between BlueOS and the surface
 computer, and allows checking the upload and download speeds between them.</p>
 <div style="padding-bottom:15px;">
 <img src="network-test.png" alt="Network Test" width=600 >
 </div>
 <h3 id="version-chooser">Version Chooser</h3>
+<div class="pirate" style="color:grey;display:block;">
+<em>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS-docker/tree/1.0.1/core/services/versionchooser">Version Chooser</a> | Port:<code>8081</code></p>
+</em>
+</div>
 <p>The Version Chooser is a major component in the robust backbone of BlueOS. It
 runs independently from the main interface, and is monitored such that if it
 somehow fails a backup version will be run in its place.</p>
@@ -719,7 +761,7 @@ installed) it's possible to easily roll back to a working version from
 <li>downloaded from the internet</li>
 </ul>
 </li>
-<li>If necessary, the underlying service can be accessed directly at TCP port <code>8081</code>
+<li>If necessary, the underlying service can be accessed directly
 <ul>
 <li>e.g. http://blueos.local:8081</li>
 </ul>
@@ -752,6 +794,13 @@ Documentation can also be parsed if</p>
 </div>
 <div class="pirate" style="color:grey;display:block;">
 <h3 id="bridges">Bridges</h3>
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<em>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS-docker/tree/1.0.1/core/services/bridget">Bridget</a> | Port:<code>27353</code></p>
+</em>
+</div>
+<div class="pirate" style="color:grey;display:block;">
 <p>The Bridges page allows creating high performance links between serial devices
 that are connected to the onboard computer, to a UDP port.</p>
 </div>
@@ -770,6 +819,13 @@ that are connected to the onboard computer, to a UDP port.</p>
 </div>
 <div class="pirate" style="color:grey;display:block;">
 <h3 id="file-browser">File Browser</h3>
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<em>
+<p><strong>Based On:</strong> <a href="https://github.com/filebrowser/filebrowser">File Browser</a> | Port:<code>7777</code></p>
+</em>
+</div>
+<div class="pirate" style="color:grey;display:block;">
 <p>The File Browser allows viewing, editing, downloading, and uploading BlueOS files</p>
 </div>
 <div class="pirate" style="display:block;padding-bottom:15px;">
@@ -787,6 +843,13 @@ http://blueos.local:7777</p>
 </div>
 <div class="pirate" style="color:grey;display:block;">
 <h3 id="nmea-injector">NMEA Injector</h3>
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<em>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS-docker/tree/1.0.1/core/services/nmea_injector">NMEA Injector</a> | Port:<code>2748</code></p>
+</em>
+</div>
+<div class="pirate" style="color:grey;display:block;">
 <ul>
 <li>Conveys GPS positions (from an NMEA device) to the vehicle via MAVLink messages</li>
 </ul>
@@ -805,6 +868,9 @@ for the component that will send the location data to the vehicle</li>
 </div>
 <div class="pirate" style="color:grey;display:block;">
 <h3 id="terminal">Terminal</h3>
+</div>
+{{ service(service=[ttyd](https://tsl0922.github.io/ttyd/), port=8088) }}
+<div class="pirate" style="color:grey;display:block;">
 <p>The terminal provides</p>
 <ul>
 <li>A tmux session</li>
@@ -827,6 +893,13 @@ for the component that will send the location data to the vehicle</li>
 </div>
 <div class="pirate" style="color:grey;display:block;">
 <h3 id="mavlink-inspector">MAVLink Inspector</h3>
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<em>
+<p><strong>Based On:</strong> <a href="https://github.com/patrickelectric/mavlink2rest">MAVLink2Rest</a> | Port:<code>6040</code></p>
+</em>
+</div>
+<div class="pirate" style="color:grey;display:block;">
 <p>The MAVLink Inspector provides real-time access to the MAVLink messages being
 sent to the topside computer. It is possible to</p>
 <ul>
