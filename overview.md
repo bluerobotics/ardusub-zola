@@ -1,0 +1,36 @@
++++
+title = "Overview"
+description = "ArduSub overview."
+date = 2022-06-07T18:00:00+10:00
+template = "docs/page.html"
+sort_by = "weight"
+weight = 0
+draft = false
+[extra]
+lead = 'ArduSub is a fully-featured open-source flight controller firmware for remotely operated underwater vehicles (ROVs) and autonomous underwater vehicles (AUVs).'
+toc = true
+top = false
++++
+
+{% note() %}
+The information in this guide applies to ArduSub V4.0 and up. If you are running an older version, you should [update](/quick-start/installing-ardusub.md).
+{% end %}
+
+## ArduSub and the ArduPilot Project
+
+ArduSub is a part of the [ArduPilot project](http://ardupilot.org/), and was originally derived from the ArduCopter code. ArduSub has extensive capabilities out of the box including feedback stability control, depth and heading hold, and autonomous navigation.
+
+ArduSub is designed to be safe, feature-rich, open-ended, and easy to use even for novice users.
+
+ArduSub works seamlessly with Ground Control Station software that can monitor vehicle telemetry and perform powerful mission planning activities. It also benefits from other parts of the ArduPilot platform, including simulators, log analysis tools, and higher level APIs for vehicle management and control.
+
+ArduSub is on the leading edge of marine robotics and intended for anyone who wants to operate a vehicle below the water's surface. There is support for many different ROV configurations, and adding a custom design is simple.
+
+## About this Book
+
+This book is an on-going work in progress to document the ArduSub software as well as supporting software and hardware. The documentation in this book is based on the most recent software available at the time of writing. In some cases, features or options documented here may be only available in developmental versions of the software. The authoring of this book and the ArduSub project are sponsored by [Blue Robotics](https://bluerobotics.com).
+
+## License
+
+- The ArduSub and ArduPilot code are released under the [GPLv3](https://raw.githubusercontent.com/ArduPilot/ardupilot/master/COPYING.txt) License.
+- This book is released under the [CC-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/) License.
