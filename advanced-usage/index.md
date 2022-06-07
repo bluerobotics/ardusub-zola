@@ -47,34 +47,40 @@ When you first open BlueOS, you'll see a window like the following:
 #### Indicators and Network Configuration
 
 On the right side of the header you'll find:
-- Notifications
-   - Press broom to clear notifications
-   - Press cog to toggle showing old messages
+##### Notifications
+- Press broom to clear notifications
+- Press cog to toggle showing old messages
 
 {{ easy_image(src="notifications", width=350) }}
 
-- Ethernet + static IP management - choose between:
-   - A static IP
-   - A DHCP server
-   - A dynamic IP
+##### Ethernet + static IP management
+{{ service(service="Cable Guy", port=9090, link="/services/cable_guy", based=true) }}
+
+Choose between:
+- A static IP
+- A DHCP server
+- A dynamic IP
 
 {{ easy_image(src="ethernet", width=350) }}
 {{ easy_image(src="ethernet-example", width=250) }}
 
-- Wifi network management
-   - Choose a network to connect to
-   - Forget, connect to, or a force a new password for a saved network
+
+##### Wifi network management
+{{ service(service="Wifi Manager", port=9000, link="/services/wifi", based=true) }}
+
+- Choose a network to connect to
+- Forget, connect to, or a force a new password for a saved network
 {{ easy_image(src="wifi", width=350) }}
 {{ easy_image(src="wifi-example", width=250) }}
 
-- System status
-   - Heartbeat icon pulses with vehicle heartbeat, and goes red if heartbeat is lost
-   - On click shows onboard computer temperature, voltage, and current usage
-   - Additional warning icons appear if a problem is detected on the onboard computer:
-      - High disk usage
-      - CPU overheating
-      - CPU throttling
-      - CPU under voltage
+##### System status
+- Heartbeat icon pulses with vehicle heartbeat, and goes red if heartbeat is lost
+- On click shows onboard computer temperature, voltage, and current usage
+- Additional warning icons appear if a problem is detected on the onboard computer:
+   - High disk usage
+   - CPU overheating
+   - CPU throttling
+   - CPU under voltage
 {{ easy_image(src="system-status", width=200) }}
 
 #### Sidebar
