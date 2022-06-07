@@ -10,6 +10,7 @@ draft = false
 lead = ''
 toc = true
 top = false
+link_base = "https://github.com/bluerobotics/BlueOS-docker/tree/1.0.1/core"
 +++
 
 ## General Information
@@ -40,6 +41,7 @@ Any pages that are extended by (or only available in) Pirate Mode are shown in
 [dark mode](#settings), and described with grey text.
 
 ### Main
+{{ service(service="blueos-frontend", port=80) }}
 
 When you first open BlueOS, you'll see a window like the following:
 {{ simple_pirate_image(src="main", width=600) }}
@@ -150,6 +152,8 @@ options to:
 {{ simple_pirate_image(src="general", width=600) }}
 
 ### Firmware
+{{ service(service="ArduPilot Manager", port=8000, link="/services/ardupilot_manager", based=true) }}
+
 - [ArduPilot](ardupilot.org) family of firmwares only
 - Choose firmware to install
    - Select from the online repository
@@ -169,19 +173,21 @@ options to:
 {{ easy_image(src="firmware", width=600) }}
 
 ### Log Browser
-- Built in version of 
-[UAV LogViewer](https://ardupilot.org/copter/docs/common-uavlogviewer.html)
-for powerful analysis of vehicle telemetry
+{{ service(service="UAV LogViewer", link="https://ardupilot.org/copter/docs/common-uavlogviewer.html") }}
+
+- Built in log viewer for powerful analysis of vehicle telemetry
 - Currently only set up to fetch logs automatically from Linux-based autopilots
    - e.g. Pixhawk **not** yet supported
 
 {{ easy_image(src="log-browser", width=600) }}
 
 ### Video
+{{ service(service="MAVLink Camera Manager", link="https://github.com/bluerobotics/mavlink-camera-manager/", port=6020) }}
+
 - BlueOS automatically detects H264-encoded video streams
 - The first time BlueOS starts up it will auto-configure any cameras that are 
-connected at that time, with UDP streams counting up from port 5600
-   - e.g. a second camera at first startup would be streamed to port 5601
+connected at that time, with UDP streams counting up from port `5600`
+   - e.g. a second camera at first startup would be streamed to port `5601`
    - Auto-configuration also occurs if the [settings are reset](#settings)
 {% pirate() %}
       - It's also possible to manually reset _only_ the camera settings by deleting
@@ -219,6 +225,10 @@ configured with the "Configure" button
 
 {% pirate() %}
 ### Endpoints
+{% end %}
+{{ service(service="ArduPilot Manager", port=8000, link="/services/ardupilot_manager", based=true) }
+{% pirate() %}
+
 The endpoint manager allows managing the serial and UDP MAVLink endpoints and
 routing configurations.
 {% end %}
@@ -244,6 +254,8 @@ loopback IP `127.0.0.1`
 ## Tools
 
 ### System Information
+{{ service(service="System Information", port=6030) }}
+
 The system information page provides useful information about the processes,
 network configuration, and computer system BlueOS is running on. It can be
 useful for troubleshooting, and finding if a particular program is using
@@ -255,12 +267,16 @@ excessive resources.
 {{ easy_image(src="system-info-about", width=600) }}
 
 ### Network Test
+{{ service(service="Pardal", port=9120, link="/services/pardal", based=true) }}
+
 The Network Test page measures real-time latency between BlueOS and the surface
 computer, and allows checking the upload and download speeds between them.
 
 {{ easy_image(src="network-test", width=600) }}
 
 ### Version Chooser
+{{ service(service="Version Chooser", port=8081, link="/services/versionchooser", based=true) }}
+
 The Version Chooser is a major component in the robust backbone of BlueOS. It
 runs independently from the main interface, and is monitored such that if it
 somehow fails a backup version will be run in its place.
@@ -282,7 +298,7 @@ installed) it's possible to easily roll back to a working version from
    - on the device
    - manual upload, or
    - downloaded from the internet
-- If necessary, the underlying service can be accessed directly at TCP port `8081`
+- If necessary, the underlying service can be accessed directly
    - e.g. http://blueos.local:8081
 {% end %}
 
@@ -309,6 +325,9 @@ Documentation can also be parsed if
 
 {% pirate() %}
 ### Bridges
+{% end %}
+{{ service(service="Bridget", port=27353, link="/services/bridget", based=true) }}
+{% pirate() %}
 
 The Bridges page allows creating high performance links between serial devices
 that are connected to the onboard computer, to a UDP port.
@@ -323,6 +342,10 @@ that are connected to the onboard computer, to a UDP port.
 
 {% pirate() %}
 ### File Browser
+{% end %}
+{{ service(service="File Browser", port=7777, link="https://github.com/filebrowser/filebrowser") }}
+{% pirate() %}
+
 The File Browser allows viewing, editing, downloading, and uploading BlueOS files
 {% end %}
 {{ easy_image(src="file-browser", width=600, class="pirate") }}
@@ -337,6 +360,10 @@ The File Browser allows viewing, editing, downloading, and uploading BlueOS file
 
 {% pirate() %}
 ### NMEA Injector
+{% end %}
+{{ service(service="NMEA Injector", port=2748, link="/services/nmea_injector", based=true) }}
+{% pirate() %}
+
 - Conveys GPS positions (from an NMEA device) to the vehicle via MAVLink messages
 {% end %}
 {{ easy_image(src="nmea-injector", width=600, class="pirate") }}
@@ -348,6 +375,10 @@ for the component that will send the location data to the vehicle
 
 {% pirate() %}
 ### Terminal
+{% end %}
+{{ service(service=[ttyd](https://tsl0922.github.io/ttyd/), port=8088) }}
+{% pirate() %}
+
 The terminal provides
 - A tmux session
 - Direct access into the core BlueOS docker container
@@ -361,6 +392,10 @@ The terminal provides
 
 {% pirate() %}
 ### MAVLink Inspector
+{% end %}
+{{ service(service="MAVLink2Rest", port=6040, link="https://github.com/patrickelectric/mavlink2rest") }}
+{% pirate() %}
+
 The MAVLink Inspector provides real-time access to the MAVLink messages being
 sent to the topside computer. It is possible to
 - filter for particular messages
