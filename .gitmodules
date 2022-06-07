@@ -5,3 +5,7 @@
 	path = content/software/onboard/BlueOS-1.0
 	url = https://github.com/bluerobotics/ardusub-zola.git
 	branch = BlueOS-1.0
+[submodule "ArduSub-4.0"]
+	path = content/software/flight-controller/ArduSub-4.0
+	url = https://github.com/bluerobotics/ardusub-zola
+	branch = ArduSub-4.0
