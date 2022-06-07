@@ -118,13 +118,15 @@ conveniently accessing available pages, tools, and services.
 
 ##### Feedback
 
-{{ easy_image(src="feedback", width=300) }}
+{{ simple_pirate_image(src="feedback", width=300) }}
 
 Submit feedback about BlueOS via:
 - Issues on the GitHub repository (allows easily tracking changes, 
 and notification when complete/fixed)
 - Posts on the Blue Robotics forum (allows easy discussion with the community)
+{% pirate() %}
 - Messages in the Blue Robotics Slack (for internal use)
+{% end %}
 
 ## Vehicle
 
