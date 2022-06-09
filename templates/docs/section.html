@@ -28,8 +28,8 @@
                 </div>
               </div>
             {% endfor %}
-            {# Have the newest version first #}
-            {% set subsections = index.subsections | sort | reverse %}
+            {# Sections sorted by weight #}
+            {% set subsections = index.subsections %}
             {% for s in subsections %}
               {% set subsection = get_section(path=s) %}
               {% set_global subsection_title = subsection.title ~ ' →' %}
