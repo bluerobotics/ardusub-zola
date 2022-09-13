@@ -649,7 +649,11 @@ manually enable the legacy camera stack on Bullseye if necessary</li>
 <div class="pirate" style="color:grey;display:block;">
 <h3 id="endpoints">Endpoints</h3>
 </div>
-{{ service(service="ArduPilot Manager", port=8000, link="/services/ardupilot_manager", based=true) }
+<div class="pirate" style="color:grey;display:block;">
+<em>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS-docker/tree/1.0.1/core/services/ardupilot_manager">ArduPilot Manager</a> | Port:<code>8000</code></p>
+</em>
+</div>
 <div class="pirate" style="color:grey;display:block;">
 <p>The endpoint manager allows managing the serial and UDP MAVLink endpoints and
 routing configurations.</p>
@@ -869,7 +873,11 @@ for the component that will send the location data to the vehicle</li>
 <div class="pirate" style="color:grey;display:block;">
 <h3 id="terminal">Terminal</h3>
 </div>
-{{ service(service=[ttyd](https://tsl0922.github.io/ttyd/), port=8088) }}
+<div class="pirate" style="color:grey;display:block;">
+<em>
+<p><strong>Based On:</strong> <a href="https://tsl0922.github.io/ttyd/">ttyd</a> | Port:<code>8088</code></p>
+</em>
+</div>
 <div class="pirate" style="color:grey;display:block;">
 <p>The terminal provides</p>
 <ul>
@@ -949,13 +957,12 @@ powerful filtering options.</p>
   
   
   
-  <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.0&#x2F;getting-started&#x2F;">
-    <div class="card my-1">
-      <div class="card-body py-2">
-        &larr; Getting Started
-      </div>
-    </div>
-  </a>
+    
+    
+    
+    
+      
+    
   
 
   
