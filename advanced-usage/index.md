@@ -226,7 +226,7 @@ configured with the "Configure" button
 {% pirate() %}
 ### Endpoints
 {% end %}
-{{ service(service="ArduPilot Manager", port=8000, link="/services/ardupilot_manager", based=true) }
+{{ service(service="ArduPilot Manager", port=8000, link="/services/ardupilot_manager", based=true) }}
 {% pirate() %}
 
 The endpoint manager allows managing the serial and UDP MAVLink endpoints and
@@ -376,7 +376,7 @@ for the component that will send the location data to the vehicle
 {% pirate() %}
 ### Terminal
 {% end %}
-{{ service(service=[ttyd](https://tsl0922.github.io/ttyd/), port=8088) }}
+{{ service(service="ttyd" link="https://tsl0922.github.io/ttyd/", port=8088) }}
 {% pirate() %}
 
 The terminal provides
