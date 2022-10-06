@@ -50,7 +50,8 @@ BlueOS has most of the features from the old Companion, and some hotly-requested
 | [**NMEA support**](../advanced-usage/#nmea-injector) | - | - | Conveys GPS positions to the vehicle |
 | **Ping Sonar Devices** | Ping Sonar distance estimates can be *sent via MAVLink* | Devices can be *hot-plugged*<br><br>MAVLink pipeline<br>*not yet supported* ([#264](https://github.com/bluerobotics/BlueOS-docker/issues/264)) | Ping Sonar and Ping360 can connect with [Ping Viewer](https://docs.bluerobotics.com/ping-viewer/) |
 | [**ArduPilot Firmware**](../advanced-usage/#firmware) | *ArduSub-only* downloads | *General ArduPilot* downloads;<br>*select vehicle* to update | `stable`, `beta`, and `devel` releases, custom uploads, and restore default parameters |
-| [**Endpoints**](../advanced-usage/#endpoints) | - | - | Create and manage bridges between serial and UDP endpoints |
+| [**Endpoints**](../advanced-usage/#endpoints) | - | - | Create and manage UDP, TCP, and serial MAVLink endpoints |
+| [**Bridges**](../advanced-usage/#bridges) | - | - | Create and manage bridges between serial and UDP endpoints |
 | [**File Browser**](../advanced-usage/#file-browser) | - | *Edit files* from the browser | Download and upload files |
 | [**Log manager**](../advanced-usage/#log-browser) | Ssh/terminal only | *Download and manage logs* from the browser |  |
 | [**Log Viewer**](../advanced-usage/#log-browser) | - | *Visualise and analyse logs* from the browser |  |
