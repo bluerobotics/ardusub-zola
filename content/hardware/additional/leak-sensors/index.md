@@ -11,3 +11,15 @@ lead = ""
 toc = true
 top = false
 +++
+
+Leak sensors are an important addition for saving an electronics enclosure should a leak occur.
+
+ArduSub can be configured to read leak sensors through auxiliary servo pins on a Pixhawk when set to GPIO mode, and the dedicated leak pins on a Navigator. A failsafe action can be configured to either send a warning or automatically surface the vehicle when a leak is detected.
+
+## Supported Sensors
+
+{{ easy_image(src="leak-sensor", width=200) }}
+
+The following sensor products are supported:
+
+* [Blue Robotics SOS Leak Sensor](https://bluerobotics.com/store/sensors-sonars-cameras/leak-sensor/sos-leak-sensor/)
