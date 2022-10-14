@@ -11,3 +11,13 @@ lead = ""
 toc = true
 top = false
 +++
+
+Acoustic modems enable wireless data transmission through water. With two omni-directional transceivers, bidirectional communication is possible. 
+
+In theory it is possible to use acoustic modems for wireless synchronisation of an autonomous swarm of underwater vehicles.
+
+## Supported Acoustic Modems
+
+The following acoustic modems have been tested:
+
+- [Water Linked Modem M64](https://store.waterlinked.com/product/modem-m64/)
