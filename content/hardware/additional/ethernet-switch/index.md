@@ -11,3 +11,11 @@ lead = ""
 toc = true
 top = false
 +++
+
+An Ethernet Switch (sometimes called a Network Switch) allows connecting multiple Ethernet-based connections to the same network. It allows IP cameras, imaging sonars, and other sensors and actuators to communicate directly over the tether without needing to go via the Onboard Computer.
+
+{{ easy_image(src="ethswitch-usage", width=500) }}
+
+## Supported Ethernet Switches
+
+* [Blue Robotics Ethernet Switch](https://bluerobotics.com/store/comm-control-power/tether-interface/ethswitch/)
