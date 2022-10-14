@@ -12,15 +12,13 @@ toc = true
 top = false
 +++
 
-# Tether Interfaces
-
 Although optional and not necessary for basic functionality, tether interfaces increase the **range** and **reliability** of Ethernet communications.
 
 ## Interfaces for Copper Twisted Wire Pairs
 
 Interface boards which use the [Homeplug AV](https://en.wikipedia.org/wiki/HomePlug#HomePlug_AV) standard provide a robust high-speed, long-distance Ethernet connection over a single pair of wires. These boards enable HD video and high-bandwidth data over 300m+ tether lengths.
 
-<img src="/images/hardware/fathomx.png" class="img-responsive img-center" style="max-height:600px;">
+{{ easy_image(src="fathomx" width=350) }}
 
 The following interface boards are supported:
 * [Blue Robotics Fathom-X Tether Interface Board Set](https://bluerobotics.com/store/comm-control-power/tether-interface/fathom-x-r1/)
