@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://docs.bluerobotics.com/ardusub-zola/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://docs.bluerobotics.com/ardusub-zola/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://docs.bluerobotics.com/ardusub-zola/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>Control Station (Topside) Computer | ArduSub</title>
+<meta name="description" content="Sends operator input to the vehicle, and receives and displays information from the vehicle.">
+<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/control-computer/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Hardware",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/hardware/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Required",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/hardware/required/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Control Computer",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/hardware/required/control-computer/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://docs.bluerobotics.com/ardusub-zola/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://docs.bluerobotics.com/ardusub-zola/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://docs.bluerobotics.com/ardusub-zola/favicon-16x16.png">
+  
+    <link rel="manifest" href="https://docs.bluerobotics.com/ardusub-zola/site.webmanifest" crossorigin>
+  
+
+
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://docs.bluerobotics.com/ardusub-zola">ArduSub</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/bluerobotics/ardusub-zola"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+				
+				
+					
+						<li class="nav-item">
+							<a class="nav-link" href="https://docs.bluerobotics.com/ardusub-zola/"></a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+					<h3>Required Hardware</h3>
+					<ul class="list-unstyled">
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/autopilot/">Autopilot (Flight Controller) Board</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/onboard-computer/">Onboard (Companion) Computer</a></li>
+					                           
+							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/control-computer/">Control Station (Topside) Computer</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/joystick/">Joystick &#x2F; Gamepad</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/camera/">Camera</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/esc/">Electronic Speed Controllers (ESCs)</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/thrusters/">Thrusters</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/power-sensor/">Power Sensor &#x2F; Battery Monitor</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/power-supply/">Power Supply &#x2F; Battery</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/tether/">Tether</a></li>
+					
+					</ul>
+			
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/control-computer/#supported-operating-systems">Supported Operating Systems</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/control-computer/#consumer-level-computers">Consumer Level Computers</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/control-computer/#rugged-and-semi-rugged-computers">Rugged and Semi-Rugged Computers</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/control-computer/#custom-computers">Custom Computers</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/control-computer/#unsupported-operating-systems">Unsupported Operating Systems</a></li>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>Control Station (Topside) Computer</h1>
+        
+        <p>The Control Station Computer is the operator's primary interface to their vehicle(s). In subsea applications it is often referred to as the Topside Computer or Surface Computer, whereas for rovers and aerial vehicles it is normally called the Ground Control Station (GCS) Computer.</p>
+<p>When controlling an ArduSub vehicle, the Topside Computer is tethered to the <a href="../onboard-computer/">Onboard Computer</a>. The vehicle is controlled using Control Station software such as the QGroundControl application, which displays the live video feed and telemetry data to the operator, and accepts piloting inputs from a connected <a href="../joystick">joystick</a> for manual control.</p>
+<h2 id="supported-operating-systems">Supported Operating Systems</h2>
+<p>QGroundControl has been tested and is supported on the following operating systems:</p>
+<ul>
+<li>Windows 10 - 64 bit</li>
+<li>macOS 10.20 or later</li>
+<li>Ubuntu 18.04 or later</li>
+</ul>
+<p>The minimum recommended hardware for running QGroundControl is:</p>
+<ul>
+<li>i5 processor or better</li>
+<li>8GB RAM</li>
+<li>Solid-state hard drive (SSD)</li>
+</ul>
+<h3 id="consumer-level-computers">Consumer Level Computers</h3>
+<p>QGroundControl runs well on consumer level laptops meeting the minimum specifications in the section above. These types of laptops are generally made to be used indoors, so they lack bright screens and water resistance for use outside. If possible, try to find a computer with the brightest screen possible. The engineering department of Blue Robotics uses this <a href="https://www.dell.com/en-us/shop/dell-laptops/new-xps-15-laptop/spd/xps-15-7590-laptop/XNber5cr656Ps?view=configurations&amp;configurationid=55d274d4-e828-4110-b161-3acaa604d481">Dell XPS 15 laptop</a> as of 2020.</p>
+<h3 id="rugged-and-semi-rugged-computers">Rugged and Semi-Rugged Computers</h3>
+<p>If a brighter screen or water resitance are required, then a rugged or semi-rugged laptop may be a better choice. Modern rugged laptops are about equal with their consumer level counterparts from a performance perspective.</p>
+<ul>
+<li><a href="https://na.panasonic.com/us/computers-tablets-handhelds">Panasonic Toughbook Series</a></li>
+<li><a href="https://www.dell.com/en-us/work/learn/rugged">Dell Rugged Series</a></li>
+<li><a href="https://www.getac.com/">Getac Laptops and Tablets</a></li>
+</ul>
+<h3 id="custom-computers">Custom Computers</h3>
+<p>With the introduction of the ArduSub system and compatibility with major operating systems, users are building their own topside computer systems, usually into ruggedized travel cases. A high brightness screen (&gt;1000 nits) is installed in the lid and the computer components are located into the remainder of the case. </p>
+<p>Below is an example of such a case from Blue Link:</p>
+<div style="padding-bottom:15px;">
+<img src="topside-computer-bluelink.png" alt="Topside Computer Bluelink" width=400 >
+</div>
+<h2 id="unsupported-operating-systems">Unsupported Operating Systems</h2>
+<p>Althugh QGroundControl can be downloaded onto these operating systems, ArduSub is not currently supported on:</p>
+<ul>
+<li>Android</li>
+<li>iOS</li>
+</ul>
+
+        
+          
+<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;hardware&#x2F;required&#x2F;control-computer.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+          
+          
+          <a class="ms-auto" href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;hardware&#x2F;recommended&#x2F;tether-interface&#x2F;">
+            <div class="card my-1">
+              <div class="card-body py-2">
+                Tether Interface &rarr;
+              </div>
+            </div>
+          </a>
+          
+          
+          
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Powered by <a href="https://www.getzola.org/">Zola</a> and <a href="https://github.com/ES-Alexander/adidoks">AdiDoks</a>. Sponsored by <a href="http://www.bluerobotics.com/">Blue Robotics</a>.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Code under <a href="https://github.com/ArduPilot/ardupilot/blob/master/COPYING.txt">GPLv3 License</a>. Documentation under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-NC-SA 4.0</a>.</li>
+					  
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/js/main.js" defer></script>
+
+<script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/plugins/elasticlunr.min.js" defer></script>
+  <script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/search_index.en.js" defer></script>
+  <script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/js/search.js" defer></script>
+
+  
+</body>
+</html>

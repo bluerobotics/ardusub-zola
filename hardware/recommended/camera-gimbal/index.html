@@ -20,9 +20,13 @@
 
   
   
+    
+    
+  
+  
   
     
-    
+  
   
   
   
@@ -42,9 +46,9 @@
 
 	
 
-<title>Docs | ArduSub</title>
-<meta name="description" content="ArduSub documentation.">
-<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/">
+<title>Camera Tilt Mount / Gimbal | ArduSub</title>
+<meta name="description" content="Used to move and&#x2F;or stabilise the camera, for smoother video feeds and looking around without needing to rotate or move the whole vehicle.">
+<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/hardware/recommended/camera-gimbal/">
 
 
 
@@ -60,12 +64,71 @@
     "@context": "http://schema.org",
     "@type": "BreadcrumbList",
     
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Home",
-      "item": "https://docs.bluerobotics.com/ardusub-zola/"
-    },
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Hardware",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/hardware/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Recommended",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/hardware/recommended/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Camera Gimbal",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/hardware/recommended/camera-gimbal/"
+          },
+        
+      
     
   }
 </script>
@@ -90,7 +153,7 @@
 
   
 
-<body class="docs list">
+<body class="docs single">
   
   
   
@@ -120,7 +183,7 @@
 				
 				
 					
-						<li class="nav-item  active">
+						<li class="nav-item">
 							<a class="nav-link" href="https://docs.bluerobotics.com/ardusub-zola/"></a>
 						</li>
 					
@@ -143,41 +206,152 @@
   
 <div class="wrap container" role="document">
   <div class="content">
-    <div class="row justify-content-center">
-      <div class="col-md-12 col-lg-10 col-xl-8">
-        <article>
-          <h1 class="text-center">Docs</h1>
-          <div class="text-center"></div>
-          <div class="card-list">
-            
-            
-            
-            
-            
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+					<h3>Recommended Extra Hardware</h3>
+					<ul class="list-unstyled">
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/recommended/tether-interface/">Tether Interface</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/recommended/pressure-sensor/">Pressure Sensor</a></li>
+					                           
+							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/hardware/recommended/camera-gimbal/">Camera Tilt Mount &#x2F; Gimbal</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/recommended/lights/">Lights</a></li>
+					
+					</ul>
+			
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/recommended/camera-gimbal/#supported-camera-gimbals">Supported Camera Gimbals</a></li>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>Camera Tilt Mount &#x2F; Gimbal</h1>
+        
+        <p>ArduSub supports control and attitude atabilization for up to 3-axis gimbals. The most common gimbal type for underwater vehicles is a 1-axis tilt mount, since the majority of standard ROV frames have control over the other Degrees of Freedom (DoF).</p>
+<p>ArduSub supports both simple servo-driven (PWM) gimbals in which the autopilot's onboard IMU controls the stabilisation and brushless direct drive (UART) gimbals that have their own self-stabilization controllers.</p>
+<h2 id="supported-camera-gimbals">Supported Camera Gimbals</h2>
+<div style="padding-bottom:15px;">
+<img src="cam-mount.png" alt="Cam Mount" width=300 >
+</div>
+<p>The following gimbals are supported in ArduSub:</p>
+<ul>
+<li><a href="https://bluerobotics.com/store/sensors-sonars-cameras/cameras/camera-tilt-mount/">Servo Gimbals</a></li>
+<li><a href="https://ardupilot.org/copter/docs/common-gremsy-pixyu-gimbal.html#common-gremsy-pixyu-gimbal">Gremsy Pixy U</a> </li>
+<li><a href="https://ardupilot.org/copter/docs/common-simplebgc-gimbal.html#common-simplebgc-gimbal">SimpleBGC (aka AlexMos) Gimbal Controller</a></li>
+<li><a href="https://ardupilot.org/copter/docs/common-storm32-gimbal.html#common-storm32-gimbal">SToRM32 Gimbal Controller</a> (communicates with MAVLink)</li>
+</ul>
+
+        
+          
+<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;hardware&#x2F;recommended&#x2F;camera-gimbal.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
+        
+      
+        
+        
+          
             
               
-              
-              
-              
-              <div class="card my-3">
-                  <div class="card-body">
-                    <a class="stretched-link" href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;">Software →</a>
+              <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;hardware&#x2F;required&#x2F;tether&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; Tether
                   </div>
-              </div>
+                </div>
+              </a>
             
-              
-              
-              
-              
-              <div class="card my-3">
-                  <div class="card-body">
-                    <a class="stretched-link" href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;hardware&#x2F;">Hardware →</a>
-                  </div>
-              </div>
             
-          </div>
-        </article>
-      </div>
+            
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+          
+          
+          <a class="ms-auto" href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;hardware&#x2F;additional&#x2F;leak-sensors&#x2F;">
+            <div class="card my-1">
+              <div class="card-body py-2">
+                Leak Sensors &rarr;
+              </div>
+            </div>
+          </a>
+          
+          
+          
+        
+      
+    
+  
+</div>
+
+      </main>
     </div>
   </div>
 </div>

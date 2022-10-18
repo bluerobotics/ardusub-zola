@@ -20,9 +20,13 @@
 
   
   
+    
+    
+  
+  
   
     
-    
+  
   
   
   
@@ -42,9 +46,9 @@
 
 	
 
-<title>Docs | ArduSub</title>
-<meta name="description" content="ArduSub documentation.">
-<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/">
+<title>Indicator Lights | ArduSub</title>
+<meta name="description" content="Used to provide visual indications of electronics and&#x2F;or software status and errors, especially with opaque enclosures.">
+<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/indicators/">
 
 
 
@@ -60,12 +64,68 @@
     "@context": "http://schema.org",
     "@type": "BreadcrumbList",
     
-    {
-      "@type": "ListItem",
-      "position":  1 ,
-      "name": "Home",
-      "item": "https://docs.bluerobotics.com/ardusub-zola/"
-    },
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Hardware",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/hardware/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Additional",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/hardware/additional/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Indicators",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/hardware/additional/indicators/"
+          },
+        
+      
     
   }
 </script>
@@ -90,7 +150,7 @@
 
   
 
-<body class="docs list">
+<body class="docs single">
   
   
   
@@ -120,7 +180,7 @@
 				
 				
 					
-						<li class="nav-item  active">
+						<li class="nav-item">
 							<a class="nav-link" href="https://docs.bluerobotics.com/ardusub-zola/"></a>
 						</li>
 					
@@ -143,41 +203,145 @@
   
 <div class="wrap container" role="document">
   <div class="content">
-    <div class="row justify-content-center">
-      <div class="col-md-12 col-lg-10 col-xl-8">
-        <article>
-          <h1 class="text-center">Docs</h1>
-          <div class="text-center"></div>
-          <div class="card-list">
-            
-            
-            
-            
-            
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+					<h3>Additional Components and Peripheral Devices</h3>
+					<ul class="list-unstyled">
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/leak-sensors/">Leak Sensors</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/sonars/">Sonars</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/positioning-sensors/">Positioning Sensors (GPS &#x2F; DVL)</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/other-sensors/">Other Sensors (Temperature, Salinity, Thickness, etc)</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/servos/">Servos</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/ethernet-switch/">Ethernet (Network) Switch</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/electrical-switch/">Electrical Switch</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/electronic-switches/">Electronic Switches (Relays and MOSFETs)</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/grippers-manipulators/">Grippers and Manipulators</a></li>
+					                           
+							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/indicators/">Indicator Lights</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/acoustic-modems/">Acoustic Modems</a></li>
+					
+					</ul>
+			
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/indicators/#supported-indicator-lights">Supported Indicator Lights</a></li>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>Indicator Lights</h1>
+        
+        <p>Depth-rated indicator lights can provide visual indications of the status of electronics (e.g. when diving), the location of a device, or can be used as a light display (for visual appeal, or to attract marine life for study).</p>
+<h2 id="supported-indicator-lights">Supported Indicator Lights</h2>
+<ul>
+<li><a href="https://bluerobotics.com/store/thrusters/lights/indicator10-asm-r1/">Blue Robotics Subsea LED Indicator</a></li>
+</ul>
+
+        
+          
+<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;hardware&#x2F;additional&#x2F;indicators.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
             
               
-              
-              
-              
-              <div class="card my-3">
-                  <div class="card-body">
-                    <a class="stretched-link" href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;">Software →</a>
+              <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;hardware&#x2F;recommended&#x2F;lights&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; Lights
                   </div>
-              </div>
+                </div>
+              </a>
             
-              
-              
-              
-              
-              <div class="card my-3">
-                  <div class="card-body">
-                    <a class="stretched-link" href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;hardware&#x2F;">Hardware →</a>
-                  </div>
-              </div>
             
-          </div>
-        </article>
-      </div>
+            
+          
+        
+      
+        
+        
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
     </div>
   </div>
 </div>
