@@ -1,0 +1,92 @@
+flowchart TD
+    start(Something<br>to integrate)
+    start --> Q1{purpose?}
+    Q1 -- change the world --> Actuator
+        Actuator --> QA1{control signal?}
+            QA1 -- "binary<br>(ON/OFF)" --> ADO(Autopilot<br>digital outputs):::Autopilot
+            QA1 -- "CAN bus" ---> QCAN{"controlled<br>by autopilot?"}
+                QCAN -- "yes" --> ACP("Autopilot<br>CAN port<br>(+ArduPilot<br>library)"):::Autopilot
+                QCAN -- "no" --> STP1[Spare<br>tether<br>pair] --> CSC1("Control Station<br>Computer"):::Computer
+            QA1 -- "PWM (servo /<br>duty-cycle)" --> APO(Autopilot<br>PWM outputs):::Autopilot
+            QA1 -- "USB<br>serial" ---> OCUSB1["Onboard Computer<br>USB port"] --> BEUIP("BlueOS Extension<br>(USB over IP)"):::BlueOS
+            QA1 -- "UART serial /<br>MAVLink" --> ASP("Autopilot serial<br>UART port<br>(+ArduPilot library)"):::Autopilot
+    Q1 -- measure the world --> Sensor
+        Sensor --> QS1{signal type?}
+            QS1 -- "UART<br>serial" --> ASP
+            QS1 -- "USB" --> OCUSB2["Onboard Computer<br>USB port"]
+            QS1 -- "RSxxx<br>serial" --> QUSB{RS485 and<br>unrelated to<br>vehicle?}
+                QUSB -- "no" --> USC1[USB-serial<br>converter] --> OCUSB2 --> QOC1{used/<br>processed<br>by vehicle?}
+                    QOC1 -- "no" --> QOC2{Control<br>Station Computer<br>accepts UDP?}
+                        QOC2 -- "no" --> BEUIP
+                        QOC2 -- "yes" --> BB(BlueOS Bridges):::BlueOS
+                    QOC1 -- "yes" --> QOC3{UVC Camera?}
+                        QOC3 -- "yes" -----> BCM(BlueOS<br>Camera Manager):::BlueOS
+                        QOC3 -- "no" ----> BEC2(Custom BlueOS<br>Extension):::BlueOS
+                QUSB -- "yes" --> STP2[Spare tether pair] --> URC[USB-RS485<br>converter] --> CSC2(Control Station<br>Computer):::Computer
+            QS1 -- "I2C" --> AI2C("Autopilot<br>I2C port<br>(+ ArduPilot<br>library)"):::Autopilot
+            QS1 -- "binary<br>(ON/OFF)" --> ASD("Autopilot<br>digital input<br>(+ ArduPilot<br>library)"):::Autopilot
+            QS1 -- "analog<br>electrical" --> QS2{measurable<br>quantity?}
+                QS2 -- "resistance /<br>current" --> QS3{relevant to<br>autopilot?}
+                    QS3 -- "no" --> STP3[Spare tether pair] --> QS4{needs<br>automatic<br>logging?}
+                        QS4 -- "no" --> MM(Multimeter):::Other
+                        QS4 -- "yes" --> C2["Resistor(s)"] --> ADC2[ADC device] --> CSC2
+                    QS3 -- "yes" --> C1["Resistor(s)"] --> AADC("Autopilot ADC<br>(+ ArduPilot<br>library)"):::Autopilot
+                QS2 -- "voltage" --> AADC
+            QS1 -- "Ethernet" --> ES[Ethernet Switch] --> QE1{IP Camera?}
+                QE1 -- "no" --> QE2{relevant<br>to vehicle<br>control?}
+                    QE2 -- "no" --> QE3{tether<br>type?}
+                        QE3 -- "other" --> TI[Tether Interface] --> Tether
+                        QE3 -- "ethernet<br>cable" --> Tether --> CSC2
+                    QE2 -- "yes" --> BEC2
+                QE1 -- "yes" --> BCM
+            QS1 -- "MIPI<br>CSI-2" --> QRPi{Raspberry Pi<br>Compatible?}
+                QRPi -- "yes" --> BCM
+                QRPi -- "no" --> Co{{Converter}}
+            QS1 -- "Other<br>(HDMI,<br>etc)" --> Co -. supported<br>signal<br>type .-> QS1
+
+    subgraph SK [style key]
+        direction TB
+        Hyperlink:::Link -- "Common<br>path" --> Q{question}
+        subgraph Endpoints
+            direction LR
+            EZ(minimal<br>configuration<br>required):::Easy ~~~
+            MED(isolated<br>high-level<br>development<br>required):::Medium ~~~
+            HARD(integrated<br>low-level<br>development<br>required):::Hard
+        end
+    end
+
+    %% ---------------- ARROW STYLING ----------------- %%
+    %% style individual arrows, nth, counted in definition order
+    %%  label components (e.g. color) cannot override edgeLabel overrides
+    linkStyle 15,42,57 stroke:lightseagreen,color:lightseagreen;
+    linkStyle 55,56 stroke:plum,color:plum;
+
+    %% ----------------- NODE STYLING ------------------ %%
+    %% integration difficulties
+    classDef Easy stroke:green,stroke-width:6px;
+    classDef Medium stroke:orange,stroke-width:6px;
+    classDef Hard stroke:red,stroke-width:6px;
+
+    class ADO,APO,BB,BEUSB,BCM,BEUIP Easy;
+    class BEC1,BEC2,BOS Medium;
+    class ACP,ASP,AI2C,ASD,AADC Hard;
+
+    %% primary integration endpoint
+    classDef BlueOS fill:#339,color:#eee;
+    classDef Autopilot fill:#933,color:#eee;
+    classDef Computer fill:#363,color:#eee;
+    classDef Other fill:#939,color:#eee;
+
+    %% hyperlinks
+    click ADO "/hardware/additional/electronic-switches/"
+    click ACP "https://ardupilot.org/dev/docs/can-bus.html"
+    click BB "/software/onboard/BlueOS-1.0/advanced-usage/#bridges"
+    click CSC1 "/hardware/required/control-computer/"
+    click CSC2 "/hardware/required/control-computer/"
+    click BCM "/software/onboard/BlueOS-1.0/advanced-usage/#video"
+    click ES "/hardware/additional/ethernet-switch/"
+    click TI "/hardware/recommended/tether-interface/"
+    click URC "https://bluerobotics.com/store/comm-control-power/tether-interface/bluart-r1-rp/"
+
+    classDef Link color:#0af;
+    class ADO,ACP,BB,CSC1,CSC2,BCM,ES,TI,URC Link;
