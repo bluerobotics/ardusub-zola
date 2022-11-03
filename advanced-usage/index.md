@@ -335,7 +335,7 @@ that are connected to the onboard computer, to a UDP port.
 {{ easy_image(src="bridges", width=600, class="pirate") }}
 {% pirate() %}
 - NOTE: UDP-based systems do not guarantee packet delivery or sequential alignment
-- Bridges to the [Control Station Computer](@/hardware/required/control-computer/)
+- Bridges to the [Control Station Computer](@/hardware/required/control-computer/index.md)
   will generally use the localhost IP `0.0.0.0`, which creates a UDP server that waits
   for a UDP client on the control computer to connect to it
    - other IP addesses create a UDP client on the onboard computer, which expects the
