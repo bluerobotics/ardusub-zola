@@ -282,7 +282,7 @@
   											
   											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#video">Video</a></li>
   											
-  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#endpoints">Endpoints</a></li>
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#mavlink-endpoints">(MAVLink) Endpoints</a></li>
   											
   									</ul>
   							
@@ -299,7 +299,7 @@
   											
   											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#available-services">Available Services</a></li>
   											
-  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#bridges">Bridges</a></li>
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#serial-udp-bridges">(Serial-UDP) Bridges</a></li>
   											
   											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/#file-browser">File Browser</a></li>
   											
@@ -618,7 +618,7 @@ the camera manager inside the tmux session with the <code>--reset</code> flag</l
 </li>
 </ul>
 </li>
-<li>The streams are also presented via MAVLink, so QGroundControl (v4.1.7) can
+<li>The streams are also presented via MAVLink, so QGroundControl (&gt;=v4.1.7) can
 toggle between them without needing to know specific ports.</li>
 </ul>
 <div style="text-align:center;">
@@ -655,7 +655,7 @@ manually enable the legacy camera stack on Bullseye if necessary</li>
 <img src="video-pirate.png" alt="Video (pirate mode)" width=600 >
 </div>
 <div class="pirate" style="color:grey;display:block;">
-<h3 id="endpoints">Endpoints</h3>
+<h3 id="mavlink-endpoints">(MAVLink) Endpoints</h3>
 </div>
 <div class="pirate" style="color:grey;display:block;">
 <em>
@@ -805,7 +805,7 @@ Documentation can also be parsed if</p>
 <img src="available-services.png" alt="Available Services" width=600 >
 </div>
 <div class="pirate" style="color:grey;display:block;">
-<h3 id="bridges">Bridges</h3>
+<h3 id="serial-udp-bridges">(Serial-UDP) Bridges</h3>
 </div>
 <div class="pirate" style="color:grey;display:block;">
 <em>
@@ -822,8 +822,17 @@ that are connected to the onboard computer, to a UDP port.</p>
 <div class="pirate" style="color:grey;display:block;">
 <ul>
 <li>NOTE: UDP-based systems do not guarantee packet delivery or sequential alignment</li>
-<li>Bridges to external devices will generally use the localhost IP <code>0.0.0.0</code></li>
-<li>Bridges to internal programs can use the loopback IP <code>127.0.0.1</code></li>
+<li>Bridges to the <a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/control-computer/">Control Station Computer</a>
+will generally use the localhost IP <code>0.0.0.0</code>, which creates a UDP server that waits
+for a UDP client on the control computer to connect to it
+<ul>
+<li>other IP addesses create a UDP client on the onboard computer, which expects the
+serial device to initiate communication before the connected UDP server (on the
+control computer) can respond</li>
+</ul>
+</li>
+<li>Bridges to internal programs can use the loopback IP <code>127.0.0.1</code>, which creates a
+local server</li>
 </ul>
 </div>
 <div class="pirate" style="display:block;padding-bottom:15px;">
