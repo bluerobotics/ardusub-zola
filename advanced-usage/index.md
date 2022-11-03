@@ -201,7 +201,7 @@ connected at that time, with UDP streams counting up from port `5600`
    - New streams need to be manually added
       - The stream endpoint should be set to `udp://<surface-IP>:<port>`
       - e.g. `udp://192.168.2.1:5601`
-- The streams are also presented via MAVLink, so QGroundControl (v4.1.7) can
+- The streams are also presented via MAVLink, so QGroundControl (>=v4.1.7) can
 toggle between them without needing to know specific ports.
 <div style="text-align:center;">
 
@@ -224,7 +224,7 @@ configured with the "Configure" button
 {{ simple_pirate_image(src="video", width=600) }}
 
 {% pirate() %}
-### Endpoints
+### (MAVLink) Endpoints
 {% end %}
 {{ service(service="ArduPilot Manager", port=8000, link="/services/ardupilot_manager", based=true) }}
 {% pirate() %}
@@ -324,7 +324,7 @@ Documentation can also be parsed if
 {{ easy_image(src="available-services", width=600, class="pirate") }}
 
 {% pirate() %}
-### Bridges
+### (Serial-UDP) Bridges
 {% end %}
 {{ service(service="Bridget", port=27353, link="/services/bridget", based=true) }}
 {% pirate() %}
@@ -335,8 +335,14 @@ that are connected to the onboard computer, to a UDP port.
 {{ easy_image(src="bridges", width=600, class="pirate") }}
 {% pirate() %}
 - NOTE: UDP-based systems do not guarantee packet delivery or sequential alignment
-- Bridges to external devices will generally use the localhost IP `0.0.0.0`
-- Bridges to internal programs can use the loopback IP `127.0.0.1`
+- Bridges to the [Control Station Computer](@/hardware/required/control-computer/)
+  will generally use the localhost IP `0.0.0.0`, which creates a UDP server that waits
+  for a UDP client on the control computer to connect to it
+   - other IP addesses create a UDP client on the onboard computer, which expects the
+     serial device to initiate communication before the connected UDP server (on the
+     control computer) can respond
+- Bridges to internal programs can use the loopback IP `127.0.0.1`, which creates a
+  local server
 {% end %}
 {{ easy_image(src="bridges-example", width=400, class="pirate") }}
 
