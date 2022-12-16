@@ -125,6 +125,20 @@
         <loc>https://docs.bluerobotics.com/ardusub-zola/software/autopilot/</loc>
     </url>
     <url>
+        <loc>https://docs.bluerobotics.com/ardusub-zola/software/autopilot/ArduSub-4.1/</loc>
+    </url>
+    <url>
+        <loc>https://docs.bluerobotics.com/ardusub-zola/software/autopilot/ArduSub-4.1/developers/</loc>
+    </url>
+    <url>
+        <loc>https://docs.bluerobotics.com/ardusub-zola/software/autopilot/ArduSub-4.1/developers/mavlink-messages/</loc>
+        <lastmod>2022-12-16T16:28:27+11:00</lastmod>
+    </url>
+    <url>
+        <loc>https://docs.bluerobotics.com/ardusub-zola/software/autopilot/ArduSub-4.1/developers/parameters/</loc>
+        <lastmod>2022-12-16T22:16:04+11:00</lastmod>
+    </url>
+    <url>
         <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/</loc>
     </url>
     <url>
