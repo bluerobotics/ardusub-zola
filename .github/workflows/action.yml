@@ -16,7 +16,7 @@ jobs:
       with:
         submodules: recursive
     - name: Run Zola
-      uses: shalzz/zola-deploy-action@master
+      uses: shalzz/zola-deploy-action@v0.16.1-1
       env:
         BUILD_ONLY: true
     - name: Deploy 🚀
