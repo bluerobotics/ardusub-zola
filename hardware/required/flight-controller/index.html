@@ -46,9 +46,9 @@
 
 	
 
-<title>Autopilot (Flight Controller) Board | ArduSub</title>
+<title>Flight Controller Board | ArduSub</title>
 <meta name="description" content="Processes the pilot input and sensor data, and controls the lights and actuators on the vehicle.">
-<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/autopilot/">
+<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/flight-controller/">
 
 
 
@@ -116,13 +116,16 @@
         
         
         
+        
+        
+        
           
           
           {
             "@type": "ListItem",
             "position":  4 ,
-            "name": "Autopilot",
-            "item": "https://docs.bluerobotics.com/ardusub-zola/hardware/required/autopilot/"
+            "name": "Flight Controller",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/hardware/required/flight-controller/"
           },
         
       
@@ -213,7 +216,7 @@
 					<h3>Required Hardware</h3>
 					<ul class="list-unstyled">
 					                           
-							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/autopilot/">Autopilot (Flight Controller) Board</a></li>
+							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/flight-controller/">Flight Controller Board</a></li>
 					                           
 							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/onboard-computer/">Onboard (Companion) Computer</a></li>
 					                           
@@ -247,13 +250,13 @@
   			<nav id="TableOfContents">
   					<ul>
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/autopilot/#recommended-autopilots">Recommended Autopilots</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/flight-controller/#recommended-flight-controllers">Recommended Flight Controllers</a></li>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/autopilot/#not-recommended-autopilots">Not Recommended Autopilots</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/flight-controller/#not-recommended-flight-controllers">Not Recommended Flight Controllers</a></li>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/autopilot/#other-autopilots-that-haven-t-been-tested">Other Autopilots That Haven&#x27;t Been Tested</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/flight-controller/#other-flight-controllers-that-haven-t-been-tested">Other Flight Controllers That Haven&#x27;t Been Tested</a></li>
   							
   							
   					</ul>
@@ -263,10 +266,10 @@
   
 
       <main class="docs-content col-lg-11 col-xl-9">
-        <h1>Autopilot (Flight Controller) Board</h1>
+        <h1>Flight Controller Board</h1>
         
-        <p>In the ArduSub control system, the autopilot board (also known as a flight controller) is the component which the ArduSub firmware is loaded onto. The autopilot processes the pilot input and sensor data, and controls the motors, lights, servos, and relays on the vehicle.</p>
-<p>Although there are many different autopilot boards available, here are the general characteristics:</p>
+        <p>In the ArduSub control system, the flight controller board is the hardware component which the ArduSub autopilot firmware is loaded onto. The autopilot processes the pilot input and sensor data, and controls the motors, lights, servos, and relays on the vehicle.</p>
+<p>Although there are many different flight controller boards available, here are the general characteristics:</p>
 <ul>
 <li>Ability to load any ArduPilot binary firmware file (Copter, Plane, Rover/Boat, Sub)</li>
 <li>Manual control and semi-autonomous/stablilised &quot;flight&quot; modes</li>
@@ -275,10 +278,10 @@
 <li>Embedded IMU(s), magnetic compass(es) and gyroscope(s) to determine vehicle's orientation</li>
 <li>Capable of transmitting telemetry data, and saving vehicle logs</li>
 </ul>
-<h2 id="recommended-autopilots">Recommended Autopilots</h2>
-<p>The first autopilot board recommended for ArduSub was the <a href="https://docs.px4.io/v1.10/en/flight_controller/pixhawk.html">Pixhawk 1</a> manufactured by 3D Robotics (3DR) from 2013-2016. When 3DR exited manufacturing hardware in 2016, different manufacturers took the open source design files and created their own flight controllers. The original Pixhawk design has been retired, and Blue Robotics has designed the Navigator as a modern replacement that is tailored to ArduSub use cases.</p>
+<h2 id="recommended-flight-controllers">Recommended Flight Controllers</h2>
+<p>The first flight controller board recommended for ArduSub was the <a href="https://docs.px4.io/v1.10/en/flight_controller/pixhawk.html">Pixhawk 1</a> manufactured by 3D Robotics (3DR) from 2013-2016. When 3DR exited manufacturing hardware in 2016, different manufacturers took the open source design files and created their own flight controllers. The original Pixhawk design has been retired, and Blue Robotics has designed the Navigator as a modern replacement that is tailored to ArduSub use cases.</p>
 <p><img src="navigator.png" alt="Navigator Flight Controller Board" width=300> <img src="pixhawk.png" alt="Pixhawk Flight Controller Board" width=300></p>
-<p>The following list is the recommended autopilot boards for use with ArduSub:</p>
+<p>The following list is the recommended flight controller boards for use with ArduSub:</p>
 <ol>
 <li><a href="https://bluerobotics.com/store/comm-control-power/control/navigator/">Blue Robotics Navigator</a> (requires Raspberry Pi 4B <a href="../onboard-computer/">Onboard Computer</a>)</li>
 <li>The original <a href="https://docs.px4.io/v1.10/en/flight_controller/pixhawk.html">3DR (3D Robotics) Pixhawk 1</a></li>
@@ -287,27 +290,27 @@
 <li><a href="https://docs.cubepilot.org/user-guides/autopilot/the-cube-module-overview">Cube Module</a></li>
 </ol>
 <p>There is a comparison <a href="https://bluerobotics.com/learn/technical-reference#flight-controller-boards">in the Blue Robotics Technical Reference</a>.</p>
-<h2 id="not-recommended-autopilots">Not Recommended Autopilots</h2>
-<p>With feedback from other users, the following autopilot boards are not recommended for use with Ardusub:</p>
+<h2 id="not-recommended-flight-controllers">Not Recommended Flight Controllers</h2>
+<p>With feedback from other users, the following flight controller boards are not recommended for use with Ardusub:</p>
 <ol>
 <li><a href="https://www.foxtechfpv.com/pixhawk-autopilot-combo.html">RadioLink Pixhawk</a> 
 <ul>
 <li>Issues: Proprietary firmware binaries, only works with RadioLink version of Mission Planner, incorrect connectors.</li>
 </ul>
 </li>
-<li>Any autopilot with <a href="https://www.molex.com/molex/products/family/picoblade">Picoblade</a> series connectors instead of <a href="https://bluerobotics.com/learn/wl-connector-standard/#jst-gh-series">JST-GH</a> or <a href="https://bluerobotics.com/learn/wl-connector-standard/#hirose-df13-series-not-recommended-for-new-designs">DF13</a> connectors.
+<li>Any flight controller with <a href="https://www.molex.com/molex/products/family/picoblade">Picoblade</a> series connectors instead of <a href="https://bluerobotics.com/learn/wl-connector-standard/#jst-gh-series">JST-GH</a> or <a href="https://bluerobotics.com/learn/wl-connector-standard/#hirose-df13-series-not-recommended-for-new-designs">DF13</a> connectors.
 <ul>
 <li>Issue: Is not connector compatible with Blue Robotics products.</li>
 </ul>
 </li>
 </ol>
-<h2 id="other-autopilots-that-haven-t-been-tested">Other Autopilots That Haven't Been Tested</h2>
-<p>ArduPilot has has a list of other compatible autopilots: <a href="https://ardupilot.org/copter/docs/common-autopilots.html">Autopilot Hardware Options</a></p>
+<h2 id="other-flight-controllers-that-haven-t-been-tested">Other Flight Controllers That Haven't Been Tested</h2>
+<p>ArduPilot has has a list of other compatible flight controllers: <a href="https://ardupilot.org/copter/docs/common-autopilots.html">Autopilot Hardware Options</a></p>
 <p>These boards have not been tested or reported to work with ArduSub. </p>
 
         
           
-<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;hardware&#x2F;required&#x2F;autopilot.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
+<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;hardware&#x2F;required&#x2F;flight-controller.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
 
         
         

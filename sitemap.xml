@@ -76,10 +76,6 @@
         <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/</loc>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/autopilot/</loc>
-        <lastmod>2022-10-11T17:33:19+11:00</lastmod>
-    </url>
-    <url>
         <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/camera/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
@@ -89,6 +85,10 @@
     </url>
     <url>
         <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/esc/</loc>
+        <lastmod>2022-10-11T17:33:19+11:00</lastmod>
+    </url>
+    <url>
+        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/flight-controller/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
