@@ -11,6 +11,7 @@ lead = ''
 toc = true
 top = false
 link_base = "https://github.com/bluerobotics/BlueOS-docker/tree/1.1.0-beta.16/core"
+aliases = ['/software/onboard/BlueOS-latest/advanced-usage']
 +++
 
 ## General Information

@@ -6,6 +6,8 @@ template = "docs/page.html"
 sort_by = "weight"
 weight = 0
 draft = false
+aliases = ['/software/onboard/BlueOS-latest/overview']
+
 [extra]
 lead = 'BlueOS is a modular, robust, and efficient platform for managing a vehicle or robot from its onboard computer.'
 toc = true
