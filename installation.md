@@ -6,6 +6,8 @@ template = "docs/page.html"
 sort_by = "weight"
 weight = 10
 draft = false
+aliases = ['/software/onboard/BlueOS-latest/installation']
+
 [extra]
 lead = 'Now with a stable release! Be aware that if you have a <strong>B.E.T.A</strong> before <strong>1.0.0 release</strong> a fresh SD card flash is necessary.'
 toc = true

@@ -6,6 +6,8 @@ template = "docs/page.html"
 sort_by = "weight"
 weight = 40
 draft = false
+aliases = ['software/onboard/BlueOS-latest/extensions']
+
 [extra]
 lead = ''
 toc = true
