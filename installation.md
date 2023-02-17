@@ -1,7 +1,7 @@
 +++
 title = "Installation"
 description = "BlueOS installation instructions."
-date = 2021-10-20T20:30:00+00:00
+date = 2023-02-17T22:30:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 10
@@ -9,7 +9,6 @@ draft = false
 aliases = ['/software/onboard/BlueOS-latest/installation']
 
 [extra]
-lead = 'Now with a stable release! Be aware that if you have a <strong>B.E.T.A</strong> before <strong>1.0.0 release</strong> a fresh SD card flash is necessary.'
 toc = true
 top = false
 +++
@@ -33,12 +32,15 @@ We recommend using a fresh SD card, with at least 4GB capacity.
 
 1. Eject your SD card with the new BlueOS software
 1. Insert it into your Raspberry Pi, and power it up!
+   - The first boot may take a couple of minutes, as it expands the filesystem to the new SD card capacity
+      - It should take around 2 minutes for a 16GB class 10 SD card
+1. BlueOS is a _headless_ operating system, and uses a web interface rather than HDMI to a monitor
+   - See the [Getting Started](./getting-started/) section for how to connect
 
-The first boot may take a couple of minutes, as it expands the filesystem to the new SD card capacity. It should take around 2 minutes for a 16GB class 10 SD card.
 
 ## Updates
 
-Once BlueOS is installed, updating to a different version is simple via the [Version Chooser](./advanced-usage/#version-chooser).
+Once BlueOS is installed, updating to a different version is simple via the [Version Chooser](./advanced-usage/#blueos-version).
 
 ## Manual Installation
 
