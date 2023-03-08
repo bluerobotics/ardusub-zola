@@ -244,6 +244,8 @@
 							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/">Getting Started</a></li>
 					                           
 							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/advanced-usage/">Advanced Usage</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/">Extensions (Alpha)</a></li>
 					
 					</ul>
 			
@@ -262,7 +264,7 @@
   							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#network-configuration">Network Configuration</a></li>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#new-web-interface">New Web Interface</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#web-interface">Web Interface</a></li>
   							
   									<ul>
   											
@@ -299,19 +301,24 @@
         <h2 id="network-configuration">Network Configuration</h2>
 <p>Your topside computer’s network configuration should be the same as for the previous Companion software.
 To configure it, you can follow our <a href="https://www.ardusub.com/quick-start/installing-companion.html#network-setup">network setup instructions</a>.</p>
-<h2 id="new-web-interface">New Web Interface</h2>
-<p>BlueOS is designed to be a modular collection of services, which generally each provide a REST API, documentation, and a development webpage.
-The web interface monitors the autopilot and other main software components, and also listens for and displays connections from other HTTP servers (on TCP ports) and docker containers, so you can keep your own integrations isolated from the normal BlueOS release/update cycle.</p>
+<h2 id="web-interface">Web Interface</h2>
+<p>BlueOS is designed as a modular collection of services, which are accessed and configured via a combined web interface.</p>
+<p>The web interface monitors the autopilot and other main software components. It also listens for and displays connections from other HTTP servers (on TCP ports), which allows extensions and custom integrations to provide an interface through BlueOS while remaining independent from the main BlueOS release/update cycle.</p>
 <h3 id="interface-access">Interface Access</h3>
-<p>You can access BlueOS via the old IP address (<a href="http://192.168.2.2/">192.168.2.2</a>) or via <a href="http://blueos.local/">blueos.local</a>, to connect with it via wifi, it's possible to use <a href="http://blueos-wifi.local/">blueos-wifi.local</a>.</p>
+<p>By default you can access BlueOS via the old IP address (<a href="http://192.168.2.2/">192.168.2.2</a>) or via <a href="http://blueos.local/">blueos.local</a>.
+When BlueOS is connected to the same wifi network as your device you can also connect with it using <a href="http://blueos-wifi.local/">blueos-wifi.local</a>.</p>
 <h3 id="interface-features">Interface Features</h3>
-<p>When you first open the web interface, you'll see a page that looks like this:
-<img src="main-page.png" width="650"></p>
-<p>Of particular note is the header, which contains:</p>
+<p>When you first open the web interface, you'll see a page that looks like this:</p>
+<div style="padding-bottom:15px;">
+<img src="../advanced-usage/interface-overview.png" alt="../Advanced Usage/Interface Overview" width=600 >
+</div>
+<p>As a brief overview,</p>
 <ul>
-<li>the main hamburger menu (top left corner), for managing your flight controller and accessing some useful tools, and</li>
-<li>health, wifi, network, and notification indicators (top right corner)</li>
+<li>the header contains system health indicators and notifications, and some network and display configuration options</li>
+<li>the sidebar allows navigating between pages, and allows restarting, freeing up space, and reporting issues</li>
+<li>most pages show their content within the BlueOS interface sections, but some extensions open as full pages in a separate tab</li>
 </ul>
+<p>For more details see the Advanced Usage <a href="../advanced-usage/#interface-overview">Interface Overview</a> section.</p>
 <h2 id="updating-releases">Updating / Releases</h2>
 <p>BlueOS supports <a href="../overview/#release-types">multiple release types</a> - we recommend the latest stable version for most people. Releases and change-logs are available on the <a href="https://github.com/bluerobotics/blueos-docker/releases">GitHub releases page</a>.</p>
 <h3 id="connect-wifi">Connect Wifi</h3>
@@ -334,16 +341,16 @@ The web interface monitors the autopilot and other main software components, and
 <p>Now that your BlueOS has an internet connection, you can perform the update to the latest available version.</p>
 <ol>
 <li>
-<p>Click on the hamburger menu</p>
+<p>Click on the hamburger menu (if the sidebar is not already open)</p>
 <p><img src="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/version-menu.png" alt="Version Menu" /></p>
 </li>
 <li>
-<p>Under <strong>tools</strong>, select <a href="../advanced-usage/#version-chooser"><strong>Version-Chooser</strong></a></p>
+<p>Under <strong>Settings</strong>, select <a href="../advanced-usage/#blueos-version"><strong>BlueOS Version</strong></a></p>
 <p><img src="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/version-chooser.png" alt="Version Chooser" /></p>
 </li>
 <li>
 <p>If you're already on the latest version, the right side of your Local Version will be blank. If not, you should see a blue <strong>Update</strong> button.</p>
-<img src="version-update.png" width="650">
+<img src="../advanced-usage/version-chooser-simple.png" width="550">
 </li>
 <li>
 <p>Once the update button is clicked the update process will run.
@@ -352,7 +359,7 @@ Please wait until it finishes - it will automatically reload the webpage for you
 </ol>
 <h2 id="camera-streams">Camera Streams</h2>
 <p>BlueOS is capable of configuring and streaming multiple cameras simultaneously. The first time it boots, it will automatically detect any connected H264-capable cameras and start streaming them. If not, make sure your camera is properly connected, and that BlueOS is on the latest available version. Reset settings and restart BlueOS if necessary.</p>
-<p>Additional information is available in the <a href="../advanced-usage/#video">Video</a> section of the <a href="../advanced-usage">Advanced Usage</a> page.</p>
+<p>Additional information is available in the Advanced Usage <a href="../advanced-usage/#video-streams">Video Streams</a> section.</p>
 
         
           

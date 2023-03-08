@@ -241,6 +241,8 @@
 							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/">Getting Started</a></li>
 					                           
 							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/advanced-usage/">Advanced Usage</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/">Extensions (Alpha)</a></li>
 					
 					</ul>
 			
@@ -260,6 +262,21 @@
   							
   							
   							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/#blueos-principles-and-goals">BlueOS principles and goals</a></li>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/#what-s-new-in-blueos-1-1">What&#x27;s New in BlueOS-1.1?</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/#extensions-new-alpha">Extensions (NEW! - Alpha)</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/#page-improvements">Page improvements</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/#menu-and-general-interface-improvements">Menu and general interface improvements</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/#device-support">Device Support</a></li>
+  											
+  									</ul>
   							
   							
   							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/#feature-comparison">Feature Comparison</a></li>
@@ -298,27 +315,137 @@
 <li><strong>Developed on solid foundations</strong>, critical parts or intensive workforce services are designed using the most advanced languages and features available for stability</li>
 </ul>
 <p>Some of these principles will only be evident in future releases, but the underlying software architecture and organization have been designed from the ground up to support and enable them.</p>
+<h2 id="what-s-new-in-blueos-1-1">What's New in BlueOS-1.1?</h2>
+<p>This covers a summary of the major changes and new features in BlueOS-1.1. Where applicable relevant features are also included in the <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/#feature-comparison">feature comparison table</a>. For detailed coverage of every change, please see the <a href="https://github.com/bluerobotics/BlueOS-docker/releases">full release notes</a>.</p>
+<h3 id="extensions-new-alpha"><a href="../extensions">Extensions</a> <code>(NEW! - Alpha)</code></h3>
+<ul>
+<li>Independently installed and run software components, that work together with BlueOS</li>
+<li>Users can download extensions for the integrations and features they want to use</li>
+<li>Developers can create extensions, and share them with others</li>
+</ul>
+<h3 id="page-improvements">Page improvements</h3>
+<ul>
+<li><a href="../advanced-usage/#vehicle-setup">Vehicle Setup</a> <code>(NEW!)</code>
+<ul>
+<li>A page providing an overview of the configured vehicle and its connected peripherals</li>
+</ul>
+</li>
+<li><a href="../advanced-usage/#ping-sonar-devices">Ping Sonar Devices</a> <code>(NEW!)</code>
+<ul>
+<li>A page to detect connected Ping family devices (including Ping360s connected via an ethernet switch)</li>
+<li>Adds MAVLink toggle for Ping Sonar devices
+<ul>
+<li>Allows sending distance estimate to Control Station Software (e.g. QGroundControl)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="../advanced-usage/#extensions-manager">Extensions Manager</a> <code>(NEW!)</code>
+<ul>
+<li>Allows installing and managing BlueOS Extensions</li>
+</ul>
+</li>
+<li><a href="../advanced-usage/#autopilot-parameters">Autopilot Parameters</a> <code>(NEW!)</code>
+<ul>
+<li>Allows reading and editing parameters from a connected MAVLink autopilot</li>
+<li>Includes saving to and loading from a file</li>
+</ul>
+</li>
+<li><a href="../advanced-usage/#autopilot-firmware">Autopilot Firmware</a> (MERGED Firmware and General)
+<ul>
+<li>Extra information about the currently running firmware was added</li>
+<li>Improved firmware update robustness</li>
+<li>Serial autopilots in bootloader mode can now be detected and flashed
+<ul>
+<li>Allows recovering from failed Pixhawk updates</li>
+</ul>
+</li>
+<li>Can now choose which autopilot to flash, if multiple are connected</li>
+</ul>
+</li>
+<li><a href="../advanced-usage/#video-streams">Video Streams</a>
+<ul>
+<li>Camera manager now supports Raspberry Pi cameras, and a fake source for testing</li>
+<li>Camera previews are now available when a stream is configured</li>
+<li>RTSP support added for MJPG and YUYV encoded streams</li>
+<li>MAVLink support improved
+<ul>
+<li>Allows Control Station Software (e.g. QGroundControl) to configure camera settings and switch between multiple video streams</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="../advanced-usage/#mavlink-endpoints">MAVLink Endpoints</a>
+<ul>
+<li>IP address interface now indicates the endpoint type</li>
+<li>Endpoints are now editable</li>
+</ul>
+</li>
+<li><a href="../advanced-usage/#serial-bridges">Serial Bridges</a>
+<ul>
+<li>Significant interface and robustness updates</li>
+</ul>
+</li>
+<li><a href="../advanced-usage/#nmea-injector">NMEA Injector</a>
+<ul>
+<li>Settings are now persistent across boots</li>
+</ul>
+</li>
+<li><a href="../advanced-usage/#version-chooser">Version Chooser</a>
+<ul>
+<li>New progress bar while downloading and extracting new images</li>
+</ul>
+</li>
+<li><a href="../advanced-usage/#network-test">Network Test</a>
+<ul>
+<li>New graph to track upload and download performance during a test</li>
+</ul>
+</li>
+</ul>
+<h3 id="menu-and-general-interface-improvements">Menu and general interface improvements</h3>
+<ul>
+<li>Sidebar is now open by default when the window is wide enough</li>
+<li>Interface updated to be mobile friendly</li>
+<li>Pirate mode is now toggled via the happy-robot/pirate icon in the header</li>
+<li>Ethernet and wifi configuration are improved
+<ul>
+<li>A hotspot network is now created for devices to connect to if a normal connection does not occur on boot</li>
+</ul>
+</li>
+</ul>
+<h3 id="device-support">Device Support</h3>
+<ul>
+<li>Added basic detection and management support for:
+<ul>
+<li>the Cube Orange flight controller</li>
+<li>the Pixhawk 6X flight controller</li>
+</ul>
+</li>
+</ul>
 <h2 id="feature-comparison">Feature Comparison</h2>
-<p>BlueOS has most of the features from the old Companion, and some hotly-requested new ones too!</p>
-<table><thead><tr><th>Feature</th><th>Companion</th><th>BlueOS</th><th>Both</th><th></th></tr></thead><tbody>
-<tr><td><strong>Hardware</strong></td><td>Raspberry Pi 3B required</td><td>Raspberry Pi 3B / 3B+ / 4B supported;<br>Other Linux-based SBCs images to come;<br>You can install from scratch using the installation script in any Linux computer. (Modifications may be necessary for your hardware configuration)</td><td></td><td></td></tr>
-<tr><td><a href="../advanced-usage/#indicators-and-network-configuration"><strong>WIFI manager</strong></a></td><td>Connect to a <em>single network</em></td><td>Connect to and manage <em>multiple networks</em>, like a cellphone or computer WIFI manager</td><td>Visible and hidden networks supported</td><td></td></tr>
-<tr><td><a href="../advanced-usage/#indicators-and-network-configuration"><strong>Ethernet manager</strong></a></td><td><em>Single</em> DHCP <em>or</em> static network</td><td><em>Multiple</em> static IPs <em>and</em> DHCP configuration</td><td>DHCP client or server</td><td></td></tr>
-<tr><td><a href="../advanced-usage/#video"><strong>Camera manager</strong></a></td><td>Select a <em>single</em> camera to stream over UDP<br>Supports Raspberry Pi cameras (<a href="https://discuss.bluerobotics.com/t/raspberry-pi-camera-stream-not-working/11976/18">except HQ Camera</a>)<br>Supports a single audio stream over UDP</td><td>Easily manage <em>multiple streams</em><br><br>UDP, RTSP and support coming soon for WebRTC (<a href="https://github.com/bluerobotics/BlueOS-docker/issues/1000">#1000</a>)<br><br>Raspberry Pi cameras<br><em>not yet supported</em> (<a href="https://github.com/bluerobotics/BlueOS-docker/issues/991">#991</a>)<br><br>Audio streaming<br><em>not yet supported</em> (<a href="https://github.com/bluerobotics/BlueOS-docker/issues/990">#990</a>)</td><td>H264-encoded streams only</td><td></td></tr>
-<tr><td><a href="../advanced-usage/#nmea-injector"><strong>NMEA support</strong></a></td><td>-</td><td>-</td><td>Conveys GPS positions to the vehicle</td><td></td></tr>
-<tr><td><strong>Ping Sonar Devices</strong></td><td>Ping Sonar distance estimates can be <em>sent via MAVLink</em></td><td>Devices can be <em>hot-plugged</em><br><br>MAVLink pipeline<br><em>not yet supported</em> (<a href="https://github.com/bluerobotics/BlueOS-docker/issues/264">#264</a>)</td><td>Ping Sonar and Ping360 can connect with <a href="https://docs.bluerobotics.com/ping-viewer/">Ping Viewer</a></td><td></td></tr>
-<tr><td><a href="../advanced-usage/#firmware"><strong>ArduPilot Firmware</strong></a></td><td><em>ArduSub-only</em> downloads</td><td><em>General ArduPilot</em> downloads;<br><em>select vehicle</em> to update</td><td><code>stable</code>, <code>beta</code>, and <code>devel</code> releases, custom uploads, and restore default parameters</td><td></td></tr>
-<tr><td><a href="../advanced-usage/#endpoints"><strong>Endpoints</strong></a></td><td>-</td><td>-</td><td>Create and manage bridges between serial and UDP endpoints</td><td></td></tr>
-<tr><td><a href="../advanced-usage/#file-browser"><strong>File Browser</strong></a></td><td>-</td><td><em>Edit files</em> from the browser</td><td>Download and upload files</td><td></td></tr>
-<tr><td><a href="../advanced-usage/#log-browser"><strong>Log manager</strong></a></td><td>Ssh/terminal only</td><td><em>Download and manage logs</em> from the browser</td><td></td><td></td></tr>
-<tr><td><a href="../advanced-usage/#log-browser"><strong>Log Viewer</strong></a></td><td>-</td><td><em>Visualise and analyse logs</em> from the browser</td><td></td><td></td></tr>
-<tr><td><a href="../advanced-usage/#terminal"><strong>Web Terminal</strong></a></td><td>Access Linux terminal from the browser</td><td>Access Linux terminal with a tmux session from the browser</td><td>Web terminal client</td><td></td></tr>
-<tr><td><a href="../advanced-usage/#version-chooser"><strong>Version Chooser</strong></a></td><td>Update to <em>latest stable only</em></td><td><em>Easily update/downgrade</em> between versions, including locally stored;<br>Includes <em>stable, beta, and master</em> releases*;<br>Available even if main site failing</td><td></td><td></td></tr>
-<tr><td><a href="../advanced-usage/#system-information"><strong>System information</strong></a></td><td>Basic usage statistics, list of connected devices</td><td>Provides all the necessary information about the hardware, operating system, running processes, CPU, memory, disk, network usage and status</td><td></td><td></td></tr>
-<tr><td><a href="../advanced-usage/#indicators-and-network-configuration"><strong>Notification system</strong></a></td><td>-</td><td>Notifications about issues, new releases, and the status of your system.</td><td></td><td></td></tr>
-<tr><td><a href="../advanced-usage/#network-test"><strong>Network test</strong></a></td><td>-</td><td>Check <em>real time latency</em></td><td>Check upload and download speed from the surface computer to the vehicle</td><td></td></tr>
-<tr><td><a href="../advanced-usage/#mavlink-inspector"><strong>MAVLink inspector</strong></a></td><td>See latest MAVLink messages via MAVLink2REST</td><td>see and <em>inspect MAVLink messages in real time</em> from the browser</td><td>MAVLink2REST is available</td><td></td></tr>
-<tr><td><strong>Water Linked</strong></td><td>Supports UGPS and DVL-A50</td><td><a href="https://discuss.bluerobotics.com/t/external-integrations-extensions/10912#integration-example-dvl-5">DVL-A50 package available</a>;<br>UGPS <em>not yet supported</em></td><td></td><td></td></tr>
+<p>BlueOS has almost all features from the old Companion, and several hotly-requested new ones too!</p>
+<table><thead><tr><th>Feature</th><th>BlueOS 1.1</th><th>BlueOS 1.0</th><th>Companion</th></tr></thead><tbody>
+<tr><td><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/onboard-computer/"><strong>Onboard Computer</strong></a></td><td>→<br>+ Other Linux-based SBCs images to come</td><td>+ Raspberry Pi 3B / 3B+ / 4B supported<br>+ You can install from scratch using the installation script in any Linux computer. (Modifications may be necessary for your hardware configuration)</td><td>Raspberry Pi 3B required</td></tr>
+<tr><td><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/flight-controller/"><strong>Flight Controller</strong></a></td><td>→<br>+ Cube Orange<br>+ Pixhawk 6X</td><td>→<br>+ Navigator<br>+ Pixhawk 4</td><td>Pixhawk</td></tr>
+<tr><td><a href="../advanced-usage/#video-streams"><strong>Video Streams</strong></a></td><td>→<br>+ MPEG and YUYV encodings<br><br>+ Supports Raspberry Pi cameras</td><td>+ Easily manage <em>multiple streams</em><br><br>+ UDP and RTSP outputs<br><br>- Audio streaming<br><em>not yet supported</em> (<a href="https://github.com/bluerobotics/BlueOS-docker/issues/990">#990</a>)</td><td>Select a <em>single</em> camera to stream over UDP<br>+ Supports Raspberry Pi cameras (<a href="https://discuss.bluerobotics.com/t/raspberry-pi-camera-stream-not-working/11976/18">except HQ Camera</a>)<br>+ Supports a single audio stream over UDP</td></tr>
+<tr><td><a href="../advanced-usage/#indicators-and-network-configuration"><strong>WIFI Manager</strong></a></td><td>→<br>+ Vehicle provides local hotspot</td><td>→<br>+ Connect to and manage <em>multiple networks</em>, like a cellphone or computer WIFI manager</td><td>Connect to a <em>single network</em><br>+ Visible and hidden networks supported</td></tr>
+<tr><td><a href="../advanced-usage/#indicators-and-network-configuration"><strong>Ethernet Manager</strong></a></td><td>→</td><td><em>Multiple</em> static IPs <em>and</em> DHCP configuration</td><td><em>Single</em> DHCP (client or server) <em>or</em> static network</td></tr>
+<tr><td><a href="../advanced-usage/#header-indicators-and-blueos-configuration"><strong>Notification system</strong></a></td><td>→</td><td>Notifications about issues, new releases, and the status of your system.</td><td>-</td></tr>
+<tr><td><a href="../advanced-usage/#file-browser"><strong>File Browser</strong></a></td><td>→</td><td>→<br>+ <em>Edit files</em> from the browser</td><td>Download and upload files</td></tr>
+<tr><td><a href="../advanced-usage/#log-browser"><strong>Log Browser</strong></a></td><td>→</td><td><em>Download and manage logs</em> from the browser<br>+ <em>Visualise and analyse logs</em> from the built in viewer</td><td>Ssh/terminal only</td></tr>
+<tr><td><a href="../advanced-usage/#mavlink-inspector"><strong>MAVLink inspector</strong></a></td><td>→<br>+ MAVLink2REST &quot;watcher&quot; option for individual message types</td><td>See and <em>inspect MAVLink messages in real time</em> from the browser</td><td>See latest MAVLink messages via MAVLink2REST</td></tr>
+<tr><td><a href="../advanced-usage/#network-test"><strong>Network test</strong></a></td><td>→<br>+ Graph during speed tests</td><td>→<br>+ Check <em>real time latency</em></td><td>Check upload and download speed from the Control Station Computer to the vehicle's Onboard Computer</td></tr>
+<tr><td><a href="../advanced-usage/#system-information"><strong>System information</strong></a></td><td>→</td><td>Provides all the necessary information about the hardware, operating system, running processes, CPU, memory, disk, network usage and status</td><td>Basic usage statistics, list of connected devices</td></tr>
+<tr><td><a href="../advanced-usage/#terminal"><strong>Web Terminal</strong></a></td><td>→</td><td>→<br>+ Uses a tmux session</td><td>Access Linux terminal from the browser</td></tr>
+<tr><td><a href="../advanced-usage/#autopilot-firmware"><strong>Autopilot Firmware</strong></a></td><td>→</td><td>→<br>+ <em>General ArduPilot</em> downloads;<br>+ <em>select vehicle</em> to update</td><td><code>stable</code>, <code>beta</code>, and <code>devel</code> releases, custom uploads, and restore default parameters;<br><em>ArduSub-only</em> downloads</td></tr>
+<tr><td><a href="../advanced-usage/#autopilot-parameters"><strong>Autopilot Parameters</strong></a></td><td>View, search, and edit vehicle parameters</td><td>-</td><td>-</td></tr>
+<tr><td><a href="../advanced-usage/#blueos-version"><strong>Version Chooser</strong></a></td><td>→</td><td>+ <em>Easily update/downgrade</em> between BlueOS versions, including locally stored<br>+ Includes <em>stable, beta, and master</em> releases*<br>+ Available even if main site failing</td><td>Update Companion to <em>latest stable only</em></td></tr>
+<tr><td><a href="../advanced-usage/#mavlink-endpoints"><strong>MAVLink Endpoints</strong></a></td><td>→</td><td>→</td><td>Create and manage UDP, TCP, and serial MAVLink endpoints</td></tr>
+<tr><td><a href="../advanced-usage/#nmea-injector"><strong>NMEA support</strong></a></td><td>→</td><td>→</td><td>Conveys GPS positions to the vehicle</td></tr>
+<tr><td><a href="../advanced-usage/#ping-sonar-devices"><strong>Ping Sonar Devices</strong></a></td><td>→<br>+ Detects Ping360 in ethernet configuration<br>+ Ping Sonar distance estimates can be <em>sent via MAVLink</em></td><td>→<br>+ Devices can be <em>hot-plugged</em><br><br>- <em>No MAVLink pipeline</em></td><td>Ping Sonar and Ping360 can connect with <a href="https://docs.bluerobotics.com/ping-viewer/">Ping Viewer</a><br>+ Ping Sonar distance estimates can be <em>sent via MAVLink</em></td></tr>
+<tr><td><a href="../advanced-usage/#serial-bridges"><strong>Serial Bridges</strong></a></td><td>→</td><td>→</td><td>Create and manage bridges between serial and UDP/TCP endpoints</td></tr>
+<tr><td><strong>Water Linked</strong></td><td>DVL-A50 and UGPS extensions available through Extensions Manager</td><td><a href="https://discuss.bluerobotics.com/t/external-integrations-extensions/10912#integration-example-dvl-5">DVL-A50 package available</a></td><td>Supports UGPS and DVL-A50</td></tr>
+<tr><td><a href="../extensions/"><strong>Extensions</strong></a></td><td>Custom extensions available through Extensions Manager</td><td>→</td><td>Custom functionality requires forking the codebase</td></tr>
 </tbody></table>
 <h2 id="release-types">Release Types</h2>
 <p>BlueOS has multiple release types, to allow choosing your preferred balance between access to the latest fixes and improvements, and stability of the software. The three release types are:</p>
@@ -344,7 +471,7 @@
 </li>
 </ul>
 <p>When BlueOS is connected to the internet, a notification appears if a newer version of the same release or a <em>stabler</em> type is available. E.g: When using a <strong>Stable</strong> version, <em><strong>only</strong></em> new <strong>Stable</strong> versions will trigger a notification. If using a <strong>Beta</strong> release, newer <strong>Beta</strong> and <strong>Stable</strong> releases will trigger a notification. When running <strong>Master</strong>, any release type newer than the active one will trigger a new update notification. This helps to ensure that any updates will be as or more stable than your current version, unless you intentionally change to a less stable release type.</p>
-<p>It's worth noting that <a href="../advanced-usage/#version-chooser">Version Chooser</a> in general offers several major robustness and versatility improvements over the previous 'latest update only' approach, which should benefit both users and developers.</p>
+<p>It's worth noting that the <a href="../advanced-usage/#blueos-version">Version Chooser</a> in general offers several major robustness and versatility improvements over the previous 'latest update only' approach, which should benefit both users and developers.</p>
 <h2 id="quick-links">Quick links</h2>
 <ol>
 <li><a href="../">Documentation</a></li>

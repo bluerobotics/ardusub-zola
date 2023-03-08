@@ -241,6 +241,8 @@
 							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/">Getting Started</a></li>
 					                           
 							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/advanced-usage/">Advanced Usage</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/">Extensions (Alpha)</a></li>
 					
 					</ul>
 			
@@ -279,7 +281,7 @@
 
       <main class="docs-content col-lg-11 col-xl-9">
         <h1>Installation</h1>
-        <p class="lead">Now with a stable release! Be aware that if you have a <strong>B.E.T.A</strong> before <strong>1.0.0 release</strong> a fresh SD card flash is necessary.</p>
+        
         <h2 id="download">Download</h2>
 <p>BlueOS is a ground-up rewrite software to replace Companion. To use it you'll need to download and flash an SD card.
 It is compatible with both <strong>Raspberry Pi 3</strong> and <strong>Raspberry Pi 4</strong>.</p>
@@ -297,11 +299,23 @@ It is compatible with both <strong>Raspberry Pi 3</strong> and <strong>Raspberry
 <h2 id="run">Run</h2>
 <ol>
 <li>Eject your SD card with the new BlueOS software</li>
-<li>Insert it into your Raspberry Pi, and power it up!</li>
+<li>Insert it into your Raspberry Pi, and power it up!
+<ul>
+<li>The first boot may take a couple of minutes, as it expands the filesystem to the new SD card capacity
+<ul>
+<li>It should take around 2 minutes for a 16GB class 10 SD card</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>BlueOS is a <em>headless</em> operating system, and uses a web interface rather than HDMI to a monitor
+<ul>
+<li>See the <a href="./getting-started/">Getting Started</a> section for how to connect</li>
+</ul>
+</li>
 </ol>
-<p>The first boot may take a couple of minutes, as it expands the filesystem to the new SD card capacity. It should take around 2 minutes for a 16GB class 10 SD card.</p>
 <h2 id="updates">Updates</h2>
-<p>Once BlueOS is installed, updating to a different version is simple via the <a href="./advanced-usage/#version-chooser">Version Chooser</a>.</p>
+<p>Once BlueOS is installed, updating to a different version is simple via the <a href="./advanced-usage/#blueos-version">Version Chooser</a>.</p>
 <h2 id="manual-installation">Manual Installation</h2>
 <p>For developers with alternative hardware, or who would rather install over a pre-installed base operating system / image, BlueOS provides an <a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/install">install directory</a> with utilities to help perform manual/software-based installations.</p>
 

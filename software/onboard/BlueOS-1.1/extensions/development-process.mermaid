@@ -1,0 +1,51 @@
+flowchart TD
+    E(Desired Functionality) --> SEE[Search for<br>existing extensions] --> QEC{Is there one<br>that's related?}
+        subgraph EE [Existing Extension]
+            QMN{Does it meet<br>your needs?}
+                QMN -- "no" --> QOS{Is it<br>Open Source?}
+                    QOS -- "no" --> SFR(Submit feature request,<br>or develop an alternative)
+                    QOS -- "yes" --> SPR("Help to develop the<br>features you want! :-)")
+                QMN -- "yes" --> UI("Use it :-)")
+        end
+        QEC -- "yes" --> QMN
+        QEC -- "no" --> QDI{Is there an<br>existing Docker image<br>for the functionality?}
+            QDI -- "yes" --> CE[Convert to<br>BlueOS Extension]
+            subgraph DD [Development Device]
+                QHA{"Does it need hardware<br>access on the Raspberry Pi?<br>(USB, serial, I2C)"}
+                    QHA -- "no" --> Q4{"Does it need access<br>to data or services on<br>the vehicle?"}
+                        Q4 -- "no" --> T2[Arbitrary Computer]
+                        Q4 -- "yes" --> T2OC[Topside connected<br>to Onboard Computer]
+                    QHA -- "yes" --> OC[Onboard Computer]
+            end
+            QDI -- "no" --> QHA
+            subgraph DS [Develop Service]
+                subgraph DDP [Development Dependencies]
+                    ID[Install Docker] --> 
+                    IB[Install buildx] --> TB[Test buildx]
+                end
+                TB & OC --> CSR[Clone Skeleton Repo]
+                subgraph IF [Implement Functionality]
+                    DF[Develop Functionality] --> QDW{Does it work?}
+                        QDW -- "yes" --> QWUI{Do you want<br>a web UI?}
+                            QWUI -- "yes" --> CS[Create Server] --> CI[Create Interface] --> URS[Update Register Service]
+                            QWUI -- "no" --> DRS[Delete Register Service]
+                            DRS & URS --> BE["Build & Push Extension<br>(to the limit<br>a.k.a. Docker Hub)"]
+                        QDW -- "no" --> DF
+                end
+                CSR --> DF
+                subgraph RLT [Real Life Test]
+                    CCE["Create Custom Extension<br>(in manager)"] -->
+                    TE[Test Extension] --> QW{Does it work<br>as expected?}
+                        QW -- "no" --> DF
+                end
+                BE --> CCE
+            end
+            T2 & T2OC --> ID
+            subgraph P [Publish]
+                UDF[Update Dockerfile] --> RB[Rebuild, and push] --> 
+                WD[Write Documentation] --> 
+                PR[Make PR in BR repo] --> W[Wait until pull<br>request is merged] --> 
+                IN[Try to install]
+            end
+            QW -- "yes" --> UDF
+            IN --> PRO(Profit)

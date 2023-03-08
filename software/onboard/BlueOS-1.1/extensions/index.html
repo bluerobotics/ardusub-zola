@@ -1,0 +1,721 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://docs.bluerobotics.com/ardusub-zola/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://docs.bluerobotics.com/ardusub-zola/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://docs.bluerobotics.com/ardusub-zola/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>Extensions (Alpha) | ArduSub</title>
+<meta name="description" content="BlueOS extensions documentation.">
+<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Software",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Onboard",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Blueos 1.1",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  5 ,
+            "name": "Extensions",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://docs.bluerobotics.com/ardusub-zola/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://docs.bluerobotics.com/ardusub-zola/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://docs.bluerobotics.com/ardusub-zola/favicon-16x16.png">
+  
+    <link rel="manifest" href="https://docs.bluerobotics.com/ardusub-zola/site.webmanifest" crossorigin>
+  
+
+
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://docs.bluerobotics.com/ardusub-zola">ArduSub</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/bluerobotics/ardusub-zola"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+				
+				
+					
+						<li class="nav-item">
+							<a class="nav-link" href="https://docs.bluerobotics.com/ardusub-zola/"></a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+					<h3>BlueOS</h3>
+					<ul class="list-unstyled">
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/">Overview</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/">Installation</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/">Getting Started</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/advanced-usage/">Advanced Usage</a></li>
+					                           
+							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/">Extensions (Alpha)</a></li>
+					
+					</ul>
+			
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/#context">Context</a></li>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/#implementation">Implementation</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/#components-anatomy-of-an-extension">Components: Anatomy of an Extension</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/#examples-what-do-they-look-like">Examples: What do they Look like?</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/#where-do-they-live">Where do they Live?</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/#ecosystem-attributes">Ecosystem Attributes</a></li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/#development-process">Development Process</a></li>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>Extensions (Alpha)</h1>
+        
+        <blockquote>
+<p>💡 This page provides context and development guidance for Extensions. For <em>installing</em> and <em>using</em> Extensions please refer to the <a href="../advanced-usage/#extensions-manager">Extensions Manager</a> section of the Advanced Usage page.</p>
+</blockquote>
+<h2 id="context">Context</h2>
+<p>One of the primary aims of BlueOS is to be a platform that is readily extendable to the needs of each user. For maximum utility it should be easy to add support for custom hardware, add components to the user interface, and share developments with other BlueOS users, without compromising the base BlueOS experience.</p>
+<p>Accordingly, BlueOS has been designed with a containerised architecture, so the core functionality is kept separate from Extensions, and each can be distributed and updated independently of the other. The built in Extension system allows developers and users to find and install add-on software packages to BlueOS, and manage updates, permissions, and resource limits of those Extensions through the <a href="../advanced-usage/#extensions-manager">Extensions Manager</a>.</p>
+<p>For some additional context and discussion, please see <a href="https://discuss.bluerobotics.com/t/external-integrations-extensions/10912">this forum thread</a> about the BlueOS Extensions architecture. Feel free to contribute ideas or ask questions there as relevant.</p>
+<h2 id="implementation">Implementation</h2>
+<blockquote>
+<p>⚠️ The BlueOS Extensions system is currently still in an <code>alpha</code> stage of development, so significant implementation changes are expected in the near future.</p>
+</blockquote>
+<h3 id="components-anatomy-of-an-extension">Components: Anatomy of an Extension</h3>
+<p>At heart, a BlueOS Extension is some functionality (optionally with a web interface) packaged into a <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/#docker">Docker Image</a>, and combined with some metadata that allows it to be found, shared, and managed. Extensions may interface with existing services provided by BlueOS (or other Extensions), and some Extensions may create persistent logs and/or make use of data or files provided by the user.</p>
+<p>Once installed, an Extension Package can be run as a <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/#docker">Docker Container</a>, which normally occurs automatically when the vehicle turns on, but can also be manually disabled/enabled via the Extensions Manager. When running, Extensions can have <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/#metadata-dockerfile">custom permissions assigned</a>, which can limit resource-usage and/or allow access to parts of the host computer's hardware.</p>
+<h4 id="docker">Docker</h4>
+<p><a href="https://www.docker.com/resources/what-container/">Docker</a> is a lightweight containerisation system that allows packaging one or more software programs into a single executable that can be easily shared across systems. A static package is referred to as a &quot;Docker Image&quot;, and when it is being run it takes the form of a &quot;Docker Container&quot;.</p>
+<p>A Docker Container generally acts like an isolated mini operating system, but it's possible to enter a running Container from the host computer to see (and modify) what the programs inside are doing, and access things like logging output. Importantly, changes in a Container do not affect its <a href="https://docs.docker.com/get-started/overview/#images">Image</a>, so they're not persistent<sup class="footnote-reference"><a href="#1">1</a></sup> and it's possible to &quot;start fresh&quot; by simply restarting the Container (which creates a new Container from the Image, without any changes from previous instances).</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>While changes <em>within</em>/<em>to</em> the Container are not persistent, it is possible to make persistent changes to the host's file-system if the Container has access to it (usually via <code>&quot;HostConfig&quot;: &quot;Binds&quot;</code> in the <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/#metadata-dockerfile">metadata</a> <code>permissions</code>).</p>
+</div>
+<h4 id="metadata-dockerfile">Metadata (Dockerfile)</h4>
+<p>The process of packaging a set of programs and files into a Docker Image requires a <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>, which can be thought of as recipe for building the Image.</p>
+<p>For an Extension to be properly managed and shareable, the Dockerfile it's created from should include relevant metadata<sup class="footnote-reference"><a href="#2">2</a></sup> via the following labels:</p>
+<ul>
+<li><code>LABEL permisions = &quot;{}&quot;</code>
+<ul>
+<li>This can be used to set resource limits, including allowing access to specific components of the underlying hardware</li>
+<li>This must be a valid JSON (use \ to break lines), which follows the configuration described in the <a href="https://docs.docker.com/engine/api/v1.41/#tag/Container/operation/ContainerCreate">Docker Api</a></li>
+<li>For reference, existing permissions can be retrieved from a running Docker Container by running the command <code>docker inspect &lt;container_name&gt;</code>
+<ul>
+<li>Do not copy the whole output to use in your Extension - only the minimal requirements for the Extension to work</li>
+</ul>
+</li>
+<li>Common uses of the <code>permissions</code> label include:
+<ul>
+<li>Mapping/mounting a folder from the host device into the running Container<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>&quot;</span><span style="color:#a3be8c;">HostConfig</span><span>&quot;:\
+</span><span>  {</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span>    </span><span style="background-color:#bf616a;color:#2b303b;">{\</span><span>
+</span><span>      </span><span style="background-color:#bf616a;color:#2b303b;">{\</span><span>
+</span><span>        &quot;</span><span style="color:#a3be8c;">Binds</span><span>&quot;:[&quot;</span><span style="color:#a3be8c;">/var/lib/zerotier-one:/var/lib/zerotier-one</span><span>&quot;]</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span>      }\
+</span><span>    }\
+</span><span>  }
+</span></code></pre>
+</li>
+<li>Automatically mapping port 80 of the Container to a free port in the host<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>LABEL permissions &#39;\
+</span><span>{</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span> &quot;</span><span style="color:#a3be8c;">ExposedPorts</span><span>&quot;: {</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span>   &quot;</span><span style="color:#a3be8c;">80/tcp</span><span>&quot;: {}</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span>  },</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span>  &quot;</span><span style="color:#a3be8c;">HostConfig</span><span>&quot;: {</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span>    &quot;</span><span style="color:#a3be8c;">Binds</span><span>&quot;:[&quot;</span><span style="color:#a3be8c;">/root/.config:/root/.config</span><span>&quot;],</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span>    &quot;</span><span style="color:#a3be8c;">PortBindings</span><span>&quot;: {</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span>      &quot;</span><span style="color:#a3be8c;">80/tcp</span><span>&quot;: [</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span>        {</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span>          &quot;</span><span style="color:#a3be8c;">HostPort</span><span>&quot;: &quot;&quot;</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span>        }</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span>      ]</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span>    }</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span>  }</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+</span><span>}&#39;
+</span></code></pre>
+</li>
+<li>Constraining CPU/memory usage (half a core)
+<ul>
+<li>This is important if your Extension is CPU or memory-hungry, as we need to ensure it doesn't affect the autopilot's operation</li>
+</ul>
+<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{
+</span><span>  &quot;</span><span style="color:#a3be8c;">HostConfig</span><span>&quot;:{
+</span><span>    &quot;</span><span style="color:#a3be8c;">CpuPeriod</span><span>&quot;:</span><span style="color:#d08770;">100000</span><span>,
+</span><span>    &quot;</span><span style="color:#a3be8c;">CpuQuota</span><span>&quot;:</span><span style="color:#d08770;">20000</span><span>,
+</span><span>    &quot;</span><span style="color:#a3be8c;">Memory</span><span>&quot;:</span><span style="color:#d08770;">209715200</span><span>,
+</span><span>  }
+</span><span>}
+</span></code></pre>
+</li>
+</ul>
+</li>
+<li>Our <a href="https://github.com/Williangalvani/BlueOS-examples">Extensions Examples Repository</a> has some useful examples</li>
+</ul>
+</li>
+<li><code>LABEL version=&quot;1.0.0&quot;</code>
+<ul>
+<li>Public Extension releases should use a <a href="https://semver.org/">SemVer</a>-compliant version</li>
+<li>We recommend using alpha/beta versions for non-stable (development) releases (e.g. <code>1.0.1-beta.16</code>)</li>
+</ul>
+</li>
+<li><code>LABEL authors</code>
+<ul>
+<li>The individual author(s) who have developed the Extension</li>
+<li>Useful for giving credit, and as a potential support backup</li>
+<li>This should be a JSON dict where keys are author names and values are emails</li>
+</ul>
+</li>
+<li><code>LABEL company</code> (becoming <code>maintainer</code>)
+<ul>
+<li>The person or company responsible for maintaining the Extension</li>
+<li>JSON object in the form<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{
+</span><span>    &quot;</span><span style="color:#a3be8c;">about</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">brief description</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Company/Person Name</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">email</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">email@company.com</span><span>&quot;
+</span><span>}
+</span></code></pre>
+</li>
+</ul>
+</li>
+<li><code>LABEL readme</code>
+<ul>
+<li>A URL pointing to a markdown-based README file
+<ul>
+<li>Allows using <code>{tag}</code> to find versioned readme files without manually updating the URLs</li>
+<li>e.g. <code>&quot;https://https://raw.githubusercontent.com/Williangalvani/BlueOS-examples/{tag}/example4-vue-backend/Readme.md&quot;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>LABEL links</code>
+<ul>
+<li>An arbitrary collection of relevant links, in a JSON dict</li>
+<li>Recommended link type examples include<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{
+</span><span>    &quot;</span><span style="color:#a3be8c;">website</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">https://...</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">github</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">https://github.com/...</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">support</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">mailto:support@company.com</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">documentation</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">https://docs.company.com/cool-extension/</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">phone</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">tel:+1234567890</span><span>&quot;
+</span><span>}
+</span></code></pre>
+</li>
+</ul>
+</li>
+<li><code>LABEL requirements</code>
+<ul>
+<li>SemVer-compliant dependency requirements for this Extension to work correctly (with BlueOS and/or other Extensions)</li>
+<li>format not yet finalised 
+<ul>
+<li>will likely be something like <code>&gt;= repo/extension-name:version</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>LABEL type</code>
+<ul>
+<li>Useful for broad-strokes filtering when searching for/browsing Extensions</li>
+<li>Not yet implemented in the Extensions Manager</li>
+<li>Should be one of the following strings:
+<ul>
+<li><code>&quot;device-integration&quot;</code></li>
+<li><code>&quot;example&quot;</code> (for Extension examples)</li>
+<li><code>&quot;theme&quot;</code></li>
+<li><code>&quot;other&quot;</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><code>LABEL tags</code>
+<ul>
+<li>Useful for finer-grained filtering to help find relevant Extensions</li>
+<li>Not yet implemented in the Extensions Manager</li>
+<li>Must be alpha-numeric (no capital letters, no symbols except dashes)</li>
+<li>Limited to 10 tags per extension</li>
+<li>Some examples (focused around possible Extension functions):
+<ul>
+<li><code>&quot;positioning&quot;</code></li>
+<li><code>&quot;navigation&quot;</code></li>
+<li><code>&quot;mapping&quot;</code></li>
+<li><code>&quot;data-collection&quot;</code> (e.g. scientific sensor integrations)</li>
+<li><code>&quot;communication&quot;</code> (e.g. integration of an acoustic modem)</li>
+<li><code>&quot;interaction&quot;</code> (e.g. integration of a gripper / robot arm / brush)</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>The metadata from the Docker labels is used to populate the <a href="https://github.com/bluerobotics/BlueOS-Extensions-Repository/blob/gh-pages/manifest.json">Repository Manifest</a>, which is used to include Extensions in the Extensions Manager.</p>
+</div>
+<h4 id="web-interface-http-server">Web Interface (HTTP Server)</h4>
+<p>If the Extension needs a visual interface<sup class="footnote-reference"><a href="#3">3</a></sup>, the recommended approach is to provide a webpage that's accessible via the existing BlueOS web interface.</p>
+<p>To do so requires the Extension to run a HTTP server<sup class="footnote-reference"><a href="#4">4</a></sup>, at which it must serve a <code>register_service</code> endpoint in the format of a JSON dict with the following keys:</p>
+<ul>
+<li><code>&quot;name&quot;</code></li>
+<li><code>&quot;description&quot;</code></li>
+<li><code>&quot;icon&quot;</code>
+<ul>
+<li>Select one of the <a href="https://pictogrammers.com/library/mdi/">Material Design Icons</a></li>
+<li>Specify it in the form <code>mdi-icon-name</code> (e.g. <code>mdi-lightbulb</code>)</li>
+</ul>
+</li>
+<li><code>&quot;company&quot;</code>
+<ul>
+<li>The name of the company/person in charge of maintaining the Extension</li>
+</ul>
+</li>
+<li><code>&quot;version&quot;</code>
+<ul>
+<li>The SemVer-compliant version of the API that is accessible through the Extension's HTTP server</li>
+<li>Not required to match the version of the Extension itself
+<ul>
+<li>e.g. the Extension may release a version with a new appearance, with no changes to the API/functionality</li>
+</ul>
+</li>
+<li>May be used in dependency requirement checks</li>
+</ul>
+</li>
+<li><code>&quot;webpage&quot;</code>
+<ul>
+<li>The official URL for the extension</li>
+</ul>
+</li>
+<li><code>&quot;api&quot;</code>
+<ul>
+<li>The official URL for the extension's API</li>
+</ul>
+</li>
+<li><code>&quot;new_page&quot;</code> (optional)
+<ul>
+<li>Boolean (<code>true</code>/<code>false</code>) specifying whether to open the extension in a new page instead of in a BlueOS frame</li>
+</ul>
+</li>
+</ul>
+<p>As an example:</p>
+<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>{
+</span><span>    &quot;</span><span style="color:#a3be8c;">name</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">BlinkLED</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">description</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">An intuitive application that blinks a LED.</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">icon</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">mdi-led-on</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">company</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">Lights End Darkness</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">version</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">1.0.1</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">new_page</span><span>&quot;: </span><span style="color:#d08770;">false</span><span>,
+</span><span>    &quot;</span><span style="color:#a3be8c;">webpage</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">https://github.com/octocat/blink-led-BlueOS-extension</span><span>&quot;,
+</span><span>    &quot;</span><span style="color:#a3be8c;">api</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">https://github.com/octocat/blink-led-BlueOS-extension/wiki/api</span><span>&quot;
+</span><span>}
+</span></code></pre>
+<p>Each registered Extension service will have an entry under the &quot;Extensions&quot; section of the BlueOS web interface sidebar menu:</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/registered-service.png" alt="sidebar display showing a registered service in the menu" /></p>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
+<p>You can choose to not provide a web interface if your extension operates with no user input. The <a href="https://github.com/Williangalvani/blueos-virtualhere">VirtualHere Extension</a> is a relevant example.
+<sup class="footnote-reference"><a href="#4">4</a></sup>:You can use programs like <a href="https://github.com/TheWaWaR/simple-http-server">simple-http-server</a> to serve static files for an Extension.</p>
+</div>
+<h4 id="functionality">Functionality</h4>
+<p>Different types of Extensions have different functionality, and there are often a variety of tools available to provide that. When starting to develop extensions, we would generally recommend:</p>
+<ul>
+<li>Python to run stuff
+<ul>
+<li>Frequently using a web framework like Starlite/Flask/FastAPI to provide the backend of an interface</li>
+</ul>
+</li>
+<li>Static HTML files to contain and display parts of an interface</li>
+<li>Our <a href="https://github.com/Williangalvani/BlueOS-examples">Extensions Examples Repository</a> has some useful examples</li>
+</ul>
+<h3 id="examples-what-do-they-look-like">Examples: What do they Look like?</h3>
+<h4 id="device-integrations">Device Integrations</h4>
+<ul>
+<li><a href="https://github.com/bluerobotics/BlueOS-Water-Linked-DVL">BlueOS Water Linked DVL</a></li>
+</ul>
+<h4 id="examples">Examples</h4>
+<ul>
+<li><a href="https://github.com/Williangalvani/BlueOS-examples/tree/master/example1-statichtml">Static HTML file</a></li>
+<li><a href="https://github.com/Williangalvani/BlueOS-examples/tree/master/example2-statichtml-mavlink">Static HTML + MAVLink Communication</a></li>
+<li><a href="https://github.com/Williangalvani/BlueOS-examples/tree/master/example3-vuetify">Vuetify</a></li>
+<li><a href="https://github.com/Williangalvani/BlueOS-examples/tree/master/example4-vue-backend">Vue Backend</a></li>
+<li><a href="https://github.com/Williangalvani/BlueOS-examples/tree/master/example5-gpio-control">GPIO Control</a></li>
+</ul>
+<h4 id="themes">Themes</h4>
+<ul>
+<li>No examples yet</li>
+</ul>
+<h4 id="other">Other</h4>
+<ul>
+<li><a href="https://github.com/williangalvani/blueos-virtualhere">VirtualHere</a>
+<ul>
+<li>USB over IP: used to present USB devices connected to the Onboard Computer as though they are plugged in to the Control Station Computer</li>
+</ul>
+</li>
+<li><a href="https://github.com/Williangalvani/ZeroTierOne">ZeroTier</a>
+<ul>
+<li>Network extension/sharing: used to create a virtual private network that allows managing and controlling a vehicle remotely over the internet</li>
+</ul>
+</li>
+</ul>
+<h3 id="where-do-they-live">Where do they Live?</h3>
+<h4 id="online-packages">Online Packages</h4>
+<ul>
+<li>Extension Packages are expected to be hosted on <a href="https://hub.docker.com/">Docker Hub</a></li>
+<li>To appear on the Extensions Manager store they must be registered in the <a href="https://github.com/bluerobotics/BlueOS-Extensions-Repository">BlueOS Extensions Repository</a>
+<ol>
+<li>Extensions are added to the store by opening a Pull Request (PR) against the repository, including a <code>metadata.json</code> file and an icon
+<ul>
+<li><a href="https://github.com/bluerobotics/BlueOS-Extensions-Repository/pull/7/files">This is a good example</a></li>
+</ul>
+</li>
+<li>Once the PR is merged, a continuous-integration job will automatically use the information from the provided metadata file to access Docker Hub and fetch the labels for all tags that are SemVer-compliant</li>
+<li>The fetched information is then compiled and published to the <a href="https://github.com/bluerobotics/BlueOS-Extensions-Repository/gh-pages/manifest.json">Manifest file</a> in the <code>gh-pages</code> branch</li>
+</ol>
+</li>
+</ul>
+<h4 id="installed-extensions">Installed Extensions</h4>
+<p>Once installed on the <a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/onboard-computer/">Onboard Computer</a>, Extensions are stored at <code>/var/lib/docker</code> in the file-system, but should be managed through the BlueOS <a href="../advanced-usage/#extensions-manager">Extensions Manager</a>.</p>
+<h3 id="ecosystem-attributes">Ecosystem Attributes</h3>
+<h4 id="current-extensions-manager-features">Current Extensions Manager Features</h4>
+<ul>
+<li>Install Extensions from store</li>
+<li>Runs installed Extensions on startup</li>
+<li>Track CPU and memory usage (per Extension)</li>
+<li>Manage/edit permissions (including limiting hardware resource access/usage)</li>
+<li>View Extension logs</li>
+<li>Disable Extensions</li>
+<li>Uninstall Extensions that are no longer wanted</li>
+<li>Manually update/rollback Extensions (select version)</li>
+<li>Create a custom Extension configuration</li>
+<li>Allow restarting Extensions</li>
+</ul>
+<h4 id="planned-extensions-manager-features">Planned Extensions Manager Features</h4>
+<ul>
+<li>Notify users of available updates</li>
+<li>Support userdata file cleanup from Extensions (checks for dependencies)</li>
+<li>Improve permissions interface (to show what's available/requested)</li>
+<li>See more / track progress in the <a href="https://github.com/bluerobotics/BlueOS-docker/issues/1180">Kraken development tracker</a></li>
+</ul>
+<h2 id="development-process">Development Process</h2>
+<blockquote>
+<p>💡 Walkthrough coming soon!</p>
+</blockquote>
+<ul>
+<li><a href="https://github.com/bluerobotics/ardusub-zola/blob/BlueOS-1.1/extensions/development-process.mermaid">Sneak peek diagram</a></li>
+</ul>
+
+        
+          
+<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.1&#x2F;extensions.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
+            
+              
+              <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.0&#x2F;advanced-usage&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; Advanced Usage
+                  </div>
+                </div>
+              </a>
+            
+            
+            
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Powered by <a href="https://www.getzola.org/">Zola</a> and <a href="https://github.com/ES-Alexander/adidoks">AdiDoks</a>. Sponsored by <a href="http://www.bluerobotics.com/">Blue Robotics</a>.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Code under <a href="https://github.com/ArduPilot/ardupilot/blob/master/COPYING.txt">GPLv3 License</a>. Documentation under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-NC-SA 4.0</a>.</li>
+					  
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/js/main.js" defer></script>
+
+<script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/plugins/elasticlunr.min.js" defer></script>
+  <script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/search_index.en.js" defer></script>
+  <script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/js/search.js" defer></script>
+
+  
+</body>
+</html>
