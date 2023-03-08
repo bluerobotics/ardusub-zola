@@ -46,9 +46,9 @@
 
 	
 
-<title>Installation | ArduSub</title>
-<meta name="description" content="BlueOS installation instructions.">
-<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/installation/">
+<title>Getting Started | ArduSub</title>
+<meta name="description" content="BlueOS getting started instructions.">
+<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/">
 
 
 
@@ -124,11 +124,14 @@
           {
             "@type": "ListItem",
             "position":  4 ,
-            "name": "Blueos 1.0",
-            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/"
+            "name": "Blueos 1.1",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/"
           },
         
       
+        
+        
+        
         
         
         
@@ -142,8 +145,8 @@
           {
             "@type": "ListItem",
             "position":  5 ,
-            "name": "Installation",
-            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/installation/"
+            "name": "Getting Started",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/"
           },
         
       
@@ -234,13 +237,13 @@
 					<h3>BlueOS</h3>
 					<ul class="list-unstyled">
 					                           
-							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/overview/">Overview</a></li>
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/">Overview</a></li>
 					                           
-							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/installation/">Installation</a></li>
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/">Installation</a></li>
 					                           
-							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/getting-started/">Getting Started</a></li>
+							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/">Getting Started</a></li>
 					                           
-							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/">Advanced Usage</a></li>
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/advanced-usage/">Advanced Usage</a></li>
 					
 					</ul>
 			
@@ -256,19 +259,32 @@
   			<nav id="TableOfContents">
   					<ul>
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/installation/#download">Download</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#network-configuration">Network Configuration</a></li>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/installation/#flash">Flash</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#new-web-interface">New Web Interface</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#interface-access">Interface Access</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#interface-features">Interface Features</a></li>
+  											
+  									</ul>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/installation/#run">Run</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#updating-releases">Updating &#x2F; Releases</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#connect-wifi">Connect Wifi</a></li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#select-version">Select Version</a></li>
+  											
+  									</ul>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/installation/#updates">Updates</a></li>
-  							
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/installation/#manual-installation">Manual Installation</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#camera-streams">Camera Streams</a></li>
   							
   							
   					</ul>
@@ -278,36 +294,69 @@
   
 
       <main class="docs-content col-lg-11 col-xl-9">
-        <h1>Installation</h1>
-        <p class="lead">Now with a stable release! Be aware that if you have a <strong>B.E.T.A</strong> before <strong>1.0.0 release</strong> a fresh SD card flash is necessary.</p>
-        <h2 id="download">Download</h2>
-<p>BlueOS is a ground-up rewrite software to replace Companion. To use it you'll need to download and flash an SD card.
-It is compatible with both <strong>Raspberry Pi 3</strong> and <strong>Raspberry Pi 4</strong>.</p>
-<p>The latest available stable version is:</p>
+        <h1>Getting Started</h1>
+        
+        <h2 id="network-configuration">Network Configuration</h2>
+<p>Your topside computer’s network configuration should be the same as for the previous Companion software.
+To configure it, you can follow our <a href="https://www.ardusub.com/quick-start/installing-companion.html#network-setup">network setup instructions</a>.</p>
+<h2 id="new-web-interface">New Web Interface</h2>
+<p>BlueOS is designed to be a modular collection of services, which generally each provide a REST API, documentation, and a development webpage.
+The web interface monitors the autopilot and other main software components, and also listens for and displays connections from other HTTP servers (on TCP ports) and docker containers, so you can keep your own integrations isolated from the normal BlueOS release/update cycle.</p>
+<h3 id="interface-access">Interface Access</h3>
+<p>You can access BlueOS via the old IP address (<a href="http://192.168.2.2/">192.168.2.2</a>) or via <a href="http://blueos.local/">blueos.local</a>, to connect with it via wifi, it's possible to use <a href="http://blueos-wifi.local/">blueos-wifi.local</a>.</p>
+<h3 id="interface-features">Interface Features</h3>
+<p>When you first open the web interface, you'll see a page that looks like this:
+<img src="main-page.png" width="650"></p>
+<p>Of particular note is the header, which contains:</p>
 <ul>
-<li><a href="https://github.com/bluerobotics/BlueOS-docker/releases/download/1.0.1/BlueOS-raspberry.zip">1.0.1</a> (06-april-2022)</li>
+<li>the main hamburger menu (top left corner), for managing your flight controller and accessing some useful tools, and</li>
+<li>health, wifi, network, and notification indicators (top right corner)</li>
 </ul>
-<h2 id="flash">Flash</h2>
-<p>We recommend using a fresh SD card, with at least 4GB capacity.</p>
+<h2 id="updating-releases">Updating / Releases</h2>
+<p>BlueOS supports <a href="../overview/#release-types">multiple release types</a> - we recommend the latest stable version for most people. Releases and change-logs are available on the <a href="https://github.com/bluerobotics/blueos-docker/releases">GitHub releases page</a>.</p>
+<h3 id="connect-wifi">Connect Wifi</h3>
+<p>When starting out, it's important to connect to wifi so you can update to the latest suitable release.</p>
 <ol>
-<li>Download and install <a href="https://www.balena.io/etcher/">Balena Etcher</a></li>
-<li>Insert the SD card to your computer (you may need an SD card reader)</li>
-<li>Open Etcher, select the image you just downloaded, and flash it onto the SD card</li>
+<li>
+<p>First, click the wifi indicator to scan for available wifi networks</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/wifi-scan.png" alt="Wifi Scan" /></p>
+</li>
+<li>
+<p>Select the desired network, type in the password, and click connect</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/wifi-login.png" alt="Wifi Login" /></p>
+</li>
+<li>
+<p>Once connected, the wifi icon will change to show the signal strength, and the connected wifi network will be selected on the menu</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/wifi-confirm.png" alt="Wifi Confirm" /></p>
+</li>
 </ol>
-<h2 id="run">Run</h2>
+<h3 id="select-version">Select Version</h3>
+<p>Now that your BlueOS has an internet connection, you can perform the update to the latest available version.</p>
 <ol>
-<li>Eject your SD card with the new BlueOS software</li>
-<li>Insert it into your Raspberry Pi, and power it up!</li>
+<li>
+<p>Click on the hamburger menu</p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/version-menu.png" alt="Version Menu" /></p>
+</li>
+<li>
+<p>Under <strong>tools</strong>, select <a href="../advanced-usage/#version-chooser"><strong>Version-Chooser</strong></a></p>
+<p><img src="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/version-chooser.png" alt="Version Chooser" /></p>
+</li>
+<li>
+<p>If you're already on the latest version, the right side of your Local Version will be blank. If not, you should see a blue <strong>Update</strong> button.</p>
+<img src="version-update.png" width="650">
+</li>
+<li>
+<p>Once the update button is clicked the update process will run.
+Please wait until it finishes - it will automatically reload the webpage for you.</p>
+</li>
 </ol>
-<p>The first boot may take a couple of minutes, as it expands the filesystem to the new SD card capacity. It should take around 2 minutes for a 16GB class 10 SD card.</p>
-<h2 id="updates">Updates</h2>
-<p>Once BlueOS is installed, updating to a different version is simple via the <a href="./advanced-usage/#version-chooser">Version Chooser</a>.</p>
-<h2 id="manual-installation">Manual Installation</h2>
-<p>For developers with alternative hardware, or who would rather install over a pre-installed base operating system / image, BlueOS provides an <a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/install">install directory</a> with utilities to help perform manual/software-based installations.</p>
+<h2 id="camera-streams">Camera Streams</h2>
+<p>BlueOS is capable of configuring and streaming multiple cameras simultaneously. The first time it boots, it will automatically detect any connected H264-capable cameras and start streaming them. If not, make sure your camera is properly connected, and that BlueOS is on the latest available version. Reset settings and restart BlueOS if necessary.</p>
+<p>Additional information is available in the <a href="../advanced-usage/#video">Video</a> section of the <a href="../advanced-usage">Advanced Usage</a> page.</p>
 
         
           
-<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.0&#x2F;installation.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
+<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.1&#x2F;getting-started.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
 
         
         
@@ -322,6 +371,29 @@ It is compatible with both <strong>Raspberry Pi 3</strong> and <strong>Raspberry
     
     
       
+        
+        
+          
+        
+      
+        
+        
+          
+            
+              
+              <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.0&#x2F;advanced-usage&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; Advanced Usage
+                  </div>
+                </div>
+              </a>
+            
+            
+            
+          
+        
+      
     
   
 
@@ -340,19 +412,6 @@ It is compatible with both <strong>Raspberry Pi 3</strong> and <strong>Raspberry
     
       
       
-        
-          
-          
-          <a class="ms-auto" href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.1&#x2F;overview&#x2F;">
-            <div class="card my-1">
-              <div class="card-body py-2">
-                Overview &rarr;
-              </div>
-            </div>
-          </a>
-          
-          
-          
         
       
     

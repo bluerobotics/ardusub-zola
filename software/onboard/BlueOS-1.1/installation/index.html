@@ -20,9 +20,13 @@
 
   
   
+    
+    
+  
+  
   
     
-    
+  
   
   
   
@@ -42,9 +46,9 @@
 
 	
 
-<title>Onboard Computer | ArduSub</title>
-<meta name="description" content="Versioned documentation for the different onboard computer softwares.">
-<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/">
+<title>Installation | ArduSub</title>
+<meta name="description" content="BlueOS installation instructions.">
+<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/">
 
 
 
@@ -104,6 +108,45 @@
           },
         
       
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Blueos 1.1",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  5 ,
+            "name": "Installation",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/"
+          },
+        
+      
     
   }
 </script>
@@ -128,7 +171,7 @@
 
   
 
-<body class="docs list">
+<body class="docs single">
   
   
   
@@ -158,7 +201,7 @@
 				
 				
 					
-						<li class="nav-item  active">
+						<li class="nav-item">
 							<a class="nav-link" href="https://docs.bluerobotics.com/ardusub-zola/"></a>
 						</li>
 					
@@ -181,45 +224,152 @@
   
 <div class="wrap container" role="document">
   <div class="content">
-    <div class="row justify-content-center">
-      <div class="col-md-12 col-lg-10 col-xl-8">
-        <article>
-          <h1 class="text-center">Onboard Computer</h1>
-          <div class="text-center"></div>
-          <div class="card-list">
-            
-            
-            
-            
-            
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+					<h3>BlueOS</h3>
+					<ul class="list-unstyled">
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/">Overview</a></li>
+					                           
+							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/">Installation</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/">Getting Started</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/advanced-usage/">Advanced Usage</a></li>
+					
+					</ul>
+			
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-3" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/#download">Download</a></li>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/#flash">Flash</a></li>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/#run">Run</a></li>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/#updates">Updates</a></li>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/#manual-installation">Manual Installation</a></li>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>Installation</h1>
+        <p class="lead">Now with a stable release! Be aware that if you have a <strong>B.E.T.A</strong> before <strong>1.0.0 release</strong> a fresh SD card flash is necessary.</p>
+        <h2 id="download">Download</h2>
+<p>BlueOS is a ground-up rewrite software to replace Companion. To use it you'll need to download and flash an SD card.
+It is compatible with both <strong>Raspberry Pi 3</strong> and <strong>Raspberry Pi 4</strong>.</p>
+<p>The latest available stable version is:</p>
+<ul>
+<li><a href="https://github.com/bluerobotics/BlueOS-docker/releases/download/1.0.1/BlueOS-raspberry.zip">1.0.1</a> (06-april-2022)</li>
+</ul>
+<h2 id="flash">Flash</h2>
+<p>We recommend using a fresh SD card, with at least 4GB capacity.</p>
+<ol>
+<li>Download and install <a href="https://www.balena.io/etcher/">Balena Etcher</a></li>
+<li>Insert the SD card to your computer (you may need an SD card reader)</li>
+<li>Open Etcher, select the image you just downloaded, and flash it onto the SD card</li>
+</ol>
+<h2 id="run">Run</h2>
+<ol>
+<li>Eject your SD card with the new BlueOS software</li>
+<li>Insert it into your Raspberry Pi, and power it up!</li>
+</ol>
+<p>The first boot may take a couple of minutes, as it expands the filesystem to the new SD card capacity. It should take around 2 minutes for a 16GB class 10 SD card.</p>
+<h2 id="updates">Updates</h2>
+<p>Once BlueOS is installed, updating to a different version is simple via the <a href="./advanced-usage/#version-chooser">Version Chooser</a>.</p>
+<h2 id="manual-installation">Manual Installation</h2>
+<p>For developers with alternative hardware, or who would rather install over a pre-installed base operating system / image, BlueOS provides an <a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/install">install directory</a> with utilities to help perform manual/software-based installations.</p>
+
+        
+          
+<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.1&#x2F;installation.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+          
+        
+      
+        
+        
+          
             
               
-              
-              
-              
-                
-              
-              <div class="card my-3">
-                  <div class="card-body">
-                    <a class="stretched-link" href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.1&#x2F;">BlueOS - 1.0 →</a>
+              <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.0&#x2F;advanced-usage&#x2F;">
+                <div class="card my-1">
+                  <div class="card-body py-2">
+                    &larr; Advanced Usage
                   </div>
-              </div>
+                </div>
+              </a>
             
-              
-              
-              
-              
-                
-              
-              <div class="card my-3">
-                  <div class="card-body">
-                    <a class="stretched-link" href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.0&#x2F;">BlueOS - 1.0 →</a>
-                  </div>
-              </div>
             
-          </div>
-        </article>
-      </div>
+            
+          
+        
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
     </div>
   </div>
 </div>
