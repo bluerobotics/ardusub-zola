@@ -1,7 +1,7 @@
 +++
 title = "Other Sensors (Temperature, Salinity, Thickness, etc)"
 description = "Can be helpful for research, or estimating related phenomena (e.g. sound speed for sonar and acoustic positioning performance)."
-date = 2022-10-11T17:33:19+11:00
+date = 2023-03-10T08:00:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 15
@@ -15,7 +15,9 @@ top = false
 A variety of other sensors types can be useful in a marine environment, for research and/or to measure phenomena that improve the accuracy of other sensors and vehicle control. Sensors that may be of interest include
 
 - temperature
-- [O2, salinity, conductivity, pH](https://discuss.bluerobotics.com/t/o2-and-salinity-sensors/2569)
+- [O2, salinity](https://discuss.bluerobotics.com/t/o2-and-salinity-sensors/2569)
+- [conductivity](https://discuss.bluerobotics.com/t/using-conductivity-sensor-with-brs-flight-controller-and-qgc/13126)
+- [pH](https://discuss.bluerobotics.com/t/ph-sensor-recommendations/13197)
 - [ultrasonic thickness gauge](https://discuss.bluerobotics.com/t/cygnus-ultrasonic-thickness-gage/2967)
 - hydrophones
 - [sediment and water samplers](https://discuss.bluerobotics.com/t/water-sampler-sediment-sampler/2712)
