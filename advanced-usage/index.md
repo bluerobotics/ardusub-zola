@@ -505,10 +505,14 @@ connected at that time, with UDP streams counting up from port `5600`
       - This only works for streams of the same endpoint type (e.g. it is not
       currently possible to mix UDP and RTSP output streams for the same input)
 
-{{ easy_image(src="video-stream-example", width=400, center=true) }}
+{{ simple_pirate_image(src="video-stream-example", width=400, center=true) }}
 
 - The streams are also presented via MAVLink, so QGroundControl (>=v4.1.7) can
 toggle between them without needing to know specific ports.
+{% pirate() %}
+   - It is possible to specify a stream as "thermal", which allows it to be
+   overlaid on another stream in some viewing applications
+{% end %}
 
 {{ easy_image(src="qgc_switch_streams", width=400, center=true) }}
 
