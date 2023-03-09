@@ -263,6 +263,7 @@ excessive resources.
 {{ easy_image(src="system-info-monitor", width=600) }}
 {{ easy_image(src="system-info-network", width=600) }}
 {{ easy_image(src="system-info-kernel", width=600, class="pirate") }}
+{{ easy_image(src="system-info-firmware", width=600, class="pirate") }}
 {{ easy_image(src="system-info-about", width=600) }}
 
 {% pirate() %}
