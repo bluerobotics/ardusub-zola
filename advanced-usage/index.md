@@ -529,8 +529,8 @@ controllable in QGroundControl
        - Note that some playback applications (e.g. VLC)  treat odd-numbered ports
        as audio channels, so relevant video streams should only use even-numbered
        ports
-       - UDP streams have the option to download an SDP file to easier playback
-       on some applications `(New in 1.1)`
+       - UDP streams have the option to download an SDP file (or copy a URL to it),
+       for easier video playback in applications like VLC `(New in 1.1)`
 - Raspberry Pi cameras are supported `(New in 1.1)`
    - Detection requires turning on legacy camera support:
       1. turn on via the settings button in the buttom right corner
