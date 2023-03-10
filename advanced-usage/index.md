@@ -131,6 +131,7 @@ is wide enough, the sidebar automatically stays open.
    - Remove existing camera/endpoint/bridges configuration
 - Remove log files from BlueOS services (to reduce space usage on the SD card)
 - Download log files from BlueOS services to report a problem
+  - Old logs are aggregated and kept as zip files
 
 ##### Power
 
