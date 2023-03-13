@@ -6,6 +6,8 @@ template = "docs/page.html"
 sort_by = "weight"
 weight = 20
 draft = false
+aliases = ['/software/companion/1.0/configuration']
+
 [extra]
 lead = ''
 toc = true
