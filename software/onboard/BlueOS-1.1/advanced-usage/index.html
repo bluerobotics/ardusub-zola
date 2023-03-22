@@ -490,6 +490,11 @@ is wide enough, the sidebar automatically stays open.</p>
 </ul>
 </li>
 <li>Remove log files from BlueOS services (to reduce space usage on the SD card)</li>
+<li>Download log files from BlueOS services to report a problem
+<ul>
+<li>Old logs are aggregated and kept as zip files</li>
+</ul>
+</li>
 </ul>
 <h5 id="power">Power</h5>
 <div class="simple" style="display:none;padding-bottom:15px;">
@@ -691,6 +696,9 @@ excessive resources.</p>
 </div>
 <div class="pirate" style="display:block;padding-bottom:15px;">
 <img src="system-info-kernel.png" alt="System Info Kernel" width=600 >
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;">
+<img src="system-info-firmware.png" alt="System Info Firmware" width=600 >
 </div>
 <div style="padding-bottom:15px;">
 <img src="system-info-about.png" alt="System Info About" width=600 >
@@ -1051,13 +1059,22 @@ currently possible to mix UDP and RTSP output streams for the same input)</li>
 </ul>
 </li>
 </ul>
-<div style="padding-bottom:15px;text-align:center;">
-<img src="video-stream-example.png" alt="Video Stream Example" width=400 >
+<div class="simple" style="display:none;padding-bottom:15px;text-align:center;">
+<img src="video-stream-example-simple.png" alt="Video Stream Example (simple mode)" width=400 >
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;text-align:center;">
+<img src="video-stream-example-pirate.png" alt="Video Stream Example (pirate mode)" width=400 >
 </div>
 <ul>
 <li>The streams are also presented via MAVLink, so QGroundControl (&gt;=v4.1.7) can
 toggle between them without needing to know specific ports.</li>
 </ul>
+<div class="pirate" style="color:grey;display:block;">
+<ul>
+<li>It is possible to specify a stream as &quot;thermal&quot;, which allows it to be
+overlaid on another stream in some viewing applications</li>
+</ul>
+</div>
 <div style="padding-bottom:15px;text-align:center;">
 <img src="qgc_switch_streams.png" alt="Qgc_switch_streams" width=400 >
 </div>
@@ -1086,8 +1103,8 @@ here</a>
 <li>Note that some playback applications (e.g. VLC)  treat odd-numbered ports
 as audio channels, so relevant video streams should only use even-numbered
 ports</li>
-<li>UDP streams have the option to download an SDP file to easier playback
-on some applications <code>(New in 1.1)</code></li>
+<li>UDP streams have the option to download an SDP file (or copy a URL to it),
+for easier video playback in applications like VLC <code>(New in 1.1)</code></li>
 </ul>
 </li>
 </ul>
