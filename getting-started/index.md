@@ -18,6 +18,21 @@ top = false
 Your topside computer’s network configuration should be the same as for the previous Companion software.
 To configure it, you can follow our [network setup instructions](https://www.ardusub.com/quick-start/installing-companion.html#network-setup).
 
+## USB OTG
+It's also possible to connect with the Raspberry Pi through its USB-C port[^1]. Once it's connected, the system should be available though `blueos.local`[^2].
+[^1]:A Raspberry Pi draws more power than many computer USB ports can provide, so a USB-C connection should generally only be used for data transfer, with a separate [power supply](@/hardware/required/power-supply/index.md) (or through a powered USB hub).
+[^2]:The `usb0` network interface is configured to use a DHCP server by default, which does not provide access via the `192.168.2.2` static IP address.
+
+### Mac configuration
+If you are using MacOS, be sure to allow the RNDIS/ethernet gadget.
+{{ easy_image(src="allow-rndis", width="300") }}
+
+To avoid problems related to internet access while connected with BlueOS, be sure to change the order of your network interfaces, making sure that wifi and your wired internet connection comes first.
+
+{{ easy_image(src="network-settings", width="600") }}
+
+{{ easy_image(src="network-service-order", width="400") }}
+
 ## Web Interface
 
 BlueOS is designed as a modular collection of services, which are accessed and configured via a combined web interface.
