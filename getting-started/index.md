@@ -18,6 +18,21 @@ top = false
 Your topside computer’s network configuration should be the same as for the previous Companion software.
 To configure it, you can follow our [network setup instructions](https://www.ardusub.com/quick-start/installing-companion.html#network-setup).
 
+## USB OTG
+It's also possible to connect with the Raspberry Pi through its USB-C port[^1]. Once it's connected, the system should be available though `blueos.local`[^2].
+[^1]:A Raspberry Pi draws more power than many computer USB ports can provide, so a USB-C connection should generally only be used for data transfer, with a separate [power supply](@/hardware/required/power-supply/index.md) (or through a powered USB hub).
+[^2]:The `usb0` network interface is configured to use a DHCP server by default, which does not provide access via the `192.168.2.2` static IP address.
+
+### Mac configuration
+If you are using MacOS, be sure to allow the RNDIS/ethernet gadget.
+{{ easy_image(src="allow-rndis", width="300") }}
+
+To avoid problems related to internet access while connected with BlueOS, be sure to change the order of your network interfaces, making sure that wifi and your wired internet connection comes first.
+
+{{ easy_image(src="network-settings", width="600") }}
+
+{{ easy_image(src="network-service-order", width="400") }}
+
 ## Web Interface
 
 BlueOS is designed as a modular collection of services, which are accessed and configured via a combined web interface.
@@ -26,8 +41,34 @@ The web interface monitors the autopilot and other main software components. It 
 
 ### Interface Access
 
-By default you can access BlueOS via the old IP address ([192.168.2.2](http://192.168.2.2/)) or via [blueos.local](http://blueos.local/).
-When BlueOS is connected to the same wifi network as your device you can also connect with it using [blueos-wifi.local](http://blueos-wifi.local/).
+- By default you can access BlueOS via [blueos.local](http://blueos.local/)
+    - This applies if the BlueOS device is connected to via a direct ethernet connection, or [USB-OTG](#usb-otg)
+    - On an ethernet connection you can also access BlueOS via its static IP address ([192.168.2.2](http://192.168.2.2/))
+- When BlueOS is connected to the same wifi network as your device you can also connect with it using [blueos-wifi.local](http://blueos-wifi.local/)
+- By default if BlueOS does not have a wifi connection configured within 5 minutes of booting, it will start its own wifi hotspot which, when connected to, allows accessing the BlueOS interface via [blueos-hotspot.local](http://blueos-hotspot.local/)
+
+### Wizard
+
+When BlueOS is newly installed the interface provides a configuration wizard to help get things set up. 
+
+The Welcome section allows skipping the wizard if BlueOS and your vehicle have already been configured as desired:
+{{ easy_image(src="wizard-welcome", width=450, center=true) }}
+
+To support BlueOS and autopilot firmware updates, it is recommended for BlueOS to be connected to the internet:
+{{ easy_image(src="wizard-wifi", width=450, center=true) }}
+
+BlueOS supports multiple vehicle types, and allows selecting a quick-setup option for the most common ones:
+{{ easy_image(src="wizard-vehicle", width=450, center=true) }}
+
+Vehicle quick-setup involves setting appropriate parameters for the selected vehicle type and frame, as well as choosing a name for your vehicle, and changing the mDNS hostname if you would prefer to connect with something other than [blueos.local](http://blueos.local):
+{{ easy_image(src="wizard-parameters", width=450, center=true) }}
+
+Progress is displayed for any selected configuration changes, and an up to date autopilot firmware is downloaded and installed (if using a standard vehicle type):
+{{ easy_image(src="wizard-progress", width=450, center=true) }}
+
+A completion window is shown once all configuration is done:
+{{ easy_image(src="wizard-complete", width=450, center=true) }}
+>>>>>>> 3670e2e (getting started: USB-OTG fixup)
 
 ### Interface Features
 
@@ -72,6 +113,7 @@ Now that your BlueOS has an internet connection, you can perform the update to t
 1. If you're already on the latest version, the right side of your Local Version will be blank. If not, you should see a blue **Update** button.
 
    <img src="../advanced-usage/version-chooser-simple.png" width="550">
+
 1. Once the update button is clicked the update process will run.
    Please wait until it finishes - it will automatically reload the webpage for you.
 
@@ -80,3 +122,20 @@ Now that your BlueOS has an internet connection, you can perform the update to t
 BlueOS is capable of configuring and streaming multiple cameras simultaneously. The first time it boots, it will automatically detect any connected H264-capable cameras and start streaming them. If not, make sure your camera is properly connected, and that BlueOS is on the latest available version. Reset settings and restart BlueOS if necessary.
 
 Additional information is available in the Advanced Usage [Video Streams](../advanced-usage/#video-streams) section.
+
+## USB OTG
+It is possible to connect with a Raspberry Pi 4 through its USB-C port[^1]. Once it's connected, the interface should be available though [blueos.local](http://blueos.local)[^2].
+
+[^1]:A Raspberry Pi draws more power than many computer USB ports can provide, so a USB-C connection should generally only be used for data transfer, with a separate [power supply](@/hardware/required/power-supply/index.md) (or through a powered USB hub).
+
+[^2]:The `usb0` network interface is configured to use a DHCP server at `192.168.3.1` by default, which does **not** provide access via the [192.168.2.2](http://192.168.2.2) static IP address.
+
+### Mac configuration
+If you are using MacOS, make sure to allow the RNDIS/ethernet gadget:
+{{ easy_image(src="allow-rndis", width="300") }}
+
+MacOS will consider a USB-OTG connection as a valid source of internet, which can be avoided by reordering your network interfaces, making sure that wifi and your actual wired internet connection interface are used with higher priority.
+
+{{ easy_image(src="network-settings", width="600") }}
+
+{{ easy_image(src="network-service-order", width="400") }}
