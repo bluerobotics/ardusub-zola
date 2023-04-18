@@ -197,6 +197,15 @@ Documentation can also be parsed if
 {{ easy_image(src="available-services", width=600, class="pirate") }}
 
 {% pirate() %}
+### Bag Editor
+{{ service(service="Bag of Holding", port=9101, link="/services/bag_of_holding", based=true) }}
+
+The Bag Editor is a helper service for advanced users, which allows modifying the
+database used to handle frontend interface changes.
+{% end %}
+{{ easy_image(src="bag-editor", width=600, class="pirate") }}
+
+{% pirate() %}
 ### File Browser
 {% end %}
 {{ service(service="File Browser", port=7777, link="https://github.com/filebrowser/filebrowser") }}
