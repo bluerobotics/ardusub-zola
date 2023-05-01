@@ -51,14 +51,14 @@ A Docker Container generally acts like an isolated mini operating system, but it
 The process of packaging a set of programs and files into a Docker Image requires a [Dockerfile](https://docs.docker.com/engine/reference/builder/), which can be thought of as recipe for building the Image.
 
 For an Extension to be properly managed and shareable, the Dockerfile it's created from should include relevant metadata[^2] via the following labels:
-- `LABEL permisions = "{}"`
+- `LABEL permisions='{}'`
    - This can be used to set resource limits, including allowing access to specific components of the underlying hardware
    - This must be a valid JSON (use \ to break lines), which follows the configuration described in the [Docker Api](https://docs.docker.com/engine/api/v1.41/#tag/Container/operation/ContainerCreate)
    - For reference, existing permissions can be retrieved from a running Docker Container by running the command `docker inspect <container_name>`
       - Do not copy the whole output to use in your Extension - only the minimal requirements for the Extension to work
    - Common uses of the `permissions` label include:
       - Mapping/mounting a folder from the host device into the running Container
-         ```json
+         ```dockerfile
          "HostConfig":\
            {\
              {\
@@ -69,8 +69,8 @@ For an Extension to be properly managed and shareable, the Dockerfile it's creat
            }
          ```
       - Automatically mapping port 80 of the Container to a free port in the host
-         ```json
-         LABEL permissions '\
+         ```dockerfile
+         LABEL permissions='\
          {\
           "ExposedPorts": {\
             "80/tcp": {}\
@@ -105,7 +105,19 @@ For an Extension to be properly managed and shareable, the Dockerfile it's creat
 - `LABEL authors`
    - The individual author(s) who have developed the Extension
    - Useful for giving credit, and as a potential support backup
-   - This should be a JSON dict where keys are author names and values are emails
+   - This should be a list of JSON dicts, each containing a "name" and "email" key with corresponding values
+   ```dockerfile
+   LABEL authors='[\
+       {\
+           "name": "Me",\
+           "email": "me@email.com"\
+       },\
+       {\
+           "name": "Me Too",\
+           "email": "me2@email.com"\
+       }\
+   ]'
+   ```
 - `LABEL company` (becoming `maintainer`)
    - The person or company responsible for maintaining the Extension
    - JSON object in the form
@@ -135,15 +147,15 @@ For an Extension to be properly managed and shareable, the Dockerfile it's creat
 - `LABEL requirements`
    - SemVer-compliant dependency requirements for this Extension to work correctly (with BlueOS and/or other Extensions)
    - format not yet finalised 
-      - will likely be something like `>= repo/extension-name:version`
+      - will likely be something like `repo/extension-name >= version`
 - `LABEL type`
    - Useful for broad-strokes filtering when searching for/browsing Extensions
    - Not yet implemented in the Extensions Manager
    - Should be one of the following strings:
       - `"device-integration"`
-      - `"example"` (for Extension examples)
       - `"theme"`
       - `"other"`
+      - `"example"` (for Extension examples)
 - `LABEL tags`
    - Useful for finer-grained filtering to help find relevant Extensions
    - Not yet implemented in the Extensions Manager
