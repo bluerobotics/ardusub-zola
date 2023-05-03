@@ -312,7 +312,7 @@
 <p>The process of packaging a set of programs and files into a Docker Image requires a <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>, which can be thought of as recipe for building the Image.</p>
 <p>For an Extension to be properly managed and shareable, the Dockerfile it's created from should include relevant metadata<sup class="footnote-reference"><a href="#2">2</a></sup> via the following labels:</p>
 <ul>
-<li><code>LABEL permisions = &quot;{}&quot;</code>
+<li><code>LABEL permisions='{}'</code>
 <ul>
 <li>This can be used to set resource limits, including allowing access to specific components of the underlying hardware</li>
 <li>This must be a valid JSON (use \ to break lines), which follows the configuration described in the <a href="https://docs.docker.com/engine/api/v1.41/#tag/Container/operation/ContainerCreate">Docker Api</a></li>
@@ -323,31 +323,31 @@
 </li>
 <li>Common uses of the <code>permissions</code> label include:
 <ul>
-<li>Mapping/mounting a folder from the host device into the running Container<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>&quot;</span><span style="color:#a3be8c;">HostConfig</span><span>&quot;:\
-</span><span>  {</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
-</span><span>    </span><span style="background-color:#bf616a;color:#2b303b;">{\</span><span>
-</span><span>      </span><span style="background-color:#bf616a;color:#2b303b;">{\</span><span>
-</span><span>        &quot;</span><span style="color:#a3be8c;">Binds</span><span>&quot;:[&quot;</span><span style="color:#a3be8c;">/var/lib/zerotier-one:/var/lib/zerotier-one</span><span>&quot;]</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+<li>Mapping/mounting a folder from the host device into the running Container<pre data-lang="dockerfile" style="background-color:#2b303b;color:#c0c5ce;" class="language-dockerfile "><code class="language-dockerfile" data-lang="dockerfile"><span>&quot;HostConfig&quot;:\
+</span><span>  {\
+</span><span>    {\
+</span><span>      {\
+</span><span>        &quot;Binds&quot;:[&quot;/var/lib/zerotier-one:/var/lib/zerotier-one&quot;]\
 </span><span>      }\
 </span><span>    }\
 </span><span>  }
 </span></code></pre>
 </li>
-<li>Automatically mapping port 80 of the Container to a free port in the host<pre data-lang="json" style="background-color:#2b303b;color:#c0c5ce;" class="language-json "><code class="language-json" data-lang="json"><span>LABEL permissions &#39;\
-</span><span>{</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
-</span><span> &quot;</span><span style="color:#a3be8c;">ExposedPorts</span><span>&quot;: {</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
-</span><span>   &quot;</span><span style="color:#a3be8c;">80/tcp</span><span>&quot;: {}</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
-</span><span>  },</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
-</span><span>  &quot;</span><span style="color:#a3be8c;">HostConfig</span><span>&quot;: {</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
-</span><span>    &quot;</span><span style="color:#a3be8c;">Binds</span><span>&quot;:[&quot;</span><span style="color:#a3be8c;">/root/.config:/root/.config</span><span>&quot;],</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
-</span><span>    &quot;</span><span style="color:#a3be8c;">PortBindings</span><span>&quot;: {</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
-</span><span>      &quot;</span><span style="color:#a3be8c;">80/tcp</span><span>&quot;: [</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
-</span><span>        {</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
-</span><span>          &quot;</span><span style="color:#a3be8c;">HostPort</span><span>&quot;: &quot;&quot;</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
-</span><span>        }</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
-</span><span>      ]</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
-</span><span>    }</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
-</span><span>  }</span><span style="background-color:#bf616a;color:#2b303b;">\</span><span>
+<li>Automatically mapping port 80 of the Container to a free port in the host<pre data-lang="dockerfile" style="background-color:#2b303b;color:#c0c5ce;" class="language-dockerfile "><code class="language-dockerfile" data-lang="dockerfile"><span>LABEL permissions=&#39;\
+</span><span>{\
+</span><span> &quot;ExposedPorts&quot;: {\
+</span><span>   &quot;80/tcp&quot;: {}\
+</span><span>  },\
+</span><span>  &quot;HostConfig&quot;: {\
+</span><span>    &quot;Binds&quot;:[&quot;/root/.config:/root/.config&quot;],\
+</span><span>    &quot;PortBindings&quot;: {\
+</span><span>      &quot;80/tcp&quot;: [\
+</span><span>        {\
+</span><span>          &quot;HostPort&quot;: &quot;&quot;\
+</span><span>        }\
+</span><span>      ]\
+</span><span>    }\
+</span><span>  }\
 </span><span>}&#39;
 </span></code></pre>
 </li>
@@ -379,8 +379,19 @@
 <ul>
 <li>The individual author(s) who have developed the Extension</li>
 <li>Useful for giving credit, and as a potential support backup</li>
-<li>This should be a JSON dict where keys are author names and values are emails</li>
+<li>This should be a list of JSON dicts, each containing a &quot;name&quot; and &quot;email&quot; key with corresponding values</li>
 </ul>
+<pre data-lang="dockerfile" style="background-color:#2b303b;color:#c0c5ce;" class="language-dockerfile "><code class="language-dockerfile" data-lang="dockerfile"><span>LABEL authors=&#39;[\
+</span><span>    {\
+</span><span>        &quot;name&quot;: &quot;Me&quot;,\
+</span><span>        &quot;email&quot;: &quot;me@email.com&quot;\
+</span><span>    },\
+</span><span>    {\
+</span><span>        &quot;name&quot;: &quot;Me Too&quot;,\
+</span><span>        &quot;email&quot;: &quot;me2@email.com&quot;\
+</span><span>    }\
+</span><span>]&#39;
+</span></code></pre>
 </li>
 <li><code>LABEL company</code> (becoming <code>maintainer</code>)
 <ul>
@@ -423,7 +434,7 @@
 <li>SemVer-compliant dependency requirements for this Extension to work correctly (with BlueOS and/or other Extensions)</li>
 <li>format not yet finalised 
 <ul>
-<li>will likely be something like <code>&gt;= repo/extension-name:version</code></li>
+<li>will likely be something like <code>repo/extension-name &gt;= version</code></li>
 </ul>
 </li>
 </ul>
@@ -435,9 +446,9 @@
 <li>Should be one of the following strings:
 <ul>
 <li><code>&quot;device-integration&quot;</code></li>
-<li><code>&quot;example&quot;</code> (for Extension examples)</li>
 <li><code>&quot;theme&quot;</code></li>
 <li><code>&quot;other&quot;</code></li>
+<li><code>&quot;example&quot;</code> (for Extension examples)</li>
 </ul>
 </li>
 </ul>
