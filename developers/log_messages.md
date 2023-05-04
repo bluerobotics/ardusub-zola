@@ -1,7 +1,7 @@
 +++
 title = "Onboard Log Messages"
-description = "Message listing for `.bin` autopilot logs."
-date = 2023-05-02T23:48:33+10:00
+description = "Message listing for DataFlash autopilot logs."
+date = 2023-05-04T17:13:47+10:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 30
@@ -13,7 +13,9 @@ top = false
 
 <!-- Dynamically generated using Tools/autotest/logger_metadata/parse.py
 DO NOT EDIT -->
-This is a list of log messages which may be present in `.bin` logs produced and stored onboard ArduSub vehicles.
+This is a list of log messages which may be present in DataFlash (`.bin`) logs produced and stored onboard ArduSub vehicles (see [Log Parameters](../parameters/#log-parameters) for creation details). It is possible to [add a new message](https://ardupilot.org/dev/docs/code-overview-adding-a-new-log-message.html) by modifying the firmware.
+
+DataFlash logs can be downloaded and analysed [from a computer](http://www.ardusub.com/reference/data-logging.html#downloading) or [through BlueOS](@/software/onboard/BlueOS-1.1/advanced-usage/index.md#log-browser).
 
 ## ACC
 IMU accelerometer data
