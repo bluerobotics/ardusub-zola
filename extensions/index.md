@@ -228,7 +228,10 @@ Different types of Extensions have different functionality, and there are often 
 ### Examples: What do they Look like?
 
 #### Device Integrations
-- [BlueOS Water Linked DVL](https://github.com/bluerobotics/BlueOS-Water-Linked-DVL)
+- [Water Linked UGPS](https://github.com/waterlinked/blueos-ugps-extension)
+- [Water Linked DVL](https://github.com/bluerobotics/BlueOS-Water-Linked-DVL)
+- [Cerulean DVL](https://github.com/ceruleansonar/BlueOS-Cerulean-DVL/)
+- [Nortek Nucleus](https://github.com/nortekgroup/nucleus_driver/tree/main/blueos_extension)
 
 #### Examples
 - [Static HTML file](https://github.com/Williangalvani/BlueOS-examples/tree/master/example1-statichtml)
