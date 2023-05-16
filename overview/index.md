@@ -1,7 +1,7 @@
 +++
 title = "Overview"
 description = "Cockpit overview."
-date = 2023-05-16T21:30:00+11:00
+date = 2023-08-31T01:30:00+10:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 0
@@ -26,19 +26,25 @@ Cockpit is currently publicly available [as a BlueOS Extension](https://docs.blu
 
 - Browser-based control station software, for vehicle control and monitoring from any web-capable device
 - Widget-based layout system, with freeform and grid-snapped positioning and resizing options
-- Widget layers, for saved collections of interface elements
 - Custom display "views", for interface pages/profiles that can be switched between
-    - Views can contain multiple widget layers
     - Different browser windows/screens/devices can independently select which view to display
-    - Views will be shareable in future
+    - Views are downloadable and can be shared (json contains name and list of components and widget settings)
+- MAVLink `NAMED_VALUE_FLOAT` messages are self-registering for use in mini-widgets (including custom ones!)
+    - in future will also support `NAMED_VALUE_INT`
 - WebRTC-based video widget
     - Multiple widgets can be added to support arbitrary numbers of video streams
     - Includes video recording support, on the display device
 - Map widget
     - Provides position tracking
-    - Allows planning autonomous missions
-- Customisable Actions mappable to user inputs (e.g. joysticks, key presses, screen clicks)
-    - Actions can send commands to the vehicle, or can trigger local events like interface changes and starting video recording
+    - Allows planning (and saving/loading) autonomous missions
+    - Allows mission control
+    - In future will allow setting the current vehicle position, and clicking to guide the vehicle to new positions
+- Customisable Actions mappable to user inputs (e.g. joysticks, and key presses / screen clicks in future)
+    - Actions can send commands to the vehicle, or can trigger local events like view switching and starting video recording
     - Includes support for simultaneous input from multiple sources (including multiple joysticks)
 - Joysticks of _any_ type can be configured and calibrated
     - Buttons and axes can be mapped to arbitrary Actions
+- Notification system
+    - Displays autopilot (MAVLink `STATUSTEXT`) and application alerts
+    - Includes text to speech announcements
+- Mission naming used on the interface and video save filenames
