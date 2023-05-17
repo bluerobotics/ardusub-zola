@@ -1,6 +1,6 @@
 # The URL the site will be built for
-base_url = "https://docs.bluerobotics.com/ardusub-zola"
-title = "ArduSub"
+base_url = "https://blueos.cloud/docs"
+title = "Home"
 
 # The site theme to use.
 theme = "adidoks"
