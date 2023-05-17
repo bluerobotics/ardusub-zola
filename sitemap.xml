@@ -1,190 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/</loc>
+        <loc>https://blueos.cloud/docs/</loc>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/</loc>
+        <loc>https://blueos.cloud/docs/hardware/</loc>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/additional/</loc>
+        <loc>https://blueos.cloud/docs/hardware/additional/</loc>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/additional/acoustic-modems/</loc>
+        <loc>https://blueos.cloud/docs/hardware/additional/acoustic-modems/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/additional/electrical-switch/</loc>
+        <loc>https://blueos.cloud/docs/hardware/additional/electrical-switch/</loc>
         <lastmod>2023-03-10T01:20:00+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/additional/electronic-switches/</loc>
+        <loc>https://blueos.cloud/docs/hardware/additional/electronic-switches/</loc>
         <lastmod>2023-03-10T01:10:00+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/additional/ethernet-switch/</loc>
+        <loc>https://blueos.cloud/docs/hardware/additional/ethernet-switch/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/additional/grippers-manipulators/</loc>
+        <loc>https://blueos.cloud/docs/hardware/additional/grippers-manipulators/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/additional/indicators/</loc>
+        <loc>https://blueos.cloud/docs/hardware/additional/indicators/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/additional/leak-sensors/</loc>
+        <loc>https://blueos.cloud/docs/hardware/additional/leak-sensors/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/additional/other-sensors/</loc>
+        <loc>https://blueos.cloud/docs/hardware/additional/other-sensors/</loc>
         <lastmod>2023-03-15T20:00:00+10:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/additional/positioning-sensors/</loc>
+        <loc>https://blueos.cloud/docs/hardware/additional/positioning-sensors/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/additional/servos/</loc>
+        <loc>https://blueos.cloud/docs/hardware/additional/servos/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/additional/sonars/</loc>
+        <loc>https://blueos.cloud/docs/hardware/additional/sonars/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/recommended/</loc>
+        <loc>https://blueos.cloud/docs/hardware/recommended/</loc>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/recommended/camera-gimbal/</loc>
+        <loc>https://blueos.cloud/docs/hardware/recommended/camera-gimbal/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/recommended/lights/</loc>
+        <loc>https://blueos.cloud/docs/hardware/recommended/lights/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/recommended/pressure-sensor/</loc>
+        <loc>https://blueos.cloud/docs/hardware/recommended/pressure-sensor/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/recommended/tether-interface/</loc>
+        <loc>https://blueos.cloud/docs/hardware/recommended/tether-interface/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/</loc>
+        <loc>https://blueos.cloud/docs/hardware/required/</loc>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/camera/</loc>
+        <loc>https://blueos.cloud/docs/hardware/required/camera/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/control-computer/</loc>
+        <loc>https://blueos.cloud/docs/hardware/required/control-computer/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/esc/</loc>
+        <loc>https://blueos.cloud/docs/hardware/required/esc/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/flight-controller/</loc>
+        <loc>https://blueos.cloud/docs/hardware/required/flight-controller/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/joystick/</loc>
+        <loc>https://blueos.cloud/docs/hardware/required/joystick/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/onboard-computer/</loc>
+        <loc>https://blueos.cloud/docs/hardware/required/onboard-computer/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/power-sensor/</loc>
+        <loc>https://blueos.cloud/docs/hardware/required/power-sensor/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/power-supply/</loc>
+        <loc>https://blueos.cloud/docs/hardware/required/power-supply/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/tether/</loc>
+        <loc>https://blueos.cloud/docs/hardware/required/tether/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/hardware/required/thrusters/</loc>
+        <loc>https://blueos.cloud/docs/hardware/required/thrusters/</loc>
         <lastmod>2022-10-11T17:33:19+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/integrations/</loc>
+        <loc>https://blueos.cloud/docs/integrations/</loc>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/</loc>
+        <loc>https://blueos.cloud/docs/software/</loc>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/autopilot/</loc>
+        <loc>https://blueos.cloud/docs/software/autopilot/</loc>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/autopilot/ArduSub-4.1/</loc>
+        <loc>https://blueos.cloud/docs/software/autopilot/ArduSub-4.1/</loc>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/autopilot/ArduSub-4.1/developers/</loc>
+        <loc>https://blueos.cloud/docs/software/autopilot/ArduSub-4.1/developers/</loc>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/autopilot/ArduSub-4.1/developers/log-messages/</loc>
+        <loc>https://blueos.cloud/docs/software/autopilot/ArduSub-4.1/developers/log-messages/</loc>
         <lastmod>2023-05-04T17:13:47+10:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/autopilot/ArduSub-4.1/developers/mavlink-messages/</loc>
+        <loc>https://blueos.cloud/docs/software/autopilot/ArduSub-4.1/developers/mavlink-messages/</loc>
         <lastmod>2022-12-16T16:28:27+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/autopilot/ArduSub-4.1/developers/parameters/</loc>
+        <loc>https://blueos.cloud/docs/software/autopilot/ArduSub-4.1/developers/parameters/</loc>
         <lastmod>2022-12-16T22:16:04+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/</loc>
+        <loc>https://blueos.cloud/docs/software/onboard/</loc>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/</loc>
+        <loc>https://blueos.cloud/docs/software/onboard/BlueOS-1.0/</loc>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/advanced-usage/</loc>
+        <loc>https://blueos.cloud/docs/software/onboard/BlueOS-1.0/advanced-usage/</loc>
         <lastmod>2022-04-22T11:45:00+10:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/getting-started/</loc>
+        <loc>https://blueos.cloud/docs/software/onboard/BlueOS-1.0/getting-started/</loc>
         <lastmod>2021-10-20T22:20:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/installation/</loc>
+        <loc>https://blueos.cloud/docs/software/onboard/BlueOS-1.0/installation/</loc>
         <lastmod>2021-10-20T20:30:00+00:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.0/overview/</loc>
+        <loc>https://blueos.cloud/docs/software/onboard/BlueOS-1.0/overview/</loc>
         <lastmod>2022-04-28T21:25:00+10:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/</loc>
+        <loc>https://blueos.cloud/docs/software/onboard/BlueOS-1.1/</loc>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/advanced-usage/</loc>
+        <loc>https://blueos.cloud/docs/software/onboard/BlueOS-1.1/advanced-usage/</loc>
         <lastmod>2023-03-08T12:30:00+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/</loc>
+        <loc>https://blueos.cloud/docs/software/onboard/BlueOS-1.1/extensions/</loc>
         <lastmod>2023-03-08T12:30:00+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/</loc>
+        <loc>https://blueos.cloud/docs/software/onboard/BlueOS-1.1/getting-started/</loc>
         <lastmod>2023-02-23T23:15:00+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/</loc>
+        <loc>https://blueos.cloud/docs/software/onboard/BlueOS-1.1/installation/</loc>
         <lastmod>2023-02-17T22:30:00+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/</loc>
+        <loc>https://blueos.cloud/docs/software/onboard/BlueOS-1.1/overview/</loc>
         <lastmod>2023-02-16T16:05:00+11:00</lastmod>
     </url>
 </urlset>
