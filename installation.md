@@ -36,7 +36,7 @@ The first boot may take a couple of minutes, as it expands the filesystem to the
 
 ## Updates
 
-Once BlueOS is installed, updating to a different version is simple via the [Version Chooser](./advanced-usage/#version-chooser).
+Once BlueOS is installed, updating to a different version is simple via the [Version Chooser](../advanced-usage/#version-chooser).
 
 ## Manual Installation
 
