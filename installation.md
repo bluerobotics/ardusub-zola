@@ -35,12 +35,12 @@ We recommend using a fresh SD card, with at least 4GB capacity.
    - The first boot may take a couple of minutes, as it expands the filesystem to the new SD card capacity
       - It should take around 2 minutes for a 16GB class 10 SD card
 1. BlueOS is a _headless_ operating system, and uses a web interface rather than HDMI to a monitor
-   - See the [Getting Started](./getting-started/) section for how to connect
+   - See the [Getting Started](../getting-started/) section for how to connect
 
 
 ## Updates
 
-Once BlueOS is installed, updating to a different version is simple via the [Version Chooser](./advanced-usage/#blueos-version).
+Once BlueOS is installed, updating to a different version is simple via the [Version Chooser](../advanced-usage/#blueos-version).
 
 ## Manual Installation
 
