@@ -1,0 +1,31 @@
+name: Check Trailing Spaces
+
+on:
+  pull_request:
+    branches:
+      - main
+      - ArduSub*
+      - BlueOS*
+      - Cockpit*
+      - Companion*
+      - QGroundControl*
+
+jobs:
+  trailing-spaces-check:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v3
+
+    - name: Check Trailing Spaces
+      run: |
+        git fetch origin ${{ github.base_ref }}
+        PR_FILES_CHANGED=$(git diff --name-only origin/${{ github.base_ref }})
+        for FILE in $PR_FILES_CHANGED; do
+          if [[ $FILE == *.md ]]; then
+            echo "Checking file $FILE"
+            git diff FETCH_HEAD..HEAD -- $FILE | grep -P '^\+' | grep -P '\s+$' && \
+              echo "Trailing spaces found in $FILE" && exit 1
+          fi
+        done
