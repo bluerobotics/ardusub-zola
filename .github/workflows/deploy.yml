@@ -17,8 +17,8 @@ jobs:
 
       - name: Check out code
         uses: actions/checkout@v3
-        with:
-          submodules: recursive
+        run: |
+          git submodule update --init --recursive --remote
 
       - name: Run Zola
         uses: shalzz/zola-deploy-action@v0.16.1-1
