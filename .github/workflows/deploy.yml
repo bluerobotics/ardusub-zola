@@ -1,6 +1,8 @@
 name: Deploy to S3
 
 on:
+  schedule:
+    - cron: '10 * * * *'
   workflow_dispatch:
   push:
 
