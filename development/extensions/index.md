@@ -34,17 +34,9 @@ The BlueOS Extensions system is currently still in an `alpha` stage of developme
 
 ### Components: Anatomy of an Extension
 
-At heart, a BlueOS Extension is some functionality (optionally with a web interface) packaged into a [Docker Image](#docker), and combined with some metadata that allows it to be found, shared, and managed. Extensions may interface with existing services provided by BlueOS (or other Extensions), and some Extensions may create persistent logs and/or make use of data or files provided by the user.
+At heart, a BlueOS Extension is some functionality (optionally with a web interface) packaged into a [Docker Image](../overview#docker), and combined with some metadata that allows it to be found, shared, and managed. Extensions may interface with existing services provided by BlueOS (or other Extensions), and some Extensions may create persistent logs and/or make use of data or files provided by the user.
 
-Once installed, an Extension Package can be run as a [Docker Container](#docker), which normally occurs automatically when the vehicle turns on, but can also be manually disabled/enabled via the Extensions Manager. When running, Extensions can have [custom permissions assigned](#metadata-dockerfile), which can limit resource-usage and/or allow access to parts of the host computer's hardware.
-
-#### Docker
-
-[Docker](https://www.docker.com/resources/what-container/) is a lightweight containerisation system that allows packaging one or more software programs into a single executable that can be easily shared across systems. A static package is referred to as a "Docker Image", and when it is being run it takes the form of a "Docker Container".
-
-A Docker Container generally acts like an isolated mini operating system, but it's possible to enter a running Container from the host computer to see (and modify) what the programs inside are doing, and access things like logging output. Importantly, changes in a Container do not affect its [Image](https://docs.docker.com/get-started/overview/#images), so they're not persistent[^1] and it's possible to "start fresh" by simply restarting the Container (which creates a new Container from the Image, without any changes from previous instances).
-
-[^1]:While changes _within_/_to_ the Container are not persistent, it is possible to make persistent changes to the host's file-system if the Container has access to it (usually via `"HostConfig": "Binds"` in the [metadata](#metadata-dockerfile) `permissions`).
+Once installed, an Extension Package can be run as a [Docker Container](../overview#docker), which normally occurs automatically when the vehicle turns on, but can also be manually disabled/enabled via the Extensions Manager. When running, Extensions can have [custom permissions assigned](#metadata-dockerfile), which can limit resource-usage and/or allow access to parts of the host computer's hardware.
 
 #### Metadata (Dockerfile)
 
