@@ -6,7 +6,7 @@ template = "docs/page.html"
 sort_by = "weight"
 weight = 10
 draft = false
-aliases = ['/software/onboard/BlueOS-latest/installation']
+aliases = ['/software/onboard/BlueOS-latest/installation', '/blueos/latest/installation']
 
 [extra]
 toc = true

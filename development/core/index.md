@@ -6,7 +6,7 @@ template = "docs/page.html"
 sort_by = "weight"
 weight = 30
 draft = false
-aliases = ['software/onboard/BlueOS-latest/development/core']
+aliases = ['software/onboard/BlueOS-latest/development/core', '/blueos/latest/development/core']
 
 [extra]
 lead = ''
