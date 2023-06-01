@@ -172,8 +172,19 @@
         <lastmod>2023-03-08T12:30:00+11:00</lastmod>
     </url>
     <url>
-        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/extensions/</loc>
+        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/</loc>
+    </url>
+    <url>
+        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/</loc>
+        <lastmod>2023-06-01T19:30:00+11:00</lastmod>
+    </url>
+    <url>
+        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/</loc>
         <lastmod>2023-03-08T12:30:00+11:00</lastmod>
+    </url>
+    <url>
+        <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/overview/</loc>
+        <lastmod>2023-06-01T19:30:00+11:00</lastmod>
     </url>
     <url>
         <loc>https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/</loc>

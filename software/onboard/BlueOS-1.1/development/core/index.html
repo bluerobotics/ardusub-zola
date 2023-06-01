@@ -46,9 +46,9 @@
 
 	
 
-<title>Installation | ArduSub</title>
-<meta name="description" content="BlueOS installation instructions.">
-<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/">
+<title>BlueOS-core | ArduSub</title>
+<meta name="description" content="BlueOS-core development documentation.">
+<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/">
 
 
 
@@ -142,8 +142,26 @@
           {
             "@type": "ListItem",
             "position":  5 ,
-            "name": "Installation",
-            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/"
+            "name": "Development",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  6 ,
+            "name": "Core",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/"
           },
         
       
@@ -231,35 +249,17 @@
 			
 			
 			
-					<h3>BlueOS</h3>
+					<h3>Development</h3>
 					<ul class="list-unstyled">
 					                           
-							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/">Overview</a></li>
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/overview/">Overview</a></li>
 					                           
-							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/">Installation</a></li>
+							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/">BlueOS-core</a></li>
 					                           
-							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/">Getting Started</a></li>
-					                           
-							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/advanced-usage/">Advanced Usage</a></li>
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/">Extensions (Alpha)</a></li>
 					
 					</ul>
 			
-			
-					
-					
-					
-							<h3>Development</h3>
-							<ul class="list-unstyled">
-							                           
-									<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/overview/">Overview</a></li>
-							                           
-									<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/">BlueOS-core</a></li>
-							                           
-									<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/">Extensions (Alpha)</a></li>
-							
-					</ul>
-					
-					
 			
 	</nav>
 </div>
@@ -272,19 +272,16 @@
   			<nav id="TableOfContents">
   					<ul>
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/#download">Download</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/#codebase">Codebase</a></li>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/#flash">Flash</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/#contributions">Contributions</a></li>
   							
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/#run">Run</a></li>
-  							
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/#updates">Updates</a></li>
-  							
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/#manual-installation">Manual Installation</a></li>
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/#adding-a-flight-controller">Adding a Flight Controller</a></li>
+  											
+  									</ul>
   							
   							
   					</ul>
@@ -294,48 +291,65 @@
   
 
       <main class="docs-content col-lg-11 col-xl-9">
-        <h1>Installation</h1>
+        <h1>BlueOS-core</h1>
         
-        <h2 id="download">Download</h2>
-<p>BlueOS is a ground-up rewrite software to replace Companion. To use it you'll need to download and flash an SD card.
-It is compatible with both <strong>Raspberry Pi 3</strong> and <strong>Raspberry Pi 4</strong>.</p>
-<p>The latest available stable version is:</p>
-<ul>
-<li><a href="https://github.com/bluerobotics/BlueOS-docker/releases/download/1.0.1/BlueOS-raspberry.zip">1.0.1</a> (06-april-2022)</li>
-</ul>
-<h2 id="flash">Flash</h2>
-<p>We recommend using a fresh SD card, with at least 4GB capacity.</p>
+        <h2 id="codebase">Codebase</h2>
+<p><a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/core">BlueOS-core</a> is open source, and lives within the broader <a href="https://github.com/bluerobotics/BlueOS-docker">BlueOS-docker</a> GitHub repository. <a href="https://github.com/bluerobotics/BlueOS-docker/issues">Issues</a> can be used to report bugs or suggest features, and <a href="https://github.com/bluerobotics/BlueOS-docker/pulls">Pull Requests</a> fixing bugs or adding new features are welcomed.</p>
+<h2 id="contributions">Contributions</h2>
+<h3 id="adding-a-flight-controller">Adding a Flight Controller</h3>
+<p>Adding USB detection support for a new type of <a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/flight-controller/">flight controller board</a> is reasonably straightforward, but does require a few different steps:</p>
+<h4 id="find-the-usb-device-information">Find the USB device information</h4>
 <ol>
-<li>Download and install <a href="https://www.balena.io/etcher/">Balena Etcher</a></li>
-<li>Insert the SD card to your computer (you may need an SD card reader)</li>
-<li>Open Etcher, select the image you just downloaded, and flash it onto the SD card</li>
+<li>Connect your flight controller board via USB<sup class="footnote-reference"><a href="#2">1</a></sup> to a computer running BlueOS</li>
+<li>Go to the BlueOS <a href="../../advanced-usage#terminal">Terminal</a> page</li>
+<li>Open a Python console (run the <code>python3</code> command)</li>
+<li>Run <code>from serial.tools.list_ports import comports</code></li>
+<li>Run <code>from pprint import pprint</code></li>
+<li>Run <code>[pprint(port.__dict__) for port in comports()]</code></li>
+<li>Get the <code>&quot;product&quot;</code> and <code>&quot;manufacturer&quot;</code> values for your flight controller board</li>
 </ol>
-<h2 id="run">Run</h2>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">1</sup>
+<p>Non-USB serial connections are <a href="https://github.com/bluerobotics/BlueOS-docker/issues/1615">not yet supported</a>.</p>
+</div>
+<h4 id="find-the-flight-controller-hardware-information">Find the flight controller hardware information</h4>
 <ol>
-<li>Eject your SD card with the new BlueOS software</li>
-<li>Insert it into your Raspberry Pi, and power it up!
-<ul>
-<li>The first boot may take a couple of minutes, as it expands the filesystem to the new SD card capacity
-<ul>
-<li>It should take around 2 minutes for a 16GB class 10 SD card</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>BlueOS is a <em>headless</em> operating system, and uses a web interface rather than HDMI to a monitor
-<ul>
-<li>See the <a href="../getting-started/">Getting Started</a> section for how to connect</li>
-</ul>
-</li>
+<li>Go to <a href="https://github.com/ArduPilot/ardupilot/tree/master/libraries/AP_HAL_ChibiOS/hwdef">the ArduPilot hardware definition files</a></li>
+<li>Find the folder corresponding to your flight controller board</li>
+<li>Find the <code>APJ_BOARD_ID</code> variable in the <code>hwdef.dat</code> or <code>hwdef.inc</code> file</li>
 </ol>
-<h2 id="updates">Updates</h2>
-<p>Once BlueOS is installed, updating to a different version is simple via the <a href="../advanced-usage/#blueos-version">Version Chooser</a>.</p>
-<h2 id="manual-installation">Manual Installation</h2>
-<p>For developers with alternative hardware, or who would rather install over a pre-installed base operating system / image, BlueOS provides an <a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/install">install directory</a> with utilities to help perform manual/software-based installations.</p>
+<h4 id="add-the-board-and-confirm-it-works">Add the board, and confirm it works</h4>
+<ol>
+<li>Fork the <a href="https://github.com/bluerobotics/BlueOS-docker">BlueOS-docker</a> repository
+<ul>
+<li>You'll need a GitHub account to do this</li>
+</ul>
+</li>
+<li>Click where it says <code>master</code>, and create a new branch (e.g. <code>add-pixhawk-6C</code>)</li>
+<li>Navigate to <code>core/services/ardupilot_manager/typedefs.py</code> and add your board's name and type to the <code>Platform</code> class
+<ul>
+<li>Use <code>PlatformType.Serial</code> for USB/serial connections - <code>Linux</code> is reserved for sensor/peripheral expansion boards that run the autopilot firmware directly on the <a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/onboard-computer/">Onboard Computer</a></li>
+</ul>
+</li>
+<li>Navigate to <code>core/services/ardupilot_manager/flight_controller_detector/board_identification.py</code> and add appropriate <code>SerialBoardIdentifier</code> instances to the <code>identifiers</code> list (using the &quot;product&quot; and &quot;manufacturer&quot; values from earlier)
+<ul>
+<li>The &quot;product&quot; is more important/useful, because one &quot;manufacturer&quot; can make multiple different board types</li>
+</ul>
+</li>
+<li>Navigate to <code>core/services/ardupilot_manager/firmware/FirmwareInstall.py</code> and add your board to the <code>get_board_id</code> function (using the <code>APJ_BOARD_ID</code> value from earlier)</li>
+<li>If you did your code modifications in GitHub skip to the next step - if you're editing the files in a local clone make sure to <code>git commit</code> and <code>git push</code> back up to your GitHub fork of the repository</li>
+<li>GitHub should prompt you that there are recent changes in your new branch - click the prompt to submit a Pull Request to the upstream Blue Robotics repository
+<ul>
+<li>The &quot;files&quot; tab of your pull request should look similar to <a href="https://github.com/bluerobotics/BlueOS-docker/pull/1067/files">this example</a></li>
+</ul>
+</li>
+<li>Wait for the GitHub actions to complete (at the bottom of your pull request), then find <a href="https://github.com/bluerobotics/BlueOS-docker/actions/workflows/test-and-deploy.yml">the build action</a> corresponding to your branch, and download the <code>BlueOS-core-docker-arm-v7</code> artifact from it</li>
+<li>Go to the BlueOS <a href="../../advanced-usage/#blueos-version">Version Chooser</a>, scroll down to the bottom, and &quot;manual upload&quot; the artifact you downloaded</li>
+<li>Once BlueOS has restarted, see whether the flight controller board is being detected as an autopilot in the <a href="../../advanced-usage/#autopilot-firmware">Autopilot Firmware</a> page</li>
+</ol>
 
         
           
-<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.1&#x2F;installation.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
+<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.1&#x2F;development&#x2F;core.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
 
         
         
@@ -351,27 +365,13 @@ It is compatible with both <strong>Raspberry Pi 3</strong> and <strong>Raspberry
     
       
         
-        
-          
-        
-      
-        
-        
-          
-            
-              
-              <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.0&#x2F;advanced-usage&#x2F;">
-                <div class="card my-1">
-                  <div class="card-body py-2">
-                    &larr; Advanced Usage
-                  </div>
-                </div>
-              </a>
-            
-            
-            
-          
-        
+        <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.1&#x2F;advanced-usage&#x2F;">
+          <div class="card my-1">
+            <div class="card-body py-2">
+              &larr; Advanced Usage
+            </div>
+          </div>
+        </a>
       
     
   
@@ -383,11 +383,6 @@ It is compatible with both <strong>Raspberry Pi 3</strong> and <strong>Raspberry
   
     
     
-    
-      
-      
-        
-      
     
       
       
