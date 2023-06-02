@@ -14,9 +14,38 @@ toc = true
 top = false
 +++
 
+## Function
+
+BlueOS-core is the body of BlueOS, and runs all of the built in [services](../../advanced-usage#available-services), along with the main web interface. It contains the key components for running, configuring, and operating a robotic vehicle, as well as a variety of convenience features to aid with system introspection and development.
+
 ## Codebase
 
 [BlueOS-core](https://github.com/bluerobotics/BlueOS-docker/tree/master/core) is open source, and lives within the broader [BlueOS-docker](https://github.com/bluerobotics/BlueOS-docker) GitHub repository. [Issues](https://github.com/bluerobotics/BlueOS-docker/issues) can be used to report bugs or suggest features, and [Pull Requests](https://github.com/bluerobotics/BlueOS-docker/pulls) fixing bugs or adding new features are welcomed.
+
+BlueOS-docker is set up with a [GitHub Action](https://docs.github.com/en/actions) that [automatically builds and deploys](https://github.com/bluerobotics/BlueOS-docker/blob/master/.github/workflows/test-and-deploy.yml#L90) a BlueOS-core image when changes are pushed to the GitHub repository.
+If you want to make use of that functionality you'll need a [DockerHub](https://hub.docker.com) account, and will need to specify your DockerHub username (`DOCKER_USERNAME`) and password (`DOCKER_PASSWORD`) in your fork's [GitHub secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
+
+The [BlueOS Version](../../advanced-usage#blueos-version) chooser can be used to install a custom image by either
+1. Changing the "Remote" to your DockerHub repository, then installing like you would normally
+2. Doing a "Manual Upload" of a `.tar` compressed `BlueOS-core` Docker image
+
+### Structure
+
+1. [Dockerfile](https://github.com/bluerobotics/BlueOS-docker/tree/master/core/Dockerfile) (and corresponding `.dockerignore` file) for building the BlueOS-core Docker image
+1. `**/install-*.sh` scripts that the Dockerfile uses to install the tools, libraries, and services
+1. [tools](https://github.com/bluerobotics/BlueOS-docker/tree/master/core/tools) scripts used to install the underlying programs used by the service backends
+1. [configuration](https://github.com/bluerobotics/BlueOS-docker/tree/master/core/configuration) files that the Dockerfile moves to appropriate locations for the programs they apply to
+1. [start-blueos-core](https://github.com/bluerobotics/BlueOS-docker/tree/master/core/start-blueos-core) script that runs when the BlueOS-core container gets started
+    - Responsible for configuring and starting the services
+1. [libs](https://github.com/bluerobotics/BlueOS-docker/tree/master/core/libs) code libraries of shared functionality available to the service backends
+1. [services](https://github.com/bluerobotics/BlueOS-docker/tree/master/core/services) code for running the services
+    - Mostly Python backend code, often wrapped around / making use of a program installed by `tools`
+    - Some frontend code, for services that have a frontend that opens in its own window
+1. [frontend](https://github.com/bluerobotics/BlueOS-docker/tree/master/core/frontend) web code for displaying the BlueOS web interface, including the main interface elements for the services
+    - `/public`: browser tab icons and the like
+    - `/src`:
+        - Mostly [Vuetify](https://vuetifyjs.com/en/) visual components and [Typescript](https://www.typescriptlang.org) interface code
+        - `/assets`: styling, images, and models used throughout the web interface
 
 ## Contributions
 
