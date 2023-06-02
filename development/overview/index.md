@@ -62,21 +62,33 @@ A Docker Container generally acts like an isolated mini operating system, but it
 
 ### Bootstrap
 
-[BlueOS-bootstrap](https://github.com/bluerobotics/BlueOS-docker/tree/master/bootstrap) is responsible for making sure [BlueOS-core](#core) is running as expected, as well as gracefully restarting core during BlueOS updates and if it is detected to have unexpectedly stopped/crashed. For an update the current core image gets shut down and the newly installed image gets started in its place, whereas in the case of a crash bootstrap reverts to running a known working core image, which is currently the one tagged as `factory` (which is whatever it was first flashed with), so that it's at least possible to access the interface.
+[BlueOS-bootstrap](../bootstrap) is responsible for making sure [BlueOS-core](#core) is running as expected, as well as gracefully restarting core during BlueOS updates and/or if it is detected to have unexpectedly stopped/crashed.
 
 ### Core
 
-[BlueOS-core](https://github.com/bluerobotics/BlueOS-docker/tree/master/core) is the body of BlueOS, and runs all of the built in [services](../../advanced-usage#available-services), along with the main web interface.
+[BlueOS-core](../core) is the body of BlueOS, and runs all of the built in [services](../../advanced-usage#available-services), along with the main web interface.
 
 ### Extensions
 
-BlueOS has support for [Extensions](../extensions), which are handled by the [Extensions Manager](../../advanced-usage#extensions-manager) service in core. Extensions are individual Docker images that run independently of BlueOS, but can hook into the core systems and host system, providing access to additional devices and data streams, as well as modifying / adding to the web interface.
+BlueOS has support for [Extensions](../extensions), which are handled by the [Extensions Manager](../../advanced-usage#extensions-manager) service in core.
+
+Extensions are individual Docker images that run independently of BlueOS, but can hook into the core systems and host system, providing access to additional devices and data streams, as well as modifying / adding to the web interface.
 
 ### Cloud Infrastructure
 
-While BlueOS itself runs locally on the vehicle, there are various cloud-based services involved that allow downloading new BlueOS releases, installing new autopilot firmware, and finding and installing available extensions.
+While BlueOS itself runs locally on the vehicle, there are various cloud-based services involved that allow downloading new BlueOS releases, installing new autopilot firmware, finding and installing available extensions, finding information about BlueOS, and getting support.
+
+Of note are
+1. The [BlueOS-docker repository](https://github.com/bluerobotics/BlueOS-docker), where BlueOS-core and BlueOS-bootstrap are developed
+1. The [Blue Robotics DockerHub](https://hub.docker.com/u/bluerobotics/), where the BlueOS-core and BlueOS-bootstrap Docker images are deployed/hosted
+1. The [BlueOS-Extensions-Repository](https://github.com/bluerobotics/BlueOS-Extensions-Repository), where BlueOS extensions are registered and findable from
+1. The [ArduPilot Firmware Server](https://firmware.ardupilot.org), where autopilot firmwares are fetched from
+1. The [BlueOS documentation](https://blueos.cloud/docs) (this site)
+1. The [Blue Robotics Forum](https://discuss.bluerobotics.com/c/bluerobotics-software/blue-os/85), where ideas and questions can be discussed
 
 ## Developer Presentations
+
+The BlueOS development team have done some presentations about what BlueOS is for, and how it can be used / integrated with. Bear in mind that presentation recordings are snapshots of history, and the information in them gets outdated over time as development progress is made.
 
 ### BlueOS Development Features
 `ArduPilot Developers Unconference (March 2023)`
