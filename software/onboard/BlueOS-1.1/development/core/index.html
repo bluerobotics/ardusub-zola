@@ -254,6 +254,8 @@
 					                           
 							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/overview/">Overview</a></li>
 					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/bootstrap/">BlueOS-bootstrap</a></li>
+					                           
 							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/">BlueOS-core</a></li>
 					                           
 							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/">Extensions (Alpha)</a></li>
@@ -272,7 +274,16 @@
   			<nav id="TableOfContents">
   					<ul>
   							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/#function">Function</a></li>
+  							
+  							
   							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/#codebase">Codebase</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/#structure">Structure</a></li>
+  											
+  									</ul>
   							
   							
   							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/#contributions">Contributions</a></li>
@@ -293,8 +304,47 @@
       <main class="docs-content col-lg-11 col-xl-9">
         <h1>BlueOS-core</h1>
         
-        <h2 id="codebase">Codebase</h2>
+        <h2 id="function">Function</h2>
+<p>BlueOS-core is the body of BlueOS, and runs all of the built in <a href="../../advanced-usage#available-services">services</a>, along with the main web interface. It contains the key components for running, configuring, and operating a robotic vehicle, as well as a variety of convenience features to aid with system introspection and development.</p>
+<h2 id="codebase">Codebase</h2>
 <p><a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/core">BlueOS-core</a> is open source, and lives within the broader <a href="https://github.com/bluerobotics/BlueOS-docker">BlueOS-docker</a> GitHub repository. <a href="https://github.com/bluerobotics/BlueOS-docker/issues">Issues</a> can be used to report bugs or suggest features, and <a href="https://github.com/bluerobotics/BlueOS-docker/pulls">Pull Requests</a> fixing bugs or adding new features are welcomed.</p>
+<p>BlueOS-docker is set up with a <a href="https://docs.github.com/en/actions">GitHub Action</a> that <a href="https://github.com/bluerobotics/BlueOS-docker/blob/master/.github/workflows/test-and-deploy.yml#L90">automatically builds and deploys</a> a BlueOS-core image when changes are pushed to the GitHub repository.
+If you want to make use of that functionality you'll need a <a href="https://hub.docker.com">DockerHub</a> account, and will need to specify your DockerHub username (<code>DOCKER_USERNAME</code>) and password (<code>DOCKER_PASSWORD</code>) in your fork's <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets">GitHub secrets</a>.</p>
+<p>The <a href="../../advanced-usage#blueos-version">BlueOS Version</a> chooser can be used to install a custom image by either</p>
+<ol>
+<li>Changing the &quot;Remote&quot; to your DockerHub repository, then installing like you would normally</li>
+<li>Doing a &quot;Manual Upload&quot; of a <code>.tar</code> compressed <code>BlueOS-core</code> Docker image</li>
+</ol>
+<h3 id="structure">Structure</h3>
+<ol>
+<li><a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/core/Dockerfile">Dockerfile</a> (and corresponding <code>.dockerignore</code> file) for building the BlueOS-core Docker image</li>
+<li><code>**/install-*.sh</code> scripts that the Dockerfile uses to install the tools, libraries, and services</li>
+<li><a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/core/tools">tools</a> scripts used to install the underlying programs used by the service backends</li>
+<li><a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/core/configuration">configuration</a> files that the Dockerfile moves to appropriate locations for the programs they apply to</li>
+<li><a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/core/start-blueos-core">start-blueos-core</a> script that runs when the BlueOS-core container gets started
+<ul>
+<li>Responsible for configuring and starting the services</li>
+</ul>
+</li>
+<li><a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/core/libs">libs</a> code libraries of shared functionality available to the service backends</li>
+<li><a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/core/services">services</a> code for running the services
+<ul>
+<li>Mostly Python backend code, often wrapped around / making use of a program installed by <code>tools</code></li>
+<li>Some frontend code, for services that have a frontend that opens in its own window</li>
+</ul>
+</li>
+<li><a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/core/frontend">frontend</a> web code for displaying the BlueOS web interface, including the main interface elements for the services
+<ul>
+<li><code>/public</code>: browser tab icons and the like</li>
+<li><code>/src</code>:
+<ul>
+<li>Mostly <a href="https://vuetifyjs.com/en/">Vuetify</a> visual components and <a href="https://www.typescriptlang.org">Typescript</a> interface code</li>
+<li><code>/assets</code>: styling, images, and models used throughout the web interface</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
 <h2 id="contributions">Contributions</h2>
 <h3 id="adding-a-flight-controller">Adding a Flight Controller</h3>
 <p>Adding USB detection support for a new type of <a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/flight-controller/">flight controller board</a> is reasonably straightforward, but does require a few different steps:</p>

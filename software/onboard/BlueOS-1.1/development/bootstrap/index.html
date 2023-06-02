@@ -46,9 +46,9 @@
 
 	
 
-<title>Installation | ArduSub</title>
-<meta name="description" content="BlueOS installation instructions.">
-<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/">
+<title>BlueOS-bootstrap | ArduSub</title>
+<meta name="description" content="BlueOS-bootstrap development documentation.">
+<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/bootstrap/">
 
 
 
@@ -142,8 +142,26 @@
           {
             "@type": "ListItem",
             "position":  5 ,
-            "name": "Installation",
-            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/"
+            "name": "Development",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  6 ,
+            "name": "Bootstrap",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/bootstrap/"
           },
         
       
@@ -231,37 +249,19 @@
 			
 			
 			
-					<h3>BlueOS</h3>
+					<h3>Development</h3>
 					<ul class="list-unstyled">
 					                           
-							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/">Overview</a></li>
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/overview/">Overview</a></li>
 					                           
-							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/">Installation</a></li>
+							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/bootstrap/">BlueOS-bootstrap</a></li>
 					                           
-							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/">Getting Started</a></li>
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/">BlueOS-core</a></li>
 					                           
-							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/advanced-usage/">Advanced Usage</a></li>
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/">Extensions (Alpha)</a></li>
 					
 					</ul>
 			
-			
-					
-					
-					
-							<h3>Development</h3>
-							<ul class="list-unstyled">
-							                           
-									<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/overview/">Overview</a></li>
-							                           
-									<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/bootstrap/">BlueOS-bootstrap</a></li>
-							                           
-									<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/">BlueOS-core</a></li>
-							                           
-									<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/">Extensions (Alpha)</a></li>
-							
-					</ul>
-					
-					
 			
 	</nav>
 </div>
@@ -274,19 +274,13 @@
   			<nav id="TableOfContents">
   					<ul>
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/#download">Download</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/bootstrap/#function">Function</a></li>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/#flash">Flash</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/bootstrap/#codebase">Codebase</a></li>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/#run">Run</a></li>
-  							
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/#updates">Updates</a></li>
-  							
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/installation/#manual-installation">Manual Installation</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/bootstrap/#updating">Updating</a></li>
   							
   							
   					</ul>
@@ -296,48 +290,53 @@
   
 
       <main class="docs-content col-lg-11 col-xl-9">
-        <h1>Installation</h1>
+        <h1>BlueOS-bootstrap</h1>
         
-        <h2 id="download">Download</h2>
-<p>BlueOS is a ground-up rewrite software to replace Companion. To use it you'll need to download and flash an SD card.
-It is compatible with both <strong>Raspberry Pi 3</strong> and <strong>Raspberry Pi 4</strong>.</p>
-<p>The latest available stable version is:</p>
-<ul>
-<li><a href="https://github.com/bluerobotics/BlueOS-docker/releases/download/1.0.1/BlueOS-raspberry.zip">1.0.1</a> (06-april-2022)</li>
-</ul>
-<h2 id="flash">Flash</h2>
-<p>We recommend using a fresh SD card, with at least 4GB capacity.</p>
-<ol>
-<li>Download and install <a href="https://www.balena.io/etcher/">Balena Etcher</a></li>
-<li>Insert the SD card to your computer (you may need an SD card reader)</li>
-<li>Open Etcher, select the image you just downloaded, and flash it onto the SD card</li>
-</ol>
-<h2 id="run">Run</h2>
-<ol>
-<li>Eject your SD card with the new BlueOS software</li>
-<li>Insert it into your Raspberry Pi, and power it up!
-<ul>
-<li>The first boot may take a couple of minutes, as it expands the filesystem to the new SD card capacity
-<ul>
-<li>It should take around 2 minutes for a 16GB class 10 SD card</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>BlueOS is a <em>headless</em> operating system, and uses a web interface rather than HDMI to a monitor
-<ul>
-<li>See the <a href="../getting-started/">Getting Started</a> section for how to connect</li>
-</ul>
-</li>
-</ol>
-<h2 id="updates">Updates</h2>
-<p>Once BlueOS is installed, updating to a different version is simple via the <a href="../advanced-usage/#blueos-version">Version Chooser</a>.</p>
-<h2 id="manual-installation">Manual Installation</h2>
-<p>For developers with alternative hardware, or who would rather install over a pre-installed base operating system / image, BlueOS provides an <a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/install">install directory</a> with utilities to help perform manual/software-based installations.</p>
+        <h2 id="function">Function</h2>
+<p>BlueOS-bootstrap is responsible for making sure <a href="../core">BlueOS-core</a> is running as expected, as well as gracefully restarting core during BlueOS updates and if it is detected to have unexpectedly stopped/crashed. 
+For an update the current core image gets shut down and the newly installed image gets started in its place, whereas in the case of a crash bootstrap reverts to running a known working core image, which is currently the one tagged as <code>factory</code> (which is whatever it was first flashed with), so that it's at least possible to access the interface.</p>
+<h2 id="codebase">Codebase</h2>
+<p><a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/bootstrap">BlueOS-bootstrap</a> is open source, and lives within the broader <a href="https://github.com/bluerobotics/BlueOS-docker">BlueOS-docker</a> GitHub repository. <a href="https://github.com/bluerobotics/BlueOS-docker/issues">Issues</a> can be used to report bugs or suggest features, and <a href="https://github.com/bluerobotics/BlueOS-docker/pulls">Pull Requests</a> fixing bugs or adding new features are welcomed.</p>
+<p>BlueOS-docker is set up with a <a href="https://docs.github.com/en/actions">GitHub Action</a> that <a href="https://github.com/bluerobotics/BlueOS-docker/blob/master/.github/workflows/test-and-deploy.yml#L90">automatically builds and deploys</a> a BlueOS-bootstrap image when changes are pushed to the GitHub repository.
+If you want to make use of that functionality you'll need a <a href="https://hub.docker.com">DockerHub</a> account, and will need to specify your DockerHub username (<code>DOCKER_USERNAME</code>) and password (<code>DOCKER_PASSWORD</code>) in your fork's <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets">GitHub secrets</a>.</p>
+<h2 id="updating">Updating</h2>
+<p>It is <a href="https://github.com/bluerobotics/BlueOS-docker/issues/1510">not yet possible to (nicely) update bootstrap through the BlueOS interface</a>. The <a href="../../advanced-usage#blueos-version">BlueOS Version</a> chooser only updates the <a href="../core">BlueOS-core</a> image.</p>
+<p>BlueOS-bootstrap versions are built at the same time as BlueOS-core versions, and they get bundled together in the Raspberry Pi images that can be flashed onto an SD card to install BlueOS onto it. Updating BlueOS-bootstrap without flashing an SD card is currently only possible through the <a href="../../advanced-usage#terminal">Terminal</a>:</p>
+<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span># drop down from blueos-core into the underlying operating system:
+</span><span>red-pill
+</span><span># get the running bootstrap container id
+</span><span>CURRENT_BOOTSTRAP_CONTAINER=$(docker ps -aq --filter name=blueos-bootstrap)
+</span><span># stop the bootstrap container (takes 10 seconds)
+</span><span>docker stop $CURRENT_BOOTSTRAP_CONTAINER
+</span><span># remove the container from local memory
+</span><span># (the underlying image remains on the system, unused)
+</span><span>docker container rm $CURRENT_BOOTSTRAP_CONTAINER
+</span><span># specify the Docker image source (use your account if testing a change)
+</span><span>BOOTSTRAP_REPO=bluerobotics
+</span><span>BOOTSTRAP_IMAGE=blueos-bootstrap
+</span><span># specify the new version to use (e.g. 1.1.0-beta.22, or master)
+</span><span>NEW_BOOTSTRAP_VERSION=1.1.0-beta.22
+</span><span># start running the new version
+</span><span># (will automatically download if it&#39;s not already available locally)
+</span><span>docker run \
+</span><span>    -d -t \
+</span><span>    --restart unless-stopped \
+</span><span>    --name blueos-bootstrap \
+</span><span>    --net=host \
+</span><span>    -v /root/.config/blueos/bootstrap:/root/.config/bootstrap \
+</span><span>    -v /var/run/docker.sock:/var/run/docker.sock \
+</span><span>    -e BLUEOS_CONFIG_PATH=/root/.config/blueos \
+</span><span>    $BOOTSTRAP_REPO/$BOOTSTRAP_IMAGE:$NEW_BOOTSTRAP_VERSION
+</span><span># view the logs, to check that it&#39;s repeatedly printing
+</span><span># &quot;core is already running, waiting for it to stop...&quot;
+</span><span>docker logs -f $BOOTSTRAP_IMAGE
+</span><span># press ctrl+c to return to the terminal, and you&#39;re done
+</span><span># if you want, type &#39;exit&#39; or &#39;logout&#39; to return to the BlueOS-core container
+</span></code></pre>
 
         
           
-<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.1&#x2F;installation.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
+<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.1&#x2F;development&#x2F;bootstrap.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
 
         
         
@@ -353,27 +352,13 @@ It is compatible with both <strong>Raspberry Pi 3</strong> and <strong>Raspberry
     
       
         
-        
-          
-        
-      
-        
-        
-          
-            
-              
-              <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.0&#x2F;advanced-usage&#x2F;">
-                <div class="card my-1">
-                  <div class="card-body py-2">
-                    &larr; Advanced Usage
-                  </div>
-                </div>
-              </a>
-            
-            
-            
-          
-        
+        <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.1&#x2F;advanced-usage&#x2F;">
+          <div class="card my-1">
+            <div class="card-body py-2">
+              &larr; Advanced Usage
+            </div>
+          </div>
+        </a>
       
     
   
@@ -385,11 +370,6 @@ It is compatible with both <strong>Raspberry Pi 3</strong> and <strong>Raspberry
   
     
     
-    
-      
-      
-        
-      
     
       
       

@@ -254,6 +254,8 @@
 					                           
 							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/overview/">Overview</a></li>
 					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/bootstrap/">BlueOS-bootstrap</a></li>
+					                           
 							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/">BlueOS-core</a></li>
 					                           
 							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/">Extensions (Alpha)</a></li>
@@ -372,14 +374,25 @@
 <p>While changes <em>within</em>/<em>to</em> the Container are not persistent, it is possible to make persistent changes to the host's file-system if the Container has access to it (usually via <code>&quot;HostConfig&quot;: &quot;Binds&quot;</code> in the <a href="../extensions#metadata-dockerfile">metadata</a> <code>permissions</code>, or <a href="https://docs.docker.com/storage/volumes/">volumes</a>).</p>
 </div>
 <h3 id="bootstrap">Bootstrap</h3>
-<p><a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/bootstrap">BlueOS-bootstrap</a> is responsible for making sure <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/overview/#core">BlueOS-core</a> is running as expected, as well as gracefully restarting core during BlueOS updates and if it is detected to have unexpectedly stopped/crashed. For an update the current core image gets shut down and the newly installed image gets started in its place, whereas in the case of a crash bootstrap reverts to running a known working core image, which is currently the one tagged as <code>factory</code> (which is whatever it was first flashed with), so that it's at least possible to access the interface.</p>
+<p><a href="../bootstrap">BlueOS-bootstrap</a> is responsible for making sure <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/overview/#core">BlueOS-core</a> is running as expected, as well as gracefully restarting core during BlueOS updates and/or if it is detected to have unexpectedly stopped/crashed.</p>
 <h3 id="core">Core</h3>
-<p><a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/core">BlueOS-core</a> is the body of BlueOS, and runs all of the built in <a href="../../advanced-usage#available-services">services</a>, along with the main web interface.</p>
+<p><a href="../core">BlueOS-core</a> is the body of BlueOS, and runs all of the built in <a href="../../advanced-usage#available-services">services</a>, along with the main web interface.</p>
 <h3 id="extensions">Extensions</h3>
-<p>BlueOS has support for <a href="../extensions">Extensions</a>, which are handled by the <a href="../../advanced-usage#extensions-manager">Extensions Manager</a> service in core. Extensions are individual Docker images that run independently of BlueOS, but can hook into the core systems and host system, providing access to additional devices and data streams, as well as modifying / adding to the web interface.</p>
+<p>BlueOS has support for <a href="../extensions">Extensions</a>, which are handled by the <a href="../../advanced-usage#extensions-manager">Extensions Manager</a> service in core.</p>
+<p>Extensions are individual Docker images that run independently of BlueOS, but can hook into the core systems and host system, providing access to additional devices and data streams, as well as modifying / adding to the web interface.</p>
 <h3 id="cloud-infrastructure">Cloud Infrastructure</h3>
-<p>While BlueOS itself runs locally on the vehicle, there are various cloud-based services involved that allow downloading new BlueOS releases, installing new autopilot firmware, and finding and installing available extensions.</p>
+<p>While BlueOS itself runs locally on the vehicle, there are various cloud-based services involved that allow downloading new BlueOS releases, installing new autopilot firmware, finding and installing available extensions, finding information about BlueOS, and getting support.</p>
+<p>Of note are</p>
+<ol>
+<li>The <a href="https://github.com/bluerobotics/BlueOS-docker">BlueOS-docker repository</a>, where BlueOS-core and BlueOS-bootstrap are developed</li>
+<li>The <a href="https://hub.docker.com/u/bluerobotics/">Blue Robotics DockerHub</a>, where the BlueOS-core and BlueOS-bootstrap Docker images are deployed/hosted</li>
+<li>The <a href="https://github.com/bluerobotics/BlueOS-Extensions-Repository">BlueOS-Extensions-Repository</a>, where BlueOS extensions are registered and findable from</li>
+<li>The <a href="https://firmware.ardupilot.org">ArduPilot Firmware Server</a>, where autopilot firmwares are fetched from</li>
+<li>The <a href="https://blueos.cloud/docs">BlueOS documentation</a> (this site)</li>
+<li>The <a href="https://discuss.bluerobotics.com/c/bluerobotics-software/blue-os/85">Blue Robotics Forum</a>, where ideas and questions can be discussed</li>
+</ol>
 <h2 id="developer-presentations">Developer Presentations</h2>
+<p>The BlueOS development team have done some presentations about what BlueOS is for, and how it can be used / integrated with. Bear in mind that presentation recordings are snapshots of history, and the information in them gets outdated over time as development progress is made.</p>
 <h3 id="blueos-development-features">BlueOS Development Features</h3>
 <p><code>ArduPilot Developers Unconference (March 2023)</code></p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/61pHgPzhHv8" title="YouTube video player" frameborder="0" allow="encrypted-media;" allowfullscreen></iframe>
