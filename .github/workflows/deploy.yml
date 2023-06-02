@@ -1,10 +1,11 @@
 name: Deploy to S3
 
 on:
-  schedule:
-    - cron: '10 * * * *'
-  workflow_dispatch:
   push:
+  workflow_dispatch:
+  workflow_run:
+    workflows: ["Sync Submodules"]
+    types: [completed]
 
 jobs:
   build:
@@ -19,10 +20,6 @@ jobs:
 
       - name: Check out code
         uses: actions/checkout@v3
-
-      - name: Update submodules to latest commit
-        run: |
-          git submodule update --init --recursive --remote
 
       - name: Run Zola
         uses: shalzz/zola-deploy-action@v0.16.1-1
