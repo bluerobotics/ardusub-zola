@@ -5,6 +5,8 @@ on:
   workflow_run:
     workflows: ["Sync Submodules"]
     types: [completed]
+    branches:
+      - 'main'
 
 name: Test and Deploy
 jobs:
