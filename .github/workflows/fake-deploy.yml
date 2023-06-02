@@ -1,0 +1,13 @@
+# hack to allow manually triggering the `BlueOS-deploy` branch version of this workflow
+name: Deploy to S3
+
+on:
+  workflow_dispatch:
+  
+jobs:
+  print-irrelevance:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print workflow irrelevance
+        run: echo This is only here for BlueOS deploy to be able to run properly
