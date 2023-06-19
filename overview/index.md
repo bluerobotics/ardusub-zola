@@ -1,7 +1,7 @@
 +++
 title = "Overview"
 description = "BlueOS overview."
-date = 2023-02-16T16:05:00+11:00
+date = 2023-06-19T22:00:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 0
@@ -16,11 +16,11 @@ top = false
 
 ## A bit of context...
 
-The [original Companion](https://www.ardusub.com/reference/companion-web-ui.html) project (started in 2015) was originally created with the simple intent to route an underwater vehicle's video stream and communications to the surface computer, and provide some basic configuration of those features and the vehicle firmware. The simple scope was great to get things started, but also meant that new and complex features weren't designed in from the start, so maintenance and developing functionality have been increasingly challenging.
+The [original Companion Software](https://www.ardusub.com/reference/companion-web-ui.html) project (started in 2015) was originally created with the simple intent to route an underwater vehicle's video stream and communications to the surface computer, and provide some basic configuration of those features and the vehicle firmware. The simple scope was great to get things started, but also meant that new and complex features weren't designed in from the start, so maintenance and developing functionality became increasingly challenging.
 
 With lessons learned on useful features and software architecture requirements, BlueOS was designed and created from the ground up to fit the requirements of the onboard computer system we _want_ to have - with room to grow into a true operating system for the vehicle. BlueOS is modular to the heart, which makes it portable, robust to update, and extensible. 
 
-There are many upcoming features, including support for [third party packages](https://discuss.bluerobotics.com/t/external-integrations-extensions/10912), applications, advanced data logging, and much more! We're super excited about our future with BlueOS, and we can't wait for you to join us and try it out! 😄
+We're super excited about our future with BlueOS, and we can't wait for you to join us and try it out! 😄
 
 ## BlueOS principles and goals
 
@@ -50,6 +50,7 @@ This covers a summary of the major changes and new features in BlueOS-1.1. Where
 ### Page improvements
 - [Vehicle Setup](../advanced-usage/#vehicle-setup) `(NEW!)`
    - A page providing an overview of the configured vehicle and its connected peripherals
+   - Allows testing motors, configuring servo outputs, and setting default autopilot parameters
 - [Ping Sonar Devices](../advanced-usage/#ping-sonar-devices) `(NEW!)`
    - A page to detect connected Ping family devices (including Ping360s connected via an ethernet switch)
    - Adds MAVLink toggle for Ping Sonar devices
@@ -59,41 +60,57 @@ This covers a summary of the major changes and new features in BlueOS-1.1. Where
 - [Autopilot Parameters](../advanced-usage/#autopilot-parameters) `(NEW!)`
    - Allows reading and editing parameters from a connected MAVLink autopilot
    - Includes saving to and loading from a file
-- [Autopilot Firmware](../advanced-usage/#autopilot-firmware) (MERGED Firmware and General)
+- [Autopilot Firmware](../advanced-usage/#autopilot-firmware) (MERGED "Firmware" and "General")
    - Extra information about the currently running firmware was added
    - Improved firmware update robustness
    - Serial autopilots in bootloader mode can now be detected and flashed
       - Allows recovering from failed Pixhawk updates
    - Can now choose which autopilot to flash, if multiple are connected
-- [Video Streams](../advanced-usage/#video-streams)
+- [Video Streams](../advanced-usage/#video-streams) (REPLACES "Video")
    - Camera manager now supports Raspberry Pi cameras, and a fake source for testing
    - Camera previews are now available when a stream is configured
-   - RTSP support added for MJPG and YUYV encoded streams
+   - RTSP output support added for MJPG and YUYV encoded streams
    - MAVLink support improved
       - Allows Control Station Software (e.g. QGroundControl) to configure camera settings and switch between multiple video streams
-- [MAVLink Endpoints](../advanced-usage/#mavlink-endpoints)
+- [MAVLink Endpoints](../advanced-usage/#mavlink-endpoints) (REPLACES "Endpoints")
    - IP address interface now indicates the endpoint type
    - Endpoints are now editable
-- [Serial Bridges](../advanced-usage/#serial-bridges)
+- [Serial Bridges](../advanced-usage/#serial-bridges) (REPLACES "Bridges")
    - Significant interface and robustness updates
 - [NMEA Injector](../advanced-usage/#nmea-injector)
    - Settings are now persistent across boots
-- [Version Chooser](../advanced-usage/#version-chooser)
+- [BlueOS Version](../advanced-usage/#blueos-version) (REPLACES "Version Chooser")
    - New progress bar while downloading and extracting new images
+- [System Information](../advanced-usage/#system-information)
+   - New "Firmware" tab, with information about the computer's firmware and bootloader
 - [Network Test](../advanced-usage/#network-test)
    - New graph to track upload and download performance during a test
+- [File Browser](../advanced-usage/#file-browser)
+   - New shortcuts to useful parts of the file-system
+- [Bag Editor](../advanced-usage/#bag-editor) `(NEW!)`
+   - Allows modifying the database that controls frontend interface changes
+
 
 ### Menu and general interface improvements
-- Sidebar is now open by default when the window is wide enough
-- Interface updated to be mobile friendly
+- New vehicle selection and setup wizard
+- New header widgets
+- Interface updated to be mobile friendly, and more aesthetic
+- Various sidebar improvements
+   - Now open by default when the window is wide enough
+   - Pages are now ordered alphabetically, without ambiguous sections
+   - There's now a configurable vehicle icon, name, mDNS address, and logo
+   - It's now possible to download the latest BlueOS system logs, and reset settings
 - Pirate mode is now toggled via the happy-robot/pirate icon in the header
 - Ethernet and wifi configuration are improved
    - A hotspot network is now created for devices to connect to if a normal connection does not occur on boot
+   - Raspberry Pi 4s can now connect via USB OTG ethernet
 
-### Device Support
+### Device/Hardware Support
 - Added basic detection and management support for:
     - the Cube Orange flight controller
     - the Pixhawk 6X flight controller
+    - non-Navigator Linux boards
+- New amd64 Docker images, for running BlueOS on development machines
 
 ## Feature Comparison
 
