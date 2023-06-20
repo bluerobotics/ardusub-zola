@@ -198,7 +198,9 @@ Documentation can also be parsed if
 
 {% pirate() %}
 ### Bag Editor
+{% end %}
 {{ service(service="Bag of Holding", port=9101, link="/services/bag_of_holding", based=true) }}
+{% pirate() %}
 
 The Bag Editor is a helper service for advanced users, which allows modifying the
 database used to handle frontend interface changes.
