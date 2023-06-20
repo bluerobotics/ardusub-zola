@@ -12,7 +12,7 @@ aliases = ['/software/onboard/BlueOS-latest/advanced-usage', '/blueos/latest/adv
 lead = ''
 toc = true
 top = false
-link_base = "https://github.com/bluerobotics/BlueOS-docker/tree/1.1.0-beta.16/core"
+link_base = "https://github.com/bluerobotics/BlueOS/tree/1.1.0-beta.23/core"
 +++
 
 ## General Information
@@ -51,22 +51,35 @@ When you first open BlueOS, you'll see a window like the following:
 
 #### Header: Indicators and BlueOS Configuration
 
+On the left side of the header there is space for widgets, which can be accessed by
+right clicking and selecting the desired widgets to display. This system is very new,
+so the available widget options are currently quite limited.
+
+{{ easy_image(src="widgets", width=300) }}
+
+---
+
 On the right side of the header you'll find:
 ##### Notifications
-- Press broom to clear notifications
-- Press cog to toggle showing old messages
 
-{{ easy_image(src="notifications", width=350) }}
+{{ easy_image(src="notifications", width=350, center=true) }}
 
-##### Ethernet + static IP management
+- Press the broom to clear notifications
+- Press the gear to toggle showing old messages
+
+##### Wired network management (ethernet / USB-OTG)
 {{ service(service="Cable Guy", port=9090, link="/services/cable_guy", based=true) }}
 
-Choose between:
+For each interface, choose between:
 - A static IP
 - A dynamic IP
 - A DHCP server
 
-{{ easy_image(src="ethernet", width=350) }}
+It is possible to have multiple connections per interface type.
+
+{{ easy_image(src="ethernet", width=350, center=true) }}
+
+{{ easy_image(src="usb-otg", width=350, center=true) }}
 
 ##### Wifi + Hotspot network management
 {{ service(service="Wifi Manager", port=9000, link="/services/wifi", based=true) }}
@@ -76,11 +89,11 @@ Choose between:
    [http://blueos-wifi.local](http://blueos-wifi.local) when
    connected to the same wifi network as your device (including a mobile phone)
 
-{{ easy_image(src="wifi", width=350) }}
+{{ easy_image(src="wifi", width=350, center=true) }}
 
 - Forget, connect to, or a force a new password for a saved network
 
-{{ easy_image(src="wifi-example", width=250) }}
+{{ easy_image(src="wifi-example", width=250, center=true) }}
 
 - Configure or turn on/off the BlueOS wireless hotspot, or display a QR code to
 easily connect to it from a phone
@@ -92,9 +105,11 @@ easily connect to it from a phone
    [http://192.168.42.1](http://192.168.42.1) when your device is connected to
    the BlueOS hotspot network
 
-{{ easy_image(src="hotspot-example", width=250) }}
+{{ easy_image(src="hotspot-example", width=250, center=true) }}
 
 ##### Display Mode Management
+
+{{ easy_image(src="display-mode", width=250, center=true) }}
 
 - [Pirate mode](#pirate-mode) can be toggled via the happy robot /
 skull-and-crossbones icon
@@ -102,9 +117,10 @@ skull-and-crossbones icon
    - **Advanced users only** - pirate mode is not recommended for normal use
 - Light and dark display modes can be toggled between with the sun / moon icon
 
-{{ easy_image(src="display-mode", width=250) }}
-
 ##### System status
+
+{{ easy_image(src="system-status", width=250, center=true) }}
+
 - Heartbeat icon pulses with vehicle heartbeat, and goes red if heartbeat is lost
 - On click shows onboard computer temperature, voltage, and current usage
 - Additional warning icons appear if a problem is detected on the onboard computer:
@@ -113,7 +129,6 @@ skull-and-crossbones icon
    - CPU throttling
    - CPU under voltage
    - Connected wirelessly (instead of through a tether)
-{{ easy_image(src="system-status", width=200) }}
 
 #### Sidebar
 
@@ -123,9 +138,15 @@ is wide enough, the sidebar automatically stays open.
 
 {{ simple_pirate_image(src="sidebar", width=200) }}
 
+- The theme content at the top [is configurable](#theme-content)
+{% pirate() %}
+- [The development documentation](../development/extensions/#web-interface-http-server)
+specifies the requirements for a service page to appear in the sidebar
+{% end %}
+
 ##### BlueOS Settings
 
-{{ easy_image(src="settings", width=300) }}
+{{ easy_image(src="settings", width=300, center=true) }}
 
 - Reset BlueOS settings
    - Remove existing camera/endpoint/bridges configuration
@@ -135,7 +156,7 @@ is wide enough, the sidebar automatically stays open.
 
 ##### Power
 
-{{ simple_pirate_image(src="power", width=300) }}
+{{ simple_pirate_image(src="power", width=300, center=true) }}
 
 - Power off
    - Shut down onboard computer
@@ -155,7 +176,7 @@ is wide enough, the sidebar automatically stays open.
 
 ##### Feedback
 
-{{ easy_image(src="feedback", width=300) }}
+{{ easy_image(src="feedback", width=300, center=true) }}
 
 Submit feedback about BlueOS via:
 - [Issues on the GitHub repository](https://github.com/bluerobotics/BlueOS-docker/issues)
@@ -167,144 +188,12 @@ and notification when complete/fixed
 ### Dashboard
 The "Dashboard" page provides an overview of the available pages. In future it
 will provide an overview of the vehicle state and main configuration options.
+Click the BlueOS logo to return to the dashboard at any point.
 
 {{ simple_pirate_image(src="dashboard", width=600) }}
 
-## Tools
-Pages in the "Tools" section provide access to data or allow interaction with the system.
-
-{% pirate() %}
-### Available Services
-
-The Available Services page provides developer access to the underlying http
-server interfaces of the services upon which BlueOS is based. Each service is
-listed with 
-- the port it is served at
-- a meaningful name
-- a web-page link using the active 
-[network configuration](../getting-started/#interface-access)
-
-and where relevant
-- its API documentation (in a live-testable form)
-- the current API version
-
-Any service that provides an http server with a
-[title tag](https://www.w3schools.com/tags/tag_title.asp) will be displayed.
-Documentation can also be parsed if
-- it follows the swagger/open api spec, and 
-- is available at `/docs` or `/v1.0/ui`
-{% end %}
-{{ easy_image(src="available-services", width=600, class="pirate") }}
-
-{% pirate() %}
-### Bag Editor
-{% end %}
-{{ service(service="Bag of Holding", port=9101, link="/services/bag_of_holding", based=true) }}
-{% pirate() %}
-
-The Bag Editor is a helper service for advanced users, which allows modifying the
-database used to handle frontend interface changes.
-{% end %}
-{{ easy_image(src="bag-editor", width=600, class="pirate") }}
-
-{% pirate() %}
-### File Browser
-{% end %}
-{{ service(service="File Browser", port=7777, link="https://github.com/filebrowser/filebrowser") }}
-{% pirate() %}
-
-The File Browser allows viewing, editing, downloading, and uploading BlueOS files.
-
-{% end %}
-{{ easy_image(src="file-browser", width=600, class="pirate") }}
-
-### Log Browser
-{{ service(service="UAV LogViewer", link="https://ardupilot.org/copter/docs/common-uavlogviewer.html") }}
-
-- Allows downloading telemetry `.bin` logs from Linux-based autopilots
-   - Set the `BRD_RTC_TYPES` autopilot parameter to include `MAVLINK_SYSTEM_TIME`
-   so the filenames use timestamps
-- Can stream logs from external flight controllers (e.g. Pixhawks) if the
-`LOG_BACKEND_TYPE` autopilot parameter is set to `MAVLink`
-   - [May be inconsistent](https://github.com/bluerobotics/BlueOS-docker/issues/457)
-
-{{ easy_image(src="log-browser", width=600) }}
-
-- Press the green play button to access the built in Log Viewer, to visualise and
-analyse vehicle telemetry (including position if a positioning system is equipped)
-{{ easy_image(src="log-viewer", width=600) }}
-
-{% pirate() %}
-### MAVLink Inspector
-{% end %}
-{{ service(service="MAVLink2Rest", port=6040, link="https://github.com/patrickelectric/mavlink2rest") }}
-{% pirate() %}
-
-The MAVLink Inspector provides real-time access to the MAVLink messages being
-sent to the topside computer. It is possible to
-- filter for particular messages
-- view past and current messages
-- click on messages to see their full details
-{% end %}
-{{ easy_image(src="mavlink-inspector", width=600, class="pirate") }}
-{% pirate() %}
-Future improvements will include plotting and comparisons, along with more
-powerful filtering options.
-
-For tracking the latest value of a single message type, use the "watcher"
-functionality of the `MAVLink2REST` service (access via the
-[Available Services](#available-services) page).
-{% end %}
-
-### Network Test
-{{ service(service="Pardal", port=9120, link="/services/pardal", based=true) }}
-
-The Network Test page measures real-time latency between BlueOS and the surface
-computer, and allows checking the upload and download speeds between them.
-
-A plot is provided of each test, to help diagnose intermittent issues.
-
-{{ easy_image(src="network-test", width=600) }}
-
-### System Information
-{{ service(service="System Information", port=6030) }}
-
-The System Information page provides useful information about the processes,
-network configuration, and computer system BlueOS is running on. It can be
-useful for troubleshooting, and finding if a particular program is using
-excessive resources.
-{{ easy_image(src="system-info-processes", width=600) }}
-{{ easy_image(src="system-info-monitor", width=600) }}
-{{ easy_image(src="system-info-network", width=600) }}
-{{ easy_image(src="system-info-kernel", width=600, class="pirate") }}
-{{ easy_image(src="system-info-firmware", width=600, class="pirate") }}
-{{ easy_image(src="system-info-about", width=600) }}
-
-{% pirate() %}
-### Terminal
-{% end %}
-{{ service(service="ttyd" link="https://tsl0922.github.io/ttyd/", port=8088) }}
-{% pirate() %}
-
-The Terminal provides
-- A tmux session
-   - Can split horizontally (`CTRL+b "`) and vertically (`CTRL+b %`), and use cursor
-   to resize the panels
-   - For more advanced tips, check out the
-   [tmux cheat sheet website](https://tmuxcheatsheet.com/)
-- Direct access into the core BlueOS docker container
-- Ready access to the tmux sessions of the core services (`CTRL+b s`)
-   - Useful for seeing logs as they update live
-   - Can kill services if necessary
-- Access to the underlying device via the `red-pill` utility
-   - Can return to the core container using the `exit` command, or pressing `CTRL+d`
-   - Can list available docker images (including extensions) with `docker image list`
-   - Can list active docker containers (including extensions) with `docker ps -a`
-{% end %}
-{{ easy_image(src="terminal", width=600, class="pirate") }}
-
-## Settings
-Pages in the "Settings" section allow you to configure and update the system.
+## BlueOS Service Pages
+Pages are sorted alphabetically.
 
 ### Autopilot Firmware
 {{ service(service="ArduPilot Manager", port=8000, link="/services/ardupilot_manager", based=true) }}
@@ -359,6 +248,36 @@ The Autopilot Parameters page allows checking and changing the autopilot's confi
 
 {{ easy_image(src="parameters" width=600) }}
 
+{% pirate() %}
+### Available Services
+
+The Available Services page provides developer access to the underlying http
+server interfaces of the services upon which BlueOS is based. Each service is
+listed with 
+- the port it is served at
+- a meaningful name
+- a web-page link using the active 
+[network configuration](../getting-started/#interface-access)
+
+and where relevant
+- its API documentation (in a live-testable form)
+- the current API version
+
+The individual services are documented [in the development documentation](../development/core/#services).
+{% end %}
+{{ easy_image(src="available-services", width=600, class="pirate") }}
+
+{% pirate() %}
+### Bag Editor
+{% end %}
+{{ service(service="Bag of Holding", port=9101, link="/services/bag_of_holding", based=true) }}
+{% pirate() %}
+
+The Bag Editor is a helper service for advanced users, which allows modifying the
+database used to handle frontend interface changes.
+{% end %}
+{{ easy_image(src="bag-editor", width=600, class="pirate") }}
+
 ### BlueOS Version
 
 {{ service(service="Version Chooser", port=8081, link="/services/versionchooser", based=true) }}
@@ -389,6 +308,33 @@ installed) it's possible to easily roll back to a working version from
 {% end %}
 
 {% pirate() %}
+### File Browser
+{% end %}
+{{ service(service="File Browser", port=7777, link="https://github.com/filebrowser/filebrowser") }}
+{% pirate() %}
+
+The File Browser allows viewing, editing, downloading, and uploading BlueOS files.
+
+{% end %}
+{{ easy_image(src="file-browser", width=600, class="pirate") }}
+
+### Log Browser
+{{ service(service="UAV LogViewer", link="https://ardupilot.org/copter/docs/common-uavlogviewer.html") }}
+
+- Allows downloading telemetry `.bin` logs from Linux-based autopilots
+   - Set the `BRD_RTC_TYPES` autopilot parameter to include `MAVLINK_SYSTEM_TIME`
+   so the filenames use timestamps
+- Can stream logs from external flight controllers (e.g. Pixhawks) if the
+`LOG_BACKEND_TYPE` autopilot parameter is set to `MAVLink`
+   - [May be inconsistent](https://github.com/bluerobotics/BlueOS-docker/issues/457)
+
+{{ easy_image(src="log-browser", width=600) }}
+
+- Press the green play button to access the built in Log Viewer, to visualise and
+analyse vehicle telemetry (including position if a positioning system is equipped)
+{{ easy_image(src="log-viewer", width=600) }}
+
+{% pirate() %}
 ### MAVLink Endpoints
 {% end %}
 {{ service(service="ArduPilot Manager", port=8000, link="/services/ardupilot_manager", based=true) }}
@@ -412,7 +358,39 @@ loopback IP `127.0.0.1`
    - e.g. some users may wish to set up a UDP endpoint for connecting to with
    Pymavlink from the surface:
 {% end %}
-{{ easy_image(src="mavlink-endpoints-pymavlink-example", width=400, class="pirate") }}
+{{ easy_image(src="mavlink-endpoints-pymavlink-example", width=400, class="pirate", center=true) }}
+
+{% pirate() %}
+### MAVLink Inspector
+{% end %}
+{{ service(service="MAVLink2Rest", port=6040, link="https://github.com/patrickelectric/mavlink2rest") }}
+{% pirate() %}
+
+The MAVLink Inspector provides real-time access to the MAVLink messages being
+sent to the topside computer. It is possible to
+- filter for particular messages
+- view past and current messages
+- click on messages to see their full details
+{% end %}
+{{ easy_image(src="mavlink-inspector", width=600, class="pirate") }}
+{% pirate() %}
+Future improvements will include plotting and comparisons, along with more
+powerful filtering options.
+
+For tracking the latest value of a single message type, use the "watcher"
+functionality of the `MAVLink2REST` service (access via the
+[Available Services](#available-services) page).
+{% end %}
+
+### Network Test
+{{ service(service="Pardal", port=9120, link="/services/pardal", based=true) }}
+
+The Network Test page measures real-time latency between BlueOS and the surface
+computer, and allows checking the upload and download speeds between them.
+
+A plot is provided of each test, to help diagnose intermittent issues.
+
+{{ easy_image(src="network-test", width=350) }}
 
 {% pirate() %}
 ### NMEA Injector
@@ -427,7 +405,7 @@ loopback IP `127.0.0.1`
 - Setup requires a UDP or TCP socket for the NMEA device to connect to, and a MAVLink ID
 for the component that will send the location data to the vehicle
 {% end %}
-{{ easy_image(src="nmea-example", width=400, class="pirate") }}
+{{ easy_image(src="nmea-example", width=400, class="pirate", center=true) }}
 
 ### Ping Sonar Devices
 {{ service(service="Ping Service", port=9110, link="/services/ping", based=true) }}
@@ -475,21 +453,78 @@ For making connections to the autopilot, see [MAVLink Endpoints](#mavlink-endpoi
 - Bridges to internal programs can use the loopback IP `127.0.0.1`, which creates a
   local server
 {% end %}
-{{ easy_image(src="serial-bridges-example", width=400, class="pirate") }}
+{{ easy_image(src="serial-bridges-example", width=400, class="pirate", center=true) }}
+
+### System Information
+{{ service(service="System Information", port=6030) }}
+
+The System Information page provides useful information about the processes,
+network configuration, and computer system BlueOS is running on. It can be
+useful for troubleshooting, and finding if a particular program is using
+excessive resources.
+{{ easy_image(src="system-info-processes", width=600) }}
+{{ easy_image(src="system-info-monitor", width=600) }}
+{{ easy_image(src="system-info-network", width=600) }}
+{{ easy_image(src="system-info-kernel", width=600, class="pirate") }}
+{{ easy_image(src="system-info-firmware", width=600, class="pirate") }}
+{{ easy_image(src="system-info-about", width=600) }}
+
+{% pirate() %}
+### Terminal
+{% end %}
+{{ service(service="ttyd" link="https://tsl0922.github.io/ttyd/", port=8088) }}
+{% pirate() %}
+
+The Terminal provides
+- A tmux session
+   - Can split horizontally (`CTRL+b "`) and vertically (`CTRL+b %`), and use cursor
+   to resize the panels
+   - For more advanced tips, check out the
+   [tmux cheat sheet website](https://tmuxcheatsheet.com/)
+- Direct access into the core BlueOS docker container
+- Ready access to the tmux sessions of the core services (`CTRL+b s`)
+   - Useful for seeing logs as they update live
+   - Can kill services if necessary
+- Access to the underlying device via the `red-pill` utility
+   - Can return to the core container using the `exit` command, or pressing `CTRL+d`
+   - Can list available docker images (including extensions) with `docker image list`
+   - Can list active docker containers (including extensions) with `docker ps -a`
+{% end %}
+{{ easy_image(src="terminal", width=600, class="pirate") }}
 
 ### Vehicle Setup
 `New in 1.1`
 
 The Vehicle Setup page provides an overview of the vehicle, including its sensors and
-peripherals.
+peripherals. The 3D model can be rotated, and can be panned by clicking and dragging
+while holding SHIFT. The camera icon can be used to capture a screenshot of the current
+view of the model, with a transparent background.
 
-{{ easy_image(src="vehicle-setup", width=600) }}
+{% pirate() %}
+It is possible to override the displayed 3D model by placing an appropriate `.glb`
+file at `userdata/modeloverrides/<vehicle_type>/<vehicle_frame>.glb` (e.g.
+`userdata/modeloverrides/sub/VECTORED_6DOF.glb`), or `userdata/modeloverrides/ALL.glb`.
 
-In future this page will allow 
-- managing the output mappings
-- testing the motors
+Documentation for the recommended process for creating a `.glb` file from a vehicle
+model is coming soon.
+{% end %}
+
+{{ easy_image(src="vehicle-setup-overview", width=600) }}
+
+The PWM Outputs tab allows configuring the servo function mappings
+(for motors, lights, camera tilt, etc), as well as manually testing the motors.
+
+{{ easy_image(src="vehicle-setup-pwm-outputs", width=600) }}
+
+The Configure tab allows loading default parameter sets for a particular vehicle type.
+
+{{ easy_image(src="vehicle-setup-configure", width=600) }}
+
+In future this page will also allow 
+- running ArduSub's automatic motor direction detection
 - calibrating the autopilot sensors
-- using custom 3D models and selection logic
+- using custom highlighting logic for model components
+- displaying device statuses from extensions
 
 ### Video Streams
 {{ service(service="MAVLink Camera Manager", link="https://github.com/bluerobotics/mavlink-camera-manager/", port=6020) }}
@@ -504,7 +539,7 @@ In future this page will allow
 connected at that time, with UDP streams counting up from port `5600`
    - e.g. a second camera at first startup would be streamed to port `5601`
    - Auto-configuration also occurs if the settings are reset
-      - applies to both [global settings resets](#settings) (via the sidebar) and
+      - applies to both [global settings resets](#blueos-settings) (via the sidebar) and
       - camera manager settings resets (via the settings icon in the bottom right)
 - After the initial startup, settings are saved and persistent across reboots
    - Further changes require manually re-configuring streams
@@ -574,7 +609,7 @@ which can be clicked to see information about the extension (including the setti
 permissions requirements, and developer information), and allows selecting the version
 to install:
 {{ easy_image(src="extensions-store", width=600) }}
-{{ easy_image(src="extensions-store-example", width=500) }}
+{{ easy_image(src="extensions-store-example", width=550) }}
 
 The Installed tab shows the resource usage of the installed extensions, and allows
 configuring them, checking their logs, and restarting or disabling them:
@@ -584,7 +619,7 @@ configuring them, checking their logs, and restarting or disabling them:
 Developers can install custom extensions as relevant.
 {% end %}
 
-{{ easy_image(src="extensions-installed-example", width=400, class="pirate") }}
+{{ easy_image(src="extensions-installed-example", width=400, class="pirate", center=true) }}
 
 ## Interface Theme
 
@@ -594,7 +629,7 @@ Developers can install custom extensions as relevant.
 - square images work best
 - consider getting an image of your 3D model from the [Vehicle Setup](#vehicle-setup) page
 
-{{ easy_image(src="theme-vehicle", width=500) }}
+{{ easy_image(src="theme-vehicle", width=500, center=true) }}
 
 #### Vehicle Name and mDNS Hostname
 
@@ -606,13 +641,13 @@ Developers can install custom extensions as relevant.
     - [http://blueos.local](http://blueos.local) will still be available for direct ethernet
     connections, as a fallback in case the custom name is forgotten
 
-{{ easy_image(src="theme-name-mdns", width=400) }}
+{{ easy_image(src="theme-name-mdns", width=400, center=true) }}
 
 #### Company Logo
 
 - square images work best
 
-{{ easy_image(src="theme-logo", width=500) }}
+{{ easy_image(src="theme-logo", width=500, center=true) }}
 
 {% pirate() %}
 ### Theme Styling
