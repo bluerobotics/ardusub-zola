@@ -18,21 +18,6 @@ top = false
 Your topside computer’s network configuration should be the same as for the previous Companion software.
 To configure it, you can follow our [network setup instructions](https://www.ardusub.com/quick-start/installing-companion.html#network-setup).
 
-## USB OTG
-It's also possible to connect with the Raspberry Pi through its USB-C port[^1]. Once it's connected, the system should be available though `blueos.local`[^2].
-[^1]:A Raspberry Pi draws more power than many computer USB ports can provide, so a USB-C connection should generally only be used for data transfer, with a separate [power supply](@/hardware/required/power-supply/index.md) (or through a powered USB hub).
-[^2]:The `usb0` network interface is configured to use a DHCP server by default, which does not provide access via the `192.168.2.2` static IP address.
-
-### Mac configuration
-If you are using MacOS, be sure to allow the RNDIS/ethernet gadget.
-{{ easy_image(src="allow-rndis", width="300") }}
-
-To avoid problems related to internet access while connected with BlueOS, be sure to change the order of your network interfaces, making sure that wifi and your wired internet connection comes first.
-
-{{ easy_image(src="network-settings", width="600") }}
-
-{{ easy_image(src="network-service-order", width="400") }}
-
 ## Web Interface
 
 BlueOS is designed as a modular collection of services, which are accessed and configured via a combined web interface.
@@ -60,7 +45,7 @@ To support BlueOS and autopilot firmware updates, it is recommended for BlueOS t
 BlueOS supports multiple vehicle types, and allows selecting a quick-setup option for the most common ones:
 {{ easy_image(src="wizard-vehicle", width=450, center=true) }}
 
-Vehicle quick-setup involves setting appropriate parameters for the selected vehicle type and frame, as well as choosing a name for your vehicle, and changing the mDNS hostname if you would prefer to connect with something other than [blueos.local](http://blueos.local):
+Vehicle quick-setup involves setting appropriate parameters for the selected vehicle type and frame, as well as choosing a name for your vehicle, and changing the mDNS hostname if you would prefer to connect with something other than [http://blueos.local](http://blueos.local):
 {{ easy_image(src="wizard-parameters", width=450, center=true) }}
 
 Progress is displayed for any selected configuration changes, and an up to date autopilot firmware is downloaded and installed (if using a standard vehicle type):
@@ -68,7 +53,6 @@ Progress is displayed for any selected configuration changes, and an up to date 
 
 A completion window is shown once all configuration is done:
 {{ easy_image(src="wizard-complete", width=450, center=true) }}
->>>>>>> 3670e2e (getting started: USB-OTG fixup)
 
 ### Interface Features
 
