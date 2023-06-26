@@ -586,6 +586,97 @@ Developers can install custom extensions as relevant.
 
 {{ easy_image(src="extensions-installed-example", width=400, class="pirate") }}
 
+## Interface Theme
+
+### Theme Content
+#### Vehicle Icon
+
+- square images work best
+- consider getting an image of your 3D model from the [Vehicle Setup](#vehicle-setup) page
+
+{{ easy_image(src="theme-vehicle", width=500) }}
+
+#### Vehicle Name and mDNS Hostname
+
+- the vehicle name makes it easier to determine which vehicle you are connected to
+- changing the mDNS hostname changes the address you connect to for the browser interface
+    - ethernet tether -> [http://custom.local](http://custom.local)
+    - wifi connection -> [http://custom-wifi.local](http://custom-wifi.local)
+    - BlueOS hotspot -> [http://custom-hotspot.local](http://custom-hotspot.local)
+    - [http://blueos.local](http://blueos.local) will still be available for direct ethernet
+    connections, as a fallback in case the custom name is forgotten
+
+{{ easy_image(src="theme-name-mdns", width=400) }}
+
+#### Company Logo
+
+- square images work best
+
+{{ easy_image(src="theme-logo", width=500) }}
+
+{% pirate() %}
+### Theme Styling
+It is possible to customise the styling of the BlueOS interface by adding a
+`theme_style.css` file at `userdata/styles/` in the [File Browser](#file-browser).
+The File Browser can also be used to modify the file, in which case the styles
+are updated at the next page refresh after the file is saved. The save button is
+in the top right corner.
+
+[CSS](https://www.w3schools.com/html/html_css.asp) is commonly used for styling
+HTML webpages, and has an extensive set of features available. For the purposes of
+adjusting the BlueOS theme, the most important thing to understand is
+[how to specify colors](https://www.w3schools.com/colors/default.asp). It can be
+helpful to use tools like [colorhexa](https://www.colorhexa.com/5eabed) when
+choosing a palette of colors, including for checking accessibility for various
+color vision deficiencies.
+
+For reference, here is an example with most of the main BlueOS colors changed,
+together with the theme file that created it:
+
+{% end %}
+
+{{ easy_image(src="theme-style", width=600, class="pirate") }}
+
+{% pirate() %}
+```css
+:root {
+  --v-primary-base: #CAB1E5 !important;  /* sidebar highlights, submit buttons */
+  --v-info-base: #BA55E5 !important;     /* info boxes (often same as primary base) */
+  --v-warning-base: #EDD1E5 !important;  /* warnings and skip buttons */
+  --v-error-base: #AC1D1C !important;    /* notifications, pirate icons, cancel/delete buttons */
+  --v-anchor-base: #5A11ED !important;   /* hyperlinks */
+}
+
+/* light theme background, light to dark */
+div.light-background {
+  background-color: #BAFF1E !important;
+  background-image: linear-gradient(160deg, #BAFF1E 0%, #5CA1E5 100%) !important;
+}
+
+/* dark theme background, light to dark */
+div.dark-background {
+  background-color: #5EABED !important;
+  background-image: linear-gradient(160deg, #5EABED 0%, #BA55E5 100%) !important;
+}
+
+/* light theme header bar background, light to dark, translucent */
+header.light-background-glass {
+  background-color: #DEADBA55 !important; /* fallback if gradient not available */
+  background-image: linear-gradient(160deg, #DEADBA88 0%, #5111CA88 100%) !important;
+  backdrop-filter: blur(4.5px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+
+/* dark theme header bar background, light to dark, translucent */
+header.dark-background-glass {
+  background-color: #5111CA55 !important; /* fallback if gradient not available */
+  background-image: linear-gradient(160deg, #5111CA88 0%, #0B5E5588 100%) !important;
+  backdrop-filter: blur(4.5px) !important;
+  -webkit-backdrop-filter: blur(10px) !important;
+}
+```
+{% end %}
+
 <script type="text/javascript">
     function toggle_advanced() {
         if (document.querySelector('.pirate').style.display == 'none') {
