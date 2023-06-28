@@ -32,7 +32,7 @@ It is [not yet possible to (nicely) update bootstrap through the BlueOS interfac
 
 BlueOS-bootstrap versions are built at the same time as BlueOS-core versions, and they get bundled together in the Raspberry Pi images that can be flashed onto an SD card to install BlueOS onto it. Updating BlueOS-bootstrap without flashing an SD card is currently only possible through the [Terminal](../../advanced-usage#terminal):
 
-```shell
+```sh
 # drop down from blueos-core into the underlying operating system:
 red-pill
 # get the running bootstrap container id
@@ -45,8 +45,8 @@ docker container rm $CURRENT_BOOTSTRAP_CONTAINER
 # specify the Docker image source (use your account if testing a change)
 BOOTSTRAP_REPO=bluerobotics
 BOOTSTRAP_IMAGE=blueos-bootstrap
-# specify the new version to use (e.g. 1.1.0-beta.22, or master)
-NEW_BOOTSTRAP_VERSION=1.1.0-beta.22
+# specify the new version to use (e.g. 1.1.0-beta.23, or master)
+NEW_BOOTSTRAP_VERSION=1.1.0-beta.23
 # start running the new version
 # (will automatically download if it's not already available locally)
 docker run \
@@ -58,8 +58,7 @@ docker run \
     -v /var/run/docker.sock:/var/run/docker.sock \
     -e BLUEOS_CONFIG_PATH=/root/.config/blueos \
     $BOOTSTRAP_REPO/$BOOTSTRAP_IMAGE:$NEW_BOOTSTRAP_VERSION
-# view the logs, to check that it's repeatedly printing
-# "core is already running, waiting for it to stop..."
+# view the logs, to check for any error or progress messages
 docker logs -f $BOOTSTRAP_IMAGE
 # press ctrl+c to return to the terminal, and you're done
 # if you want, type 'exit' or 'logout' to return to the BlueOS-core container
