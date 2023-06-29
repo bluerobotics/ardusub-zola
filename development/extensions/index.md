@@ -43,7 +43,7 @@ Once installed, an Extension Package can be run as a [Docker Container](../overv
 The process of packaging a set of programs and files into a Docker Image requires a [Dockerfile](https://docs.docker.com/engine/reference/builder/), which can be thought of as recipe for building the Image.
 
 For an Extension to be properly managed and shareable, the Dockerfile it's created from should include relevant metadata[^2] via the following labels:
-- `LABEL permisions='{}'`
+- `LABEL permissions='{}'`
    - This can be used to set resource limits, including allowing access to specific components of the underlying hardware
    - This must be a valid JSON (use \ to break lines), which follows the configuration described in the [Docker Api](https://docs.docker.com/engine/api/v1.41/#tag/Container/operation/ContainerCreate)
    - For reference, existing permissions can be retrieved from a running Docker Container by running the command `docker inspect <container_name>`
@@ -201,11 +201,12 @@ As an example:
 }
 ```
 
-Each registered Extension service will have an entry under the "Extensions" section of the BlueOS web interface sidebar menu:
+Each Extension service with a `register_service` endpoint will have an entry under the "Extensions" section of the BlueOS web interface sidebar menu:
 
 ![sidebar display showing a registered service in the menu](registered-service.png)
 
 [^3]:You can choose to not provide a web interface if your extension operates with no user input. The [VirtualHere Extension](https://github.com/Williangalvani/blueos-virtualhere) is a relevant example.
+
 [^4]:You can use programs like [simple-http-server](https://github.com/TheWaWaR/simple-http-server) to serve static files for an Extension.
 
 #### Functionality
@@ -283,5 +284,5 @@ Once installed on the [Onboard Computer](@/hardware/required/onboard-computer/in
 Walkthrough coming soon!
 {% end %}
 
-- [Sneak peek diagram](https://github.com/bluerobotics/ardusub-zola/blob/BlueOS-1.1/extensions/development-process.mermaid)
+- [Sneak peek diagram](https://github.com/bluerobotics/ardusub-zola/blob/BlueOS-1.1/development/extensions/development-process.mermaid)
 
