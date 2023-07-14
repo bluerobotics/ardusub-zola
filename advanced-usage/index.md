@@ -179,7 +179,7 @@ specifies the requirements for a service page to appear in the sidebar
 {{ easy_image(src="feedback", width=300, center=true) }}
 
 Submit feedback about BlueOS via:
-- [Issues on the GitHub repository](https://github.com/bluerobotics/BlueOS-docker/issues)
+- [Issues on the GitHub repository](https://github.com/bluerobotics/BlueOS/issues)
    - allows easily tracking changes, 
 and notification when complete/fixed
 - Posts on [the Blue Robotics forum](https://discuss.bluerobotics.com)
@@ -326,7 +326,7 @@ The File Browser allows viewing, editing, downloading, and uploading BlueOS file
    so the filenames use timestamps
 - Can stream logs from external flight controllers (e.g. Pixhawks) if the
 `LOG_BACKEND_TYPE` autopilot parameter is set to `MAVLink`
-   - [May be inconsistent](https://github.com/bluerobotics/BlueOS-docker/issues/457)
+   - [May be inconsistent](https://github.com/bluerobotics/BlueOS/issues/457)
 
 {{ easy_image(src="log-browser", width=600) }}
 

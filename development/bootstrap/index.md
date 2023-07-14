@@ -21,14 +21,14 @@ For an update the current core image gets shut down and the newly installed imag
 
 ## Codebase
 
-[BlueOS-bootstrap](https://github.com/bluerobotics/BlueOS-docker/tree/master/bootstrap) is open source, and lives within the broader [BlueOS-docker](https://github.com/bluerobotics/BlueOS-docker) GitHub repository. [Issues](https://github.com/bluerobotics/BlueOS-docker/issues) can be used to report bugs or suggest features, and [Pull Requests](https://github.com/bluerobotics/BlueOS-docker/pulls) fixing bugs or adding new features are welcomed.
+[BlueOS-bootstrap](https://github.com/bluerobotics/BlueOS/tree/master/bootstrap) is open source, and lives within the broader [BlueOS](https://github.com/bluerobotics/BlueOS) GitHub repository. [Issues](https://github.com/bluerobotics/BlueOS/issues) can be used to report bugs or suggest features, and [Pull Requests](https://github.com/bluerobotics/BlueOS/pulls) fixing bugs or adding new features are welcomed.
 
-BlueOS-docker is set up with a [GitHub Action](https://docs.github.com/en/actions) that [automatically builds and deploys](https://github.com/bluerobotics/BlueOS-docker/blob/master/.github/workflows/test-and-deploy.yml#L90) a BlueOS-bootstrap image when changes are pushed to the GitHub repository.
+BlueOS is set up with a [GitHub Action](https://docs.github.com/en/actions) that [automatically builds and deploys](https://github.com/bluerobotics/BlueOS/blob/master/.github/workflows/test-and-deploy.yml#L90) a BlueOS-bootstrap image when changes are pushed to the GitHub repository.
 If you want to make use of that functionality you'll need a [DockerHub](https://hub.docker.com) account, and will need to specify your DockerHub username (`DOCKER_USERNAME`) and password (`DOCKER_PASSWORD`) in your fork's [GitHub secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
 
 ## Updating
 
-It is [not yet possible to (nicely) update bootstrap through the BlueOS interface](https://github.com/bluerobotics/BlueOS-docker/issues/1510). The [BlueOS Version](../../advanced-usage#blueos-version) chooser only updates the [BlueOS-core](../core) image.
+It is [not yet possible to (nicely) update bootstrap through the BlueOS interface](https://github.com/bluerobotics/BlueOS/issues/1510). The [BlueOS Version](../../advanced-usage#blueos-version) chooser only updates the [BlueOS-core](../core) image.
 
 BlueOS-bootstrap versions are built at the same time as BlueOS-core versions, and they get bundled together in the Raspberry Pi images that can be flashed onto an SD card to install BlueOS onto it. Updating BlueOS-bootstrap without flashing an SD card is currently only possible through the [Terminal](../../advanced-usage#terminal):
 
