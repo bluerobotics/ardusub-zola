@@ -1,5 +1,5 @@
 +++
-title = "Extensions (Alpha)"
+title = "Extensions (Beta)"
 description = "BlueOS extensions documentation."
 date = 2023-03-08T12:30:00+11:00
 template = "docs/page.html"
@@ -29,7 +29,7 @@ For some additional context and discussion, please see [this forum thread](https
 ## Implementation
 
 {% warning() %}
-The BlueOS Extensions system is currently still in an `alpha` stage of development, so significant implementation changes are expected in the near future.
+The BlueOS Extensions system is currently still in a `beta` stage of development, so some implementation changes are expected in the near future.
 {% end %}
 
 ### Components: Anatomy of an Extension
