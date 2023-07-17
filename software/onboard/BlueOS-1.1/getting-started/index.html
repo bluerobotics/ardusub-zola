@@ -260,7 +260,7 @@
 							                           
 									<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/">BlueOS-core</a></li>
 							                           
-									<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/">Extensions (Alpha)</a></li>
+									<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/">Extensions (Beta)</a></li>
 							
 					</ul>
 					
@@ -286,6 +286,8 @@
   											
   											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#interface-access">Interface Access</a></li>
   											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#wizard">Wizard</a></li>
+  											
   											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#interface-features">Interface Features</a></li>
   											
   									</ul>
@@ -305,6 +307,15 @@
   							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#camera-streams">Camera Streams</a></li>
   							
   							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#usb-otg">USB OTG</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#mac-configuration">Mac configuration</a></li>
+  											
+  									</ul>
+  							
+  							
   					</ul>
   			</nav>
   	</div>
@@ -321,8 +332,42 @@ To configure it, you can follow our <a href="https://www.ardusub.com/quick-start
 <p>BlueOS is designed as a modular collection of services, which are accessed and configured via a combined web interface.</p>
 <p>The web interface monitors the autopilot and other main software components. It also listens for and displays connections from other HTTP servers (on TCP ports), which allows extensions and custom integrations to provide an interface through BlueOS while remaining independent from the main BlueOS release/update cycle.</p>
 <h3 id="interface-access">Interface Access</h3>
-<p>By default you can access BlueOS via the old IP address (<a href="http://192.168.2.2/">192.168.2.2</a>) or via <a href="http://blueos.local/">blueos.local</a>.
-When BlueOS is connected to the same wifi network as your device you can also connect with it using <a href="http://blueos-wifi.local/">blueos-wifi.local</a>.</p>
+<ul>
+<li>By default you can access BlueOS via <a href="http://blueos.local/">blueos.local</a>
+<ul>
+<li>This applies if the BlueOS device is connected to via a direct ethernet connection, or <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#usb-otg">USB-OTG</a></li>
+<li>On an ethernet connection you can also access BlueOS via its static IP address (<a href="http://192.168.2.2/">192.168.2.2</a>)</li>
+</ul>
+</li>
+<li>When BlueOS is connected to the same wifi network as your device you can also connect with it using <a href="http://blueos-wifi.local/">blueos-wifi.local</a></li>
+<li>By default if BlueOS does not have a wifi connection configured within 5 minutes of booting, it will start its own wifi hotspot which, when connected to, allows accessing the BlueOS interface via <a href="http://blueos-hotspot.local/">blueos-hotspot.local</a></li>
+</ul>
+<h3 id="wizard">Wizard</h3>
+<p>When BlueOS is newly installed the interface provides a configuration wizard to help get things set up. </p>
+<p>The Welcome section allows skipping the wizard if BlueOS and your vehicle have already been configured as desired:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="wizard-welcome.png" alt="Wizard Welcome" width=450 >
+</div>
+<p>To support BlueOS and autopilot firmware updates, it is recommended for BlueOS to be connected to the internet:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="wizard-wifi.png" alt="Wizard Wifi" width=450 >
+</div>
+<p>BlueOS supports multiple vehicle types, and allows selecting a quick-setup option for the most common ones:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="wizard-vehicle.png" alt="Wizard Vehicle" width=450 >
+</div>
+<p>Vehicle quick-setup involves setting appropriate parameters for the selected vehicle type and frame, as well as choosing a name for your vehicle, and changing the mDNS hostname if you would prefer to connect with something other than <a href="http://blueos.local">http://blueos.local</a>:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="wizard-parameters.png" alt="Wizard Parameters" width=450 >
+</div>
+<p>Progress is displayed for any selected configuration changes, and an up to date autopilot firmware is downloaded and installed (if using a standard vehicle type):</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="wizard-progress.png" alt="Wizard Progress" width=450 >
+</div>
+<p>A completion window is shown once all configuration is done:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="wizard-complete.png" alt="Wizard Complete" width=450 >
+</div>
 <h3 id="interface-features">Interface Features</h3>
 <p>When you first open the web interface, you'll see a page that looks like this:</p>
 <div style="padding-bottom:15px;">
@@ -376,6 +421,26 @@ Please wait until it finishes - it will automatically reload the webpage for you
 <h2 id="camera-streams">Camera Streams</h2>
 <p>BlueOS is capable of configuring and streaming multiple cameras simultaneously. The first time it boots, it will automatically detect any connected H264-capable cameras and start streaming them. If not, make sure your camera is properly connected, and that BlueOS is on the latest available version. Reset settings and restart BlueOS if necessary.</p>
 <p>Additional information is available in the Advanced Usage <a href="../advanced-usage/#video-streams">Video Streams</a> section.</p>
+<h2 id="usb-otg">USB OTG</h2>
+<p>It is possible to connect with a Raspberry Pi 4 through its USB-C port<sup class="footnote-reference"><a href="#1">1</a></sup>. Once it's connected, the interface should be available though <a href="http://blueos.local">blueos.local</a><sup class="footnote-reference"><a href="#2">2</a></sup>.</p>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>A Raspberry Pi draws more power than many computer USB ports can provide, so a USB-C connection should generally only be used for data transfer, with a separate <a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/power-supply/">power supply</a> (or through a powered USB hub).</p>
+</div>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
+<p>The <code>usb0</code> network interface is configured to use a DHCP server at <code>192.168.3.1</code> by default, which does <strong>not</strong> provide access via the <a href="http://192.168.2.2">192.168.2.2</a> static IP address.</p>
+</div>
+<h3 id="mac-configuration">Mac configuration</h3>
+<p>If you are using MacOS, make sure to allow the RNDIS/ethernet gadget:</p>
+<div style="padding-bottom:15px;">
+<img src="allow-rndis.png" alt="Allow Rndis" width=300 >
+</div>
+<p>MacOS will consider a USB-OTG connection as a valid source of internet, which can be avoided by reordering your network interfaces, making sure that wifi and your actual wired internet connection interface are used with higher priority.</p>
+<div style="padding-bottom:15px;">
+<img src="network-settings.png" alt="Network Settings" width=600 >
+</div>
+<div style="padding-bottom:15px;">
+<img src="network-service-order.png" alt="Network Service Order" width=400 >
+</div>
 
         
           

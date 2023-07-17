@@ -258,7 +258,7 @@
 					                           
 							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/">BlueOS-core</a></li>
 					                           
-							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/">Extensions (Alpha)</a></li>
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/">Extensions (Beta)</a></li>
 					
 					</ul>
 			
@@ -296,42 +296,41 @@
 <p>BlueOS-bootstrap is responsible for making sure <a href="../core">BlueOS-core</a> is running as expected, as well as gracefully restarting core during BlueOS updates and if it is detected to have unexpectedly stopped/crashed. 
 For an update the current core image gets shut down and the newly installed image gets started in its place, whereas in the case of a crash bootstrap reverts to running a known working core image, which is currently the one tagged as <code>factory</code> (which is whatever it was first flashed with), so that it's at least possible to access the interface.</p>
 <h2 id="codebase">Codebase</h2>
-<p><a href="https://github.com/bluerobotics/BlueOS-docker/tree/master/bootstrap">BlueOS-bootstrap</a> is open source, and lives within the broader <a href="https://github.com/bluerobotics/BlueOS-docker">BlueOS-docker</a> GitHub repository. <a href="https://github.com/bluerobotics/BlueOS-docker/issues">Issues</a> can be used to report bugs or suggest features, and <a href="https://github.com/bluerobotics/BlueOS-docker/pulls">Pull Requests</a> fixing bugs or adding new features are welcomed.</p>
-<p>BlueOS-docker is set up with a <a href="https://docs.github.com/en/actions">GitHub Action</a> that <a href="https://github.com/bluerobotics/BlueOS-docker/blob/master/.github/workflows/test-and-deploy.yml#L90">automatically builds and deploys</a> a BlueOS-bootstrap image when changes are pushed to the GitHub repository.
+<p><a href="https://github.com/bluerobotics/BlueOS/tree/master/bootstrap">BlueOS-bootstrap</a> is open source, and lives within the broader <a href="https://github.com/bluerobotics/BlueOS">BlueOS</a> GitHub repository. <a href="https://github.com/bluerobotics/BlueOS/issues">Issues</a> can be used to report bugs or suggest features, and <a href="https://github.com/bluerobotics/BlueOS/pulls">Pull Requests</a> fixing bugs or adding new features are welcomed.</p>
+<p>BlueOS is set up with a <a href="https://docs.github.com/en/actions">GitHub Action</a> that <a href="https://github.com/bluerobotics/BlueOS/blob/master/.github/workflows/test-and-deploy.yml#L90">automatically builds and deploys</a> a BlueOS-bootstrap image when changes are pushed to the GitHub repository.
 If you want to make use of that functionality you'll need a <a href="https://hub.docker.com">DockerHub</a> account, and will need to specify your DockerHub username (<code>DOCKER_USERNAME</code>) and password (<code>DOCKER_PASSWORD</code>) in your fork's <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets">GitHub secrets</a>.</p>
 <h2 id="updating">Updating</h2>
-<p>It is <a href="https://github.com/bluerobotics/BlueOS-docker/issues/1510">not yet possible to (nicely) update bootstrap through the BlueOS interface</a>. The <a href="../../advanced-usage#blueos-version">BlueOS Version</a> chooser only updates the <a href="../core">BlueOS-core</a> image.</p>
+<p>It is <a href="https://github.com/bluerobotics/BlueOS/issues/1510">not yet possible to (nicely) update bootstrap through the BlueOS interface</a>. The <a href="../../advanced-usage#blueos-version">BlueOS Version</a> chooser only updates the <a href="../core">BlueOS-core</a> image.</p>
 <p>BlueOS-bootstrap versions are built at the same time as BlueOS-core versions, and they get bundled together in the Raspberry Pi images that can be flashed onto an SD card to install BlueOS onto it. Updating BlueOS-bootstrap without flashing an SD card is currently only possible through the <a href="../../advanced-usage#terminal">Terminal</a>:</p>
-<pre data-lang="shell" style="background-color:#2b303b;color:#c0c5ce;" class="language-shell "><code class="language-shell" data-lang="shell"><span># drop down from blueos-core into the underlying operating system:
-</span><span>red-pill
-</span><span># get the running bootstrap container id
-</span><span>CURRENT_BOOTSTRAP_CONTAINER=$(docker ps -aq --filter name=blueos-bootstrap)
-</span><span># stop the bootstrap container (takes 10 seconds)
-</span><span>docker stop $CURRENT_BOOTSTRAP_CONTAINER
-</span><span># remove the container from local memory
-</span><span># (the underlying image remains on the system, unused)
-</span><span>docker container rm $CURRENT_BOOTSTRAP_CONTAINER
-</span><span># specify the Docker image source (use your account if testing a change)
-</span><span>BOOTSTRAP_REPO=bluerobotics
-</span><span>BOOTSTRAP_IMAGE=blueos-bootstrap
-</span><span># specify the new version to use (e.g. 1.1.0-beta.22, or master)
-</span><span>NEW_BOOTSTRAP_VERSION=1.1.0-beta.22
-</span><span># start running the new version
-</span><span># (will automatically download if it&#39;s not already available locally)
-</span><span>docker run \
-</span><span>    -d -t \
-</span><span>    --restart unless-stopped \
-</span><span>    --name blueos-bootstrap \
-</span><span>    --net=host \
-</span><span>    -v /root/.config/blueos/bootstrap:/root/.config/bootstrap \
-</span><span>    -v /var/run/docker.sock:/var/run/docker.sock \
-</span><span>    -e BLUEOS_CONFIG_PATH=/root/.config/blueos \
-</span><span>    $BOOTSTRAP_REPO/$BOOTSTRAP_IMAGE:$NEW_BOOTSTRAP_VERSION
-</span><span># view the logs, to check that it&#39;s repeatedly printing
-</span><span># &quot;core is already running, waiting for it to stop...&quot;
-</span><span>docker logs -f $BOOTSTRAP_IMAGE
-</span><span># press ctrl+c to return to the terminal, and you&#39;re done
-</span><span># if you want, type &#39;exit&#39; or &#39;logout&#39; to return to the BlueOS-core container
+<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#65737e;"># drop down from blueos-core into the underlying operating system:
+</span><span style="color:#bf616a;">red-pill
+</span><span style="color:#65737e;"># get the running bootstrap container id
+</span><span style="color:#bf616a;">CURRENT_BOOTSTRAP_CONTAINER</span><span>=$</span><span style="color:#a3be8c;">(</span><span style="color:#bf616a;">docker</span><span style="color:#a3be8c;"> ps</span><span style="color:#bf616a;"> -aq --filter</span><span style="color:#a3be8c;"> name=blueos-bootstrap)
+</span><span style="color:#65737e;"># stop the bootstrap container (takes 10 seconds)
+</span><span style="color:#bf616a;">docker</span><span> stop $</span><span style="color:#bf616a;">CURRENT_BOOTSTRAP_CONTAINER
+</span><span style="color:#65737e;"># remove the container from local memory
+</span><span style="color:#65737e;"># (the underlying image remains on the system, unused)
+</span><span style="color:#bf616a;">docker</span><span> container rm $</span><span style="color:#bf616a;">CURRENT_BOOTSTRAP_CONTAINER
+</span><span style="color:#65737e;"># specify the Docker image source (use your account if testing a change)
+</span><span style="color:#bf616a;">BOOTSTRAP_REPO</span><span>=</span><span style="color:#a3be8c;">bluerobotics
+</span><span style="color:#bf616a;">BOOTSTRAP_IMAGE</span><span>=</span><span style="color:#a3be8c;">blueos-bootstrap
+</span><span style="color:#65737e;"># specify the new version to use (e.g. 1.1.0-beta.23, or master)
+</span><span style="color:#bf616a;">NEW_BOOTSTRAP_VERSION</span><span>=</span><span style="color:#a3be8c;">1.1.0-beta.23
+</span><span style="color:#65737e;"># start running the new version
+</span><span style="color:#65737e;"># (will automatically download if it&#39;s not already available locally)
+</span><span style="color:#bf616a;">docker</span><span> run \
+</span><span style="color:#bf616a;">    -d -t </span><span>\
+</span><span style="color:#bf616a;">    --restart</span><span> unless-stopped \
+</span><span style="color:#bf616a;">    --name</span><span> blueos-bootstrap \
+</span><span style="color:#bf616a;">    --net</span><span>=host \
+</span><span style="color:#bf616a;">    -v</span><span> /root/.config/blueos/bootstrap:/root/.config/bootstrap \
+</span><span style="color:#bf616a;">    -v</span><span> /var/run/docker.sock:/var/run/docker.sock \
+</span><span style="color:#bf616a;">    -e</span><span> BLUEOS_CONFIG_PATH=/root/.config/blueos \
+</span><span>    $</span><span style="color:#bf616a;">BOOTSTRAP_REPO</span><span>/$</span><span style="color:#bf616a;">BOOTSTRAP_IMAGE</span><span>:$</span><span style="color:#bf616a;">NEW_BOOTSTRAP_VERSION
+</span><span style="color:#65737e;"># view the logs, to check for any error or progress messages
+</span><span style="color:#bf616a;">docker</span><span> logs</span><span style="color:#bf616a;"> -f </span><span>$</span><span style="color:#bf616a;">BOOTSTRAP_IMAGE
+</span><span style="color:#65737e;"># press ctrl+c to return to the terminal, and you&#39;re done
+</span><span style="color:#65737e;"># if you want, type &#39;exit&#39; or &#39;logout&#39; to return to the BlueOS-core container
 </span></code></pre>
 
         

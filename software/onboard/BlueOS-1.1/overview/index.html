@@ -257,7 +257,7 @@
 							                           
 									<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/core/">BlueOS-core</a></li>
 							                           
-									<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/">Extensions (Alpha)</a></li>
+									<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/">Extensions (Beta)</a></li>
 							
 					</ul>
 					
@@ -290,7 +290,7 @@
   											
   											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/#menu-and-general-interface-improvements">Menu and general interface improvements</a></li>
   											
-  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/#device-support">Device Support</a></li>
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/overview/#device-hardware-support">Device&#x2F;Hardware Support</a></li>
   											
   									</ul>
   							
@@ -314,9 +314,9 @@
         <h1>Overview</h1>
         <p class="lead">BlueOS is a modular, robust, and efficient platform for managing a vehicle or robot from its onboard computer.</p>
         <h2 id="a-bit-of-context">A bit of context...</h2>
-<p>The <a href="https://www.ardusub.com/reference/companion-web-ui.html">original Companion</a> project (started in 2015) was originally created with the simple intent to route an underwater vehicle's video stream and communications to the surface computer, and provide some basic configuration of those features and the vehicle firmware. The simple scope was great to get things started, but also meant that new and complex features weren't designed in from the start, so maintenance and developing functionality have been increasingly challenging.</p>
+<p>The <a href="https://www.ardusub.com/reference/companion-web-ui.html">original Companion Software</a> project (started in 2015) was originally created with the simple intent to route an underwater vehicle's video stream and communications to the surface computer, and provide some basic configuration of those features and the vehicle firmware. The simple scope was great to get things started, but also meant that new and complex features weren't designed in from the start, so maintenance and developing functionality became increasingly challenging.</p>
 <p>With lessons learned on useful features and software architecture requirements, BlueOS was designed and created from the ground up to fit the requirements of the onboard computer system we <em>want</em> to have - with room to grow into a true operating system for the vehicle. BlueOS is modular to the heart, which makes it portable, robust to update, and extensible. </p>
-<p>There are many upcoming features, including support for <a href="https://discuss.bluerobotics.com/t/external-integrations-extensions/10912">third party packages</a>, applications, advanced data logging, and much more! We're super excited about our future with BlueOS, and we can't wait for you to join us and try it out! 😄</p>
+<p>We're super excited about our future with BlueOS, and we can't wait for you to join us and try it out! 😄</p>
 <h2 id="blueos-principles-and-goals">BlueOS principles and goals</h2>
 <p>As the core development team we've tried to envision the future of the onboard computer, and the features that will require. Our initial ideas have been distilled into the following core concepts, many of which are already built in to the BlueOS of today:</p>
 <ul>
@@ -344,6 +344,7 @@
 <li><a href="../advanced-usage/#vehicle-setup">Vehicle Setup</a> <code>(NEW!)</code>
 <ul>
 <li>A page providing an overview of the configured vehicle and its connected peripherals</li>
+<li>Allows testing motors, configuring servo outputs, and setting default autopilot parameters</li>
 </ul>
 </li>
 <li><a href="../advanced-usage/#ping-sonar-devices">Ping Sonar Devices</a> <code>(NEW!)</code>
@@ -367,7 +368,7 @@
 <li>Includes saving to and loading from a file</li>
 </ul>
 </li>
-<li><a href="../advanced-usage/#autopilot-firmware">Autopilot Firmware</a> (MERGED Firmware and General)
+<li><a href="../advanced-usage/#autopilot-firmware">Autopilot Firmware</a> (MERGED &quot;Firmware&quot; and &quot;General&quot;)
 <ul>
 <li>Extra information about the currently running firmware was added</li>
 <li>Improved firmware update robustness</li>
@@ -379,11 +380,11 @@
 <li>Can now choose which autopilot to flash, if multiple are connected</li>
 </ul>
 </li>
-<li><a href="../advanced-usage/#video-streams">Video Streams</a>
+<li><a href="../advanced-usage/#video-streams">Video Streams</a> (REPLACES &quot;Video&quot;)
 <ul>
 <li>Camera manager now supports Raspberry Pi cameras, and a fake source for testing</li>
 <li>Camera previews are now available when a stream is configured</li>
-<li>RTSP support added for MJPG and YUYV encoded streams</li>
+<li>RTSP output support added for MJPG and YUYV encoded streams</li>
 <li>MAVLink support improved
 <ul>
 <li>Allows Control Station Software (e.g. QGroundControl) to configure camera settings and switch between multiple video streams</li>
@@ -391,13 +392,13 @@
 </li>
 </ul>
 </li>
-<li><a href="../advanced-usage/#mavlink-endpoints">MAVLink Endpoints</a>
+<li><a href="../advanced-usage/#mavlink-endpoints">MAVLink Endpoints</a> (REPLACES &quot;Endpoints&quot;)
 <ul>
 <li>IP address interface now indicates the endpoint type</li>
 <li>Endpoints are now editable</li>
 </ul>
 </li>
-<li><a href="../advanced-usage/#serial-bridges">Serial Bridges</a>
+<li><a href="../advanced-usage/#serial-bridges">Serial Bridges</a> (REPLACES &quot;Bridges&quot;)
 <ul>
 <li>Significant interface and robustness updates</li>
 </ul>
@@ -407,9 +408,14 @@
 <li>Settings are now persistent across boots</li>
 </ul>
 </li>
-<li><a href="../advanced-usage/#version-chooser">Version Chooser</a>
+<li><a href="../advanced-usage/#blueos-version">BlueOS Version</a> (REPLACES &quot;Version Chooser&quot;)
 <ul>
 <li>New progress bar while downloading and extracting new images</li>
+</ul>
+</li>
+<li><a href="../advanced-usage/#system-information">System Information</a>
+<ul>
+<li>New &quot;Firmware&quot; tab, with information about the computer's firmware and bootloader</li>
 </ul>
 </li>
 <li><a href="../advanced-usage/#network-test">Network Test</a>
@@ -417,26 +423,48 @@
 <li>New graph to track upload and download performance during a test</li>
 </ul>
 </li>
+<li><a href="../advanced-usage/#file-browser">File Browser</a>
+<ul>
+<li>New shortcuts to useful parts of the file-system</li>
+</ul>
+</li>
+<li><a href="../advanced-usage/#bag-editor">Bag Editor</a> <code>(NEW!)</code>
+<ul>
+<li>Allows modifying the database that controls frontend interface changes</li>
+</ul>
+</li>
 </ul>
 <h3 id="menu-and-general-interface-improvements">Menu and general interface improvements</h3>
 <ul>
-<li>Sidebar is now open by default when the window is wide enough</li>
-<li>Interface updated to be mobile friendly</li>
+<li>New vehicle selection and setup wizard</li>
+<li>New header widgets</li>
+<li>Interface updated to be mobile friendly, and more aesthetic</li>
+<li>Various sidebar improvements
+<ul>
+<li>Now open by default when the window is wide enough</li>
+<li>Pages are now ordered alphabetically, without ambiguous sections</li>
+<li>There's now a configurable vehicle icon, name, mDNS address, and logo</li>
+<li>It's now possible to download the latest BlueOS system logs, and reset settings</li>
+</ul>
+</li>
 <li>Pirate mode is now toggled via the happy-robot/pirate icon in the header</li>
 <li>Ethernet and wifi configuration are improved
 <ul>
 <li>A hotspot network is now created for devices to connect to if a normal connection does not occur on boot</li>
+<li>Raspberry Pi 4s can now connect via USB OTG ethernet</li>
 </ul>
 </li>
 </ul>
-<h3 id="device-support">Device Support</h3>
+<h3 id="device-hardware-support">Device/Hardware Support</h3>
 <ul>
 <li>Added basic detection and management support for:
 <ul>
 <li>the Cube Orange flight controller</li>
 <li>the Pixhawk 6X flight controller</li>
+<li>non-Navigator Linux boards</li>
 </ul>
 </li>
+<li>New amd64 Docker images, for running BlueOS on development machines</li>
 </ul>
 <h2 id="feature-comparison">Feature Comparison</h2>
 <p>BlueOS has almost all features from the old Companion, and several hotly-requested new ones too!</p>
