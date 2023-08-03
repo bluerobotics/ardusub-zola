@@ -15,14 +15,14 @@ top = false
 +++
 
 {% note() %}
-This page provides context and development guidance for Extensions. For _installing_ and _using_ Extensions please refer to the [Extensions Manager](../advanced-usage/#extensions-manager) section of the Advanced Usage page.
+This page provides context and development guidance for Extensions. For _installing_ and _using_ Extensions please refer to the [Extensions Manager](../../advanced-usage/#extensions-manager) section of the Advanced Usage page.
 {% end %}
 
 ## Context
 
 One of the primary aims of BlueOS is to be a platform that is readily extendable to the needs of each user. For maximum utility it should be easy to add support for custom hardware, add components to the user interface, and share developments with other BlueOS users, without compromising the base BlueOS experience.
 
-Accordingly, BlueOS has been designed with a containerised architecture, so the core functionality is kept separate from Extensions, and each can be distributed and updated independently of the other. The built in Extension system allows developers and users to find and install add-on software packages to BlueOS, and manage updates, permissions, and resource limits of those Extensions through the [Extensions Manager](../advanced-usage/#extensions-manager).
+Accordingly, BlueOS has been designed with a containerised architecture, so the core functionality is kept separate from Extensions, and each can be distributed and updated independently of the other. The built in Extension system allows developers and users to find and install add-on software packages to BlueOS, and manage updates, permissions, and resource limits of those Extensions through the [Extensions Manager](../../advanced-usage/#extensions-manager).
 
 For some additional context and discussion, please see [this forum thread](https://discuss.bluerobotics.com/t/external-integrations-extensions/10912) about the BlueOS Extensions architecture. Feel free to contribute ideas or ask questions there as relevant.
 
@@ -34,9 +34,9 @@ The BlueOS Extensions system is currently still in a `beta` stage of development
 
 ### Components: Anatomy of an Extension
 
-At heart, a BlueOS Extension is some functionality (optionally with a web interface) packaged into a [Docker Image](../overview#docker), and combined with some metadata that allows it to be found, shared, and managed. Extensions may interface with existing services provided by BlueOS (or other Extensions), and some Extensions may create persistent logs and/or make use of data or files provided by the user.
+At heart, a BlueOS Extension is some functionality (optionally with a web interface) packaged into a [Docker Image](../../overview#docker), and combined with some metadata that allows it to be found, shared, and managed. Extensions may interface with existing services provided by BlueOS (or other Extensions), and some Extensions may create persistent logs and/or make use of data or files provided by the user.
 
-Once installed, an Extension Package can be run as a [Docker Container](../overview#docker), which normally occurs automatically when the vehicle turns on, but can also be manually disabled/enabled via the Extensions Manager. When running, Extensions can have [custom permissions assigned](#metadata-dockerfile), which can limit resource-usage and/or allow access to parts of the host computer's hardware.
+Once installed, an Extension Package can be run as a [Docker Container](../../overview#docker), which normally occurs automatically when the vehicle turns on, but can also be manually disabled/enabled via the Extensions Manager. When running, Extensions can have [custom permissions assigned](#metadata-dockerfile), which can limit resource-usage and/or allow access to parts of the host computer's hardware.
 
 #### Metadata (Dockerfile)
 
@@ -257,7 +257,7 @@ Different types of Extensions have different functionality, and there are often 
    1. The fetched information is then compiled and published to the [Manifest file](https://github.com/bluerobotics/BlueOS-Extensions-Repository/gh-pages/manifest.json) in the `gh-pages` branch
    
 #### Installed Extensions
-Once installed on the [Onboard Computer](@/hardware/required/onboard-computer/index.md), Extensions are stored at `/var/lib/docker` in the file-system, but should be managed through the BlueOS [Extensions Manager](../advanced-usage/#extensions-manager).
+Once installed on the [Onboard Computer](@/hardware/required/onboard-computer/index.md), Extensions are stored at `/var/lib/docker` in the file-system, but should be managed through the BlueOS [Extensions Manager](../../advanced-usage/#extensions-manager).
 
 
 ### Ecosystem Attributes
