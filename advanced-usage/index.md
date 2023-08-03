@@ -107,6 +107,23 @@ easily connect to it from a phone
 
 {{ easy_image(src="hotspot-example", width=250, center=true) }}
 
+##### Internet Status and Management
+
+- See whether the vehicle is connected to the internet
+
+{{ easy_image(src="internet", center=true, width=50) }}
+{% pirate() %}
+- Configure network priority ordering
+    - Determines which network interface is used for internet connection
+    - Generally `wlan0` should be at the top (for internet via wifi)
+    - Move `eth0` to the top if using internet passthrough via the tether
+{% end %}
+{{ easy_image(src="internet-network-priority", class="pirate", center=true, width=400) }}
+{% pirate() %}
+- View and configure DNS name servers
+{% end %}
+{{ easy_image(src="internet-dns-config", class="pirate", center=true, width=400) }}
+
 ##### Display Mode Management
 
 {{ easy_image(src="display-mode", width=250, center=true) }}

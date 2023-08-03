@@ -104,9 +104,11 @@ This covers a summary of the major changes and new features in BlueOS-1.1. Where
    - There's now a configurable vehicle icon, name, mDNS address, and logo
    - It's now possible to download the latest BlueOS system logs, and reset settings
 - Pirate mode is now toggled via the happy-robot/pirate icon in the header
-- Ethernet and wifi configuration are improved
+- Network, ethernet, and wifi configuration are improved
    - A hotspot network is now created for devices to connect to if a normal connection does not occur on boot
    - Raspberry Pi 4s can now connect via USB OTG ethernet
+   - Network interface priority ordering is now possible
+   - DNS name server configuration is now available
 
 ### Device/Hardware Support
 - Added basic detection and management support for:
