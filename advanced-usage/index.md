@@ -153,6 +153,7 @@ specifies the requirements for a service page to appear in the sidebar
 - Remove log files from BlueOS services (to reduce space usage on the SD card)
 - Download log files from BlueOS services to report a problem
   - Old logs are aggregated and kept as zip files
+- Re-enable the [configuration wizard](../getting-started#wizard)
 
 ##### Power
 
