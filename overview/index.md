@@ -72,6 +72,7 @@ This covers a summary of the major changes and new features in BlueOS-1.1. Where
    - RTSP output support added for MJPG and YUYV encoded streams
    - MAVLink support improved
       - Allows Control Station Software (e.g. QGroundControl) to configure camera settings and switch between multiple video streams
+      - Disabling MAVLink advertising of a video stream is now possible
 - [MAVLink Endpoints](../advanced-usage/#mavlink-endpoints) (REPLACES "Endpoints")
    - IP address interface now indicates the endpoint type
    - Endpoints are now editable
