@@ -296,6 +296,7 @@ versions
    - Previously-installed versions are kept locally on the device, unless
    manually deleted, which provides an easy route for roll-backs to undesired
    changes (e.g. during development)
+- Allows updating the [bootstrap image](../development/bootstrap) to match the current version
 - Allows loading remote versions (including from custom docker-hub repositories)
 - Allows manually uploading docker images from the surface computer
 - If an undetected failure somehow occurs in BlueOS (or if a broken version gets
