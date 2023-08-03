@@ -563,8 +563,8 @@ connected at that time, with UDP streams counting up from port `5600`
 
 {{ simple_pirate_image(src="video-stream-example", width=400, center=true) }}
 
-- The streams are also presented via MAVLink, so QGroundControl (>=v4.1.7) can
-toggle between them without needing to know specific ports.
+- By default the streams are also presented via MAVLink, so QGroundControl (>=v4.1.7)
+can toggle between them without needing to know specific ports
 {% pirate() %}
    - It is possible to specify a stream as "thermal", which allows it to be
    overlaid on another stream in some viewing applications
