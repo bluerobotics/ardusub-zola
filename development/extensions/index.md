@@ -169,6 +169,9 @@ If the Extension needs a visual interface[^3], the recommended approach is to pr
 
 To do so requires the Extension to run a HTTP server[^4], at which it must serve a `register_service` endpoint in the format of a JSON dict with the following keys:
 - `"name"`
+   - This gets displayed in the sidebar
+   - A sanitised (lowercase, alphanumeric) form is used to create a named URL for convenient access
+      - e.g. `My Software 9000!` -> `http://blueos.local/extension/mysoftware9000`
 - `"description"`
 - `"icon"`
    - Select one of the [Material Design Icons](https://pictogrammers.com/library/mdi/)
