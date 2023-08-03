@@ -82,6 +82,7 @@ This covers a summary of the major changes and new features in BlueOS-1.1. Where
    - Settings are now persistent across boots
 - [BlueOS Version](../advanced-usage/#blueos-version) (REPLACES "Version Chooser")
    - New progress bar while downloading and extracting new images
+   - Now allows updating the [bootstrap image](../development/bootstrap)
 - [System Information](../advanced-usage/#system-information)
    - New "Firmware" tab, with information about the computer's firmware and bootloader
 - [Network Test](../advanced-usage/#network-test)

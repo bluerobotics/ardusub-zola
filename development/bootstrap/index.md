@@ -28,9 +28,9 @@ If you want to make use of that functionality you'll need a [DockerHub](https://
 
 ## Updating
 
-It is [not yet possible to (nicely) update bootstrap through the BlueOS interface](https://github.com/bluerobotics/BlueOS/issues/1510). The [BlueOS Version](../../advanced-usage#blueos-version) chooser only updates the [BlueOS-core](../core) image.
+BlueOS-bootstrap versions are built at the same time as BlueOS-core versions, and they get bundled together in the Raspberry Pi images that can be flashed onto an SD card to install BlueOS onto it. For official BlueOS releases it is possible to update the BlueOS-bootstrap image to match the BlueOS release through the [BlueOS Version](../../advanced-usage#blueos-version) chooser, and is the recommended process.
 
-BlueOS-bootstrap versions are built at the same time as BlueOS-core versions, and they get bundled together in the Raspberry Pi images that can be flashed onto an SD card to install BlueOS onto it. Updating BlueOS-bootstrap without flashing an SD card is currently only possible through the [Terminal](../../advanced-usage#terminal):
+Manually updating to a non-matched and/or custom bootstrap image requires using the [Terminal](../../advanced-usage#terminal):
 
 ```sh
 # drop down from blueos-core into the underlying operating system:
@@ -45,8 +45,8 @@ docker container rm $CURRENT_BOOTSTRAP_CONTAINER
 # specify the Docker image source (use your account if testing a change)
 BOOTSTRAP_REPO=bluerobotics
 BOOTSTRAP_IMAGE=blueos-bootstrap
-# specify the new version to use (e.g. 1.1.0-beta.23, or master)
-NEW_BOOTSTRAP_VERSION=1.1.0-beta.23
+# specify the new version to use (e.g. 1.1.0-beta.27, or master)
+NEW_BOOTSTRAP_VERSION=1.1.0-beta.27
 # start running the new version
 # (will automatically download if it's not already available locally)
 docker run \
