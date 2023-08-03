@@ -84,7 +84,8 @@ This covers a summary of the major changes and new features in BlueOS-1.1. Where
 - [System Information](../advanced-usage/#system-information)
    - New "Firmware" tab, with information about the computer's firmware and bootloader
 - [Network Test](../advanced-usage/#network-test)
-   - New graph to track upload and download performance during a test
+   - New tab for internet connection testing
+   - New graph to track upload and download performance during a local network test
 - [File Browser](../advanced-usage/#file-browser)
    - New shortcuts to useful parts of the file-system
 - [Bag Editor](../advanced-usage/#bag-editor) `(NEW!)`
