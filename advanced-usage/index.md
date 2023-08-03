@@ -385,12 +385,17 @@ functionality of the `MAVLink2REST` service (access via the
 ### Network Test
 {{ service(service="Pardal", port=9120, link="/services/pardal", based=true) }}
 
-The Network Test page measures real-time latency between BlueOS and the surface
+The Local Network Test measures real-time latency between BlueOS and the surface
 computer, and allows checking the upload and download speeds between them.
 
 A plot is provided of each test, to help diagnose intermittent issues.
 
-{{ easy_image(src="network-test", width=350) }}
+{{ easy_image(src="network-test-local", width=350) }}
+
+The Internet Speed Test allows measuring the latency and upload and download 
+speeds between BlueOS and its internet connection (if one is available).
+
+{{ easy_image(src="network-test-internet", width=350) }}
 
 {% pirate() %}
 ### NMEA Injector
