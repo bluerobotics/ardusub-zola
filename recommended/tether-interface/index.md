@@ -1,7 +1,7 @@
 +++
 title = "Tether Interface"
 description = "Converts an ethernet connection to a signal type more suited to long distances and different tether types."
-date = 2022-10-11T17:33:19+11:00
+date = 2023-08-04T23:45:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 0
@@ -28,4 +28,6 @@ The following interface boards are supported:
 With communications being Ethernet based, fiber optic cables may also be used with Ethernet-to-Fiber converters installed inside the ROV and topside.
 
 The following fiber optic interface boards have been known to work: 
+* [SeaView SVS-700BR Fiber Kit](https://www.seaviewsystems.com/products/blue-robotics-bluerov2-and-accessories/bluerov2-fiber-optic-upgrade-kit/)
 * [DeltaROV Subsea Fiber to Ethernet Communication Kit](http://www.deltarov.com/new/product/drov-subsea-fiber-to-ethernet-communication-kit/)
+* [DeepWaterEngineering Fiber to Ethernet Converter](https://dwe.ai/products/ethernet-fiber-converter)
