@@ -305,19 +305,19 @@
         <h1>Extensions (Beta)</h1>
         
         <blockquote>
-<p>💡 This page provides context and development guidance for Extensions. For <em>installing</em> and <em>using</em> Extensions please refer to the <a href="../advanced-usage/#extensions-manager">Extensions Manager</a> section of the Advanced Usage page.</p>
+<p>💡 This page provides context and development guidance for Extensions. For <em>installing</em> and <em>using</em> Extensions please refer to the <a href="../../advanced-usage/#extensions-manager">Extensions Manager</a> section of the Advanced Usage page.</p>
 </blockquote>
 <h2 id="context">Context</h2>
 <p>One of the primary aims of BlueOS is to be a platform that is readily extendable to the needs of each user. For maximum utility it should be easy to add support for custom hardware, add components to the user interface, and share developments with other BlueOS users, without compromising the base BlueOS experience.</p>
-<p>Accordingly, BlueOS has been designed with a containerised architecture, so the core functionality is kept separate from Extensions, and each can be distributed and updated independently of the other. The built in Extension system allows developers and users to find and install add-on software packages to BlueOS, and manage updates, permissions, and resource limits of those Extensions through the <a href="../advanced-usage/#extensions-manager">Extensions Manager</a>.</p>
+<p>Accordingly, BlueOS has been designed with a containerised architecture, so the core functionality is kept separate from Extensions, and each can be distributed and updated independently of the other. The built in Extension system allows developers and users to find and install add-on software packages to BlueOS, and manage updates, permissions, and resource limits of those Extensions through the <a href="../../advanced-usage/#extensions-manager">Extensions Manager</a>.</p>
 <p>For some additional context and discussion, please see <a href="https://discuss.bluerobotics.com/t/external-integrations-extensions/10912">this forum thread</a> about the BlueOS Extensions architecture. Feel free to contribute ideas or ask questions there as relevant.</p>
 <h2 id="implementation">Implementation</h2>
 <blockquote>
 <p>⚠️ The BlueOS Extensions system is currently still in a <code>beta</code> stage of development, so some implementation changes are expected in the near future.</p>
 </blockquote>
 <h3 id="components-anatomy-of-an-extension">Components: Anatomy of an Extension</h3>
-<p>At heart, a BlueOS Extension is some functionality (optionally with a web interface) packaged into a <a href="../overview#docker">Docker Image</a>, and combined with some metadata that allows it to be found, shared, and managed. Extensions may interface with existing services provided by BlueOS (or other Extensions), and some Extensions may create persistent logs and/or make use of data or files provided by the user.</p>
-<p>Once installed, an Extension Package can be run as a <a href="../overview#docker">Docker Container</a>, which normally occurs automatically when the vehicle turns on, but can also be manually disabled/enabled via the Extensions Manager. When running, Extensions can have <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#metadata-dockerfile">custom permissions assigned</a>, which can limit resource-usage and/or allow access to parts of the host computer's hardware.</p>
+<p>At heart, a BlueOS Extension is some functionality (optionally with a web interface) packaged into a <a href="../../overview#docker">Docker Image</a>, and combined with some metadata that allows it to be found, shared, and managed. Extensions may interface with existing services provided by BlueOS (or other Extensions), and some Extensions may create persistent logs and/or make use of data or files provided by the user.</p>
+<p>Once installed, an Extension Package can be run as a <a href="../../overview#docker">Docker Container</a>, which normally occurs automatically when the vehicle turns on, but can also be manually disabled/enabled via the Extensions Manager. When running, Extensions can have <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#metadata-dockerfile">custom permissions assigned</a>, which can limit resource-usage and/or allow access to parts of the host computer's hardware.</p>
 <h4 id="metadata-dockerfile">Metadata (Dockerfile)</h4>
 <p>The process of packaging a set of programs and files into a Docker Image requires a <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>, which can be thought of as recipe for building the Image.</p>
 <p>For an Extension to be properly managed and shareable, the Dockerfile it's created from should include relevant metadata<sup class="footnote-reference"><a href="#2">1</a></sup> via the following labels:</p>
@@ -489,7 +489,16 @@
 <p>If the Extension needs a visual interface<sup class="footnote-reference"><a href="#3">2</a></sup>, the recommended approach is to provide a webpage that's accessible via the existing BlueOS web interface.</p>
 <p>To do so requires the Extension to run a HTTP server<sup class="footnote-reference"><a href="#4">3</a></sup>, at which it must serve a <code>register_service</code> endpoint in the format of a JSON dict with the following keys:</p>
 <ul>
-<li><code>&quot;name&quot;</code></li>
+<li><code>&quot;name&quot;</code>
+<ul>
+<li>This gets displayed in the sidebar</li>
+<li>A sanitised (lowercase, alphanumeric) form is used to create a named URL for convenient access
+<ul>
+<li>e.g. <code>My Software 9000!</code> -&gt; <code>http://blueos.local/extension/mysoftware9000</code></li>
+</ul>
+</li>
+</ul>
+</li>
 <li><code>&quot;description&quot;</code></li>
 <li><code>&quot;icon&quot;</code>
 <ul>
@@ -610,7 +619,7 @@
 </li>
 </ul>
 <h4 id="installed-extensions">Installed Extensions</h4>
-<p>Once installed on the <a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/onboard-computer/">Onboard Computer</a>, Extensions are stored at <code>/var/lib/docker</code> in the file-system, but should be managed through the BlueOS <a href="../advanced-usage/#extensions-manager">Extensions Manager</a>.</p>
+<p>Once installed on the <a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/onboard-computer/">Onboard Computer</a>, Extensions are stored at <code>/var/lib/docker</code> in the file-system, but should be managed through the BlueOS <a href="../../advanced-usage/#extensions-manager">Extensions Manager</a>.</p>
 <h3 id="ecosystem-attributes">Ecosystem Attributes</h3>
 <h4 id="current-extensions-manager-features">Current Extensions Manager Features</h4>
 <ul>

@@ -471,6 +471,35 @@ the BlueOS hotspot network</li>
 <div style="padding-bottom:15px;text-align:center;">
 <img src="hotspot-example.png" alt="Hotspot Example" width=250 >
 </div>
+<h5 id="internet-status-and-management">Internet Status and Management</h5>
+<ul>
+<li>See whether the vehicle is connected to the internet</li>
+</ul>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="internet.png" alt="Internet" width=50 >
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<ul>
+<li>Configure network priority ordering
+<ul>
+<li>Determines which network interface is used for internet connection</li>
+<li>Generally <code>wlan0</code> should be at the top (for internet via wifi)</li>
+<li>Move <code>eth0</code> to the top if using internet passthrough via the tether</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;text-align:center;">
+<img src="internet-network-priority.png" alt="Internet Network Priority" width=400 >
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<ul>
+<li>View and configure DNS name servers</li>
+</ul>
+</div>
+<div class="pirate" style="display:block;padding-bottom:15px;text-align:center;">
+<img src="internet-dns-config.png" alt="Internet Dns Config" width=400 >
+</div>
 <h5 id="display-mode-management">Display Mode Management</h5>
 <div style="padding-bottom:15px;text-align:center;">
 <img src="display-mode.png" alt="Display Mode" width=250 >
@@ -537,6 +566,7 @@ specifies the requirements for a service page to appear in the sidebar</li>
 <li>Old logs are aggregated and kept as zip files</li>
 </ul>
 </li>
+<li>Re-enable the <a href="../getting-started#wizard">configuration wizard</a></li>
 </ul>
 <h5 id="power">Power</h5>
 <div class="simple" style="display:none;padding-bottom:15px;text-align:center;">
@@ -750,6 +780,7 @@ manually deleted, which provides an easy route for roll-backs to undesired
 changes (e.g. during development)</li>
 </ul>
 </li>
+<li>Allows updating the <a href="../development/bootstrap">bootstrap image</a> to match the current version</li>
 <li>Allows loading remote versions (including from custom docker-hub repositories)</li>
 <li>Allows manually uploading docker images from the surface computer</li>
 <li>If an undetected failure somehow occurs in BlueOS (or if a broken version gets
@@ -887,11 +918,16 @@ functionality of the <code>MAVLink2REST</code> service (access via the
 <p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.0-beta.23/core/services/pardal">Pardal</a> | Port:<code>9120</code></p>
 </em>
 </div>
-<p>The Network Test page measures real-time latency between BlueOS and the surface
+<p>The Local Network Test measures real-time latency between BlueOS and the surface
 computer, and allows checking the upload and download speeds between them.</p>
 <p>A plot is provided of each test, to help diagnose intermittent issues.</p>
 <div style="padding-bottom:15px;">
-<img src="network-test.png" alt="Network Test" width=350 >
+<img src="network-test-local.png" alt="Network Test Local" width=350 >
+</div>
+<p>The Internet Speed Test allows measuring the latency and upload and download 
+speeds between BlueOS and its internet connection (if one is available).</p>
+<div style="padding-bottom:15px;">
+<img src="network-test-internet.png" alt="Network Test Internet" width=350 >
 </div>
 <div class="pirate" style="color:grey;display:block;">
 <h3 id="nmea-injector">NMEA Injector</h3>
@@ -1002,6 +1038,10 @@ excessive resources.</p>
 </div>
 <div class="pirate" style="display:block;padding-bottom:15px;">
 <img src="system-info-firmware.png" alt="System Info Firmware" width=600 >
+</div>
+<div class="pirate" style="color:grey;display:block;">
+<p>Update buttons are provided if the device is not running the latest stable versions of
+the Raspberry Pi firmware or USB controller.</p>
 </div>
 <div style="padding-bottom:15px;">
 <img src="system-info-about.png" alt="System Info About" width=600 >
@@ -1134,8 +1174,8 @@ currently possible to mix UDP and RTSP output streams for the same input)</li>
 <img src="video-stream-example-pirate.png" alt="Video Stream Example (pirate mode)" width=400 >
 </div>
 <ul>
-<li>The streams are also presented via MAVLink, so QGroundControl (&gt;=v4.1.7) can
-toggle between them without needing to know specific ports.</li>
+<li>By default the streams are also presented via MAVLink, so QGroundControl (&gt;=v4.1.7)
+can toggle between them without needing to know specific ports</li>
 </ul>
 <div class="pirate" style="color:grey;display:block;">
 <ul>

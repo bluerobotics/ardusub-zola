@@ -388,6 +388,7 @@
 <li>MAVLink support improved
 <ul>
 <li>Allows Control Station Software (e.g. QGroundControl) to configure camera settings and switch between multiple video streams</li>
+<li>Disabling MAVLink advertising of a video stream is now possible</li>
 </ul>
 </li>
 </ul>
@@ -411,6 +412,7 @@
 <li><a href="../advanced-usage/#blueos-version">BlueOS Version</a> (REPLACES &quot;Version Chooser&quot;)
 <ul>
 <li>New progress bar while downloading and extracting new images</li>
+<li>Now allows updating the <a href="../development/bootstrap">bootstrap image</a></li>
 </ul>
 </li>
 <li><a href="../advanced-usage/#system-information">System Information</a>
@@ -420,7 +422,8 @@
 </li>
 <li><a href="../advanced-usage/#network-test">Network Test</a>
 <ul>
-<li>New graph to track upload and download performance during a test</li>
+<li>New tab for internet connection testing</li>
+<li>New graph to track upload and download performance during a local network test</li>
 </ul>
 </li>
 <li><a href="../advanced-usage/#file-browser">File Browser</a>
@@ -448,10 +451,12 @@
 </ul>
 </li>
 <li>Pirate mode is now toggled via the happy-robot/pirate icon in the header</li>
-<li>Ethernet and wifi configuration are improved
+<li>Network, ethernet, and wifi configuration are improved
 <ul>
 <li>A hotspot network is now created for devices to connect to if a normal connection does not occur on boot</li>
 <li>Raspberry Pi 4s can now connect via USB OTG ethernet</li>
+<li>Network interface priority ordering is now possible</li>
+<li>DNS name server configuration is now available</li>
 </ul>
 </li>
 </ul>

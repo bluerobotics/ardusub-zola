@@ -300,8 +300,8 @@ For an update the current core image gets shut down and the newly installed imag
 <p>BlueOS is set up with a <a href="https://docs.github.com/en/actions">GitHub Action</a> that <a href="https://github.com/bluerobotics/BlueOS/blob/master/.github/workflows/test-and-deploy.yml#L90">automatically builds and deploys</a> a BlueOS-bootstrap image when changes are pushed to the GitHub repository.
 If you want to make use of that functionality you'll need a <a href="https://hub.docker.com">DockerHub</a> account, and will need to specify your DockerHub username (<code>DOCKER_USERNAME</code>) and password (<code>DOCKER_PASSWORD</code>) in your fork's <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets">GitHub secrets</a>.</p>
 <h2 id="updating">Updating</h2>
-<p>It is <a href="https://github.com/bluerobotics/BlueOS/issues/1510">not yet possible to (nicely) update bootstrap through the BlueOS interface</a>. The <a href="../../advanced-usage#blueos-version">BlueOS Version</a> chooser only updates the <a href="../core">BlueOS-core</a> image.</p>
-<p>BlueOS-bootstrap versions are built at the same time as BlueOS-core versions, and they get bundled together in the Raspberry Pi images that can be flashed onto an SD card to install BlueOS onto it. Updating BlueOS-bootstrap without flashing an SD card is currently only possible through the <a href="../../advanced-usage#terminal">Terminal</a>:</p>
+<p>BlueOS-bootstrap versions are built at the same time as BlueOS-core versions, and they get bundled together in the Raspberry Pi images that can be flashed onto an SD card to install BlueOS onto it. For official BlueOS releases it is possible to update the BlueOS-bootstrap image to match the BlueOS release through the <a href="../../advanced-usage#blueos-version">BlueOS Version</a> chooser, and is the recommended process.</p>
+<p>Manually updating to a non-matched and/or custom bootstrap image requires using the <a href="../../advanced-usage#terminal">Terminal</a>:</p>
 <pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#65737e;"># drop down from blueos-core into the underlying operating system:
 </span><span style="color:#bf616a;">red-pill
 </span><span style="color:#65737e;"># get the running bootstrap container id
@@ -314,8 +314,8 @@ If you want to make use of that functionality you'll need a <a href="https://hub
 </span><span style="color:#65737e;"># specify the Docker image source (use your account if testing a change)
 </span><span style="color:#bf616a;">BOOTSTRAP_REPO</span><span>=</span><span style="color:#a3be8c;">bluerobotics
 </span><span style="color:#bf616a;">BOOTSTRAP_IMAGE</span><span>=</span><span style="color:#a3be8c;">blueos-bootstrap
-</span><span style="color:#65737e;"># specify the new version to use (e.g. 1.1.0-beta.23, or master)
-</span><span style="color:#bf616a;">NEW_BOOTSTRAP_VERSION</span><span>=</span><span style="color:#a3be8c;">1.1.0-beta.23
+</span><span style="color:#65737e;"># specify the new version to use (e.g. 1.1.0-beta.27, or master)
+</span><span style="color:#bf616a;">NEW_BOOTSTRAP_VERSION</span><span>=</span><span style="color:#a3be8c;">1.1.0-beta.27
 </span><span style="color:#65737e;"># start running the new version
 </span><span style="color:#65737e;"># (will automatically download if it&#39;s not already available locally)
 </span><span style="color:#bf616a;">docker</span><span> run \
