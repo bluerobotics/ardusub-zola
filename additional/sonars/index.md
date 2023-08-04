@@ -1,7 +1,7 @@
 +++
 title = "Sonars"
 description = "Allows measuring range to surfaces, or acoustically imaging targets. Can be helpful for navigation and terrain following, especially in structured environments without alternative positioning systems. Robust to poor lighting and water clarity."
-date = 2022-10-11T17:33:19+11:00
+date = 2023-08-04T23:40:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 5
@@ -14,6 +14,8 @@ top = false
 
 
 Sonars are useful pieces of equipment in situations where visibility is low. Sonars can help get ranges to surfaces or acoustically image targets to better understand their shape.
+
+If you want to learn more, see this [guide to sonar technology and acoustic devices](https://bluerobotics.com/learn/a-smooth-operators-guide-to-underwater-sonars-and-acoustic-devices/).
 
 ## Echosounders and Altimeters 
 
@@ -33,7 +35,7 @@ Mechanically scanning sonars are useful tools for navigation, and acoustically i
 
 ### Supported Scanning Sonars
 
-Only the Blue Robotics Ping360 Scanning Sonar is fully integrated with the ArduSub system and has advanced features such as heading rotation and a direct connection to the Companion Computer.
+Only the Blue Robotics Ping360 Scanning Sonar is fully integrated with the ArduSub system and has advanced features such as heading rotation and a direct connection to the Onboard Computer.
 
 {{ easy_image(src="ping360", width=350) }}
 
@@ -48,10 +50,10 @@ The following scanning sonars have been installed on ArduSub vehicles:
 Multibeam imaging sonars are similar to mechanically scanning sonars in that they acoustically image targets in a top-down 2-dimensional representation. However, with multiple sonar beams the refresh rate is much higher presenting a real-time image of what is in front of the vehicle.
 
 The following multibeam sonars have been installed on ArduSub vehicles:
+ * [Cerulean Omniscan 450](https://ceruleansonar.com/pages/omniscan-product-page) ForwardScan and SideScan (Ethernet + [BlueOS Extension](https://docs.bluerobotics.com/BlueOS-Extensions-Repository/#:~:text=SonarView,-Maintainer))
  * [Blueprint Subsea Oculus Series Multibeam Sonars](https://www.blueprintsubsea.com/oculus/) (Ethernet)
  * [Tritech International Gemini 720im Multibeam Sonar](https://www.tritech.co.uk/product/gemini-720im) (Ethernet or RS485 connection through tether)
  * [Tritech International Gemini 720ik Multibeam Sonar](https://www.tritech.co.uk/product/gemini-720ik) (Ethernet)
- 
  
 ## Profiling Sonars
 
