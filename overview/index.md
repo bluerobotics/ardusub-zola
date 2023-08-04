@@ -93,7 +93,6 @@ This covers a summary of the major changes and new features in BlueOS-1.1. Where
 - [Bag Editor](../advanced-usage/#bag-editor) `(NEW!)`
    - Allows modifying the database that controls frontend interface changes
 
-
 ### Menu and general interface improvements
 - New vehicle selection and setup wizard
 - New header widgets
@@ -109,6 +108,9 @@ This covers a summary of the major changes and new features in BlueOS-1.1. Where
    - Raspberry Pi 4s can now connect via USB OTG ethernet
    - Network interface priority ordering is now possible
    - DNS name server configuration is now available
+ 
+### Accessibility and Styling
+- Added basic [theme support](../advanced-usage/#theme-styling) for changing the interface colours
 
 ### Device/Hardware Support
 - Added basic detection and management support for:
