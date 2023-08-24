@@ -1,7 +1,7 @@
 +++
 title = "Installation"
 description = "BlueOS installation instructions."
-date = 2023-02-17T22:30:00+11:00
+date = 2023-08-25T07:10:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 10
@@ -17,8 +17,13 @@ top = false
 BlueOS is a ground-up rewrite software to replace Companion. To use it you'll need to download and flash an SD card.
 It is compatible with both **Raspberry Pi 3** and **Raspberry Pi 4**.
 
-The latest available stable version is:
-- [1.0.1](https://github.com/bluerobotics/BlueOS-docker/releases/download/1.0.1/BlueOS-raspberry.zip) (06-april-2022)
+The latest available versions are:
+
+[![Latest Stable](https://img.shields.io/github/v/release/bluerobotics/blueos.svg?label=Latest%20Stable)
+![Date](https://img.shields.io/github/release-date/bluerobotics/blueos?label=Date)](https://github.com/bluerobotics/blueos/releases/latest/download/BlueOS-raspberry.zip)
+
+[![Latest Beta](https://img.shields.io/github/v/tag/bluerobotics/blueos.svg?label=Latest%20Beta)
+![Date](https://img.shields.io/github/release-date-pre/bluerobotics/blueos?label=Date)](https://github.com/bluerobotics/BlueOS/releases)
 
 ## Flash
 
@@ -44,4 +49,4 @@ Once BlueOS is installed, updating to a different version is simple via the [Ver
 
 ## Manual Installation
 
-For developers with alternative hardware, or who would rather install over a pre-installed base operating system / image, BlueOS provides an [install directory](https://github.com/bluerobotics/BlueOS-docker/tree/master/install) with utilities to help perform manual/software-based installations.
+For developers with alternative hardware, or who would rather install over a pre-installed base operating system / image, BlueOS provides an [install directory](https://github.com/bluerobotics/BlueOS/tree/master/install) with utilities to help perform manual/software-based installations.
