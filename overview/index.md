@@ -1,7 +1,7 @@
 +++
 title = "Overview"
 description = "BlueOS overview."
-date = 2023-06-19T22:00:00+11:00
+date = 2023-08-30T02:50:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 0
@@ -42,7 +42,7 @@ Some of these principles will only be evident in future releases, but the underl
 
 This covers a summary of the major changes and new features in BlueOS-1.1. Where applicable relevant features are also included in the [feature comparison table](#feature-comparison). For detailed coverage of every change, please see the [full release notes](https://github.com/bluerobotics/BlueOS-docker/releases).
 
-### [Extensions](../extensions) `(NEW! - Alpha)`
+### [Extensions](../extensions) `(NEW! - beta)`
 - Independently installed and run software components, that work together with BlueOS
 - Users can download extensions for the integrations and features they want to use
 - Developers can create extensions, and share them with others
@@ -167,5 +167,5 @@ It's worth noting that the [Version Chooser](../advanced-usage/#blueos-version) 
 ## Quick links
 
 1. [Documentation](../)
-2. [Source code](https://github.com/bluerobotics/BlueOS-docker)
-3. [Releases, changelogs, files](https://github.com/bluerobotics/BlueOS-docker/releases)
+2. [Source code](https://github.com/bluerobotics/BlueOS)
+3. [Releases, changelogs, files](https://github.com/bluerobotics/BlueOS/releases)
