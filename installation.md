@@ -17,7 +17,8 @@ BlueOS is a ground-up rewrite software to replace Companion. To use it you'll ne
 It is compatible with both **Raspberry Pi 3** and **Raspberry Pi 4**.
 
 The latest available stable version is:
-- [1.0.1](https://github.com/bluerobotics/BlueOS-docker/releases/download/1.0.1/BlueOS-raspberry.zip) (06-april-2022)
+[![Latest Stable](https://img.shields.io/github/v/release/bluerobotics/blueos.svg?label=Latest%20Stable)
+![Date](https://img.shields.io/github/release-date/bluerobotics/blueos?label=Date)](https://github.com/bluerobotics/blueos/releases/latest/download/BlueOS-raspberry.zip)
 
 ## Flash
 
