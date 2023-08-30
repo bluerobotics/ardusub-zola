@@ -46,7 +46,7 @@ Some alerts can be read aloud on arrival using text to speech technology, which 
 
 #### Mini Widget Containers
 
-When space is available, [mini widgets](#mini-widgets) can be placed on either side of the alerts display.
+When space is available, [mini widgets](#mini-widgets) can be placed on the right side of the alerts display.
 
 #### Date
 
@@ -77,6 +77,7 @@ separate browser profiles, or one display in incognito mode, but currently **not
 browser instance), with their views configured independently. To use the same component layouts across
 instances you can export the desired view(s) from one and import into the other(s).
 
+Multiple simultaneous tabs from the same browser instance will be supported in future.
 
 #### Configuration
 
@@ -92,7 +93,7 @@ instances you can export the desired view(s) from one and import into the other(
     - Clicking on a regular widget adds it to the view, after which it can be positioned and resized as desired
     - Mini widgets have fixed sizes, but can be dragged and dropped into the desired location in the header/footer
       bars or in a [mini widget container](#mini-widget-container)
-- Regular widgets can be configured by clicking the three dots in the top right corner of the widget
+- Some regular widgets can be configured, by clicking the three dots in the top right corner of the widget
 - Mini widgets that support configuration can be clicked on anywhere on the widget to open the configuration options
     - This is currently only possible during operation, *not* while in edit mode
 
@@ -117,7 +118,8 @@ The compass widget displays the vehicle's orientation as though looking at a com
 
 It is most useful for guided and/or autonomous control, where the main display is of the vehicle's position.
 
-It is possible to configure the vertical direction to be fixed to North or to the vehicle's forwards direction.
+It is possible to configure the vertical direction to be fixed to North ("North-up") or to the vehicle's 
+forwards direction ("head-up").
 {{ easy_image(src="compass-config", width=300, center=true) }}
 
 ##### Compass HUD
@@ -166,7 +168,8 @@ For vehicles with a positioning system, the map widget displays the
 the vehicle's path over time.
 
 There are buttons to 
-1. move the map to the registered 'home' location
+1. move the map to follow the registered 'home' location
+    - this may move around if the control station computer is on a boat
 1. move the map to follow the vehicle's current position
 1. download the current mission from the vehicle, and display it on the map
 1. execute the mission that is on the vehicle
@@ -220,6 +223,8 @@ The current options include
 - Video recorder
     - allows recording one of the available WebRTC streams, or the full Cockpit tab
     - recording occurs in the browser of the display device (not onboard the vehicle)
+        - this is currently stored in memory and downloaded to the device when finished, which may limit
+        maximum time for individual recordings
     - recordings are saved using the [mission name](#mission-name) and the starting timestamp
 - Joystick connection status indicator
 - Flight mode selector
@@ -264,11 +269,14 @@ a button, which may need to be done in advance using parameters or QGroundContro
 
 Adding support for a new joystick type requires providing an SVG file with particular element IDs
 (for function mapping, and so the elements can be dynamically filled when the corresponding button is pressed):
-    - `path_b*` is used for different button numbers, numbers can currently be from 0-31
-    - `path_b10`/`b11` are currently used to denote the joystick axes
-        - 10 indicates the left side joystick, 11 indicates the right side one
-        - in future there will be support for arbitrary axes and sliders
-    - New SVGs currently need to be added to the code, but in future will be possible to add/import dynamically
+- `path_b*` is used for different button numbers, numbers can currently be from 0-31
+    - the buttons can be remapped during Cockpit configuration by clicking on the displayed button in the SVG
+    display and clicking the "Remap" button followed by pressing the actual joystick button that matches the
+    displayed location
+- `path_b10`/`b11` are currently used to denote the joystick axes
+    - 10 indicates the left side joystick, 11 indicates the right side one
+    - in future there will be support for arbitrary axes and sliders
+- New SVGs currently need to be added to the code, but in future will be possible to add/import dynamically
 
 ### Alerts
 
