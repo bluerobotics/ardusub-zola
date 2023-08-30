@@ -17,3 +17,7 @@
 	path = content/integrations
 	url = https://github.com/bluerobotics/ardusub-zola
 	branch = Integrations
+[submodule "content/extensions/cockpit/0.0"]
+	path = content/extensions/cockpit/0.0
+	url = https://github.com/bluerobotics/ardusub-zola
+	branch = Cockpit-0.0
