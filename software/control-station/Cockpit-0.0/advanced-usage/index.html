@@ -1,0 +1,740 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" as="font" href="https://docs.bluerobotics.com/ardusub-zola/fonts/vendor/jost/jost-v4-latin-regular.woff2" type="font/woff2" crossorigin>
+  <link rel="preload" as="font" href="https://docs.bluerobotics.com/ardusub-zola/fonts/vendor/jost/jost-v4-latin-700.woff2"  type="font/woff2" crossorigin>
+
+
+<link rel="stylesheet" href="https://docs.bluerobotics.com/ardusub-zola/main.css">
+
+
+
+  
+  
+    
+  
+
+  
+  
+    
+    
+  
+  
+  
+    
+  
+  
+  
+  
+    
+  
+  
+  
+
+
+  <meta name="robots" content="index, follow">
+  <meta name="googlebot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="bingbot" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+
+
+	
+
+
+	
+
+<title>Advanced Usage | ArduSub</title>
+<meta name="description" content="Cockpit advanced usage documentation.">
+<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/">
+
+
+
+
+
+
+
+
+
+
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "BreadcrumbList",
+    
+      
+      
+        
+        
+        
+        
+        
+        
+        
+        
+          {
+            "@type": "ListItem",
+            "position":  1 ,
+            "name": "Home",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/"
+          },
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  2 ,
+            "name": "Software",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  3 ,
+            "name": "Control Station",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/control-station/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  4 ,
+            "name": "Cockpit 0.0",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/"
+          },
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+          
+          
+          {
+            "@type": "ListItem",
+            "position":  5 ,
+            "name": "Advanced Usage",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/"
+          },
+        
+      
+    
+  }
+</script>
+
+
+
+
+
+
+  <meta name="theme-color" content="#fff">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://docs.bluerobotics.com/ardusub-zola/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://docs.bluerobotics.com/ardusub-zola/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://docs.bluerobotics.com/ardusub-zola/favicon-16x16.png">
+  
+    <link rel="manifest" href="https://docs.bluerobotics.com/ardusub-zola/site.webmanifest" crossorigin>
+  
+
+
+  
+
+</head>
+
+  
+
+<body class="docs single">
+  
+  
+  
+  
+<div class="header-bar fixed-top"></div>
+<header class="navbar fixed-top navbar-expand-md navbar-light">
+	<div class="container">
+		<input class="menu-btn order-0" type="checkbox" id="menu-btn">
+		<label class="menu-icon d-md-none" for="menu-btn"><span class="navicon"></span></label>
+		<a class="navbar-brand order-1 order-md-0 me-auto" href="https://docs.bluerobotics.com/ardusub-zola">ArduSub</a>
+		<button id="mode" class="btn btn-link order-2 order-md-4" type="button" aria-label="Toggle mode">
+			<span class="toggle-dark"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg></span>
+			<span class="toggle-light"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg></span>
+		</button>
+		<ul class="navbar-nav fork-me order-3 order-md-5">
+			
+				
+					<li class="nav-item">
+						<a class="nav-link" href="https://github.com/bluerobotics/ardusub-zola"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-github"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg><span class="ms-2 visually-hidden">GitHub</span></a>
+					</li>
+				
+			
+		</ul>
+		<div class="collapse navbar-collapse order-4 order-md-1">
+			<ul class="navbar-nav main-nav me-auto order-5 order-md-2">
+				
+				
+				
+					
+						<li class="nav-item">
+							<a class="nav-link" href="https://docs.bluerobotics.com/ardusub-zola/"></a>
+						</li>
+					
+				
+			</ul>
+			<div class="break order-6 d-md-none"></div>
+			
+				<form class="navbar-form flex-grow-1 order-7 order-md-3">
+					<input id="userinput" class="form-control is-search" type="search" placeholder="Search docs..."
+						aria-label="Search docs..." autocomplete="off">
+					<div id="suggestions" class="shadow bg-white rounded"></div>
+				</form>
+			
+		</div>
+	</div>
+</header>
+
+
+
+  
+<div class="wrap container" role="document">
+  <div class="content">
+    <div class="row flex-xl-nowrap">
+	  
+<div class="col-lg-5 col-xl-4 docs-sidebar">
+	<nav class="docs-links" aria-label="Main navigation">
+			
+			
+			
+					<h3>Cockpit</h3>
+					<ul class="list-unstyled">
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/overview/">Overview</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/installation/">Installation</a></li>
+					                           
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/getting-started/">Getting Started</a></li>
+					                           
+							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/">Advanced Usage</a></li>
+					
+					</ul>
+			
+			
+	</nav>
+</div>
+
+	  
+  
+  <nav class="docs-toc d-none d-xl-block col-xl-4 xr-0" aria-label="Secondary navigation">
+  	<div class="page-links">
+  			<h3>On this page</h3>
+  			<nav id="TableOfContents">
+  					<ul>
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#display-breakdown">Display Breakdown</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#header-bar">Header Bar</a>
+											
+													<ul>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#burger-menu">Burger Menu</a>
+															
+															</li>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mission-name">Mission Name</a>
+															
+															</li>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#alerts">Alerts</a>
+															
+															</li>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widget-containers">Mini Widget Containers</a>
+															
+															</li>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#date">Date</a>
+															
+															</li>
+															
+													</ul>
+											
+											</li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#edit-mode">Edit Mode</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#views">Views</a>
+											
+													<ul>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#configuration">Configuration</a>
+															
+															</li>
+															
+													</ul>
+											
+											</li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#widgets">Widgets</a>
+											
+													<ul>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#regular-widgets">Regular Widgets</a>
+															
+																	<ul>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#attitude-hud">Attitude HUD</a></li>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#compass">Compass</a></li>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#compass-hud">Compass HUD</a></li>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#depth-hud">Depth HUD</a></li>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#indicators">Indicators</a></li>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#image-viewer">Image Viewer</a></li>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#map">Map</a></li>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#video">Video</a></li>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widget-container">Mini Widget Container</a></li>
+																			
+																	</ul>
+															
+															</li>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widgets">Mini Widgets</a>
+															
+															</li>
+															
+													</ul>
+											
+											</li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#configuration-1">Configuration</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#general">General</a>
+											
+											</li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#joysticks">Joysticks</a>
+											
+											</li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#alerts-1">Alerts</a>
+											
+											</li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mission-planning">Mission Planning</a></li>
+  							
+  							
+  					</ul>
+  			</nav>
+  	</div>
+  </nav>
+  
+
+      <main class="docs-content col-lg-11 col-xl-9">
+        <h1>Advanced Usage</h1>
+        
+        <h2 id="display-breakdown">Display Breakdown</h2>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="interface-overview.png" alt="Interface Overview" width=700 >
+</div>
+<h3 id="header-bar">Header Bar</h3>
+<p>The header bar consists of the following main elements:</p>
+<h4 id="burger-menu">Burger Menu</h4>
+<p>Clicking on the burger menu (in the top left of the screen) provides access to various 
+<a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#configuration">configuration</a> options:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="burger-menu.png" alt="Burger Menu" width=300 >
+</div>
+<h4 id="mission-name">Mission Name</h4>
+<p>It is possible to set a display name for the current mission/operation from beside the burger menu. If the name
+is deleted it can be made available again by visiting the <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mission-planning">Mission Planning</a> page.</p>
+<h4 id="alerts">Alerts</h4>
+<p>Alerts received from the autopilot (<a href="https://mavlink.io/en/messages/common.html#STATUSTEXT"><code>STATUSTEXT</code></a>), as
+well as application notifications (like loss of connection to the vehicle) are displayed in the central alerts
+pane, which can be hovered over to access a scrollable history of alerts:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="alert-history.png" alt="Alert History" width=450 >
+</div>
+<p>Some alerts can be read aloud on arrival using text to speech technology, which <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#alerts">can be configured</a>.</p>
+<h4 id="mini-widget-containers">Mini Widget Containers</h4>
+<p>When space is available, <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widgets">mini widgets</a> can be placed on either side of the alerts display.</p>
+<h4 id="date">Date</h4>
+<p>The current time and date is displayed in the top right corner.</p>
+<h2 id="edit-mode">Edit Mode</h2>
+<p>Cockpit's interface is designed around a configurable widget system, within an arbitrary set of views.
+Widgets can be added/removed, placed in arbitrary locations, and resized.</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="edit-mode.png" alt="Edit Mode" width=700 >
+</div>
+<h3 id="views">Views</h3>
+<p>A &quot;view&quot; is like a page that <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#widgets">widgets</a> can be displayed in. It is possible to configure multiple
+separate views and switch between them during operation, which is useful if you have different interface
+preferences for when you're performing different operations.</p>
+<p>As an example, you may have one view tailored to general navigation, and another that's designed around
+inspections. The first view could then be used while getting the vehicle to the inspection site, and then
+the second view can be switched to once it's time to actually perform the inspection.</p>
+<p>If a vehicle is not always controlled through the same control station computer/device then it may be useful
+to configure different views for the best control experience with each device.</p>
+<p>It is possible for different devices or browser instances to access Cockpit at the same time (e.g. using
+separate browser profiles, or one display in incognito mode, but currently <strong>not</strong> multiple tabs of the same
+browser instance), with their views configured independently. To use the same component layouts across
+instances you can export the desired view(s) from one and import into the other(s).</p>
+<h4 id="configuration">Configuration</h4>
+<ul>
+<li>Open edit mode via the <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#burger-menu">burger menu</a></li>
+<li>Select a view to edit, and/or create or remove views as desired
+<ul>
+<li>Views can be imported from an external file, or exported to a file for sharing</li>
+</ul>
+</li>
+<li>The &quot;Current widgets&quot; list allows
+<ol>
+<li>dragging the widgets in the current view to reorder which widget is on top
+<ul>
+<li>This helps for use-cases like overlaying a HUD element on a video display</li>
+</ul>
+</li>
+<li>removing an existing widget from the current view</li>
+<li>resizing a widget to fill the entire view</li>
+</ol>
+</li>
+<li>New widgets can be added via the bottom section
+<ul>
+<li>Clicking on a regular widget adds it to the view, after which it can be positioned and resized as desired</li>
+<li>Mini widgets have fixed sizes, but can be dragged and dropped into the desired location in the header/footer
+bars or in a <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widget-container">mini widget container</a></li>
+</ul>
+</li>
+<li>Regular widgets can be configured by clicking the three dots in the top right corner of the widget</li>
+<li>Mini widgets that support configuration can be clicked on anywhere on the widget to open the configuration options
+<ul>
+<li>This is currently only possible during operation, <em>not</em> while in edit mode</li>
+</ul>
+</li>
+</ul>
+<h3 id="widgets">Widgets</h3>
+<p>There are several types of widgets available, and in future it will be possible to create, import, and use custom widgets as well.</p>
+<h4 id="regular-widgets">Regular Widgets</h4>
+<h5 id="attitude-hud">Attitude HUD</h5>
+<p>The attitude HUD widget displays the vehicle's pitch and roll as a heads-up display overlay:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="attitude-hud-widget.png" alt="Attitude Hud Widget" width=300 >
+</div>
+<p>It is possible to configure which components get displayed, as well as the line colour:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="attitude-hud-config.png" alt="Attitude Hud Config" width=500 >
+</div>
+<h5 id="compass">Compass</h5>
+<p>The compass widget displays the vehicle's orientation as though looking at a compass in your hand:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="compass-widget.png" alt="Compass Widget" width=300 >
+</div>
+<p>It is most useful for guided and/or autonomous control, where the main display is of the vehicle's position.</p>
+<p>It is possible to configure the vertical direction to be fixed to North or to the vehicle's forwards direction.</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="compass-config.png" alt="Compass Config" width=300 >
+</div>
+<h5 id="compass-hud">Compass HUD</h5>
+<p>The compass HUD is a first-person compass view, as though inside a compass and looking in the direction the
+vehicle is pointing (its heading):</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="compass-hud-widget.png" alt="Compass Hud Widget" width=600 >
+</div>
+<p>It is possible to configure whether the exact heading angle is shown, and the colour of the lines:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="compass-hud-config.png" alt="Compass Hud Config" width=500 >
+</div>
+<h5 id="depth-hud">Depth HUD</h5>
+<p>The depth HUD indicates the vehicle's current depth as determined by its external pressure sensor:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="depth-hud-widget.png" alt="Depth Hud Widget" width=200 >
+</div>
+<p>This is primarily useful for underwater vehicles.</p>
+<p>Configuration determines whether the exact depth value is shown, and the colour of the lines:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="depth-hud-config.png" alt="Depth Hud Config" width=500 >
+</div>
+<h5 id="indicators">Indicators</h5>
+<p>The indicators widget shows a collection of telemetry values, including the vehicle's attitude, GPS location,
+and optionally its power supply and usage and some debugging data: </p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="indicators-widget.png" alt="Indicators Widget" width=200 >
+</div>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="indicators-config.png" alt="Indicators Config" width=300 >
+</div>
+<h5 id="image-viewer">Image Viewer</h5>
+<p>The image viewer widget shows an image that is accessible to the control station computer via its network.</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="image-viewer-config.png" alt="Image Viewer Config" width=400 >
+</div>
+<p>Images from the internet can be included (e.g. a logo for branding) as long as the computer has internet
+access when Cockpit is started.</p>
+<p>This is most useful for images hosted on the local network, and was designed to display the output of a
+self-replacing mjpeg like from an ESP32-Cam. It could also display images hosted by a
+<a href="https://blueos.cloud/docs/blueos/latest/extensions">BlueOS Extension</a>.</p>
+<h5 id="map">Map</h5>
+<p>For vehicles with a positioning system, the map widget displays the 
+<a href="https://mavlink.io/en/messages/common.html#MAV_CMD_DO_SET_HOME">registered home location</a> and the vehicle's
+<a href="https://mavlink.io/en/messages/common.html#GLOBAL_POSITION_INT">current position</a>, with an option to track
+the vehicle's path over time.</p>
+<p>There are buttons to </p>
+<ol>
+<li>move the map to the registered 'home' location</li>
+<li>move the map to follow the vehicle's current position</li>
+<li>download the current mission from the vehicle, and display it on the map</li>
+<li>execute the mission that is on the vehicle</li>
+</ol>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="map-widget.png" alt="Map Widget" width=350 >
+</div>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="map-config.png" alt="Map Config" width=350 >
+</div>
+<p>In future it will be possible to set the current vehicle position, and click to guide the vehicle to new
+positions.</p>
+<h5 id="video">Video</h5>
+<p>The video widget displays an available WebRTC video stream. BlueOS uses the 
+<a href="https://github.com/mavlink/mavlink-camera-manager">MAVLink Camera Manager</a> to automatically create a WebRTC 
+stream for applicable video streams.</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="video-widget.png" alt="Video Widget" width=400 >
+</div>
+<p>Multiple video widgets can be added to display different video streams.</p>
+<p>Configuration allows selecting which video stream to display, flipping the stream image, and choosing how
+the frames should fit within the widget:</p>
+<ul>
+<li><strong>cover</strong>: maintains the video aspect ratio, but expands the frames to fully cover the widget, and crops
+off the sides or top+bottom if they extend beyond the widget boundaries</li>
+<li><strong>fill</strong>: stretches the frames so that all sides are against the corresponding widget boundary</li>
+<li><strong>contain</strong>: maintains the video aspect ratio, but shrinks the frames to fully fit inside the widget,
+adding transparent padding at the sides / above+below as necessary</li>
+</ul>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="video-config.png" alt="Video Config" width=600 >
+</div>
+<p>Video recording is possible using a <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widgets">mini widget</a>.</p>
+<h5 id="mini-widget-container">Mini Widget Container</h5>
+<p>The mini widget container widget is a rectangular container for storing <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widgets">mini widgets</a>.</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="mini-widget-container-widget.png" alt="Mini Widget Container Widget" width=500 >
+</div>
+<h4 id="mini-widgets">Mini Widgets</h4>
+<p>Mini widgets are small, generally single-function widgets that can be drag-positioned in the
+<a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#header-bar">header bar</a>, footer bar, or any <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widget-container">mini widget container</a>.</p>
+<p>The current options include</p>
+<ul>
+<li>Arm/Disarm toggle switch</li>
+<li>Vehicle connection status indicator</li>
+<li>Power / battery indicator</li>
+<li>Depth indicator</li>
+<li>Generic Named Value indicator
+<ul>
+<li>clicking on this allows selecting which <code>NAMED_VALUE_FLOAT/INT</code> MAVLink message to track, out of
+any that have been received so far (including custom ones)</li>
+<li>it is also possible to specify a display unit, a value multiplier, and an icon</li>
+</ul>
+</li>
+</ul>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="named-value-mini-widget-config.png" alt="Named Value Mini Widget Config" width=300 >
+</div>
+<ul>
+<li>Video recorder
+<ul>
+<li>allows recording one of the available WebRTC streams, or the full Cockpit tab</li>
+<li>recording occurs in the browser of the display device (not onboard the vehicle)</li>
+<li>recordings are saved using the <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mission-name">mission name</a> and the starting timestamp</li>
+</ul>
+</li>
+<li>Joystick connection status indicator</li>
+<li>Flight mode selector</li>
+<li>GPS status indicator</li>
+<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#views">View</a> selector</li>
+</ul>
+<h2 id="configuration-1">Configuration</h2>
+<p>Cockpit's behaviour can be configured via the <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#burger-menu">burger menu</a>, with the following tabs:</p>
+<h3 id="general">General</h3>
+<p>Connection configuration allows specifying custom endpoint addresses for Cockpit to communicate with.
+When Cockpit is hosted by a vehicle running BlueOS these are usually correct by default, but if using
+it standalone or connecting to some external services it may be necessary to specify different
+addresses, and refresh the page to establish the desired connection.</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="../getting-started/general-config.png" alt="../Getting Started/General Config" width=600 >
+</div>
+<h3 id="joysticks">Joysticks</h3>
+<p>Cockpit is intended to work with arbitrary joystick types, and allows mapping joystick buttons and axes
+to <a href="https://docs.bluerobotics.com/ardusub-zola/software/autopilot/ArduSub-4.1/developers/parameters/#btnn-function-function-for-button"><code>BTNn_FUNCTION</code></a>
+values for use in regularly sent <a href="https://mavlink.io/en/messages/common.html#MANUAL_CONTROL"><code>MANUAL_CONTROL</code></a>
+MAVLink messages, as well as to Cockpit Actions which can send commands to the vehicle or trigger interface
+events like like view switching or starting a video recording.</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="../getting-started/joystick-config.png" alt="../Getting Started/Joystick Config" width=600 >
+</div>
+<p>Support is built in for simultaneous input from multiple sources, including multiple joysticks, and by
+default each joystick can provide up to 8 axis ranges and 32 buttons. As some caveats,</p>
+<ul>
+<li>ArduSub only supports 16 independent buttons and 4 axis ranges in its <code>MANUAL_CONTROL</code> handling</li>
+<li>When mapping the Z motion axis range, note that ArduSub uses 0 to +1000 for full reverse to full forwards,
+whereas other vehicle types use -1000 to +1000</li>
+<li>Cockpit can assign a button to the &quot;Shift&quot; <code>BTNn_FUNCTION</code>, but is not currently capable of mapping
+a secondary &quot;shifted&quot; autopilot action to its other buttons
+<ul>
+<li>This currently needs to be set up separately, either directly using vehicle parameters, or using
+an alternative control station software like QGroundControl</li>
+</ul>
+</li>
+<li>Cockpit is currently only capable of mapping to <code>BTNn_FUNCTION</code> values that have already been assigned to
+a button, which may need to be done in advance using parameters or QGroundControl</li>
+</ul>
+<p>Adding support for a new joystick type requires providing an SVG file with particular element IDs
+(for function mapping, and so the elements can be dynamically filled when the corresponding button is pressed):
+- <code>path_b*</code> is used for different button numbers, numbers can currently be from 0-31
+- <code>path_b10</code>/<code>b11</code> are currently used to denote the joystick axes
+- 10 indicates the left side joystick, 11 indicates the right side one
+- in future there will be support for arbitrary axes and sliders
+- New SVGs currently need to be added to the code, but in future will be possible to add/import dynamically</p>
+<h3 id="alerts-1">Alerts</h3>
+<p>It is possible to select the desired text-to-speech voice, as well as configure which alert severities
+are read out loud:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="alert-config.png" alt="Alert Config" width=600 >
+</div>
+<h2 id="mission-planning">Mission Planning</h2>
+<ul>
+<li>Allows planning (and saving/loading) autonomous missions</li>
+<li>Allows mission control</li>
+</ul>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="mission-planning.png" alt="Mission Planning" width=600 >
+</div>
+
+        
+          
+<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;control-station&#x2F;Cockpit-0.0&#x2F;advanced-usage.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
+
+        
+        
+<div class="docs-navigation d-flex justify-content-between">
+  
+  
+  
+  
+  
+    
+    
+    
+    
+      
+    
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+  
+</div>
+
+      </main>
+    </div>
+  </div>
+</div>
+
+
+  
+    
+<footer class="footer text-muted">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-8 order-last order-lg-first">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Powered by <a href="https://www.getzola.org/">Zola</a> and <a href="https://github.com/ES-Alexander/adidoks">AdiDoks</a>. Sponsored by <a href="http://www.bluerobotics.com/">Blue Robotics</a>.</li>
+					
+				</ul>
+			</div>
+			<div class="col-lg-8 order-first order-lg-last text-lg-end">
+				<ul class="list-inline">
+					
+						<li class="list-inline-item">Code under <a href="https://github.com/ArduPilot/ardupilot/blob/master/COPYING.txt">GPLv3 License</a>. Documentation under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC-NC-SA 4.0</a>.</li>
+					  
+				</ul>
+			</div>
+		</div>
+	</div>
+</footer>
+
+  
+
+  
+<script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/js/main.js" defer></script>
+
+<script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/plugins/elasticlunr.min.js" defer></script>
+  <script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/search_index.en.js" defer></script>
+  <script type="text/javascript" src="https://docs.bluerobotics.com/ardusub-zola/js/search.js" defer></script>
+
+  
+</body>
+</html>
