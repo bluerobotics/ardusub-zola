@@ -26,6 +26,6 @@ jobs:
           if [[ $FILE == *.md ]]; then
             echo "Checking file $FILE"
             git diff FETCH_HEAD..HEAD -- $FILE | grep -P '^\+' | grep -P '\s+$' && \
-              echo "Trailing spaces found in $FILE" && exit 1
+              echo "Trailing spaces found in $FILE" && exit 1 || :;
           fi
         done
