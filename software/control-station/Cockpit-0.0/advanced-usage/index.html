@@ -387,7 +387,7 @@
         
         <h2 id="display-breakdown">Display Breakdown</h2>
 <div style="padding-bottom:15px;text-align:center;">
-<img src="interface-overview.png" alt="Interface Overview" width=700 >
+<img src="interface-overview.png" alt="Interface Overview" width=650 >
 </div>
 <h3 id="header-bar">Header Bar</h3>
 <p>The header bar consists of the following main elements:</p>
@@ -409,14 +409,14 @@ pane, which can be hovered over to access a scrollable history of alerts:</p>
 </div>
 <p>Some alerts can be read aloud on arrival using text to speech technology, which <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#alerts">can be configured</a>.</p>
 <h4 id="mini-widget-containers">Mini Widget Containers</h4>
-<p>When space is available, <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widgets">mini widgets</a> can be placed on either side of the alerts display.</p>
+<p>When space is available, <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widgets">mini widgets</a> can be placed on the right side of the alerts display.</p>
 <h4 id="date">Date</h4>
 <p>The current time and date is displayed in the top right corner.</p>
 <h2 id="edit-mode">Edit Mode</h2>
 <p>Cockpit's interface is designed around a configurable widget system, within an arbitrary set of views.
 Widgets can be added/removed, placed in arbitrary locations, and resized.</p>
 <div style="padding-bottom:15px;text-align:center;">
-<img src="edit-mode.png" alt="Edit Mode" width=700 >
+<img src="edit-mode.png" alt="Edit Mode" width=650 >
 </div>
 <h3 id="views">Views</h3>
 <p>A &quot;view&quot; is like a page that <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#widgets">widgets</a> can be displayed in. It is possible to configure multiple
@@ -431,6 +431,7 @@ to configure different views for the best control experience with each device.</
 separate browser profiles, or one display in incognito mode, but currently <strong>not</strong> multiple tabs of the same
 browser instance), with their views configured independently. To use the same component layouts across
 instances you can export the desired view(s) from one and import into the other(s).</p>
+<p>Multiple simultaneous tabs from the same browser instance will be supported in future.</p>
 <h4 id="configuration">Configuration</h4>
 <ul>
 <li>Open edit mode via the <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#burger-menu">burger menu</a></li>
@@ -457,7 +458,7 @@ instances you can export the desired view(s) from one and import into the other(
 bars or in a <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widget-container">mini widget container</a></li>
 </ul>
 </li>
-<li>Regular widgets can be configured by clicking the three dots in the top right corner of the widget</li>
+<li>Some regular widgets can be configured, by clicking the three dots in the top right corner of the widget</li>
 <li>Mini widgets that support configuration can be clicked on anywhere on the widget to open the configuration options
 <ul>
 <li>This is currently only possible during operation, <em>not</em> while in edit mode</li>
@@ -482,7 +483,8 @@ bars or in a <a href="https://docs.bluerobotics.com/ardusub-zola/software/contro
 <img src="compass-widget.png" alt="Compass Widget" width=300 >
 </div>
 <p>It is most useful for guided and/or autonomous control, where the main display is of the vehicle's position.</p>
-<p>It is possible to configure the vertical direction to be fixed to North or to the vehicle's forwards direction.</p>
+<p>It is possible to configure the vertical direction to be fixed to North (&quot;North-up&quot;) or to the vehicle's 
+forwards direction (&quot;head-up&quot;).</p>
 <div style="padding-bottom:15px;text-align:center;">
 <img src="compass-config.png" alt="Compass Config" width=300 >
 </div>
@@ -532,7 +534,11 @@ self-replacing mjpeg like from an ESP32-Cam. It could also display images hosted
 the vehicle's path over time.</p>
 <p>There are buttons to </p>
 <ol>
-<li>move the map to the registered 'home' location</li>
+<li>move the map to follow the registered 'home' location
+<ul>
+<li>this may move around if the control station computer is on a boat</li>
+</ul>
+</li>
 <li>move the map to follow the vehicle's current position</li>
 <li>download the current mission from the vehicle, and display it on the map</li>
 <li>execute the mission that is on the vehicle</li>
@@ -595,7 +601,12 @@ any that have been received so far (including custom ones)</li>
 <li>Video recorder
 <ul>
 <li>allows recording one of the available WebRTC streams, or the full Cockpit tab</li>
-<li>recording occurs in the browser of the display device (not onboard the vehicle)</li>
+<li>recording occurs in the browser of the display device (not onboard the vehicle)
+<ul>
+<li>this is currently stored in memory and downloaded to the device when finished, which may limit
+maximum time for individual recordings</li>
+</ul>
+</li>
 <li>recordings are saved using the <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mission-name">mission name</a> and the starting timestamp</li>
 </ul>
 </li>
@@ -640,12 +651,23 @@ an alternative control station software like QGroundControl</li>
 a button, which may need to be done in advance using parameters or QGroundControl</li>
 </ul>
 <p>Adding support for a new joystick type requires providing an SVG file with particular element IDs
-(for function mapping, and so the elements can be dynamically filled when the corresponding button is pressed):
-- <code>path_b*</code> is used for different button numbers, numbers can currently be from 0-31
-- <code>path_b10</code>/<code>b11</code> are currently used to denote the joystick axes
-- 10 indicates the left side joystick, 11 indicates the right side one
-- in future there will be support for arbitrary axes and sliders
-- New SVGs currently need to be added to the code, but in future will be possible to add/import dynamically</p>
+(for function mapping, and so the elements can be dynamically filled when the corresponding button is pressed):</p>
+<ul>
+<li><code>path_b*</code> is used for different button numbers, numbers can currently be from 0-31
+<ul>
+<li>the buttons can be remapped during Cockpit configuration by clicking on the displayed button in the SVG
+display and clicking the &quot;Remap&quot; button followed by pressing the actual joystick button that matches the
+displayed location</li>
+</ul>
+</li>
+<li><code>path_b10</code>/<code>b11</code> are currently used to denote the joystick axes
+<ul>
+<li>10 indicates the left side joystick, 11 indicates the right side one</li>
+<li>in future there will be support for arbitrary axes and sliders</li>
+</ul>
+</li>
+<li>New SVGs currently need to be added to the code, but in future will be possible to add/import dynamically</li>
+</ul>
 <h3 id="alerts-1">Alerts</h3>
 <p>It is possible to select the desired text-to-speech voice, as well as configure which alert severities
 are read out loud:</p>
