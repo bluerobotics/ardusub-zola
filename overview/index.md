@@ -1,7 +1,7 @@
 +++
 title = "Overview"
 description = "Cockpit overview."
-date = 2023-08-31T01:30:00+10:00
+date = 2023-09-04T09:30:00+10:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 0
@@ -14,6 +14,8 @@ toc = true
 top = false
 +++
 
+{{ easy_image(src="interface-highlight", width=650, center=true) }}
+
 ## A bit of context...
 
 The existing market for control station software is missing an option that's readily available, easy to use, versatile, easy to customise and develop for, and cross-platform. In response to this need, and fueled by years of inspirations for what a truly great control station could be, Cockpit is Blue Robotics' next-generation control interface, for thrusting your vehicle control experience into the future.
@@ -25,16 +27,15 @@ Cockpit is currently publicly available [as a BlueOS Extension](https://docs.blu
 ## Primary Feature List
 
 - Browser-based control station software, for vehicle control and monitoring from any web-capable device
-- Widget-based layout system, with freeform and grid-snapped positioning and resizing options
-- Custom display "views", for interface pages/profiles that can be switched between
+- Widget-based layout system, with freeform positioning and resizing
+- Custom display [Views](../advanced-usage/#views), for interface pages/profiles that can be switched between
     - Different browser windows/screens/devices can independently select which view to display
     - Views are downloadable and can be shared (json contains name and list of components and widget settings)
-- MAVLink `NAMED_VALUE_FLOAT` messages are self-registering for use in mini-widgets (including custom ones!)
-    - in future will also support `NAMED_VALUE_INT`
-- WebRTC-based video widget
+- MAVLink `NAMED_VALUE_FLOAT`/`_INT` messages are self-registering for use in [mini-widgets](../advanced-usage/#mini-widgets) (including custom ones!)
+- WebRTC-based [video widget](../advanced-usage/#video)
     - Multiple widgets can be added to support arbitrary numbers of video streams
     - Includes video recording support, on the display device
-- Map widget
+- [Map widget](../advanced-usage/#map)
     - Provides position tracking
     - Allows planning (and saving/loading) autonomous missions
     - Allows mission control
@@ -42,9 +43,9 @@ Cockpit is currently publicly available [as a BlueOS Extension](https://docs.blu
 - Customisable Actions mappable to user inputs (e.g. joysticks, and key presses / screen clicks in future)
     - Actions can send commands to the vehicle, or can trigger local events like view switching and starting video recording
     - Includes support for simultaneous input from multiple sources (including multiple joysticks)
-- Joysticks of _any_ type can be configured and calibrated
+- [Joysticks](../advanced-usage/#joysticks) of _any_ type can be configured
     - Buttons and axes can be mapped to arbitrary Actions
-- Notification system
+- [Notification system](../advanced-usage/#alerts)
     - Displays autopilot (MAVLink `STATUSTEXT`) and application alerts
     - Includes text to speech announcements
-- Mission naming used on the interface and video save filenames
+- [Mission naming](../advanced-usage/#mission-name) used on the interface and video save filenames
