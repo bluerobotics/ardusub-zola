@@ -147,6 +147,7 @@ For an Extension to be properly managed and shareable, the Dockerfile it's creat
       - `"device-integration"`
       - `"theme"`
       - `"other"`
+      - `"tool"`
       - `"example"` (for Extension examples)
 - `LABEL tags`
    - Useful for finer-grained filtering to help find relevant Extensions
