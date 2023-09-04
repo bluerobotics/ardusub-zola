@@ -277,32 +277,31 @@
       <main class="docs-content col-lg-11 col-xl-9">
         <h1>Overview</h1>
         <p class="lead">Cockpit is an intuitive and customizable cross-platform control station software for remote vehicles of all types.</p>
-        <h2 id="a-bit-of-context">A bit of context...</h2>
+        <div style="padding-bottom:15px;text-align:center;">
+<img src="interface-highlight.png" alt="Interface Highlight" width=650 >
+</div>
+<h2 id="a-bit-of-context">A bit of context...</h2>
 <p>The existing market for control station software is missing an option that's readily available, easy to use, versatile, easy to customise and develop for, and cross-platform. In response to this need, and fueled by years of inspirations for what a truly great control station could be, Cockpit is Blue Robotics' next-generation control interface, for thrusting your vehicle control experience into the future.</p>
 <h2 id="availability">Availability</h2>
 <p>Cockpit is currently publicly available <a href="https://docs.bluerobotics.com/BlueOS-Extensions-Repository#:~:text=Cockpit,-Maintainer">as a BlueOS Extension</a> (requires BlueOS &gt;= 1.1). It is still in an initial development phase, and will not be actively supported until it is officially released.</p>
 <h2 id="primary-feature-list">Primary Feature List</h2>
 <ul>
 <li>Browser-based control station software, for vehicle control and monitoring from any web-capable device</li>
-<li>Widget-based layout system, with freeform and grid-snapped positioning and resizing options</li>
-<li>Custom display &quot;views&quot;, for interface pages/profiles that can be switched between
+<li>Widget-based layout system, with freeform positioning and resizing</li>
+<li>Custom display <a href="../advanced-usage/#views">Views</a>, for interface pages/profiles that can be switched between
 <ul>
 <li>Different browser windows/screens/devices can independently select which view to display</li>
 <li>Views are downloadable and can be shared (json contains name and list of components and widget settings)</li>
 </ul>
 </li>
-<li>MAVLink <code>NAMED_VALUE_FLOAT</code> messages are self-registering for use in mini-widgets (including custom ones!)
-<ul>
-<li>in future will also support <code>NAMED_VALUE_INT</code></li>
-</ul>
-</li>
-<li>WebRTC-based video widget
+<li>MAVLink <code>NAMED_VALUE_FLOAT</code>/<code>_INT</code> messages are self-registering for use in <a href="../advanced-usage/#mini-widgets">mini-widgets</a> (including custom ones!)</li>
+<li>WebRTC-based <a href="../advanced-usage/#video">video widget</a>
 <ul>
 <li>Multiple widgets can be added to support arbitrary numbers of video streams</li>
 <li>Includes video recording support, on the display device</li>
 </ul>
 </li>
-<li>Map widget
+<li><a href="../advanced-usage/#map">Map widget</a>
 <ul>
 <li>Provides position tracking</li>
 <li>Allows planning (and saving/loading) autonomous missions</li>
@@ -316,18 +315,18 @@
 <li>Includes support for simultaneous input from multiple sources (including multiple joysticks)</li>
 </ul>
 </li>
-<li>Joysticks of <em>any</em> type can be configured and calibrated
+<li><a href="../advanced-usage/#joysticks">Joysticks</a> of <em>any</em> type can be configured
 <ul>
 <li>Buttons and axes can be mapped to arbitrary Actions</li>
 </ul>
 </li>
-<li>Notification system
+<li><a href="../advanced-usage/#alerts">Notification system</a>
 <ul>
 <li>Displays autopilot (MAVLink <code>STATUSTEXT</code>) and application alerts</li>
 <li>Includes text to speech announcements</li>
 </ul>
 </li>
-<li>Mission naming used on the interface and video save filenames</li>
+<li><a href="../advanced-usage/#mission-name">Mission naming</a> used on the interface and video save filenames</li>
 </ul>
 
         
