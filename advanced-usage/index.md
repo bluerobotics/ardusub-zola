@@ -219,6 +219,7 @@ The current options include
     - clicking on this allows selecting which `NAMED_VALUE_FLOAT/INT` MAVLink message to track, out of
       any that have been received so far (including custom ones)
     - it is also possible to specify a display unit, a value multiplier, and an icon
+    - several pre-made templates are available for usage with common variables
 {{ easy_image(src="named-value-mini-widget-config", width=300, center=true) }}
 - Video recorder
     - allows recording one of the available WebRTC streams, or the full Cockpit tab
