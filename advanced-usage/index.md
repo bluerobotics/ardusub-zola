@@ -218,6 +218,7 @@ The current options include
 - Generic Named Value indicator
     - clicking on this allows selecting which `NAMED_VALUE_FLOAT/INT` MAVLink message to track, out of
       any that have been received so far (including custom ones)
+    - several pre-made templates are available for usage with common variables
     - it is also possible to specify a display unit, a value multiplier, and an icon
 {{ easy_image(src="named-value-mini-widget-config", width=300, center=true) }}
 - Video recorder
