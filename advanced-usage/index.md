@@ -218,7 +218,7 @@ The current options include
 - Very generic indicator
     - clicking on this allows selecting which vehicle variable to track, out of
       any that have been received so far (including custom ones)
-    - only variables comming from Ardupilot vehicles are currently supported
+    - only variables coming from Ardupilot vehicles are currently supported
     - available variables include those comming from `NAMED_VALUE_FLOAT/INT` messages as well
       as any variable that is inside any MAVLink message
     - several pre-made templates are available for usage with common variables
