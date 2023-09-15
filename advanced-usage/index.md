@@ -215,11 +215,15 @@ The current options include
 - Vehicle connection status indicator
 - Power / battery indicator
 - Depth indicator
-- Generic Named Value indicator
-    - clicking on this allows selecting which `NAMED_VALUE_FLOAT/INT` MAVLink message to track, out of
+- Very generic indicator
+    - clicking on this allows selecting which vehicle variable to track, out of
       any that have been received so far (including custom ones)
+    - Only variables comming from Ardupilot vehicles are currently supported
+    - Available variables include those comming from `NAMED_VALUE_FLOAT/INT` messages as well
+      as any variable that is inside any MAVLink message
     - several pre-made templates are available for usage with common variables
-    - it is also possible to specify a display unit, a value multiplier, and an icon
+    - it is also possible to specify a display unit, a value multiplier, an icon and the number of
+      digits after the decimal place
 {{ easy_image(src="named-value-mini-widget-config", width=300, center=true) }}
 - Video recorder
     - allows recording one of the available WebRTC streams, or the full Cockpit tab
