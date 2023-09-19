@@ -586,12 +586,16 @@ adding transparent padding at the sides / above+below as necessary</li>
 <li>Vehicle connection status indicator</li>
 <li>Power / battery indicator</li>
 <li>Depth indicator</li>
-<li>Generic Named Value indicator
+<li>Very generic indicator
 <ul>
-<li>clicking on this allows selecting which <code>NAMED_VALUE_FLOAT/INT</code> MAVLink message to track, out of
+<li>clicking on this allows selecting which vehicle variable to track, out of
 any that have been received so far (including custom ones)</li>
+<li>only variables comming from Ardupilot vehicles are currently supported</li>
+<li>available variables include those comming from <code>NAMED_VALUE_FLOAT/INT</code> messages as well
+as any variable that is inside any MAVLink message</li>
 <li>several pre-made templates are available for usage with common variables</li>
-<li>it is also possible to specify a display unit, a value multiplier, and an icon</li>
+<li>it is also possible to specify a display unit, a value multiplier, an icon, the number of
+digits after the decimal place and a custom display name</li>
 </ul>
 </li>
 </ul>
