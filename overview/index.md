@@ -14,6 +14,8 @@ toc = true
 top = false
 +++
 
+{{ easy_image(src="cockpit-banner", width=460, center=true) }}
+
 {{ easy_image(src="interface-highlight", width=650, center=true) }}
 
 ## A bit of context...
