@@ -1,7 +1,7 @@
 +++
 title = "Advanced Usage"
 description = "Cockpit advanced usage documentation."
-date = 2023-11-23T19:30:00+11:00
+date = 2023-11-23T20:15:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 30
@@ -44,7 +44,7 @@ pane, which can be hovered over to access a scrollable history of alerts:
 
 Some alerts can be read aloud on arrival using text to speech technology, which [can be configured](#alerts).
 
-#### Mini Widget Containers
+#### Mini Widget Container
 
 When space is available, [mini widgets](#mini-widgets) can be placed on the right side of the alerts display.
 
@@ -92,7 +92,7 @@ Multiple simultaneous tabs from the same browser instance will be supported in f
 - New widgets can be added via the bottom section
     - Clicking on a regular widget adds it to the view, after which it can be positioned and resized as desired
     - Mini widgets have fixed sizes, but can be dragged and dropped into the desired location in the header/footer
-      bars or in a [mini widget container](#mini-widget-container)
+      bars or in a [mini widget bar](#mini-widget-bar)
 - Some regular widgets can be configured, by clicking the three dots in the top right corner of the widget
 - Mini widgets that support configuration can be clicked on anywhere on the widget to open the configuration options
     - This is currently only possible during operation, *not* while in edit mode
@@ -206,22 +206,23 @@ adding transparent padding at the sides / above+below as necessary
 
 Video recording is possible using a [mini widget](#mini-widgets).
 
-##### Mini Widget Container
+##### Mini Widget Bar
 
-The mini widget container widget is a rectangular container for storing [mini widgets](#mini-widgets).
+The mini widget bar widget is a rectangular container for storing [mini widgets](#mini-widgets).
 
-{{ easy_image(src="mini-widget-container-widget", width=500, center=true) }}
+{{ easy_image(src="mini-widgets-bar-widget", width=500, center=true) }}
 
 #### Mini Widgets
 
 Mini widgets are small, generally single-function widgets that can be drag-positioned in the
-[header bar](#header-bar), footer bar, or any [mini widget container](#mini-widget-container).
+[header bar](#header-bar), footer bar, or any [mini widget bar](#mini-widget-bar).
 
 The current options include
 - Arm/Disarm toggle switch
 - Vehicle connection status indicator
 - Power / battery indicator
 - Depth indicator
+- (Relative) altitude indicator
 - Very generic indicator
     - clicking on this allows selecting which vehicle variable to track, out of
       any that have been received so far (including custom ones)
