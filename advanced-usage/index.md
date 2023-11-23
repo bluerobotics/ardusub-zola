@@ -135,7 +135,8 @@ The compass HUD is a first-person compass view, as though inside a compass and l
 vehicle is pointing (its heading):
 {{ easy_image(src="compass-hud-widget", width=600, center=true) }}
 
-It is possible to configure whether the exact heading angle is shown, and the colour of the lines:
+It is possible to configure whether the exact heading angle is shown, whether to use a -180 to +180° range
+(default is 0 to 360°), and the colour of the lines:
 {{ easy_image(src="compass-hud-config", width=500, center=true) }}
 
 ##### Depth HUD
