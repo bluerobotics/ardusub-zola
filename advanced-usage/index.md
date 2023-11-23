@@ -149,6 +149,15 @@ This is primarily useful for underwater vehicles.
 Configuration determines whether the exact depth value is shown, and the colour of the lines:
 {{ easy_image(src="depth-hud-config", width=500, center=true) }}
 
+##### IFrame
+
+The iframe widget provides an inline frame that can display another HTML page within the Cockpit interface.
+This is particularly useful for showing the interfaces and displays of BlueOS Extensions (e.g. for a sonar viewer):
+{{ easy_image(src="iframe-widget", width=400, center=true) }}
+
+Configuration determines the URL to fetch the page from, as well as the overall transparency of the iframe:
+{{ easy_image(src="iframe-config", width=400, center=true) }}
+
 ##### Image Viewer
 
 The image viewer widget shows an image that is accessible to the control station computer via its network.
