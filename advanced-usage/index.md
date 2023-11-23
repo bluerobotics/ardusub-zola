@@ -149,13 +149,6 @@ This is primarily useful for underwater vehicles.
 Configuration determines whether the exact depth value is shown, and the colour of the lines:
 {{ easy_image(src="depth-hud-config", width=500, center=true) }}
 
-##### Indicators
-
-The indicators widget shows a collection of telemetry values, including the vehicle's attitude, GPS location,
-and optionally its power supply and usage and some debugging data: 
-{{ easy_image(src="indicators-widget", width=200, center=true) }}
-{{ easy_image(src="indicators-config", width=300, center=true) }}
-
 ##### Image Viewer
 
 The image viewer widget shows an image that is accessible to the control station computer via its network.
