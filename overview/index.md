@@ -1,7 +1,7 @@
 +++
 title = "Overview"
 description = "Cockpit overview."
-date = 2023-09-04T09:30:00+10:00
+date = 2023-11-23T17:00:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 0
@@ -23,6 +23,9 @@ The existing market for control station software is missing an option that's rea
 ## Availability
 
 Cockpit is currently publicly available [as a BlueOS Extension](https://docs.bluerobotics.com/BlueOS-Extensions-Repository#:~:text=Cockpit,-Maintainer) (requires BlueOS >= 1.1). It is still in an initial development phase, and will not be actively supported until it is officially released.
+
+The source code is available [on GitHub](https://github.com/bluerobotics/cockpit),
+under [two possible licenses](https://github.com/bluerobotics/cockpit/tree/master/LICENSE.md).
 
 ## Primary Feature List
 
