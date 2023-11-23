@@ -1,7 +1,7 @@
 +++
 title = "Advanced Usage"
 description = "Cockpit advanced usage documentation."
-date = 2023-08-31T01:30:00+10:00
+date = 2023-11-23T19:30:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 30
@@ -110,6 +110,13 @@ The attitude HUD widget displays the vehicle's pitch and roll as a heads-up disp
 
 It is possible to configure which components get displayed, as well as the line colour:
 {{ easy_image(src="attitude-hud-config", width=500, center=true) }}
+
+##### Virtual Horizon
+
+The virtual horizon widget displays the vehicle's pitch and roll as though on the gauge in a plane:
+{{ easy_image(src="virtual-horizon-widget", width=300, center=true) }}
+
+It is most useful for guided and/or autonomous control, where the main display is of the vehicle's position.
 
 ##### Compass
 
