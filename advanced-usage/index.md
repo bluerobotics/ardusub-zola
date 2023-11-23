@@ -212,6 +212,18 @@ you should select the tether IP and remove the wireless one to avoid video stutt
 Video recording is possible using a [mini widget](#mini-widgets), and directly records the incoming stream
 (not the scaled and cropped display of the widget).
 
+##### URL Video Player
+
+The URL video player widget displays a video from a URL. This is useful for testing IP cameras that are not
+being redirected via BlueOS, but can also be used to display online videos if that is for some reason relevant.
+{{ easy_image(src="url-video-widget", width=400, center=true) }}
+
+Configuration allows selecting which URL to stream a video from, as well as options for whether to play the
+video automatically, whether it should loop when complete, whether it should play sound or be muted, whether
+playback controls should be exposed, and choosing how the video frames should fit within the widget (as
+described in [Video Player](#video-player).
+{{ easy_image(src="url-video-config", width=450, center=true) }}
+
 ##### Mini Widget Bar
 
 The mini widget bar widget is a rectangular container for storing [mini widgets](#mini-widgets).
