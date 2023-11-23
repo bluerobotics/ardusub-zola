@@ -217,6 +217,11 @@ The mini widget bar widget is a rectangular container for storing [mini widgets]
 Mini widgets are small, generally single-function widgets that can be drag-positioned in the
 [header bar](#header-bar), footer bar, or any [mini widget bar](#mini-widget-bar).
 
+They are editable by selecting "Mini Widgets" in the bottom left corner of edit mode, then either
+dragging a new mini-widget (from those available along the bottom of the screen) into a
+[mini-widget bar](#mini-widget-bar), or configuring or removing one from the "current mini-widgets"
+list in the bottom left corner.
+
 The current options include
 - Arm/Disarm toggle switch
 - Vehicle connection status indicator
@@ -224,15 +229,16 @@ The current options include
 - Depth indicator
 - (Relative) altitude indicator
 - Very generic indicator
-    - clicking on this allows selecting which vehicle variable to track, out of
+    - configuring this allows selecting which vehicle variable to track, out of
       any that have been received so far (including custom ones)
     - only variables coming from Ardupilot vehicles are currently supported
     - available variables include those comming from `NAMED_VALUE_FLOAT/INT` messages as well
       as any variable that is inside any MAVLink message
-    - several pre-made templates are available for usage with common variables
+    - several pre-made presets are available for usage with common variables
     - it is also possible to specify a display unit, a value multiplier, an icon, the number of
       digits after the decimal place and a custom display name
-{{ easy_image(src="named-value-mini-widget-config", width=300, center=true) }}
+{{ easy_image(src="very-generic-widget-config-presets", width=300, center=true) }}
+{{ easy_image(src="very-generic-widget-config-custom", width=300, center=true) }}
 - Video recorder
     - allows recording one of the available WebRTC streams, or the full Cockpit tab
     - recording occurs in the browser of the display device (not onboard the vehicle)
