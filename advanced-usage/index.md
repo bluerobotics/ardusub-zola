@@ -54,10 +54,51 @@ The current time and date is displayed in the top right corner.
 
 ## Edit Mode
 
-Cockpit's interface is designed around a configurable widget system, within an arbitrary set of views.
-Widgets can be added/removed, placed in arbitrary locations, and resized.
+Cockpit's interface consists of a configurable widget system, with
+1. [Profiles](#profiles)
+    - for supporting different operators and/or vehicle types
+    - can be added/removed, saved and loaded, and switched between in edit mode
+1. [Views](#views) (within each profile)
+    - for handling different operation modes / targets within a mission
+    - can be added/removed, saved and loaded, and dynamically switched between
+1. [Widgets](#widgets) (within each view)
+    - for advanced information display and vehicle control
+    - can be added/removed, placed in arbitrary locations, and resized
+1. [Mini-widgets](#mini-widgets) (within mini-widget bar widgets)
+    - for basic information display and vehicle/interface control
+    - can be added/removed, reordered within widget bars, and moved between them
 
 {{ easy_image(src="edit-mode", width=650, center=true) }}
+
+### Profiles
+
+A "profile" is a collection of [views](#views) that are relevant to a particular use-case or operator.
+
+If one control station computer is used by multiple operators (e.g. within the same organisation)
+at different times then it could be useful for each operator to have their preferred interface saved on
+that computer, and they can switch to their profile when they open up Cockpit.
+
+Alternatively, if the same control station computer is used to control different types of vehicles
+(e.g. a boat, an underwater ROV, and a drone) then the operator can load the appropriate vehicle control
+interface when they connect to a different vehicle type. It will soon be possible to store and load
+profiles from the vehicle itself, instead of only on the control station computer, which makes it easier
+to connect a different control computer to a vehicle and load the familiar control profiles for that vehicle.
+
+#### Default Profiles
+
+Cockpit includes default profiles for submarine and boat use-cases, which cannot be edited. These serve as
+a reference for a recommended base profile, and are useful for restoring to a known reasonable interface in
+case something goes wrong with custom interface options. The default profiles are not persistent, so they
+may change through different Cockpit versions.
+
+#### Profile Configuration
+
+1. Open edit mode (via the [burger menu](#burger-menu)
+1. Select a custom/user profile to edit, and/or create, import, or remove profiles as desired
+    - Non-default profiles can be renamed by clicking on the settings cog icon
+    - The "Views" list shows the views that are available within the selected profile
+    - Selecting one of the [default profiles](#default-profiles) will restore the interface to a standard one,
+      but cannot be edited unless you download and upload it as a user profile
 
 ### Views
 
@@ -68,9 +109,6 @@ preferences for when you're performing different operations.
 As an example, you may have one view tailored to general navigation, and another that's designed around
 inspections. The first view could then be used while getting the vehicle to the inspection site, and then
 the second view can be switched to once it's time to actually perform the inspection.
-
-If a vehicle is not always controlled through the same control station computer/device then it may be useful
-to configure different views for the best control experience with each device.
 
 It is possible for different devices or browser instances to access Cockpit at the same time (e.g. using
 separate browser profiles, or one display in incognito mode, but currently **not** multiple tabs of the same
@@ -83,6 +121,8 @@ Multiple simultaneous tabs from the same browser instance will be supported in f
 
 - Open edit mode via the [burger menu](#burger-menu)
 - Select a view to edit, and/or create or remove views as desired
+    - Clicking on the cog settings icon allows renaming a view, and determining whether the bottom
+      bottom mini-widgets bar is shown or hidden/docked when Cockpit boots
     - Views can be imported from an external file, or exported to a file for sharing
 - The "Current widgets" list allows
     1. dragging the widgets in the current view to reorder which widget is on top
@@ -92,10 +132,11 @@ Multiple simultaneous tabs from the same browser instance will be supported in f
 - New widgets can be added via the bottom section
     - Clicking on a regular widget adds it to the view, after which it can be positioned and resized as desired
     - Mini widgets have fixed sizes, but can be dragged and dropped into the desired location in the header/footer
-      bars or in a [mini widget bar](#mini-widget-bar)
-- Some regular widgets can be configured, by clicking the three dots in the top right corner of the widget
-- Mini widgets that support configuration can be clicked on anywhere on the widget to open the configuration options
-    - This is currently only possible during operation, *not* while in edit mode
+      bars or in a custom [mini widget bar](#mini-widget-bar)
+    - The selector in the bottom left can be used to choose between editing regular or mini widgets
+- Some widgets can be configured, by clicking the cog settings icon in the "Current widgets" list
+    - [There are currently cog icons for all widgets](https://github.com/bluerobotics/cockpit/issues/541),
+      so if you click a cog icon and nothing happens it means that widget is not configurable
 
 ### Widgets
 
