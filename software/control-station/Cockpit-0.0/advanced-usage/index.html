@@ -282,7 +282,7 @@
 															
 															</li>
 															
-															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widget-containers">Mini Widget Containers</a>
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widget-container">Mini Widget Container</a>
 															
 															</li>
 															
@@ -300,6 +300,22 @@
   							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#edit-mode">Edit Mode</a></li>
   							
   									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#profiles">Profiles</a>
+											
+													<ul>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#default-profiles">Default Profiles</a>
+															
+															</li>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#profile-configuration">Profile Configuration</a>
+															
+															</li>
+															
+													</ul>
+											
+											</li>
   											
   											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#views">Views</a>
 											
@@ -323,21 +339,25 @@
 																			
 																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#attitude-hud">Attitude HUD</a></li>
 																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#virtual-horizon">Virtual Horizon</a></li>
+																			
 																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#compass">Compass</a></li>
 																			
 																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#compass-hud">Compass HUD</a></li>
 																			
 																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#depth-hud">Depth HUD</a></li>
 																			
-																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#indicators">Indicators</a></li>
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#iframe">IFrame</a></li>
 																			
 																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#image-viewer">Image Viewer</a></li>
 																			
 																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#map">Map</a></li>
 																			
-																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#video">Video</a></li>
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#video-player">Video Player</a></li>
 																			
-																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widget-container">Mini Widget Container</a></li>
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#url-video-player">URL Video Player</a></li>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widget-bar">Mini Widget Bar</a></li>
 																			
 																	</ul>
 															
@@ -408,16 +428,68 @@ pane, which can be hovered over to access a scrollable history of alerts:</p>
 <img src="alert-history.png" alt="Alert History" width=450 >
 </div>
 <p>Some alerts can be read aloud on arrival using text to speech technology, which <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#alerts">can be configured</a>.</p>
-<h4 id="mini-widget-containers">Mini Widget Containers</h4>
+<h4 id="mini-widget-container">Mini Widget Container</h4>
 <p>When space is available, <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widgets">mini widgets</a> can be placed on the right side of the alerts display.</p>
 <h4 id="date">Date</h4>
 <p>The current time and date is displayed in the top right corner.</p>
 <h2 id="edit-mode">Edit Mode</h2>
-<p>Cockpit's interface is designed around a configurable widget system, within an arbitrary set of views.
-Widgets can be added/removed, placed in arbitrary locations, and resized.</p>
+<p>Cockpit's interface consists of a configurable widget system, with</p>
+<ol>
+<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#profiles">Profiles</a>
+<ul>
+<li>for supporting different operators and/or vehicle types</li>
+<li>can be added/removed, saved and loaded, and switched between in edit mode</li>
+</ul>
+</li>
+<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#views">Views</a> (within each profile)
+<ul>
+<li>for handling different operation modes / targets within a mission</li>
+<li>can be added/removed, saved and loaded, and dynamically switched between</li>
+</ul>
+</li>
+<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#widgets">Widgets</a> (within each view)
+<ul>
+<li>for advanced information display and vehicle control</li>
+<li>can be added/removed, placed in arbitrary locations, and resized</li>
+</ul>
+</li>
+<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widgets">Mini-widgets</a> (within mini-widget bar widgets)
+<ul>
+<li>for basic information display and vehicle/interface control</li>
+<li>can be added/removed, reordered within widget bars, and moved between them</li>
+</ul>
+</li>
+</ol>
 <div style="padding-bottom:15px;text-align:center;">
 <img src="edit-mode.png" alt="Edit Mode" width=650 >
 </div>
+<h3 id="profiles">Profiles</h3>
+<p>A &quot;profile&quot; is a collection of <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#views">views</a> that are relevant to a particular use-case or operator.</p>
+<p>If one control station computer is used by multiple operators (e.g. within the same organisation)
+at different times then it could be useful for each operator to have their preferred interface saved on
+that computer, and they can switch to their profile when they open up Cockpit.</p>
+<p>Alternatively, if the same control station computer is used to control different types of vehicles
+(e.g. a boat, an underwater ROV, and a drone) then the operator can load the appropriate vehicle control
+interface when they connect to a different vehicle type. It will soon be possible to store and load
+profiles from the vehicle itself, instead of only on the control station computer, which makes it easier
+to connect a different control computer to a vehicle and load the familiar control profiles for that vehicle.</p>
+<h4 id="default-profiles">Default Profiles</h4>
+<p>Cockpit includes default profiles for submarine and boat use-cases, which cannot be edited. These serve as
+a reference for a recommended base profile, and are useful for restoring to a known reasonable interface in
+case something goes wrong with custom interface options. The default profiles are not persistent, so they
+may change through different Cockpit versions.</p>
+<h4 id="profile-configuration">Profile Configuration</h4>
+<ol>
+<li>Open edit mode (via the <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#burger-menu">burger menu</a></li>
+<li>Select a custom/user profile to edit, and/or create, import, or remove profiles as desired
+<ul>
+<li>Non-default profiles can be renamed by clicking on the settings cog icon</li>
+<li>The &quot;Views&quot; list shows the views that are available within the selected profile</li>
+<li>Selecting one of the <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#default-profiles">default profiles</a> will restore the interface to a standard one,
+but cannot be edited unless you download and upload it as a user profile</li>
+</ul>
+</li>
+</ol>
 <h3 id="views">Views</h3>
 <p>A &quot;view&quot; is like a page that <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#widgets">widgets</a> can be displayed in. It is possible to configure multiple
 separate views and switch between them during operation, which is useful if you have different interface
@@ -425,8 +497,6 @@ preferences for when you're performing different operations.</p>
 <p>As an example, you may have one view tailored to general navigation, and another that's designed around
 inspections. The first view could then be used while getting the vehicle to the inspection site, and then
 the second view can be switched to once it's time to actually perform the inspection.</p>
-<p>If a vehicle is not always controlled through the same control station computer/device then it may be useful
-to configure different views for the best control experience with each device.</p>
 <p>It is possible for different devices or browser instances to access Cockpit at the same time (e.g. using
 separate browser profiles, or one display in incognito mode, but currently <strong>not</strong> multiple tabs of the same
 browser instance), with their views configured independently. To use the same component layouts across
@@ -437,6 +507,8 @@ instances you can export the desired view(s) from one and import into the other(
 <li>Open edit mode via the <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#burger-menu">burger menu</a></li>
 <li>Select a view to edit, and/or create or remove views as desired
 <ul>
+<li>Clicking on the cog settings icon allows renaming a view, and determining whether the bottom
+bottom mini-widgets bar is shown or hidden/docked when Cockpit boots</li>
 <li>Views can be imported from an external file, or exported to a file for sharing</li>
 </ul>
 </li>
@@ -455,13 +527,14 @@ instances you can export the desired view(s) from one and import into the other(
 <ul>
 <li>Clicking on a regular widget adds it to the view, after which it can be positioned and resized as desired</li>
 <li>Mini widgets have fixed sizes, but can be dragged and dropped into the desired location in the header/footer
-bars or in a <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widget-container">mini widget container</a></li>
+bars or in a custom <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widget-bar">mini widget bar</a></li>
+<li>The selector in the bottom left can be used to choose between editing regular or mini widgets</li>
 </ul>
 </li>
-<li>Some regular widgets can be configured, by clicking the three dots in the top right corner of the widget</li>
-<li>Mini widgets that support configuration can be clicked on anywhere on the widget to open the configuration options
+<li>Some widgets can be configured, by clicking the cog settings icon in the &quot;Current widgets&quot; list
 <ul>
-<li>This is currently only possible during operation, <em>not</em> while in edit mode</li>
+<li><a href="https://github.com/bluerobotics/cockpit/issues/541">There are currently cog icons for all widgets</a>,
+so if you click a cog icon and nothing happens it means that widget is not configurable</li>
 </ul>
 </li>
 </ul>
@@ -477,6 +550,12 @@ bars or in a <a href="https://docs.bluerobotics.com/ardusub-zola/software/contro
 <div style="padding-bottom:15px;text-align:center;">
 <img src="attitude-hud-config.png" alt="Attitude Hud Config" width=500 >
 </div>
+<h5 id="virtual-horizon">Virtual Horizon</h5>
+<p>The virtual horizon widget displays the vehicle's pitch and roll as though on the gauge in a plane:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="virtual-horizon-widget.png" alt="Virtual Horizon Widget" width=300 >
+</div>
+<p>It is most useful for guided and/or autonomous control, where the main display is of the vehicle's position.</p>
 <h5 id="compass">Compass</h5>
 <p>The compass widget displays the vehicle's orientation as though looking at a compass in your hand:</p>
 <div style="padding-bottom:15px;text-align:center;">
@@ -494,7 +573,8 @@ vehicle is pointing (its heading):</p>
 <div style="padding-bottom:15px;text-align:center;">
 <img src="compass-hud-widget.png" alt="Compass Hud Widget" width=600 >
 </div>
-<p>It is possible to configure whether the exact heading angle is shown, and the colour of the lines:</p>
+<p>It is possible to configure whether the exact heading angle is shown, whether to use a -180 to +180° range
+(default is 0 to 360°), and the colour of the lines:</p>
 <div style="padding-bottom:15px;text-align:center;">
 <img src="compass-hud-config.png" alt="Compass Hud Config" width=500 >
 </div>
@@ -508,14 +588,15 @@ vehicle is pointing (its heading):</p>
 <div style="padding-bottom:15px;text-align:center;">
 <img src="depth-hud-config.png" alt="Depth Hud Config" width=500 >
 </div>
-<h5 id="indicators">Indicators</h5>
-<p>The indicators widget shows a collection of telemetry values, including the vehicle's attitude, GPS location,
-and optionally its power supply and usage and some debugging data: </p>
+<h5 id="iframe">IFrame</h5>
+<p>The iframe widget provides an inline frame that can display another HTML page within the Cockpit interface.
+This is particularly useful for showing the interfaces and displays of BlueOS Extensions (e.g. for a sonar viewer):</p>
 <div style="padding-bottom:15px;text-align:center;">
-<img src="indicators-widget.png" alt="Indicators Widget" width=200 >
+<img src="iframe-widget.png" alt="Iframe Widget" width=400 >
 </div>
+<p>Configuration determines the URL to fetch the page from, as well as the overall transparency of the iframe:</p>
 <div style="padding-bottom:15px;text-align:center;">
-<img src="indicators-config.png" alt="Indicators Config" width=300 >
+<img src="iframe-config.png" alt="Iframe Config" width=400 >
 </div>
 <h5 id="image-viewer">Image Viewer</h5>
 <p>The image viewer widget shows an image that is accessible to the control station computer via its network.</p>
@@ -551,8 +632,8 @@ the vehicle's path over time.</p>
 </div>
 <p>In future it will be possible to set the current vehicle position, and click to guide the vehicle to new
 positions.</p>
-<h5 id="video">Video</h5>
-<p>The video widget displays an available WebRTC video stream. BlueOS uses the 
+<h5 id="video-player">Video Player</h5>
+<p>The video player widget displays an available WebRTC video stream. BlueOS uses the 
 <a href="https://github.com/mavlink/mavlink-camera-manager">MAVLink Camera Manager</a> to automatically create a WebRTC 
 stream for applicable video streams.</p>
 <div style="padding-bottom:15px;text-align:center;">
@@ -571,36 +652,61 @@ adding transparent padding at the sides / above+below as necessary</li>
 <div style="padding-bottom:15px;text-align:center;">
 <img src="video-config.png" alt="Video Config" width=600 >
 </div>
-<p>Video recording is possible using a <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widgets">mini widget</a>.</p>
-<h5 id="mini-widget-container">Mini Widget Container</h5>
-<p>The mini widget container widget is a rectangular container for storing <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widgets">mini widgets</a>.</p>
+<p>It is also possible to select the video source IP, which is recommended especially if there are multiple
+available connection routes (e.g. if there is a wired route through a tether, as well as a wireless connection,
+you should select the tether IP and remove the wireless one to avoid video stuttering from transmission over wifi).</p>
+<p>Video recording is possible using a <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widgets">mini widget</a>, and directly records the incoming stream
+(not the scaled and cropped display of the widget).</p>
+<h5 id="url-video-player">URL Video Player</h5>
+<p>The URL video player widget displays a video from a URL. This is useful for testing IP cameras that are not
+being redirected via BlueOS, but can also be used to display online videos if that is for some reason relevant.</p>
 <div style="padding-bottom:15px;text-align:center;">
-<img src="mini-widget-container-widget.png" alt="Mini Widget Container Widget" width=500 >
+<img src="url-video-widget.png" alt="Url Video Widget" width=400 >
+</div>
+<p>Configuration allows selecting which URL to stream a video from, as well as options for whether to play the
+video automatically, whether it should loop when complete, whether it should play sound or be muted, whether
+playback controls should be exposed, and choosing how the video frames should fit within the widget (as
+described in <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#video-player">Video Player</a>.</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="url-video-config.png" alt="Url Video Config" width=450 >
+</div>
+<h5 id="mini-widget-bar">Mini Widget Bar</h5>
+<p>The mini widget bar widget is a rectangular container for storing <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widgets">mini widgets</a>.</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="mini-widgets-bar-widget.png" alt="Mini Widgets Bar Widget" width=500 >
 </div>
 <h4 id="mini-widgets">Mini Widgets</h4>
 <p>Mini widgets are small, generally single-function widgets that can be drag-positioned in the
-<a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#header-bar">header bar</a>, footer bar, or any <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widget-container">mini widget container</a>.</p>
+<a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#header-bar">header bar</a>, footer bar, or any <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widget-bar">mini widget bar</a>.</p>
+<p>They are editable by selecting &quot;Mini Widgets&quot; in the bottom left corner of edit mode, then either
+dragging a new mini-widget (from those available along the bottom of the screen) into a
+<a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/#mini-widget-bar">mini-widget bar</a>, or configuring or removing one from the &quot;current mini-widgets&quot;
+list in the bottom left corner.</p>
 <p>The current options include</p>
 <ul>
 <li>Arm/Disarm toggle switch</li>
 <li>Vehicle connection status indicator</li>
 <li>Power / battery indicator</li>
 <li>Depth indicator</li>
+<li>(Relative) altitude indicator</li>
 <li>Very generic indicator
 <ul>
-<li>clicking on this allows selecting which vehicle variable to track, out of
+<li>configuring this allows selecting which vehicle variable to track, out of
 any that have been received so far (including custom ones)</li>
-<li>only variables comming from Ardupilot vehicles are currently supported</li>
+<li>only variables coming from Ardupilot vehicles are currently supported</li>
 <li>available variables include those comming from <code>NAMED_VALUE_FLOAT/INT</code> messages as well
 as any variable that is inside any MAVLink message</li>
-<li>several pre-made templates are available for usage with common variables</li>
+<li>several pre-made presets are available for usage with common variables</li>
 <li>it is also possible to specify a display unit, a value multiplier, an icon, the number of
 digits after the decimal place and a custom display name</li>
 </ul>
 </li>
 </ul>
 <div style="padding-bottom:15px;text-align:center;">
-<img src="named-value-mini-widget-config.png" alt="Named Value Mini Widget Config" width=300 >
+<img src="very-generic-widget-config-presets.png" alt="Very Generic Widget Config Presets" width=300 >
+</div>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="very-generic-widget-config-custom.png" alt="Very Generic Widget Config Custom" width=300 >
 </div>
 <ul>
 <li>Video recorder
