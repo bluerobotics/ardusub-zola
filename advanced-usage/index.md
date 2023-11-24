@@ -187,9 +187,9 @@ There are buttons to
 In future it will be possible to set the current vehicle position, and click to guide the vehicle to new
 positions.
 
-##### Video
+##### Video Player
 
-The video widget displays an available WebRTC video stream. BlueOS uses the 
+The video player widget displays an available WebRTC video stream. BlueOS uses the 
 [MAVLink Camera Manager](https://github.com/mavlink/mavlink-camera-manager) to automatically create a WebRTC 
 stream for applicable video streams.
 {{ easy_image(src="video-widget", width=400, center=true) }}
@@ -205,7 +205,12 @@ off the sides or top+bottom if they extend beyond the widget boundaries
 adding transparent padding at the sides / above+below as necessary
 {{ easy_image(src="video-config", width=600, center=true) }}
 
-Video recording is possible using a [mini widget](#mini-widgets).
+It is also possible to select the video source IP, which is recommended especially if there are multiple
+available connection routes (e.g. if there is a wired route through a tether, as well as a wireless connection,
+you should select the tether IP and remove the wireless one to avoid video stuttering from transmission over wifi).
+
+Video recording is possible using a [mini widget](#mini-widgets), and directly records the incoming stream
+(not the scaled and cropped display of the widget).
 
 ##### Mini Widget Bar
 
