@@ -1,7 +1,7 @@
 +++
 title = "Getting Started"
 description = "BlueOS getting started instructions."
-date = 2023-02-23T23:15:00+11:00
+date = 2023-12-04T20:00:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 20
@@ -71,9 +71,12 @@ For more details see the Advanced Usage [Interface Overview](../advanced-usage/#
 
 BlueOS supports [multiple release types](../overview/#release-types) - we recommend the latest stable version for most people. Releases and change-logs are available on the [GitHub releases page](https://github.com/bluerobotics/blueos-docker/releases).
 
-### Connect Wifi
+### Connect Internet
 
-When starting out, it's important to connect to wifi so you can update to the latest suitable release.
+When starting out, it's important to connect your vehicle to the internet so you can update to the latest suitable release.
+Internet connectivity is possible via either [wifi](#connect-wifi) or [passed through a tether](#tether-passthrough).
+
+#### Connect Wifi
 
 1. First, click the wifi indicator to scan for available wifi networks
 
@@ -84,6 +87,17 @@ When starting out, it's important to connect to wifi so you can update to the la
 1. Once connected, the wifi icon will change to show the signal strength, and the connected wifi network will be selected on the menu
 
    ![Wifi Confirm](wifi-confirm.png)
+
+#### Tether Passthrough
+
+- [macOS instructions](https://support.apple.com/en-au/guide/mac-help/mchlp1540/mac)
+- [Windows instructions](https://pureinfotech.com/share-internet-connection-windows-10/)
+   - [Windows 10 troubleshooting](https://discuss.bluerobotics.com/t/windows-10-cellular-while-flying-rov/14816)
+- [Ubuntu (Linux) instructions](https://unix.stackexchange.com/questions/575178/sharing-wifi-internet-through-ethernet-interface)
+- [Arch (Linux) instructions](https://wiki.archlinux.org/title/Internet_sharing)
+
+Once the internet passthrough has been configured, the BlueOS header should 
+[show that it has internet connectivity](../advanced-usage/#internet-status-and-management).
 
 ### Select Version
 
