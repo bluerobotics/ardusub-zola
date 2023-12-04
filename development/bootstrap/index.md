@@ -1,7 +1,7 @@
 +++
 title = "BlueOS-bootstrap"
 description = "BlueOS-bootstrap development documentation."
-date = 2023-06-02T18:30:00+11:00
+date = 2023-12-04T19:30:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 20
@@ -27,6 +27,10 @@ BlueOS is set up with a [GitHub Action](https://docs.github.com/en/actions) that
 If you want to make use of that functionality you'll need a [DockerHub](https://hub.docker.com) account, and will need to specify your DockerHub username (`DOCKER_USERNAME`) and password (`DOCKER_PASSWORD`) in your fork's [GitHub secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets).
 
 ## Updating
+
+{% warning() %}
+BlueOS-bootstrap is a critical component of running BlueOS, and can significantly affect the system stability. It should only be updated when necessary, and preferably at times where the onboard computer hardware is accessible in case something goes wrong. For normal users it is strongly recommended to only update BlueOS-bootstrap to match stable releases of BlueOS, and even then only if there is a known issue an update is expected to fix or improve.
+{% end %}
 
 BlueOS-bootstrap versions are built at the same time as BlueOS-core versions, and they get bundled together in the Raspberry Pi images that can be flashed onto an SD card to install BlueOS onto it. For official BlueOS releases it is possible to update the BlueOS-bootstrap image to match the BlueOS release through the [BlueOS Version](../../advanced-usage#blueos-version) chooser, and is the recommended process.
 
