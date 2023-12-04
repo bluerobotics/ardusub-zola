@@ -112,7 +112,7 @@ easily connect to it from a phone
 
 ##### Internet Status and Management
 
-- See whether the vehicle is connected to the internet
+- See whether the vehicle is connected to the internet (updates every 20 seconds)
 
 {{ easy_image(src="internet", center=true, width=50) }}
 {% pirate() %}
