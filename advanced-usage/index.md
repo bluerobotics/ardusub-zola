@@ -1,7 +1,7 @@
 +++
 title = "Advanced Usage"
 description = "BlueOS advanced usage documentation."
-date = 2023-03-08T12:30:00+11:00
+date = 2023-12-04T19:00:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 30
@@ -668,11 +668,20 @@ Developers can install custom extensions as relevant.
 
 - the vehicle name makes it easier to determine which vehicle you are connected to
 - changing the mDNS hostname changes the address you connect to for the browser interface
-    - ethernet tether -> [http://custom.local](http://custom.local)
+    - wired connection (ethernet tether / USB-OTG) -> [http://custom.local](http://custom.local)
     - wifi connection -> [http://custom-wifi.local](http://custom-wifi.local)
     - BlueOS hotspot -> [http://custom-hotspot.local](http://custom-hotspot.local)
-    - [http://blueos.local](http://blueos.local) will still be available for direct ethernet
-    connections, as a fallback in case the custom name is forgotten
+    - [http://blueos.local](http://blueos.local) will still be available for wired connections,
+    as a fallback in case the custom name is forgotten
+    - [http://blueos-avahi.local](http://blueos-avahi.local) is broadcast to all interfaces,
+    for connecting when you're not sure which interface(s) are available
+    - IP addresses are always available for
+    [the interfaces they're configured for](#wired-network-management-ethernet-usb-otg), but
+    they're less intuitive to remember than mDNS names
+    - **NOTE:** mDNS is available on most modern operating systems, but
+        - for Windows older than Windows 10, [install Bonjour](https://support.apple.com/kb/dl999)
+        - for Linux run `avahi-discover` on the terminal to see if the avahi service is running
+           - For reference: [Debian](https://wiki.debian.org/Avahi), [Arch](https://wiki.archlinux.org/title/avahi)
 
 {{ easy_image(src="theme-name-mdns", width=400, center=true) }}
 
