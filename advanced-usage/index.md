@@ -467,13 +467,15 @@ For making connections to the autopilot, see [MAVLink Endpoints](#mavlink-endpoi
 {% end %}
 {{ easy_image(src="serial-bridges", width=600, class="pirate") }}
 {% pirate() %}
-- NOTE: UDP-based systems do not guarantee packet delivery or sequential alignment
+- **NOTE:** UDP-based systems do not guarantee packet delivery or sequential alignment
 - Bridges to the [Control Station Computer](@/hardware/required/control-computer/index.md)
   will generally use the localhost IP `0.0.0.0`, which creates a UDP server that waits
   for a UDP client on the control computer to connect to it
    - other IP addesses create a UDP client on the onboard computer, which expects the
      serial device to initiate communication before the connected UDP server (on the
      control computer) can respond
+   - **NOTE:** a client should communicate with the server at least once every 10 seconds
+     to avoid being disconnected
 - Bridges to internal programs can use the loopback IP `127.0.0.1`, which creates a
   local server
 {% end %}
