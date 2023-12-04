@@ -52,8 +52,11 @@ When you first open BlueOS, you'll see a window like the following:
 #### Header: Indicators and BlueOS Configuration
 
 On the left side of the header there is space for widgets, which can be accessed by
-right clicking and selecting the desired widgets to display. This system is very new,
-so the available widget options are currently quite limited.
+right clicking and selecting the desired widgets to display. Widgets can be reordered
+by clicking and dragging.
+
+There are currently widgets available for displaying the CPU and Disk (storage) usage
+as percentages, which are periodically updated during operation.
 
 {{ easy_image(src="widgets", width=300) }}
 
