@@ -333,6 +333,7 @@ The current options include
 - Flight mode selector
 - GPS status indicator
 - [View](#views) selector
+- Takeoff/land button
 
 ## Configuration
 
