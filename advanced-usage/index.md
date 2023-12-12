@@ -1,7 +1,7 @@
 +++
 title = "Advanced Usage"
 description = "Cockpit advanced usage documentation."
-date = 2023-11-23T20:15:00+11:00
+date = 2023-12-13T01:30:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 30
@@ -353,13 +353,14 @@ addresses, and refresh the page to establish the desired connection.
 ### Joysticks
 
 Cockpit is intended to work with arbitrary joystick types, and allows mapping joystick buttons and axes to
-various [protocols](#joystick-protocols), which can send inputs and commands to the vehicle, or trigger
-interface events.
+various [protocol functions](#joystick-protocols), which can send inputs and commands to the vehicle, or trigger
+interface events. Once a function mapping is configured it is possible to export it to the computer and/or the
+vehicle, which can then be imported later to new Cockpit instances/devices.
 
 {{ easy_image(src="../getting-started/joystick-config", width=600, center=true) }}
 
 Support is built in for simultaneous input from multiple sources, including multiple joysticks, and by
-default each joystick can provide up to 8 axis ranges and 32 buttons. 
+default each joystick can provide up to 8 axis ranges and 32 buttons.
 
 #### Joystick Protocols
 
@@ -437,6 +438,11 @@ Adding support for a new joystick type requires providing an SVG file with parti
     - 10 indicates the left side joystick, 11 indicates the right side one
     - in future there will be support for arbitrary axes and sliders
 - New SVGs currently need to be added to the code, but in future will be possible to add/import dynamically
+
+Once Cockpit has a suitably registered SVG file for the desired joystick type, it is possible to perform the
+relevant "Joystick mapping", from the button IDs presented by the physical joystick to labels that match the
+corresponding buttons in the SVG file. This mapping can then be exported to the computer and/or the vehicle,
+and imported to new Cockpit instances/devices later.
 
 ## Logs
 
