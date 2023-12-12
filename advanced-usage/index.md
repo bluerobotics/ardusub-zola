@@ -62,10 +62,12 @@ The current time and date is displayed in the top right corner.
 Cockpit's interface consists of a configurable widget system, with
 1. [Profiles](#profiles)
     - for supporting different operators and/or vehicle types
-    - can be added/removed, saved and loaded, and switched between in edit mode
+    - can be added/removed/duplicated, saved and loaded (to/from both the vehicle and the display device),
+    and switched between in edit mode
 1. [Views](#views) (within each profile)
     - for handling different operation modes / targets within a mission
-    - can be added/removed, saved and loaded, and dynamically switched between
+    - can be added/removed/duplicated, saved and loaded to/from the display device, and
+    dynamically switched between during operation
 1. [Widgets](#widgets) (within each view)
     - for advanced information display and vehicle control
     - can be added/removed, placed in arbitrary locations, and resized
@@ -91,19 +93,23 @@ to connect a different control computer to a vehicle and load the familiar contr
 
 #### Default Profiles
 
-Cockpit includes default profiles for submarine and boat use-cases, which cannot be edited. These serve as
-a reference for a recommended base profile, and are useful for restoring to a known reasonable interface in
-case something goes wrong with custom interface options. The default profiles are not persistent, so they
-may change through different Cockpit versions.
+Cockpit includes default profiles for submarine and boat use-cases. It is possible to restore to these
+(as a known reasonable interface) in case something goes wrong with your custom profiles, but be aware
+that the defaults may change between different Cockpit versions, so may end up restoring to an interface
+you haven't seen before.
 
 #### Profile Configuration
 
 1. Open edit mode (via the [burger menu](#burger-menu)
 1. Select a custom/user profile to edit, and/or create, import, or remove profiles as desired
-    - Non-default profiles can be renamed by clicking on the settings cog icon
+    - Profiles can be renamed by clicking on the settings cog icon, or duplicated via the copy icon
+    - Additional profiles can be imported from the display device or the connected vehicle
+        - Opening Cockpit on a new device will automatically try to load profiles from the vehicle
+        - If the browser already has Cockpit profiles stored, it will not try to load any from the
+          vehicle unless the import from vehicle button is clicked
+    - The set of available profiles can be stored onto the vehicle, or reset/restored to the defaults
+        - Storing profiles onto the vehicle overwrites those that may already be there
     - The "Views" list shows the views that are available within the selected profile
-    - Selecting one of the [default profiles](#default-profiles) will restore the interface to a standard one,
-      but cannot be edited unless you download and upload it as a user profile
 
 ### Views
 
@@ -126,9 +132,10 @@ Multiple simultaneous tabs from the same browser instance will be supported in f
 
 - Open edit mode via the [burger menu](#burger-menu)
 - Select a view to edit, and/or create or remove views as desired
+    - Views can be imported from an external file, or exported to a file for sharing
     - Clicking on the cog settings icon allows renaming a view, and determining whether the bottom
       bottom mini-widgets bar is shown or hidden/docked when Cockpit boots
-    - Views can be imported from an external file, or exported to a file for sharing
+{{ easy_image(src="view-config", width=250, center=true) }}
 - The "Current widgets" list allows
     1. dragging the widgets in the current view to reorder which widget is on top
         - This helps for use-cases like overlaying a HUD element on a video display
