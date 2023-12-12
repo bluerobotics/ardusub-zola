@@ -268,7 +268,10 @@ A warning is provided when multiple routes are available:
 {{ easy_image(src="video-multiple-ip-warning", width=400, center=true) }}
 
 Video recording is possible using a [mini widget](#mini-widgets), and directly records the incoming stream
-(not the scaled and cropped display of the widget).
+(not the scaled and cropped display of the widget). Cockpit can be configured to 
+[log some telemetry values](#logs), and record them as a subtitle file for convenient video playback:
+
+{{ easy_image(src="video-subtitles", width=450, center=true) }}
 
 ##### URL Video Player
 
@@ -378,13 +381,32 @@ Adding support for a new joystick type requires providing an SVG file with parti
     - in future there will be support for arbitrary axes and sliders
 - New SVGs currently need to be added to the code, but in future will be possible to add/import dynamically
 
+## Logs
+
+Cockpit can optionally record some of its received telemetry values, which can then be turned into subtitle
+files when recording videos. 
+
+Currently the possible variables for logging are pre-defined, and the output format is determined automatically.
+If left unconfigured, the variables that are recorded by default are those from active widgets in the selected 
+[Profile](#profiles). It is possible to override which variables are logged via the configuration page, but
+custom widgets like the `VeryGenericIndicator` cannot currently be logged.
+
+{{ easy_image(src="logging-config", width=600, center=true) }}
+
+Logging is at a fixed rate of 1Hz. When a video recording completes, a corresponding subtitle file is generated
+by slicing the raw log from the start to end timestamps of the video.
+
+{% note() %}
+Recorded video and subtitles are in separate files, so the browser will typically ask for permission to "download
+multiple files", which must be accepted to get access to the subtitles corresponding to a video recording.
+{% end %}
+
 ### Alerts
 
 It is possible to select the desired text-to-speech voice, as well as configure which alert severities
 are read out loud:
 
 {{ easy_image(src="alert-config", width=600, center=true) }}
-
 
 ## Mission Planning
 
