@@ -31,8 +31,13 @@ Clicking on the burger menu (in the top left of the screen) provides access to v
 
 #### Mission Name
 
-It is possible to set a display name for the current mission/operation from beside the burger menu. If the name
-is deleted it can be made available again by visiting the [Mission Planning](#mission-planning) page.
+It is possible to set a display name for the current mission/operation from beside the burger menu.
+
+A default mission name is randomly selected each time Cockpit is opened/restarted. The default names are not
+used for saving files/recordings, but modified names are. While modifying the mission name it is possible
+to restore the previous name (e.g. if you change you mind or make a mistake).
+
+{{ easy_image(src="mission-name-config", width=450, center=true) }}
 
 #### Alerts
 
