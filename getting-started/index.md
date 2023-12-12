@@ -1,7 +1,7 @@
 +++
 title = "Getting Started"
 description = "Cockpit getting started instructions."
-date = 2023-08-25T13:00:00+11:00
+date = 2023-12-12T22:20:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 20
@@ -28,24 +28,27 @@ To access the configuration section, open the burger menu in the top left, and s
 ## Interface Setup
 
 ### Visual Display
-By default, the interface of Cockpit is set up with two [views](../advanced-usage/#display-views):
+By default, the interface of Cockpit is set up with three [views](../advanced-usage/#views):
 1. Video view
-    - Includes a video stream, vehicle telemetry, heads-up display (HUD) overlay elements, status updates, and flight mode selection
-    - Most useful for first-person control of a vehicle like an ROV, copter, or plane
+    - Includes a video stream, vehicle telemetry, compass and attitude instrument indicators, status updates, and flight mode selection
+    - Useful for first-person control of a vehicle like an ROV, copter, or plane, focused on what the vehicle can see
 
 {{ easy_image(src="video-view", width=600, center=true) }}
 
-2. Map view
+2. HUD view
+    - Includes a video stream, vehicle telemetry, heads-up display (HUD) overlay elements, status updates, and flight mode selection
+    - An alternative for first-person control of a vehicle like an ROV, copter, or plane, focused on precision maneuvering
+
+{{ easy_image(src="hud-view", width=600, center=true) }}
+
+3. Map view
     - Includes a map, vehicle telemetry, status updates, and flight mode selection
     - Most useful for mission planning and remote monitoring of vehicles with a positioning system and/or autonomous control
 
 {{ easy_image(src="map-view", width=600, center=true) }}
 
-Primary widgets that support configuration can be configured by clicking on the icon in their top right corner. Mini-widgets can be
-configured by clicking anywhere on the widget.
-
-The available views (including widget size and placement) can be configured as described in the
-[advanced usage documentation](../advanced-usage/#display-views).
+The available views and the widgets within them (including sizing and placement) can be configured as described in the
+[advanced usage documentation](../advanced-usage/#edit-mode).
 
 ### Joystick Configuration
 For vehicles controlled via a joystick, button and axis mappings can be set by clicking the burger menu (top left), then selecting
