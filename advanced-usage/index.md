@@ -133,8 +133,10 @@ Multiple simultaneous tabs from the same browser instance will be supported in f
 - Open edit mode via the [burger menu](#burger-menu)
 - Select a view to edit, and/or create or remove views as desired
     - Views can be imported from an external file, or exported to a file for sharing
-    - Clicking on the cog settings icon allows renaming a view, and determining whether the bottom
-      bottom mini-widgets bar is shown or hidden/docked when Cockpit boots
+    - Clicking on the cog settings icon allows renaming a view, and determining whether the footer bar is
+      shown or hidden/docked when Cockpit boots
+        - It is always possible to toggle the current footer bar visibility using
+          [Cockpit Actions](#cockpit-actions) (e.g. via a joystick button)
 {{ easy_image(src="view-config", width=250, center=true) }}
 - The "Current widgets" list allows
     1. dragging the widgets in the current view to reorder which widget is on top
@@ -350,26 +352,80 @@ addresses, and refresh the page to establish the desired connection.
 
 ### Joysticks
 
-Cockpit is intended to work with arbitrary joystick types, and allows mapping joystick buttons and axes
-to [`BTNn_FUNCTION`](https://docs.bluerobotics.com/ardusub-zola/software/autopilot/ArduSub-4.1/developers/parameters/#btnn-function-function-for-button)
-values for use in regularly sent [`MANUAL_CONTROL`](https://mavlink.io/en/messages/common.html#MANUAL_CONTROL)
-MAVLink messages, as well as to Cockpit Actions which can send commands to the vehicle or trigger interface
-events like like view switching or starting a video recording.
+Cockpit is intended to work with arbitrary joystick types, and allows mapping joystick buttons and axes to
+various [protocols](#joystick-protocols), which can send inputs and commands to the vehicle, or trigger
+interface events.
 
 {{ easy_image(src="../getting-started/joystick-config", width=600, center=true) }}
 
 Support is built in for simultaneous input from multiple sources, including multiple joysticks, and by
-default each joystick can provide up to 8 axis ranges and 32 buttons. As some caveats,
+default each joystick can provide up to 8 axis ranges and 32 buttons. 
 
-- ArduSub only supports 16 independent buttons and 4 axis ranges in its `MANUAL_CONTROL` handling
-- When mapping the Z motion axis range, note that ArduSub uses 0 to +1000 for full reverse to full forwards,
-whereas other vehicle types use -1000 to +1000
-- Cockpit can assign a button to the "Shift" `BTNn_FUNCTION`, but is not currently capable of mapping
-a secondary "shifted" autopilot action to its other buttons
-    - This currently needs to be set up separately, either directly using vehicle parameters, or using
-    an alternative control station software like QGroundControl
-- Cockpit is currently only capable of mapping to `BTNn_FUNCTION` values that have already been assigned to
-a button, which may need to be done in advance using parameters or QGroundControl
+#### Joystick Protocols
+
+When mapping the functionality of a joystick button or axis, there are multiple protocols to choose from:
+
+{{ easy_image(src="joystick-button-mapping", width=500, center=true) }}
+
+##### MAVLink `MANUAL_CONTROL` Messages
+
+[`MANUAL_CONTROL`](https://mavlink.io/en/messages/common.html#MANUAL_CONTROL) MAVLink messages are 
+automatically sent to the vehicle at 25Hz, which is not currently configurable.
+
+Button functions are determined by the autopilot firmware - e.g. in ArduSub they correspond to
+[`BTNn_FUNCTION`](https://docs.bluerobotics.com/ardusub-zola/software/autopilot/ArduSub-4.1/developers/parameters/#btnn-function-function-for-button)
+parameter values.
+
+As a few caveats:
+- ArduSub <= 4.1.x only supports 16 independent buttons and 4 axis ranges in its `MANUAL_CONTROL` handling
+    - More recent versions support the extended protocol, with 32 buttons and 6 motion axis inputs
+- ArduRover does not support buttons via the `MANUAL_CONTROL` protocol
+- When mapping the Z (vertical) motion axis range, note that ArduSub uses 0 to +1000 for full reverse to full
+  forwards, whereas other vehicle types use -1000 to +1000
+
+The function mapping decision process is designed to minimise intrusiveness to existing setups. When mapping a
+`MANUAL_CONTROL` button function to a joystick button, Cockpit
+1. First tries to use already mapped functions
+    - e.g. if there is already a `BTNn_FUNCTION` configured to enable Stabilize mode, a Cockpit button being set
+      to enable Stabilize mode will map to that existing function bit
+1. Then overwrites available Disabled `BTNn_FUNCTION`s
+1. Then tries to overwrite any mapped function bits that Cockpit currently isn't using
+    - If you try to change a Cockpit function to a `MANUAL_CONTROL` function when there are no buttons left it
+      will display an error message about insufficient buttons
+
+It is permitted to map the joystick button functions without a vehicle connected, in which case any relevant
+autopilot parameters will be automatically remapped once the vehicle connects. If more `MANUAL_CONTROL` button
+functions have been assigned than are supported by the vehicle then the extra ones are removed, and a warning
+is raised to notify that the configured mapping is not fully as designed.
+
+##### Cockpit Actions
+
+Joystick buttons can also be configured to run more general functionalities, like modifying the interface or
+sending a single MAVLink message. The current supported Actions are:
+
+- `go_to_next_view`
+- `go_to_previous_view`
+- `toggle_bottom_bar`
+- `toggle_full_screen`
+- `mavlink_arm`
+- `mavlink_disarm`
+
+##### Modifier Keys
+
+Modifiers allow sacrificing one button in order to add an extra functionality slot for every non-modifier button.
+Pressing a button while a modifier is held runs the modified function instead of the regular button function.
+
+Currently only a single modifier is available (Shift). As a special case, when a shift functionality slot is
+configured as a MAVLink `MANUAL_CONTROL` protocol function, it will activate `BTNn_SFUNCTION`s rather than the
+regular `BTNn_FUNCTION`s, which allows additional `MANUAL_CONTROL` button functions to be configured. Functions
+from other joystick protocols are unaffected, and can be arbitrarily assigned to regular or modifier-based
+functionality slots.
+
+##### Other
+
+Currently only used for the "No Function" option.
+
+#### Custom Joysticks
 
 Adding support for a new joystick type requires providing an SVG file with particular element IDs
 (for function mapping, and so the elements can be dynamically filled when the corresponding button is pressed):
