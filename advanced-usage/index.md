@@ -256,6 +256,9 @@ adding transparent padding at the sides / above+below as necessary
 It is also possible to select the video source IP, which is recommended especially if there are multiple
 available connection routes (e.g. if there is a wired route through a tether, as well as a wireless connection,
 you should select the tether IP and remove the wireless one to avoid video stuttering from transmission over wifi).
+A warning is provided when multiple routes are available:
+
+{{ easy_image(src="video-multiple-ip-warning", width=400, center=true) }}
 
 Video recording is possible using a [mini widget](#mini-widgets), and directly records the incoming stream
 (not the scaled and cropped display of the widget).
@@ -311,6 +314,11 @@ The current options include
         - this is currently stored in memory and downloaded to the device when finished, which may limit
         maximum time for individual recordings
     - recordings are saved using the [mission name](#mission-name) and the starting timestamp
+    - a warning is displayed if Cockpit is closed while a video is recording, and a recovery popup
+    appears when Cockpit is next opened in that browser / on that device
+{{ easy_image(src="video-recording-config", width=250, center=true) }}
+{{ easy_image(src="video-recording-termination-warning", width=400, center=true) }}
+{{ easy_image(src="video-recording-recovery", width=400, center=true) }}
 - Joystick connection status indicator
 - Flight mode selector
 - GPS status indicator
