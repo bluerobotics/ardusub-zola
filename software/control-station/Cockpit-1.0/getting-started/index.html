@@ -46,9 +46,9 @@
 
 	
 
-<title>Overview | ArduSub</title>
-<meta name="description" content="Cockpit overview.">
-<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/overview/">
+<title>Getting Started | ArduSub</title>
+<meta name="description" content="Cockpit getting started instructions.">
+<link rel="canonical" href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/getting-started/">
 
 
 
@@ -127,11 +127,14 @@
           {
             "@type": "ListItem",
             "position":  4 ,
-            "name": "Cockpit 0.0",
-            "item": "https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/"
+            "name": "Cockpit 1.0",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/"
           },
         
       
+        
+        
+        
         
         
         
@@ -145,8 +148,8 @@
           {
             "@type": "ListItem",
             "position":  5 ,
-            "name": "Overview",
-            "item": "https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/overview/"
+            "name": "Getting Started",
+            "item": "https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/getting-started/"
           },
         
       
@@ -237,13 +240,13 @@
 					<h3>Cockpit</h3>
 					<ul class="list-unstyled">
 					                           
-							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/overview/">Overview</a></li>
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/overview/">Overview</a></li>
 					                           
-							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/installation/">Installation</a></li>
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/installation/">Installation</a></li>
 					                           
-							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/getting-started/">Getting Started</a></li>
+							<li><a class="docs-link active" href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/getting-started/">Getting Started</a></li>
 					                           
-							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/advanced-usage/">Advanced Usage</a></li>
+							<li><a class="docs-link" href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/">Advanced Usage</a></li>
 					
 					</ul>
 			
@@ -259,13 +262,25 @@
   			<nav id="TableOfContents">
   					<ul>
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/overview/#a-bit-of-context">A bit of context...</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/getting-started/#general-configuration">General Configuration</a></li>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/overview/#availability">Availability</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/getting-started/#interface-setup">Interface Setup</a></li>
+  							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/getting-started/#visual-display">Visual Display</a>
+											
+											</li>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/getting-started/#joystick-configuration">Joystick Configuration</a>
+											
+											</li>
+  											
+  									</ul>
   							
   							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-0.0/overview/#primary-feature-list">Primary Feature List</a></li>
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/getting-started/#vehicle-setup">Vehicle Setup</a></li>
   							
   							
   					</ul>
@@ -275,68 +290,60 @@
   
 
       <main class="docs-content col-lg-11 col-xl-9">
-        <h1>Overview</h1>
-        <p class="lead">Cockpit is an intuitive and customizable cross-platform control station software for remote vehicles of all types.</p>
-        <div style="padding-bottom:15px;text-align:center;">
-<img src="cockpit-banner.png" alt="Cockpit Banner" width=460 >
-</div>
+        <h1>Getting Started</h1>
+        
+        <h2 id="general-configuration">General Configuration</h2>
+<p>When run as a BlueOS Extension, Cockpit will automatically be configured to connect using the IP address of the connection to BlueOS.</p>
+<p>If that address changes during operating (or if Cockpit is run as a standalone application) it may be necessary to configure the
+global vehicle address, MAVLink2REST address, and WebRTC signalling server address so that Cockpit knows the correct connection 
+points for the vehicle. After address configuration it is necessary to refresh the page.</p>
+<p>To access the configuration section, open the burger menu in the top left, and select &quot;Configuration&quot;.</p>
 <div style="padding-bottom:15px;text-align:center;">
-<img src="interface-highlight.png" alt="Interface Highlight" width=650 >
+<img src="general-config.png" alt="General Config" width=500 >
 </div>
-<h2 id="a-bit-of-context">A bit of context...</h2>
-<p>The existing market for control station software is missing an option that's readily available, easy to use, versatile, easy to customise and develop for, and cross-platform. In response to this need, and fueled by years of inspirations for what a truly great control station could be, Cockpit is Blue Robotics' next-generation control interface, for thrusting your vehicle control experience into the future.</p>
-<h2 id="availability">Availability</h2>
-<p>Cockpit is currently publicly available <a href="https://docs.bluerobotics.com/BlueOS-Extensions-Repository#:~:text=Cockpit,-Maintainer">as a BlueOS Extension</a> (requires BlueOS &gt;= 1.1). It is still in an initial development phase, and will not be actively supported until it is officially released.</p>
-<p>The source code is available <a href="https://github.com/bluerobotics/cockpit">on GitHub</a>,
-under <a href="https://github.com/bluerobotics/cockpit/tree/master/LICENSE.md">two possible licenses</a>.</p>
-<h2 id="primary-feature-list">Primary Feature List</h2>
+<h2 id="interface-setup">Interface Setup</h2>
+<h3 id="visual-display">Visual Display</h3>
+<p>By default, the interface of Cockpit is set up with two <a href="../advanced-usage/#display-views">views</a>:</p>
+<ol>
+<li>Video view
 <ul>
-<li>Browser-based control station software, for vehicle control and monitoring from any web-capable device</li>
-<li>Widget-based layout system, with freeform positioning and resizing</li>
-<li>Custom display <a href="../advanced-usage/#views">Views</a>, for interface pages/profiles that can be switched between
-<ul>
-<li>Different browser windows/screens/devices can independently select which view to display</li>
-<li>Views are downloadable and can be shared (json contains name and list of components and widget settings)</li>
+<li>Includes a video stream, vehicle telemetry, heads-up display (HUD) overlay elements, status updates, and flight mode selection</li>
+<li>Most useful for first-person control of a vehicle like an ROV, copter, or plane</li>
 </ul>
 </li>
-<li>MAVLink <code>NAMED_VALUE_FLOAT</code>/<code>_INT</code> messages are self-registering for use in <a href="../advanced-usage/#mini-widgets">mini-widgets</a> (including custom ones!)</li>
-<li>WebRTC-based <a href="../advanced-usage/#video">video widget</a>
+</ol>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="video-view.png" alt="Video View" width=600 >
+</div>
+<ol start="2">
+<li>Map view
 <ul>
-<li>Multiple widgets can be added to support arbitrary numbers of video streams</li>
-<li>Includes video recording support, on the display device</li>
+<li>Includes a map, vehicle telemetry, status updates, and flight mode selection</li>
+<li>Most useful for mission planning and remote monitoring of vehicles with a positioning system and/or autonomous control</li>
 </ul>
 </li>
-<li><a href="../advanced-usage/#map">Map widget</a>
-<ul>
-<li>Provides position tracking</li>
-<li>Allows planning (and saving/loading) autonomous missions</li>
-<li>Allows mission control</li>
-<li>In future will allow setting the current vehicle position, and clicking to guide the vehicle to new positions</li>
-</ul>
-</li>
-<li>Customisable Actions mappable to user inputs (e.g. joysticks, and key presses / screen clicks in future)
-<ul>
-<li>Actions can send commands to the vehicle, or can trigger local events like view switching and starting video recording</li>
-<li>Includes support for simultaneous input from multiple sources (including multiple joysticks)</li>
-</ul>
-</li>
-<li><a href="../advanced-usage/#joysticks">Joysticks</a> of <em>any</em> type can be configured
-<ul>
-<li>Buttons and axes can be mapped to arbitrary Actions</li>
-</ul>
-</li>
-<li><a href="../advanced-usage/#alerts">Notification system</a>
-<ul>
-<li>Displays autopilot (MAVLink <code>STATUSTEXT</code>) and application alerts</li>
-<li>Includes text to speech announcements</li>
-</ul>
-</li>
-<li><a href="../advanced-usage/#mission-name">Mission naming</a> used on the interface and video save filenames</li>
-</ul>
+</ol>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="map-view.png" alt="Map View" width=600 >
+</div>
+<p>Primary widgets that support configuration can be configured by clicking on the icon in their top right corner. Mini-widgets can be
+configured by clicking anywhere on the widget.</p>
+<p>The available views (including widget size and placement) can be configured as described in the
+<a href="../advanced-usage/#display-views">advanced usage documentation</a>.</p>
+<h3 id="joystick-configuration">Joystick Configuration</h3>
+<p>For vehicles controlled via a joystick, button and axis mappings can be set by clicking the burger menu (top left), then selecting
+&quot;Configuration&quot; and navigating to the Joystick tab.</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="joystick-config.png" alt="Joystick Config" width=500 >
+</div>
+<h2 id="vehicle-setup">Vehicle Setup</h2>
+<p>Cockpit does not currently contain vehicle configuration or calibration functionalities. It is recommended to perform these in advance,
+using either the BlueOS web interface and/or an alternative control station software like QGroundControl.</p>
+<p>It is possible to switch between Mission Planning and Flight displays via the burger menu in the top left.</p>
 
         
           
-<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;control-station&#x2F;Cockpit-0.0&#x2F;overview.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
+<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;control-station&#x2F;Cockpit-1.0&#x2F;getting-started.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
 
         
         
