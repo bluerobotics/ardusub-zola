@@ -384,7 +384,38 @@
   											
   											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#joysticks">Joysticks</a>
 											
+													<ul>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#joystick-protocols">Joystick Protocols</a>
+															
+																	<ul>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#mavlink-manual-control-messages">MAVLink MANUAL_CONTROL Messages</a></li>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#cockpit-actions">Cockpit Actions</a></li>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#modifier-keys">Modifier Keys</a></li>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#other">Other</a></li>
+																			
+																	</ul>
+															
+															</li>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#custom-joysticks">Custom Joysticks</a>
+															
+															</li>
+															
+													</ul>
+											
 											</li>
+  											
+  									</ul>
+  							
+  							
+  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#logs">Logs</a></li>
+  							
+  									<ul>
   											
   											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#alerts-1">Alerts</a>
 											
@@ -418,8 +449,13 @@
 <img src="burger-menu.png" alt="Burger Menu" width=300 >
 </div>
 <h4 id="mission-name">Mission Name</h4>
-<p>It is possible to set a display name for the current mission/operation from beside the burger menu. If the name
-is deleted it can be made available again by visiting the <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#mission-planning">Mission Planning</a> page.</p>
+<p>It is possible to set a display name for the current mission/operation from beside the burger menu.</p>
+<p>A default mission name is randomly selected each time Cockpit is opened/restarted. The default names are not
+used for saving files/recordings, but modified names are. While modifying the mission name it is possible
+to restore the previous name (e.g. if you change you mind or make a mistake).</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="mission-name-config.png" alt="Mission Name Config" width=450 >
+</div>
 <h4 id="alerts">Alerts</h4>
 <p>Alerts received from the autopilot (<a href="https://mavlink.io/en/messages/common.html#STATUSTEXT"><code>STATUSTEXT</code></a>), as
 well as application notifications (like loss of connection to the vehicle) are displayed in the central alerts
@@ -438,13 +474,15 @@ pane, which can be hovered over to access a scrollable history of alerts:</p>
 <li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#profiles">Profiles</a>
 <ul>
 <li>for supporting different operators and/or vehicle types</li>
-<li>can be added/removed, saved and loaded, and switched between in edit mode</li>
+<li>can be added/removed/duplicated, saved and loaded (to/from both the vehicle and the display device),
+and switched between in edit mode</li>
 </ul>
 </li>
 <li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#views">Views</a> (within each profile)
 <ul>
 <li>for handling different operation modes / targets within a mission</li>
-<li>can be added/removed, saved and loaded, and dynamically switched between</li>
+<li>can be added/removed/duplicated, saved and loaded to/from the display device, and
+dynamically switched between during operation</li>
 </ul>
 </li>
 <li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#widgets">Widgets</a> (within each view)
@@ -474,19 +512,29 @@ interface when they connect to a different vehicle type. It will soon be possibl
 profiles from the vehicle itself, instead of only on the control station computer, which makes it easier
 to connect a different control computer to a vehicle and load the familiar control profiles for that vehicle.</p>
 <h4 id="default-profiles">Default Profiles</h4>
-<p>Cockpit includes default profiles for submarine and boat use-cases, which cannot be edited. These serve as
-a reference for a recommended base profile, and are useful for restoring to a known reasonable interface in
-case something goes wrong with custom interface options. The default profiles are not persistent, so they
-may change through different Cockpit versions.</p>
+<p>Cockpit includes default profiles for submarine and boat use-cases. It is possible to restore to these
+(as a known reasonable interface) in case something goes wrong with your custom profiles, but be aware
+that the defaults may change between different Cockpit versions, so may end up restoring to an interface
+you haven't seen before.</p>
 <h4 id="profile-configuration">Profile Configuration</h4>
 <ol>
 <li>Open edit mode (via the <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#burger-menu">burger menu</a></li>
 <li>Select a custom/user profile to edit, and/or create, import, or remove profiles as desired
 <ul>
-<li>Non-default profiles can be renamed by clicking on the settings cog icon</li>
+<li>Profiles can be renamed by clicking on the settings cog icon, or duplicated via the copy icon</li>
+<li>Additional profiles can be imported from the display device or the connected vehicle
+<ul>
+<li>Opening Cockpit on a new device will automatically try to load profiles from the vehicle</li>
+<li>If the browser already has Cockpit profiles stored, it will not try to load any from the
+vehicle unless the import from vehicle button is clicked</li>
+</ul>
+</li>
+<li>The set of available profiles can be stored onto the vehicle, or reset/restored to the defaults
+<ul>
+<li>Storing profiles onto the vehicle overwrites those that may already be there</li>
+</ul>
+</li>
 <li>The &quot;Views&quot; list shows the views that are available within the selected profile</li>
-<li>Selecting one of the <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#default-profiles">default profiles</a> will restore the interface to a standard one,
-but cannot be edited unless you download and upload it as a user profile</li>
 </ul>
 </li>
 </ol>
@@ -507,11 +555,21 @@ instances you can export the desired view(s) from one and import into the other(
 <li>Open edit mode via the <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#burger-menu">burger menu</a></li>
 <li>Select a view to edit, and/or create or remove views as desired
 <ul>
-<li>Clicking on the cog settings icon allows renaming a view, and determining whether the bottom
-bottom mini-widgets bar is shown or hidden/docked when Cockpit boots</li>
 <li>Views can be imported from an external file, or exported to a file for sharing</li>
+<li>Clicking on the cog settings icon allows renaming a view, and determining whether the footer bar is
+shown or hidden/docked when Cockpit boots
+<ul>
+<li>It is always possible to toggle the current footer bar visibility using
+<a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#cockpit-actions">Cockpit Actions</a> (e.g. via a joystick button)</li>
 </ul>
 </li>
+</ul>
+</li>
+</ul>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="view-config.png" alt="View Config" width=250 >
+</div>
+<ul>
 <li>The &quot;Current widgets&quot; list allows
 <ol>
 <li>dragging the widgets in the current view to reorder which widget is on top
@@ -654,9 +712,17 @@ adding transparent padding at the sides / above+below as necessary</li>
 </div>
 <p>It is also possible to select the video source IP, which is recommended especially if there are multiple
 available connection routes (e.g. if there is a wired route through a tether, as well as a wireless connection,
-you should select the tether IP and remove the wireless one to avoid video stuttering from transmission over wifi).</p>
+you should select the tether IP and remove the wireless one to avoid video stuttering from transmission over wifi).
+A warning is provided when multiple routes are available:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="video-multiple-ip-warning.png" alt="Video Multiple Ip Warning" width=400 >
+</div>
 <p>Video recording is possible using a <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#mini-widgets">mini widget</a>, and directly records the incoming stream
-(not the scaled and cropped display of the widget).</p>
+(not the scaled and cropped display of the widget). Cockpit can be configured to 
+<a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#logs">log some telemetry values</a>, and record them as a subtitle file for convenient video playback:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="video-subtitles.png" alt="Video Subtitles" width=450 >
+</div>
 <h5 id="url-video-player">URL Video Player</h5>
 <p>The URL video player widget displays a video from a URL. This is useful for testing IP cameras that are not
 being redirected via BlueOS, but can also be used to display online videos if that is for some reason relevant.</p>
@@ -719,12 +785,26 @@ maximum time for individual recordings</li>
 </ul>
 </li>
 <li>recordings are saved using the <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#mission-name">mission name</a> and the starting timestamp</li>
+<li>a warning is displayed if Cockpit is closed while a video is recording, and a recovery popup
+appears when Cockpit is next opened in that browser / on that device</li>
 </ul>
 </li>
+</ul>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="video-recording-config.png" alt="Video Recording Config" width=250 >
+</div>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="video-recording-termination-warning.png" alt="Video Recording Termination Warning" width=400 >
+</div>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="video-recording-recovery.png" alt="Video Recording Recovery" width=400 >
+</div>
+<ul>
 <li>Joystick connection status indicator</li>
 <li>Flight mode selector</li>
 <li>GPS status indicator</li>
 <li><a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#views">View</a> selector</li>
+<li>Takeoff/land button</li>
 </ul>
 <h2 id="configuration-1">Configuration</h2>
 <p>Cockpit's behaviour can be configured via the <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#burger-menu">burger menu</a>, with the following tabs:</p>
@@ -737,30 +817,80 @@ addresses, and refresh the page to establish the desired connection.</p>
 <img src="../getting-started/general-config.png" alt="../Getting Started/General Config" width=600 >
 </div>
 <h3 id="joysticks">Joysticks</h3>
-<p>Cockpit is intended to work with arbitrary joystick types, and allows mapping joystick buttons and axes
-to <a href="https://docs.bluerobotics.com/ardusub-zola/software/autopilot/ArduSub-4.1/developers/parameters/#btnn-function-function-for-button"><code>BTNn_FUNCTION</code></a>
-values for use in regularly sent <a href="https://mavlink.io/en/messages/common.html#MANUAL_CONTROL"><code>MANUAL_CONTROL</code></a>
-MAVLink messages, as well as to Cockpit Actions which can send commands to the vehicle or trigger interface
-events like like view switching or starting a video recording.</p>
+<p>Cockpit is intended to work with arbitrary joystick types, and allows mapping joystick buttons and axes to
+various <a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#joystick-protocols">protocol functions</a>, which can send inputs and commands to the vehicle, or trigger
+interface events. Once a function mapping is configured it is possible to export it to the computer and/or the
+vehicle, which can then be imported later to new Cockpit instances/devices.</p>
 <div style="padding-bottom:15px;text-align:center;">
 <img src="../getting-started/joystick-config.png" alt="../Getting Started/Joystick Config" width=600 >
 </div>
 <p>Support is built in for simultaneous input from multiple sources, including multiple joysticks, and by
-default each joystick can provide up to 8 axis ranges and 32 buttons. As some caveats,</p>
+default each joystick can provide up to 8 axis ranges and 32 buttons.</p>
+<h4 id="joystick-protocols">Joystick Protocols</h4>
+<p>When mapping the functionality of a joystick button or axis, there are multiple protocols to choose from:</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="joystick-button-mapping.png" alt="Joystick Button Mapping" width=500 >
+</div>
+<h5 id="mavlink-manual-control-messages">MAVLink <code>MANUAL_CONTROL</code> Messages</h5>
+<p><a href="https://mavlink.io/en/messages/common.html#MANUAL_CONTROL"><code>MANUAL_CONTROL</code></a> MAVLink messages are 
+automatically sent to the vehicle at 25Hz, which is not currently configurable.</p>
+<p>Button functions are determined by the autopilot firmware - e.g. in ArduSub they correspond to
+<a href="https://docs.bluerobotics.com/ardusub-zola/software/autopilot/ArduSub-4.1/developers/parameters/#btnn-function-function-for-button"><code>BTNn_FUNCTION</code></a>
+parameter values.</p>
+<p>As a few caveats:</p>
 <ul>
-<li>ArduSub only supports 16 independent buttons and 4 axis ranges in its <code>MANUAL_CONTROL</code> handling</li>
-<li>When mapping the Z motion axis range, note that ArduSub uses 0 to +1000 for full reverse to full forwards,
-whereas other vehicle types use -1000 to +1000</li>
-<li>Cockpit can assign a button to the &quot;Shift&quot; <code>BTNn_FUNCTION</code>, but is not currently capable of mapping
-a secondary &quot;shifted&quot; autopilot action to its other buttons
+<li>ArduSub &lt;= 4.1.x only supports 16 independent buttons and 4 axis ranges in its <code>MANUAL_CONTROL</code> handling
 <ul>
-<li>This currently needs to be set up separately, either directly using vehicle parameters, or using
-an alternative control station software like QGroundControl</li>
+<li>More recent versions support the extended protocol, with 32 buttons and 6 motion axis inputs</li>
 </ul>
 </li>
-<li>Cockpit is currently only capable of mapping to <code>BTNn_FUNCTION</code> values that have already been assigned to
-a button, which may need to be done in advance using parameters or QGroundControl</li>
+<li>ArduRover does not support buttons via the <code>MANUAL_CONTROL</code> protocol</li>
+<li>When mapping the Z (vertical) motion axis range, note that ArduSub uses 0 to +1000 for full reverse to full
+forwards, whereas other vehicle types use -1000 to +1000</li>
 </ul>
+<p>The function mapping decision process is designed to minimise intrusiveness to existing setups. When mapping a
+<code>MANUAL_CONTROL</code> button function to a joystick button, Cockpit</p>
+<ol>
+<li>First tries to use already mapped functions
+<ul>
+<li>e.g. if there is already a <code>BTNn_FUNCTION</code> configured to enable Stabilize mode, a Cockpit button being set
+to enable Stabilize mode will map to that existing function bit</li>
+</ul>
+</li>
+<li>Then overwrites available Disabled <code>BTNn_FUNCTION</code>s</li>
+<li>Then tries to overwrite any mapped function bits that Cockpit currently isn't using
+<ul>
+<li>If you try to change a Cockpit function to a <code>MANUAL_CONTROL</code> function when there are no buttons left it
+will display an error message about insufficient buttons</li>
+</ul>
+</li>
+</ol>
+<p>It is permitted to map the joystick button functions without a vehicle connected, in which case any relevant
+autopilot parameters will be automatically remapped once the vehicle connects. If more <code>MANUAL_CONTROL</code> button
+functions have been assigned than are supported by the vehicle then the extra ones are removed, and a warning
+is raised to notify that the configured mapping is not fully as designed.</p>
+<h5 id="cockpit-actions">Cockpit Actions</h5>
+<p>Joystick buttons can also be configured to run more general functionalities, like modifying the interface or
+sending a single MAVLink message. The current supported Actions are:</p>
+<ul>
+<li><code>go_to_next_view</code></li>
+<li><code>go_to_previous_view</code></li>
+<li><code>toggle_bottom_bar</code></li>
+<li><code>toggle_full_screen</code></li>
+<li><code>mavlink_arm</code></li>
+<li><code>mavlink_disarm</code></li>
+</ul>
+<h5 id="modifier-keys">Modifier Keys</h5>
+<p>Modifiers allow sacrificing one button in order to add an extra functionality slot for every non-modifier button.
+Pressing a button while a modifier is held runs the modified function instead of the regular button function.</p>
+<p>Currently only a single modifier is available (Shift). As a special case, when a shift functionality slot is
+configured as a MAVLink <code>MANUAL_CONTROL</code> protocol function, it will activate <code>BTNn_SFUNCTION</code>s rather than the
+regular <code>BTNn_FUNCTION</code>s, which allows additional <code>MANUAL_CONTROL</code> button functions to be configured. Functions
+from other joystick protocols are unaffected, and can be arbitrarily assigned to regular or modifier-based
+functionality slots.</p>
+<h5 id="other">Other</h5>
+<p>Currently only used for the &quot;No Function&quot; option.</p>
+<h4 id="custom-joysticks">Custom Joysticks</h4>
 <p>Adding support for a new joystick type requires providing an SVG file with particular element IDs
 (for function mapping, and so the elements can be dynamically filled when the corresponding button is pressed):</p>
 <ul>
@@ -779,6 +909,26 @@ displayed location</li>
 </li>
 <li>New SVGs currently need to be added to the code, but in future will be possible to add/import dynamically</li>
 </ul>
+<p>Once Cockpit has a suitably registered SVG file for the desired joystick type, it is possible to perform the
+relevant &quot;Joystick mapping&quot;, from the button IDs presented by the physical joystick to labels that match the
+corresponding buttons in the SVG file. This mapping can then be exported to the computer and/or the vehicle,
+and imported to new Cockpit instances/devices later.</p>
+<h2 id="logs">Logs</h2>
+<p>Cockpit can optionally record some of its received telemetry values, which can then be turned into subtitle
+files when recording videos. </p>
+<p>Currently the possible variables for logging are pre-defined, and the output format is determined automatically.
+If left unconfigured, the variables that are recorded by default are those from active widgets in the selected 
+<a href="https://docs.bluerobotics.com/ardusub-zola/software/control-station/Cockpit-1.0/advanced-usage/#profiles">Profile</a>. It is possible to override which variables are logged via the configuration page, but
+custom widgets like the <code>VeryGenericIndicator</code> cannot currently be logged.</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="logging-config.png" alt="Logging Config" width=600 >
+</div>
+<p>Logging is at a fixed rate of 1Hz. When a video recording completes, a corresponding subtitle file is generated
+by slicing the raw log from the start to end timestamps of the video.</p>
+<blockquote>
+<p>💡 Recorded video and subtitles are in separate files, so the browser will typically ask for permission to &quot;download
+multiple files&quot;, which must be accepted to get access to the subtitles corresponding to a video recording.</p>
+</blockquote>
 <h3 id="alerts-1">Alerts</h3>
 <p>It is possible to select the desired text-to-speech voice, as well as configure which alert severities
 are read out loud:</p>
