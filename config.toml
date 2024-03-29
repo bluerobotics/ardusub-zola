@@ -30,6 +30,8 @@ include_content = true
 highlight_code = true
 
 [extra]
+ahrefs_verification_code = "68b21d8843bcc0ce30035c553ab9c2ac579c8ebfb8698573ea4f96f49ae00517"
+
 # Put all your custom variables here
 github = "https://github.com/bluerobotics"
 
