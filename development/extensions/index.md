@@ -1,7 +1,7 @@
 +++
 title = "Extensions (Beta)"
 description = "BlueOS extensions documentation."
-date = 2024-04-13T17:45:00+10:00
+date = 2024-04-13T17:50:00+10:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 40
@@ -461,6 +461,38 @@ Testing each Extension release before making it available to install from the on
     - `Custom settings`: the contents of your Dockerfile's `permissions` LABEL, but with relevant variable substitutions (e.g. `$IMAGE_NAME` → `blueos-quickstart`) and without the backslash line continuation characters
         - Used for configuration of the Docker container when it's run
 
+<!--
+##### Accessing an Installed Extension's Docker Container
+
+It is possible to enter running Docker containers via the [Terminal](../../advanced-usage/#terminal), by 
+
+1. Running `red-pill` to exit the BlueOS-core container
+1. Running `docker container ls` to list the currently running Docker containers
+1. Running `docker attach -it container-name` to enter the container and see the outputs of the running process
+1. Pressing `CTRL+C` to stop the process (e.g. if you want to modify something)
+1. Pressing your keyboard's up arrow to find the command the container was last running (or running some alternative command instead)
+1. Pressing ...? (TODO) to exit the docker container
+
+##### (Persistently) Modifying an Existing Docker Image
+If you made changes that you want to make persistent across future restarts it is necessary to `docker commit` a new Docker image from the container,
+and potentially overwrite the old one with it if you want it to operate in place of the original Extension.
+
+TODO: describe how to register an existing image as an Extension, by "installing" a custom extension with a tag that doesn't exist online
+(in which case it should fall back to the existing offline image with that tag).
+
+{% note() %}
+While this can be useful for testing minor changes during development (e.g. fixing a small bug, or adjusting some logging outputs), it is
+not recommended to upload commit-modified images as new Extension versions, because there's then no record in the source code repository of the change(s).
+{% end %}
+
+{% note() %}
+If you want to make changes to files that are mounted to the computer's filesystem (via `binds` in the `permissions` metadata LABEL) then that can instead
+be done via the [File Browser](../../advanced-usage/#file-browser), restarting the Extension afterwards if necessary. In that case the changes will be
+persistent once the modified file has been saved.
+{% end %}
+
+-->
+
 #### Submission to the Bazaar
 
 1. Check [metadata docs](#metadata-dockerfile), and match the requirements with your Dockerfile
@@ -493,5 +525,4 @@ The expected iteration process is:
         - E.g. v1.0.0 → v1.0.1
 1. Confirm the new version is available through the BlueOS Extensions Manager
 1. Install and test it
-
 
