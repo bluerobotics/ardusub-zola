@@ -12,7 +12,7 @@ aliases = ['/software/onboard/BlueOS-latest/advanced-usage', '/blueos/latest/adv
 lead = ''
 toc = true
 top = false
-link_base = "https://github.com/bluerobotics/BlueOS/tree/1.1.1/core"
+link_base = "https://github.com/bluerobotics/BlueOS/tree/1.2.3/core"
 +++
 
 ## General Information
@@ -173,7 +173,7 @@ specifies the requirements for a service page to appear in the sidebar
    - Remove existing camera/endpoint/bridges configuration
 - Remove log files from BlueOS services (to reduce space usage on the SD card)
 - Download log files from BlueOS services to report a problem
-  - Old logs are aggregated and kept as zip files
+  - Old logs are aggregated and compressed with GZip, and automatically deleted if the space runs out `(New in 1.2)`
 - Re-enable the [configuration wizard](../getting-started#wizard)
 
 ##### Power
@@ -368,6 +368,8 @@ endpoints for MAVLink-based services and programs to access.
 {% end %}
 {{ easy_image(src="mavlink-endpoints", width=600, class="pirate") }}
 {% pirate() %}
+- It is possible to switch from the default MAVLinkRouter to MAVP2P `(New in 1.2)`
+   - This may use more CPU, so is only recommended if your system is having frequent "GCS Heartbeat Lost" errors
 - Endpoints intended for internal BlueOS operations are configured to the
 loopback IP `127.0.0.1`
 - Server endpoints for external use are configured to the localhost IP
@@ -523,6 +525,8 @@ The Terminal provides
    - Can return to the core container using the `exit` command, or pressing `CTRL+d`
    - Can list available docker images (including extensions) with `docker image list`
    - Can list active docker containers (including extensions) with `docker ps -a`
+   - For BlueOS host computers that do not have the default user as "pi", a custom username
+     can be specified using the `-u` argument (e.g. `red-pill -u myusername`) `(New in 1.2)`
 {% end %}
 {{ easy_image(src="terminal", width=600, class="pirate") }}
 
