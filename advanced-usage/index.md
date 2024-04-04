@@ -1,7 +1,7 @@
 +++
 title = "Advanced Usage"
 description = "BlueOS advanced usage documentation."
-date = 2023-12-04T19:00:00+11:00
+date = 2024-04-05T01:20:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 30
@@ -12,7 +12,7 @@ aliases = ['/software/onboard/BlueOS-latest/advanced-usage', '/blueos/latest/adv
 lead = ''
 toc = true
 top = false
-link_base = "https://github.com/bluerobotics/BlueOS/tree/1.1.0-beta.23/core"
+link_base = "https://github.com/bluerobotics/BlueOS/tree/1.1.1/core"
 +++
 
 ## General Information
@@ -149,6 +149,7 @@ skull-and-crossbones icon
    - CPU throttling
    - CPU under voltage
    - Connected wirelessly (instead of through a tether)
+   - BlueOS cannot connect to its host computer
 
 #### Sidebar
 
