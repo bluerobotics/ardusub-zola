@@ -21,3 +21,7 @@
 	path = content/extensions/cockpit/1.0
 	url = https://github.com/bluerobotics/ardusub-zola
 	branch = Cockpit-1.0
+[submodule "content/blueos/1.2"]
+	path = content/blueos/1.2
+	url = https://github.com/bluerobotics/ardusub-zola
+	branch = BlueOS-1.2
