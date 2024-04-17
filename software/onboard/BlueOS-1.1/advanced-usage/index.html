@@ -494,8 +494,10 @@ with grey text.</p>
 </div>
 <h4 id="header-indicators-and-blueos-configuration">Header: Indicators and BlueOS Configuration</h4>
 <p>On the left side of the header there is space for widgets, which can be accessed by
-right clicking and selecting the desired widgets to display. This system is very new,
-so the available widget options are currently quite limited.</p>
+right clicking and selecting the desired widgets to display. Widgets can be reordered
+by clicking and dragging.</p>
+<p>There are currently widgets available for displaying the CPU and Disk (storage) usage
+as percentages, which are periodically updated during operation.</p>
 <div style="padding-bottom:15px;">
 <img src="widgets.png" alt="Widgets" width=300 >
 </div>
@@ -512,7 +514,7 @@ so the available widget options are currently quite limited.</p>
 <h5 id="wired-network-management-ethernet-usb-otg">Wired network management (ethernet / USB-OTG)</h5>
 <div class="pirate" style="color:grey;display:block;">
 <em>
-<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.0-beta.23/core/services/cable_guy">Cable Guy</a> | Port:<code>9090</code></p>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.1/core/services/cable_guy">Cable Guy</a> | Port:<code>9090</code></p>
 </em>
 </div>
 <p>For each interface, choose between:</p>
@@ -531,7 +533,7 @@ so the available widget options are currently quite limited.</p>
 <h5 id="wifi-hotspot-network-management">Wifi + Hotspot network management</h5>
 <div class="pirate" style="color:grey;display:block;">
 <em>
-<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.0-beta.23/core/services/wifi">Wifi Manager</a> | Port:<code>9000</code></p>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.1/core/services/wifi">Wifi Manager</a> | Port:<code>9000</code></p>
 </em>
 </div>
 <ul>
@@ -574,7 +576,7 @@ the BlueOS hotspot network</li>
 </div>
 <h5 id="internet-status-and-management">Internet Status and Management</h5>
 <ul>
-<li>See whether the vehicle is connected to the internet</li>
+<li>See whether the vehicle is connected to the internet (updates every 20 seconds)</li>
 </ul>
 <div style="padding-bottom:15px;text-align:center;">
 <img src="internet.png" alt="Internet" width=50 >
@@ -629,6 +631,7 @@ skull-and-crossbones icon
 <li>CPU throttling</li>
 <li>CPU under voltage</li>
 <li>Connected wirelessly (instead of through a tether)</li>
+<li>BlueOS cannot connect to its host computer</li>
 </ul>
 </li>
 </ul>
@@ -742,7 +745,7 @@ Click the BlueOS logo to return to the dashboard at any point.</p>
 <h3 id="autopilot-firmware">Autopilot Firmware</h3>
 <div class="pirate" style="color:grey;display:block;">
 <em>
-<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.0-beta.23/core/services/ardupilot_manager">ArduPilot Manager</a> | Port:<code>8000</code></p>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.1/core/services/ardupilot_manager">ArduPilot Manager</a> | Port:<code>8000</code></p>
 </em>
 </div>
 <p>The Autopilot Firmware page provides basic information about the active
@@ -842,7 +845,7 @@ listed with </p>
 </div>
 <div class="pirate" style="color:grey;display:block;">
 <em>
-<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.0-beta.23/core/services/bag_of_holding">Bag of Holding</a> | Port:<code>9101</code></p>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.1/core/services/bag_of_holding">Bag of Holding</a> | Port:<code>9101</code></p>
 </em>
 </div>
 <div class="pirate" style="color:grey;display:block;">
@@ -855,7 +858,7 @@ database used to handle frontend interface changes.</p>
 <h3 id="blueos-version">BlueOS Version</h3>
 <div class="pirate" style="color:grey;display:block;">
 <em>
-<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.0-beta.23/core/services/versionchooser">Version Chooser</a> | Port:<code>8081</code></p>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.1/core/services/versionchooser">Version Chooser</a> | Port:<code>8081</code></p>
 </em>
 </div>
 <p>The Version Chooser is a major component in the robust backbone of BlueOS. It
@@ -948,7 +951,7 @@ analyse vehicle telemetry (including position if a positioning system is equippe
 </div>
 <div class="pirate" style="color:grey;display:block;">
 <em>
-<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.0-beta.23/core/services/ardupilot_manager">ArduPilot Manager</a> | Port:<code>8000</code></p>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.1/core/services/ardupilot_manager">ArduPilot Manager</a> | Port:<code>8000</code></p>
 </em>
 </div>
 <div class="pirate" style="color:grey;display:block;">
@@ -1016,7 +1019,7 @@ functionality of the <code>MAVLink2REST</code> service (access via the
 <h3 id="network-test">Network Test</h3>
 <div class="pirate" style="color:grey;display:block;">
 <em>
-<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.0-beta.23/core/services/pardal">Pardal</a> | Port:<code>9120</code></p>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.1/core/services/pardal">Pardal</a> | Port:<code>9120</code></p>
 </em>
 </div>
 <p>The Local Network Test measures real-time latency between BlueOS and the surface
@@ -1035,7 +1038,7 @@ speeds between BlueOS and its internet connection (if one is available).</p>
 </div>
 <div class="pirate" style="color:grey;display:block;">
 <em>
-<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.0-beta.23/core/services/nmea_injector">NMEA Injector</a> | Port:<code>2748</code></p>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.1/core/services/nmea_injector">NMEA Injector</a> | Port:<code>2748</code></p>
 </em>
 </div>
 <div class="pirate" style="color:grey;display:block;">
@@ -1058,7 +1061,7 @@ for the component that will send the location data to the vehicle</li>
 <h3 id="ping-sonar-devices">Ping Sonar Devices</h3>
 <div class="pirate" style="color:grey;display:block;">
 <em>
-<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.0-beta.23/core/services/ping">Ping Service</a> | Port:<code>9110</code></p>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.1/core/services/ping">Ping Service</a> | Port:<code>9110</code></p>
 </em>
 </div>
 <p><code>New in 1.1</code></p>
@@ -1083,7 +1086,7 @@ which port they are plugged into </li>
 </div>
 <div class="pirate" style="color:grey;display:block;">
 <em>
-<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.0-beta.23/core/services/bridget">Bridget</a> | Port:<code>27353</code></p>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.1/core/services/bridget">Bridget</a> | Port:<code>27353</code></p>
 </em>
 </div>
 <div class="pirate" style="color:grey;display:block;">
@@ -1098,7 +1101,7 @@ functionality from the old Companion Software.</p>
 </div>
 <div class="pirate" style="color:grey;display:block;">
 <ul>
-<li>NOTE: UDP-based systems do not guarantee packet delivery or sequential alignment</li>
+<li><strong>NOTE:</strong> UDP-based systems do not guarantee packet delivery or sequential alignment</li>
 <li>Bridges to the <a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/control-computer/">Control Station Computer</a>
 will generally use the localhost IP <code>0.0.0.0</code>, which creates a UDP server that waits
 for a UDP client on the control computer to connect to it
@@ -1106,6 +1109,8 @@ for a UDP client on the control computer to connect to it
 <li>other IP addesses create a UDP client on the onboard computer, which expects the
 serial device to initiate communication before the connected UDP server (on the
 control computer) can respond</li>
+<li><strong>NOTE:</strong> a client should communicate with the server at least once every 10 seconds
+to avoid being disconnected</li>
 </ul>
 </li>
 <li>Bridges to internal programs can use the loopback IP <code>127.0.0.1</code>, which creates a
@@ -1347,7 +1352,7 @@ it automatically (via MAVLink)</li>
 <p><code>New in 1.1</code></p>
 <div class="pirate" style="color:grey;display:block;">
 <em>
-<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.0-beta.23/core/services/kraken">Kraken</a> | Port:<code>9134</code></p>
+<p><strong>Based On:</strong> <a href="https://github.com/bluerobotics/BlueOS/tree/1.1.1/core/services/kraken">Kraken</a> | Port:<code>9134</code></p>
 </em>
 </div>
 <p>The Extensions Manager is in charge of fetching, installing, updating, and managing
@@ -1392,11 +1397,26 @@ configuring them, checking their logs, and restarting or disabling them:</p>
 <li>the vehicle name makes it easier to determine which vehicle you are connected to</li>
 <li>changing the mDNS hostname changes the address you connect to for the browser interface
 <ul>
-<li>ethernet tether -&gt; <a href="http://custom.local">http://custom.local</a></li>
+<li>wired connection (ethernet tether / USB-OTG) -&gt; <a href="http://custom.local">http://custom.local</a></li>
 <li>wifi connection -&gt; <a href="http://custom-wifi.local">http://custom-wifi.local</a></li>
 <li>BlueOS hotspot -&gt; <a href="http://custom-hotspot.local">http://custom-hotspot.local</a></li>
-<li><a href="http://blueos.local">http://blueos.local</a> will still be available for direct ethernet
-connections, as a fallback in case the custom name is forgotten</li>
+<li><a href="http://blueos.local">http://blueos.local</a> will still be available for wired connections,
+as a fallback in case the custom name is forgotten</li>
+<li><a href="http://blueos-avahi.local">http://blueos-avahi.local</a> is broadcast to all interfaces,
+for connecting when you're not sure which interface(s) are available</li>
+<li>IP addresses are always available for
+<a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/advanced-usage/#wired-network-management-ethernet-usb-otg">the interfaces they're configured for</a>, but
+they're less intuitive to remember than mDNS names</li>
+<li><strong>NOTE:</strong> mDNS is available on most modern operating systems, but
+<ul>
+<li>for Windows older than Windows 10, <a href="https://support.apple.com/kb/dl999">install Bonjour</a></li>
+<li>for Linux run <code>avahi-discover</code> on the terminal to see if the avahi service is running
+<ul>
+<li>For reference: <a href="https://wiki.debian.org/Avahi">Debian</a>, <a href="https://wiki.archlinux.org/title/avahi">Arch</a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>

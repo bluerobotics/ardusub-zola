@@ -286,6 +286,22 @@
 											
 													<ul>
 															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#where-does-the-code-run">Where Does the Code Run?</a>
+															
+																	<ul>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#backend-services">Backend Services</a></li>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#frontend-interfaces">Frontend Interfaces</a></li>
+																			
+																	</ul>
+															
+															</li>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#how-does-it-get-there">How Does it Get There?</a>
+															
+															</li>
+															
 															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#metadata-dockerfile">Metadata (Dockerfile)</a>
 															
 															</li>
@@ -311,10 +327,6 @@
 															</li>
 															
 															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#examples">Examples</a>
-															
-															</li>
-															
-															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#themes">Themes</a>
 															
 															</li>
 															
@@ -363,6 +375,54 @@
   							
   							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#development-process">Development Process</a></li>
   							
+  									<ul>
+  											
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#expected-development-cycle">Expected Development Cycle</a>
+											
+													<ul>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#initial-backend-functionality-implementation-testing">Initial Backend Functionality Implementation&#x2F;Testing</a>
+															
+															</li>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#extension-creation-and-docker-image-upload">Extension Creation and Docker Image Upload</a>
+															
+																	<ul>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#quickstart">QuickStart</a></li>
+																			
+																			<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#offline-building">Offline Building</a></li>
+																			
+																	</ul>
+															
+															</li>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#manual-development-installs">Manual&#x2F;Development Installs</a>
+															
+															</li>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#submission-to-the-bazaar">Submission to the Bazaar</a>
+															
+															</li>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#getting-your-extension-accepted">Getting Your Extension Accepted</a>
+															
+															</li>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#installing-from-the-bazaar">Installing from the Bazaar</a>
+															
+															</li>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#iterating-release-cycle">Iterating &#x2F; Release Cycle</a>
+															
+															</li>
+															
+													</ul>
+											
+											</li>
+  											
+  									</ul>
+  							
   							
   					</ul>
   			</nav>
@@ -379,17 +439,128 @@
 <h2 id="context">Context</h2>
 <p>One of the primary aims of BlueOS is to be a platform that is readily extendable to the needs of each user. For maximum utility it should be easy to add support for custom hardware, add components to the user interface, and share developments with other BlueOS users, without compromising the base BlueOS experience.</p>
 <p>Accordingly, BlueOS has been designed with a containerised architecture, so the core functionality is kept separate from Extensions, and each can be distributed and updated independently of the other. The built in Extension system allows developers and users to find and install add-on software packages to BlueOS, and manage updates, permissions, and resource limits of those Extensions through the <a href="../../advanced-usage/#extensions-manager">Extensions Manager</a>.</p>
-<p>For some additional context and discussion, please see <a href="https://discuss.bluerobotics.com/t/external-integrations-extensions/10912">this forum thread</a> about the BlueOS Extensions architecture. Feel free to contribute ideas or ask questions there as relevant.</p>
 <h2 id="implementation">Implementation</h2>
 <blockquote>
 <p>⚠️ The BlueOS Extensions system is currently still in a <code>beta</code> stage of development, so some implementation changes are expected in the near future.</p>
 </blockquote>
+<p>The BlueOS Extensions system consists of three major components:</p>
+<ol>
+<li><strong>Extension Packages</strong>, which are installable applications (Extensions) that run on the BlueOS computer, alongside <a href="../core/">BlueOS-core</a> and <a href="../bootstrap/">BlueOS-bootstrap</a></li>
+<li><strong>BlueOS Bazaar</strong>, an online web store that allows BlueOS users to find and install Extension Packages, and provides a standardised place for developers to offer Extensions through
+<ul>
+<li>Anyone can <a href="https://docs.bluerobotics.com/BlueOS-Extensions-Repository/">see which Extensions are available</a>, so (for example):
+<ul>
+<li>Device manufacturers can show that their hardware is supported on BlueOS vehicles</li>
+<li>Users looking for hardware functionalities can find relevant device manufacturers</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>The <a href="../../advanced-usage/#extensions-manager"><strong>Extensions Manager</strong></a>, a BlueOS-core service that's in charge of fetching Extension Packages from the Bazaar, as well as running active Extensions, and monitoring and limiting their resource usage and hardware access</li>
+</ol>
+<blockquote>
+<p>💡 In future there will also be <a href="https://github.com/bluerobotics/BlueOS/issues/1939">support for <strong>file-based Plugins</strong></a>, which will extend the functionality of a running Docker Container (e.g. themes or 3D models for BlueOS-core, or extra components and/or documentation for a particular Extension). These will also be shareable and installable through the Bazaar.</p>
+</blockquote>
 <h3 id="components-anatomy-of-an-extension">Components: Anatomy of an Extension</h3>
-<p>At heart, a BlueOS Extension is some functionality (optionally with a web interface) packaged into a <a href="../../overview#docker">Docker Image</a>, and combined with some metadata that allows it to be found, shared, and managed. Extensions may interface with existing services provided by BlueOS (or other Extensions), and some Extensions may create persistent logs and/or make use of data or files provided by the user.</p>
-<p>Once installed, an Extension Package can be run as a <a href="../../overview#docker">Docker Container</a>, which normally occurs automatically when the vehicle turns on, but can also be manually disabled/enabled via the Extensions Manager. When running, Extensions can have <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#metadata-dockerfile">custom permissions assigned</a>, which can limit resource-usage and/or allow access to parts of the host computer's hardware.</p>
+<div style="padding-bottom:15px;">
+<img src="anatomy.png" alt="Anatomy" width=600 >
+</div>
+<p>At heart, a BlueOS Extension is some functionality (optionally with a web interface) packaged into a <a href="../overview/#docker">Docker Image</a>, and combined with some metadata that allows it to be found, shared, and managed. Extensions may interface with existing services provided by BlueOS (or other Extensions), and some Extensions may create persistent logs and/or make use of data or files provided by the user.</p>
+<p>Once installed, an Extension Package can be run as a <a href="../overview/#docker">Docker Container</a>, which normally occurs automatically when the vehicle turns on, but can also be manually disabled/enabled via the Extensions Manager. When running, Extensions can have <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#metadata-dockerfile">custom permissions assigned</a>, which can limit resource-usage and/or allow access to parts of the host computer's hardware.</p>
+<h4 id="where-does-the-code-run">Where Does the Code Run?</h4>
+<p>To integrate well within BlueOS, extensions typically include a <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#backend-services">backend service</a> that runs on the onboard computer (in the vehicle), which provides some functionality, and is often accessed by a <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#frontend-interfaces">frontend interface</a> that runs in the control station computer's browser.</p>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="frontend-backend.png" alt="Frontend Backend" width=600 >
+</div>
+<p>A common usage process would follow:</p>
+<ol>
+<li>Vehicle turns on, BlueOS-bootstrap initiates BlueOS-core, backend service starts</li>
+<li>A user requests the extension's frontend interface, from the browser in their control station computer</li>
+<li>Extension backend serves a web interface to the browser</li>
+<li>User interacts with the interface, via some kind of input
+<ul>
+<li>button clicks, text submissions, joystick events, etc.</li>
+</ul>
+</li>
+<li>Frontend makes API calls to its backend service to facilitate the desired interaction(s)</li>
+<li>Backend receives an API call, processes it, and responds appropriately
+<ul>
+<li>processing typically involves logging the request, accessing some hardware, calculating something, and/or requesting something from another service</li>
+</ul>
+</li>
+<li>Frontend receives the response from the backend, and updates the interface accordingly
+<ul>
+<li>the frontend may also do some processing, such as decoding an image to display to the user</li>
+</ul>
+</li>
+<li>Repeat from step 4. until further interaction is no longer required</li>
+</ol>
+<h5 id="backend-services">Backend Services</h5>
+<ul>
+<li>Communicate with each other services (via <a href="../../advanced-usage/#available-services">APIs</a>)</li>
+<li>Typically run continuously while the vehicle is on</li>
+<li>Have access to the vehicle computer hardware, including connected devices and the filesystem</li>
+<li>May have internet access, if the vehicle computer does</li>
+<li>May serve a graphical web-interface that's accessible via the frontend
+<ul>
+<li>Extensions without a graphical interface could include device drivers and/or something with fully pre-determined functionality (that doesn't require user input)</li>
+</ul>
+</li>
+</ul>
+<h5 id="frontend-interfaces">Frontend Interfaces</h5>
+<ul>
+<li>Only run when opened by a user
+<ul>
+<li>Could be run by multiple users simultaneously, on separate devices that are on a shared network</li>
+</ul>
+</li>
+<li>Can do some processing
+<ul>
+<li>This can be useful to reduce the amount of data that needs to be sent from the vehicle to the control station computer (e.g. send an encoded image, which the frontend decodes and displays), or to offload some processing/calculations that would otherwise need to be done by the onboard computer</li>
+</ul>
+</li>
+<li>Can communicate with their backend (via its API)
+<ul>
+<li>It is also possible to communicate directly with other service APIs, but then the backend doesn't know about that interaction, which can make logging and debugging more challenging</li>
+</ul>
+</li>
+<li>May have internet access, if the control station computer has it
+<ul>
+<li>This can be useful for accessing cloud-based services, such as live-streaming, remote data storage/sharing, map downloading, etc.</li>
+</ul>
+</li>
+<li>May work as a standalone application, if the functionality/logic is all in the frontend
+<ul>
+<li>A HTTP server<sup class="footnote-reference"><a href="#1">1</a></sup> is still needed, to serve the frontend files for the static webpage</li>
+<li>Possible use-cases include calculators, image processing tools, documentation, etc.</li>
+</ul>
+</li>
+</ul>
+<div class="footnote-definition" id="1"><sup class="footnote-definition-label">1</sup>
+<p>You can use programs like <a href="https://github.com/TheWaWaR/simple-http-server">simple-http-server</a> to serve static files for an Extension.</p>
+</div>
+<h4 id="how-does-it-get-there">How Does it Get There?</h4>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="backend-process.png" alt="Backend Process" width=300 >
+</div>
+<p>Every Extension has a backend, whereby:</p>
+<ol>
+<li>A <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#metadata-dockerfile">Dockerfile</a> is used to create a Docker Image of a program / the onboard functionality</li>
+<li>The Image gets uploaded to a Docker Repository, and (optionally) published on the BlueOS Bazaar</li>
+<li>BlueOS installs the Image (via Bazaar, or manually), and runs it as a Docker Container
+<ul>
+<li>BlueOS monitors and restricts resources, and restarts Extensions that fail unexpectedly</li>
+</ul>
+</li>
+</ol>
+<p>Frontend interfaces are optional, but well-supported:</p>
+<ul>
+<li>Some device drivers and the like require no/minimal configuration, so may not require a frontend</li>
+<li>Services that provide a frontend can be <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#web-interface-http-server">automatically detected by BlueOS</a> for convenience </li>
+</ul>
 <h4 id="metadata-dockerfile">Metadata (Dockerfile)</h4>
 <p>The process of packaging a set of programs and files into a Docker Image requires a <a href="https://docs.docker.com/engine/reference/builder/">Dockerfile</a>, which can be thought of as recipe for building the Image.</p>
-<p>For an Extension to be properly managed and shareable, the Dockerfile it's created from should include relevant metadata<sup class="footnote-reference"><a href="#2">1</a></sup> via the following labels:</p>
+<p>For an Extension to be properly managed and shareable, the Dockerfile it's created from should include relevant metadata<sup class="footnote-reference"><a href="#2">2</a></sup> via the following labels:</p>
 <ul>
 <li><code>LABEL permissions='{}'</code>
 <ul>
@@ -402,23 +573,37 @@
 </li>
 <li>Common uses of the <code>permissions</code> label include:
 <ul>
-<li>Mapping/mounting a folder from the host device into the running Container<pre data-lang="dockerfile" style="background-color:#2b303b;color:#c0c5ce;" class="language-dockerfile "><code class="language-dockerfile" data-lang="dockerfile"><span>&quot;HostConfig&quot;:\
-</span><span>  {\
-</span><span>    {\
-</span><span>      {\
-</span><span>        &quot;Binds&quot;:[&quot;/var/lib/zerotier-one:/var/lib/zerotier-one&quot;]\
-</span><span>      }\
-</span><span>    }\
-</span><span>  }
+<li>Mapping/mounting a folder from the host device into the running Container, so the extension can <strong>store persistent files</strong>
+<ul>
+<li>Useful for storing logs, configuration files, and recorded data</li>
+</ul>
+<pre data-lang="dockerfile" style="background-color:#2b303b;color:#c0c5ce;" class="language-dockerfile "><code class="language-dockerfile" data-lang="dockerfile"><span>&quot;HostConfig&quot;: {\
+</span><span>  &quot;Binds&quot;:[\
+</span><span>    &quot;/usr/blueos/extensions/data-logger:/app&quot;,\
+</span><span>  ]\
+</span><span>}
 </span></code></pre>
 </li>
-<li>Automatically mapping port 80 of the Container to a free port in the host<pre data-lang="dockerfile" style="background-color:#2b303b;color:#c0c5ce;" class="language-dockerfile "><code class="language-dockerfile" data-lang="dockerfile"><span>LABEL permissions=&#39;\
+<li>Allowing the Container to <strong>access connected serial devices</strong> / hardware (at <code>/dev/tty*</code>)<pre data-lang="dockerfile" style="background-color:#2b303b;color:#c0c5ce;" class="language-dockerfile "><code class="language-dockerfile" data-lang="dockerfile"><span>&quot;HostConfig&quot;: {\
+</span><span>  &quot;Privileged&quot;: true,\
+</span><span>  &quot;Binds&quot;:[\
+</span><span>    &quot;/usr/blueos/extensions/data-logger:/app&quot;,\
+</span><span>    &quot;/dev:/dev&quot;\
+</span><span>  ]\
+</span><span>}
+</span></code></pre>
+</li>
+<li>Automatically mapping port 80 of the Container to a free port in the host, and creating an explicit network bridge to the vehicle's network
+<ul>
+<li>Requires using <code>host.docker.internal</code> (i.e. instead of <code>localhost</code>/<code>127.0.0.1</code>) to access BlueOS APIs from inside the Extension, because the Extension is not sharing the BlueOS-core network</li>
+</ul>
+<pre data-lang="dockerfile" style="background-color:#2b303b;color:#c0c5ce;" class="language-dockerfile "><code class="language-dockerfile" data-lang="dockerfile"><span>LABEL permissions=&#39;\
 </span><span>{\
 </span><span> &quot;ExposedPorts&quot;: {\
 </span><span>   &quot;80/tcp&quot;: {}\
 </span><span>  },\
 </span><span>  &quot;HostConfig&quot;: {\
-</span><span>    &quot;Binds&quot;:[&quot;/root/.config:/root/.config&quot;],\
+</span><span>    &quot;ExtraHosts&quot;: [&quot;host.docker.internal:host-gateway&quot;],\
 </span><span>    &quot;PortBindings&quot;: {\
 </span><span>      &quot;80/tcp&quot;: [\
 </span><span>        {\
@@ -445,7 +630,7 @@
 </li>
 </ul>
 </li>
-<li>Our <a href="https://github.com/Williangalvani/BlueOS-examples">Extensions Examples Repository</a> has some useful examples</li>
+<li>Our <a href="https://github.com/BlueOS-Community/BlueOS-examples">Extensions Examples Repository</a> has some useful examples</li>
 </ul>
 </li>
 <li><code>LABEL version=&quot;1.0.0&quot;</code>
@@ -489,7 +674,7 @@
 <li>A URL pointing to a markdown-based README file
 <ul>
 <li>Allows using <code>{tag}</code> to find versioned readme files without manually updating the URLs</li>
-<li>e.g. <code>&quot;https://https://raw.githubusercontent.com/Williangalvani/BlueOS-examples/{tag}/example4-vue-backend/Readme.md&quot;</code></li>
+<li>e.g. <code>&quot;https://https://raw.githubusercontent.com/BlueOS-Community/BlueOS-examples/{tag}/example4-vue-backend/Readme.md&quot;</code></li>
 </ul>
 </li>
 </ul>
@@ -525,8 +710,8 @@
 <li>Should be one of the following strings:
 <ul>
 <li><code>&quot;device-integration&quot;</code></li>
-<li><code>&quot;theme&quot;</code></li>
 <li><code>&quot;other&quot;</code></li>
+<li><code>&quot;tool&quot;</code></li>
 <li><code>&quot;example&quot;</code> (for Extension examples)</li>
 </ul>
 </li>
@@ -551,12 +736,12 @@
 </ul>
 </li>
 </ul>
-<div class="footnote-definition" id="2"><sup class="footnote-definition-label">1</sup>
+<div class="footnote-definition" id="2"><sup class="footnote-definition-label">2</sup>
 <p>The metadata from the Docker labels is used to populate the <a href="https://github.com/bluerobotics/BlueOS-Extensions-Repository/blob/gh-pages/manifest.json">Repository Manifest</a>, which is used to include Extensions in the Extensions Manager.</p>
 </div>
 <h4 id="web-interface-http-server">Web Interface (HTTP Server)</h4>
-<p>If the Extension needs a visual interface<sup class="footnote-reference"><a href="#3">2</a></sup>, the recommended approach is to provide a webpage that's accessible via the existing BlueOS web interface.</p>
-<p>To do so requires the Extension to run a HTTP server<sup class="footnote-reference"><a href="#4">3</a></sup>, at which it must serve a <code>register_service</code> endpoint in the format of a JSON dict with the following keys:</p>
+<p>If the Extension needs a visual interface<sup class="footnote-reference"><a href="#3">3</a></sup>, the recommended approach is to provide a webpage that's accessible via the existing BlueOS web interface.</p>
+<p>To do so requires the Extension to run a HTTP server<sup class="footnote-reference"><a href="#1">1</a></sup>, at which it must serve a <code>register_service</code> endpoint in the format of a JSON dict with the following keys:</p>
 <ul>
 <li><code>&quot;name&quot;</code>
 <ul>
@@ -571,8 +756,12 @@
 <li><code>&quot;description&quot;</code></li>
 <li><code>&quot;icon&quot;</code>
 <ul>
-<li>Select one of the <a href="https://pictogrammers.com/library/mdi/">Material Design Icons</a></li>
-<li>Specify it in the form <code>mdi-icon-name</code> (e.g. <code>mdi-lightbulb</code>)</li>
+<li>Specify <a href="https://pictogrammers.com/library/mdi/">Material Design Icons</a> in the form <code>&quot;mdi-icon-name&quot;</code> (e.g. <code>&quot;mdi-lightbulb&quot;</code>)</li>
+<li>Define custom <a href="https://en.wikipedia.org/wiki/SVG">SVG</a> icons as an SVG element <code>(New in 1.2)</code>
+<ul>
+<li>e.g. <code>&quot;&lt;svg role=\&quot;img\&quot; viewBox=\&quot;0 0 24 24\&quot; xmlns=\&quot;http://www.w3.org/2000/svg\&quot;&gt;...&lt;/svg&gt;&quot;</code></li>
+</ul>
+</li>
 </ul>
 </li>
 <li><code>&quot;company&quot;</code>
@@ -619,24 +808,21 @@
 </span><span>    &quot;</span><span style="color:#a3be8c;">api</span><span>&quot;: &quot;</span><span style="color:#a3be8c;">https://github.com/octocat/blink-led-BlueOS-extension/wiki/api</span><span>&quot;
 </span><span>}
 </span></code></pre>
-<p>Each Extension service with a <code>register_service</code> endpoint will have an entry under the &quot;Extensions&quot; section of the BlueOS web interface sidebar menu:</p>
+<p>Each Extension service with a <code>register_service</code> endpoint will have an entry in the BlueOS web interface sidebar menu:</p>
 <p><img src="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/registered-service.png" alt="sidebar display showing a registered service in the menu" /></p>
-<div class="footnote-definition" id="3"><sup class="footnote-definition-label">2</sup>
+<div class="footnote-definition" id="3"><sup class="footnote-definition-label">3</sup>
 <p>You can choose to not provide a web interface if your extension operates with no user input. The <a href="https://github.com/Williangalvani/blueos-virtualhere">VirtualHere Extension</a> is a relevant example.</p>
-</div>
-<div class="footnote-definition" id="4"><sup class="footnote-definition-label">3</sup>
-<p>You can use programs like <a href="https://github.com/TheWaWaR/simple-http-server">simple-http-server</a> to serve static files for an Extension.</p>
 </div>
 <h4 id="functionality">Functionality</h4>
 <p>Different types of Extensions have different functionality, and there are often a variety of tools available to provide that. When starting to develop extensions, we would generally recommend:</p>
 <ul>
 <li>Python to run stuff
 <ul>
-<li>Frequently using a web framework like Starlite/Flask/FastAPI to provide the backend of an interface</li>
+<li>Frequently using a web framework like Litestar/Flask/FastAPI to provide the backend of an interface</li>
 </ul>
 </li>
 <li>Static HTML files to contain and display parts of an interface</li>
-<li>Our <a href="https://github.com/Williangalvani/BlueOS-examples">Extensions Examples Repository</a> has some useful examples</li>
+<li>Our <a href="https://github.com/BlueOS-Community/BlueOS-examples">Extensions Examples Repository</a> has some useful examples</li>
 </ul>
 <h3 id="examples-what-do-they-look-like">Examples: What do they Look like?</h3>
 <h4 id="device-integrations">Device Integrations</h4>
@@ -648,15 +834,11 @@
 </ul>
 <h4 id="examples">Examples</h4>
 <ul>
-<li><a href="https://github.com/Williangalvani/BlueOS-examples/tree/master/example1-statichtml">Static HTML file</a></li>
-<li><a href="https://github.com/Williangalvani/BlueOS-examples/tree/master/example2-statichtml-mavlink">Static HTML + MAVLink Communication</a></li>
-<li><a href="https://github.com/Williangalvani/BlueOS-examples/tree/master/example3-vuetify">Vuetify</a></li>
-<li><a href="https://github.com/Williangalvani/BlueOS-examples/tree/master/example4-vue-backend">Vue Backend</a></li>
-<li><a href="https://github.com/Williangalvani/BlueOS-examples/tree/master/example5-gpio-control">GPIO Control</a></li>
-</ul>
-<h4 id="themes">Themes</h4>
-<ul>
-<li>No examples yet</li>
+<li><a href="https://github.com/BlueOS-Community/BlueOS-examples/tree/master/example1-statichtml">Static HTML file</a></li>
+<li><a href="https://github.com/BlueOS-Community/BlueOS-examples/tree/master/example2-statichtml-mavlink">Static HTML + MAVLink Communication</a></li>
+<li><a href="https://github.com/BlueOS-Community/BlueOS-examples/tree/master/example3-vuetify">Vuetify</a></li>
+<li><a href="https://github.com/BlueOS-Community/BlueOS-examples/tree/master/example4-vue-backend">Vue Backend</a></li>
+<li><a href="https://github.com/BlueOS-Community/BlueOS-examples/tree/master/example5-gpio-control">GPIO Control</a></li>
 </ul>
 <h4 id="other">Other</h4>
 <ul>
@@ -711,12 +893,200 @@
 <li>See more / track progress in the <a href="https://github.com/bluerobotics/BlueOS-docker/issues/1180">Kraken development tracker</a></li>
 </ul>
 <h2 id="development-process">Development Process</h2>
-<blockquote>
-<p>💡 Walkthrough coming soon!</p>
-</blockquote>
+<p><a href="https://github.com/bluerobotics/ardusub-zola/blob/BlueOS-1.1/development/extensions/development-process.mermaid">Detailed flowchart</a></p>
+<h3 id="expected-development-cycle">Expected Development Cycle</h3>
+<ol start="0">
+<li>(<em>If possible</em>) create and test initial backend functionality within BlueOS</li>
+<li>Wrap Extension functionality into a Docker Image</li>
+<li>Upload to Docker Hub</li>
+<li>Test locally (using a &quot;manual&quot;/development install)</li>
+<li>Submit the extension to the Bazaar</li>
+<li>Get it accepted</li>
+<li>Install it from the store</li>
+<li>Test locally</li>
+<li>Make improvements</li>
+<li>Upload a new version</li>
+<li>Repeat from step 6.</li>
+</ol>
+<h4 id="initial-backend-functionality-implementation-testing">Initial Backend Functionality Implementation/Testing</h4>
+<p>If you're starting your Extension from scratch, there are a variety of development tools available within BlueOS and in existing Extensions which can enable implementing and testing your key functionality before you start to package it up for easy installation and sharing. Having the backend functionality tested before trying to package it into an Extension can help to minimise unexpected issues and troubleshooting.</p>
+<p>Basic functionality can be tested from within the core BlueOS Docker container using the provided <a href="../../advanced-usage/#terminal">Terminal</a>, and if you store files that you create in the <code>/usr/blueos/userdata/</code> directory they will be persistent across BlueOS restarts, and accessible through the <a href="../../advanced-usage/#file-browser">File Browser</a>. For a more interactive development experience, you may wish to use an Extension like <a href="https://docs.bluerobotics.com/BlueOS-Extensions-Repository/#:~:text=Jupyter,-Maintainer">Jupyter</a> or <a href="https://docs.bluerobotics.com/BlueOS-Extensions-Repository/#:~:text=OpenVSCoder,-Maintainer">VS Code</a>.</p>
+<h4 id="extension-creation-and-docker-image-upload">Extension Creation and Docker Image Upload</h4>
+<p>Extensions are Docker images, so the packaging process involves </p>
+<ol>
+<li>Creating a <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#metadata-dockerfile">Dockerfile</a> describing what you would like to package and how it should execute, then</li>
+<li>Using it to build one or more Docker Images for the hardware architectures you wish to support, then</li>
+<li>Uploading those images to an online Docker hub/repository, so the Extension can be downloaded and installed on BlueOS devices
 <ul>
-<li><a href="https://github.com/bluerobotics/ardusub-zola/blob/BlueOS-1.1/development/extensions/development-process.mermaid">Sneak peek diagram</a></li>
+<li><a href="https://github.com/bluerobotics/BlueOS/issues/1614">Offline/local installs are currently not supported</a>, so this is currently required for BlueOS to be able to find and manage your Extension(s)</li>
 </ul>
+</li>
+</ol>
+<p>Depending on your starting points and preferred development process/environment, the building and uploading parts can either be performed automatically as part of a CI/CD pipeline, or locally on your development machine. We recommend trying out a <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#quickstart">QuickStart</a> GitHub repository to familiarise yourself with the process, then deciding how you would like to perform your own development from there.</p>
+<h5 id="quickstart">QuickStart</h5>
+<p>QuickStart repositories serve as a way to get an example Extension up and running as quickly as possible, while also forming a solid basis for continued development of your own Extension functionalities from that point.</p>
+<ol start="0">
+<li>Create a <a href="https://github.com/signup">GitHub account</a> and a <a href="https://hub.docker.com/signup">Docker Hub account</a></li>
+<li>&quot;<code>Use this template</code>&quot; from the top right of a QuickStart GitHub repository
+<ul>
+<li><a href="https://github.com/BlueOS-Community/QuickStart-Python-Extension">Python QuickStart</a></li>
+</ul>
+</li>
+<li><a href="https://docs.docker.com/docker-hub/repos/create/">Create a Docker repository</a>, to host your Docker images for this Extension
+<ul>
+<li>The name should be something like <code>blueos-extension-image-name</code> (e.g. <code>blueos-quickstart</code>)</li>
+</ul>
+</li>
+<li>Set up <a href="https://docs.github.com/en/actions/security-guides/using-secrets-in-github-actions#creating-secrets-for-a-repository">GitHub Secrets</a>:
+<ul>
+<li><code>DOCKER_USERNAME</code>: your Docker Hub username</li>
+<li><code>DOCKER_PASSWORD</code>: a Docker Hub <a href="https://docs.docker.com/security/for-developers/access-tokens/">access token</a> (Read &amp; Write), to allow your GitHub repository actions to upload Docker images to your Docker Hub account</li>
+</ul>
+</li>
+<li>Set up <a href="https://docs.github.com/en/actions/learn-github-actions/variables#creating-configuration-variables-for-a-repository">GitHub Variables</a>:
+<ul>
+<li><code>IMAGE_NAME</code>: the name you chose for your Docker repository</li>
+<li><code>MY_EMAIL</code>: the developer's email address</li>
+<li><code>MY_NAME</code>: the developer's name</li>
+<li><code>ORG_EMAIL</code>: a support email for the maintaining organisation</li>
+<li><code>ORG_NAME</code>: the name of the maintaining organisation</li>
+</ul>
+</li>
+<li>Run the deployment workflow<sup class="footnote-reference"><a href="#4">4</a></sup> to automatically build and upload your Docker image (refresh the page to see its status):</li>
+</ol>
+<div style="padding-bottom:15px;text-align:center;">
+<img src="github-workflow-dispatch.png" alt="Github Workflow Dispatch" width=600 >
+</div>
+<ol start="6">
+<li>Once the action completes (it may take ~5 minutes) confirm the image is available in your Docker repository</li>
+<li>If you have a BlueOS device available, try <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#manual-development-installs">manually installing the extension</a></li>
+</ol>
+<div class="footnote-definition" id="4"><sup class="footnote-definition-label">4</sup>
+<p>The QuickStart repositories make use of our <a href="https://github.com/BlueOS-Community/Deploy-BlueOS-Extension">BlueOS Extension Deployment Action</a>, which is available for use in any GitHub workflow, in case you would prefer to use a custom one.</p>
+</div>
+<h5 id="offline-building">Offline Building</h5>
+<p>While we generally recommend automated builds for convenience and consistency, it is also possible to develop, build, and upload Docker images directly from your development computer.</p>
+<p>We recommend using <a href="https://github.com/docker/buildx?tab=readme-ov-file#buildx">buildx</a> for cross-platform building, and <a href="https://www.qemu.org">qemu</a> for emulating <code>arm/v7</code> on <code>x86</code>-based developer hardware. Our <a href="https://github.com/BlueOS-community/Deploy-BlueOS-Extension/blob/main/action.yml">deployment action</a> provides our best-practice steps for Extension packaging, so is a useful starting point.</p>
+<p>There is also a <a href="https://github.com/BlueOS-community/blueos-extension-template">basic extension template</a> for Extensions that are intended to be built manually.</p>
+<blockquote>
+<p>⚠️ Each supported hardware architecture requires its own Docker Image to be built, which our deployment action helps with.</p>
+</blockquote>
+<p>Multi-hardware support allows your Extension to be run/tested on different hardware, but can make development and maintenance more challenging.
+In particular, different hardwares have different build requirements, which may have different library compatibilities.</p>
+<p>For reference:</p>
+<ul>
+<li>Raspberry Pi ≤3 boards use the <code>arm/v7</code> architecture</li>
+<li>Raspberry Pi ≥4 boards use the <code>arm64/v8</code> architecture, but can typically also run <code>arm/v7</code> images and software</li>
+</ul>
+<h4 id="manual-development-installs">Manual/Development Installs</h4>
+<p>Testing each Extension release before making it available to install from the online store is strongly recommended. </p>
+<ol>
+<li>Go to the <a href="../../advanced-usage/#extensions-manager">Extensions Manager</a> in BlueOS</li>
+<li>Click on the &quot;Installed&quot; tab</li>
+<li>Click the &quot;+&quot; icon in the bottom right corner</li>
+<li>Enter the relevant information for your Docker Image, so it can be fetched from Docker Hub
+<ul>
+<li><code>Extension Identifier</code>: <code>dockerusername.base-extension-name</code>
+<ul>
+<li>e.g. <code>esalexander.quickstart</code></li>
+<li>Used for uniqueness comparisons with other installed Extensions</li>
+</ul>
+</li>
+<li><code>Extension Name</code>: A human-readable name for the Extension
+<ul>
+<li>e.g. <code>QuickStart Test</code></li>
+</ul>
+</li>
+<li><code>Docker image</code>: <code>dockerusername/extension-name</code>
+<ul>
+<li>e.g. <code>esalexander/blueos-quickstart</code></li>
+<li>Used for finding and downloading the Docker image</li>
+</ul>
+</li>
+<li><code>Docker tag</code>: the branch or tag/version the image was generated from
+<ul>
+<li>e.g. <code>main</code></li>
+<li>Used for finding and downloading the Docker image</li>
+</ul>
+</li>
+<li><code>Custom settings</code>: the contents of your Dockerfile's <code>permissions</code> LABEL, but with relevant variable substitutions (e.g. <code>$IMAGE_NAME</code> → <code>blueos-quickstart</code>) and without the backslash line continuation characters
+<ul>
+<li>Used for configuration of the Docker container when it's run</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<!--
+##### Accessing an Installed Extension's Docker Container
+
+It is possible to enter running Docker containers via the [Terminal](../../advanced-usage/#terminal), by 
+
+1. Running `red-pill` to exit the BlueOS-core container
+1. Running `docker container ls` to list the currently running Docker containers
+1. Running `docker attach -it container-name` to enter the container and see the outputs of the running process
+1. Pressing `CTRL+C` to stop the process (e.g. if you want to modify something)
+1. Pressing your keyboard's up arrow to find the command the container was last running (or running some alternative command instead)
+1. Pressing ...? (TODO) to exit the docker container
+
+##### (Persistently) Modifying an Existing Docker Image
+If you made changes that you want to make persistent across future restarts it is necessary to `docker commit` a new Docker image from the container,
+and potentially overwrite the old one with it if you want it to operate in place of the original Extension.
+
+TODO: describe how to register an existing image as an Extension, by "installing" a custom extension with a tag that doesn't exist online
+(in which case it should fall back to the existing offline image with that tag).
+
+> 💡 While this can be useful for testing minor changes during development (e.g. fixing a small bug, or adjusting some logging outputs), it is
+not recommended to upload commit-modified images as new Extension versions, because there's then no record in the source code repository of the change(s).
+
+
+> 💡 If you want to make changes to files that are mounted to the computer's filesystem (via `binds` in the `permissions` metadata LABEL) then that can instead
+be done via the [File Browser](../../advanced-usage/#file-browser), restarting the Extension afterwards if necessary. In that case the changes will be
+persistent once the modified file has been saved.
+
+
+-->
+<h4 id="submission-to-the-bazaar">Submission to the Bazaar</h4>
+<ol>
+<li>Check <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/development/extensions/#metadata-dockerfile">metadata docs</a>, and match the requirements with your Dockerfile</li>
+<li>Build, and upload a <a href="https://semver.org/">SemVer</a>-compliant Docker Image to Docker Hub</li>
+<li>Submit a Pull Request (PR) to the <a href="https://github.com/bluerobotics/BlueOS-Extensions-Repository">extensions repo</a>
+<ul>
+<li>Include an icon, and a user-friendly description</li>
+<li>A nicer form-based interface is on the way, but not yet available</li>
+</ul>
+</li>
+</ol>
+<h4 id="getting-your-extension-accepted">Getting Your Extension Accepted</h4>
+<ol>
+<li>Check for build errors in the Docker Image creation process</li>
+<li>Respond to PR feedback (if there is any)</li>
+<li>Blue Robotics will merge the PR, after which it becomes public
+<ul>
+<li>Available extensions are visible in the BlueOS extensions manager, as well as in the <a href="https://docs.bluerobotics.com/BlueOS-Extensions-Repository/">gallery</a></li>
+<li>BlueOS Bazaar will provide a filterable and searchable interface for this</li>
+</ul>
+</li>
+</ol>
+<h4 id="installing-from-the-bazaar">Installing from the Bazaar</h4>
+<p>The Bazaar is available through the BlueOS <a href="../../advanced-usage/#extensions-manager">Extensions Manager</a>. Once an Extension has been accepted into the Bazaar it should appear automatically, within a few minutes.</p>
+<h4 id="iterating-release-cycle">Iterating / Release Cycle</h4>
+<p>Most programming projects are never fully &quot;complete&quot;, so it is expected that Extensions will be modified and improved over time. Extension approval only needs to occur when the Extension is first added to the store, so updated releases should become available within 24 hours from when the new version is uploaded to Docker Hub.</p>
+<p>The expected iteration process is:</p>
+<ol>
+<li>Make improvements</li>
+<li>Build the updated Docker Images and upload them to Docker Hub
+<ul>
+<li>Should be tagged with a SemVer compliant tag that’s higher than the previous release
+<ul>
+<li>E.g. v1.0.0 → v1.0.1</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Confirm the new version is available through the BlueOS Extensions Manager</li>
+<li>Install and test it</li>
+</ol>
 
         
           

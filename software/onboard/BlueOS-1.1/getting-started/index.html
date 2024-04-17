@@ -304,7 +304,19 @@
   							
   									<ul>
   											
-  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#connect-wifi">Connect Wifi</a>
+  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#connect-internet">Connect Internet</a>
+											
+													<ul>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#connect-wifi">Connect Wifi</a>
+															
+															</li>
+															
+															<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#tether-passthrough">Tether Passthrough</a>
+															
+															</li>
+															
+													</ul>
 											
 											</li>
   											
@@ -399,8 +411,10 @@ To configure it, you can follow our <a href="https://www.ardusub.com/quick-start
 <p>For more details see the Advanced Usage <a href="../advanced-usage/#interface-overview">Interface Overview</a> section.</p>
 <h2 id="updating-releases">Updating / Releases</h2>
 <p>BlueOS supports <a href="../overview/#release-types">multiple release types</a> - we recommend the latest stable version for most people. Releases and change-logs are available on the <a href="https://github.com/bluerobotics/blueos-docker/releases">GitHub releases page</a>.</p>
-<h3 id="connect-wifi">Connect Wifi</h3>
-<p>When starting out, it's important to connect to wifi so you can update to the latest suitable release.</p>
+<h3 id="connect-internet">Connect Internet</h3>
+<p>When starting out, it's important to connect your vehicle to the internet so you can update to the latest suitable release.
+Internet connectivity is possible via either <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#connect-wifi">wifi</a> or <a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/#tether-passthrough">passed through a tether</a>.</p>
+<h4 id="connect-wifi">Connect Wifi</h4>
 <ol>
 <li>
 <p>First, click the wifi indicator to scan for available wifi networks</p>
@@ -415,6 +429,19 @@ To configure it, you can follow our <a href="https://www.ardusub.com/quick-start
 <p><img src="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.1/getting-started/wifi-confirm.png" alt="Wifi Confirm" /></p>
 </li>
 </ol>
+<h4 id="tether-passthrough">Tether Passthrough</h4>
+<ul>
+<li><a href="https://support.apple.com/en-au/guide/mac-help/mchlp1540/mac">macOS instructions</a></li>
+<li><a href="https://pureinfotech.com/share-internet-connection-windows-10/">Windows instructions</a>
+<ul>
+<li><a href="https://discuss.bluerobotics.com/t/windows-10-cellular-while-flying-rov/14816">Windows 10 troubleshooting</a></li>
+</ul>
+</li>
+<li><a href="https://unix.stackexchange.com/questions/575178/sharing-wifi-internet-through-ethernet-interface">Ubuntu (Linux) instructions</a></li>
+<li><a href="https://wiki.archlinux.org/title/Internet_sharing">Arch (Linux) instructions</a></li>
+</ul>
+<p>Once the internet passthrough has been configured, the BlueOS header should 
+<a href="../advanced-usage/#internet-status-and-management">show that it has internet connectivity</a>.</p>
 <h3 id="select-version">Select Version</h3>
 <p>Now that your BlueOS has an internet connection, you can perform the update to the latest available version.</p>
 <ol>
