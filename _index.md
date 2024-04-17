@@ -4,7 +4,7 @@ description = "Documentation for the BlueOS Onboard Computer software."
 date = 2024-04-05T00:20:00+11:00
 template = "docs/section.html"
 sort_by = "weight"
-weight = 2
+weight = 3
 draft = false
 aliases = ['/software/onboard/BlueOS-latest', '/blueos/latest']
 
