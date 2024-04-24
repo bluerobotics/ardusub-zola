@@ -461,37 +461,61 @@ Testing each Extension release before making it available to install from the on
     - `Custom settings`: the contents of your Dockerfile's `permissions` LABEL, but with relevant variable substitutions (e.g. `$IMAGE_NAME` → `blueos-quickstart`) and without the backslash line continuation characters
         - Used for configuration of the Docker container when it's run
 
-<!--
 ##### Accessing an Installed Extension's Docker Container
 
 It is possible to enter running Docker containers via the [Terminal](../../advanced-usage/#terminal), by 
 
-1. Running `red-pill` to exit the BlueOS-core container
+1. Running `red-pill` to drop down to the base operating system (from the BlueOS-core container)
 1. Running `docker container ls` to list the currently running Docker containers
-1. Running `docker attach -it container-name` to enter the container and see the outputs of the running process
-1. Pressing `CTRL+C` to stop the process (e.g. if you want to modify something)
-1. Pressing your keyboard's up arrow to find the command the container was last running (or running some alternative command instead)
-1. Pressing ...? (TODO) to exit the docker container
-
-##### (Persistently) Modifying an Existing Docker Image
-If you made changes that you want to make persistent across future restarts it is necessary to `docker commit` a new Docker image from the container,
-and potentially overwrite the old one with it if you want it to operate in place of the original Extension.
-
-TODO: describe how to register an existing image as an Extension, by "installing" a custom extension with a tag that doesn't exist online
-(in which case it should fall back to the existing offline image with that tag).
+1. Running `docker exec -it container-name /bin/bash` to enter the container for modification
+    - It may be necessary to use `/bin/sh` instead, or whatever shell the base image supports
+    - If you only want **to see the live output** of the container, **use `docker logs -f container-name` instead**
+1. Use command-line tools to navigate and edit the desired files
+    - Common tools include
+        - [ls](https://manpages.org/ls) to see what's available
+        - [cd](https://manpages.org/cd) to change directories (e.g. `cd folder/path/`)
+        - [cat](https://manpages.org/cat) to display the contents of a text file (e.g. `cat filename`)
+        - [sed](https://manpages.org/sed) to replace text in a file (e.g. `sed -i 's/current text/replacement text/g'`)
+    - You may be able to use a text editor like [nano](https://manpages.org/nano), [vim](https://manpages.org/vim), 
+    or [vi](https://manpages.org/vi) if the Extension's base image includes one
+        - Alternatively you may be able to install one with [apt](https://manpages.org/apt/8)
+    - If the extension has a web interface, and you want to run a modified version at the same time as the old one then it
+    is recommended to change the "name" attribute in the Extension's `register_service` endpoint, to make it easy to tell
+    the interfaces apart in the BlueOS sidebar
+1. If the Extension supports live reloading then its interface and/or functionality may be changed once the files have been modified
+1. To exit the Extension's docker container, type the `exit` command
 
 {% note() %}
-While this can be useful for testing minor changes during development (e.g. fixing a small bug, or adjusting some logging outputs), it is
-not recommended to upload commit-modified images as new Extension versions, because there's then no record in the source code repository of the change(s).
+It is also possible to [remotely attach](https://code.visualstudio.com/docs/devcontainers/attach-container) to a container, using
+a computer running VS Code. This is generally a friendlier interface to work with, but is more involved to set up, and may require
+installing dependencies inside the container before the connection is successful.
 {% end %}
 
+##### (Persistently) Modifying an Existing Docker Image
+
 {% note() %}
-If you want to make changes to files that are mounted to the computer's filesystem (via `binds` in the `permissions` metadata LABEL) then that can instead
-be done via the [File Browser](../../advanced-usage/#file-browser), restarting the Extension afterwards if necessary. In that case the changes will be
+If you want to make changes to files that are mounted to the computer's filesystem (via `binds` in the `permissions` metadata LABEL) then that is simpler
+to do via the [File Browser](../../advanced-usage/#file-browser); restarting the Extension afterwards if necessary. In that case the changes will be
 persistent once the modified file has been saved.
 {% end %}
 
--->
+For normal files in a docker container, to make changes persistent across future restarts it is necessary to `commit` a new Docker image from
+the container, and potentially overwrite the old one with it if you want it to operate in place of the original Extension.
+
+1. `docker commit container-name maintainer/image-name:unique-tag`
+    - The tag should not match any that are available on Docker Hub at `maintainer/image-name`, to avoid being overwritten by downloads
+    - It is possible to specify a tag matching the version of the original extension, to overwrite it locally, but be aware that the online
+    version will get re-downloaded in its place if the extension configuration gets edited through the manager
+1. In the Extensions Manager, manually register the new image as an Extension with the tag you just created
+    - The simplest approach for this is to duplicate the original extension by editing it, changing the ID to a unique one, and specifying the new tag
+    - If you overwrote an existing extension image then this step is not necessary, but you can still restart the extension to check it's working as expected
+1. Once your changes are confirmed to be working as expected, it may be useful to copy the files out of the container using either `scp` or by copying them
+to a mounted location after which they can be accessed through the BlueOS File Browser.
+
+{% note() %}
+While this can be useful for testing minor changes during development (e.g. fixing a small bug, changing an IP address, or adjusting some logging outputs), it
+is not recommended to upload commit-modified images as new Extension versions, because there's then no record in the source code repository of the change(s).
+{% end %}
 
 #### Submission to the Bazaar
 
