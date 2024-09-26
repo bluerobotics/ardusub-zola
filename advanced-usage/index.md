@@ -1,7 +1,7 @@
 +++
 title = "Advanced Usage"
 description = "BlueOS advanced usage documentation."
-date = 2024-04-05T01:20:00+11:00
+date = 2024-09-26T16:00:00+11:00
 template = "docs/page.html"
 sort_by = "weight"
 weight = 30
@@ -12,7 +12,7 @@ aliases = ['/software/onboard/BlueOS-latest/advanced-usage', '/blueos/latest/adv
 lead = ''
 toc = true
 top = false
-link_base = "https://github.com/bluerobotics/BlueOS/tree/1.2.3/core"
+link_base = "https://github.com/bluerobotics/BlueOS/tree/1.3/core"
 +++
 
 ## General Information
@@ -550,17 +550,29 @@ model is coming soon.
 {{ easy_image(src="vehicle-setup-overview", width=600) }}
 
 The PWM Outputs tab allows configuring the servo function mappings
-(for motors, lights, camera tilt, etc), as well as manually testing the motors.
+(for motors, lights, camera tilt, etc), as well as manually testing the motors,
+and an automated check to detect motors that are reversed.
 
 {{ easy_image(src="vehicle-setup-pwm-outputs", width=600) }}
 
-The Configure tab allows loading default parameter sets for a particular vehicle type.
+The Configure tab provides configuration and calibration options for the vehicle sensors and peripherals,
+including failsafes, and reverting parameters to their defaults.
 
-{{ easy_image(src="vehicle-setup-configure", width=600) }}
+{{ easy_image(src="vehicle-setup-configure-params", width=600) }}
+
+{{ easy_image(src="vehicle-setup-configure-gyro", width=600) }}
+
+{{ easy_image(src="vehicle-setup-configure-accel", width=600) }}
+
+{{ easy_image(src="vehicle-setup-configure-compass", width=600) }}
+
+{{ easy_image(src="vehicle-setup-configure-baro", width=600) }}
+
+{{ easy_image(src="vehicle-setup-configure-lights", width=600) }}
+
+{{ easy_image(src="vehicle-setup-configure-failsafes", width=600) }}
 
 In future this page will also allow 
-- running ArduSub's automatic motor direction detection
-- calibrating the autopilot sensors
 - using custom highlighting logic for model components
 - displaying device statuses from extensions
 
