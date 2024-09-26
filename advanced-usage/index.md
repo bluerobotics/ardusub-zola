@@ -653,13 +653,17 @@ it automatically (via MAVLink)
 The Extensions Manager is in charge of fetching, installing, updating, and managing
 [Extensions](../extensions).
 
-The Store tab shows
-[the available extensions](https://docs.bluerobotics.com/BlueOS-Extensions-Repository/),
-which can be clicked to see information about the extension (including the settings,
-permissions requirements, and developer information), and allows selecting the version
-to install:
+The Store tab shows the available extensions, which can be clicked to see information about
+the extension (including the settings, permissions requirements, and developer information),
+and allows selecting the version to install:
 {{ easy_image(src="extensions-store", width=600) }}
-{{ easy_image(src="extensions-store-example", width=550) }}
+{{ easy_image(src="extensions-store-example", width=400) }}
+
+By default, the store searches the
+[BlueOS Extensions Repository](https://docs.bluerobotics.com/BlueOS-Extensions-Repository/)
+for available extensions, but it is also possible to specify your own external collections
+of extensions:
+{{ easy_image(src="extensions-store-manifests", width=350) }}
 
 The Installed tab shows the resource usage of the installed extensions, and allows
 configuring them, checking their logs, and restarting or disabling them:
