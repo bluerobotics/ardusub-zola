@@ -10,6 +10,7 @@ draft = false
 lead = 'Now with a stable release! Be aware that if you have a <strong>B.E.T.A</strong> before <strong>1.0.0 release</strong> a fresh SD card flash is necessary.'
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/1.0/usage/installation/"
 +++
 ## Download
 

@@ -12,6 +12,7 @@ aliases = ['/software/companion/1.0/configuration']
 lead = ''
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/1.0/usage/getting-started/"
 +++
 ## Network Configuration
 
