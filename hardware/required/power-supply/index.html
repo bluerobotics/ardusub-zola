@@ -202,7 +202,7 @@
 	</div>
 </header>
 
-  
+  <meta http-equiv="refresh" content="0; URL=https:&#x2F;&#x2F;blueos.cloud&#x2F;docs&#x2F;latest&#x2F;integrations&#x2F;hardware&#x2F;required&#x2F;power-supply&#x2F;" />
 
 
   
@@ -245,133 +245,11 @@
 </div>
 
           
-  
-  <nav class="docs-toc d-none d-xl-block col-xl-4 xr-0" aria-label="Secondary navigation">
-  	<div class="page-links">
-  			<h3>On this page</h3>
-  			<nav id="TableOfContents">
-  					<ul>
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/power-supply/#battery-power">Battery Power</a></li>
-  							
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/power-supply/#power-over-tether-high-voltage">Power Over Tether (High Voltage)</a></li>
-  							
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/required/power-supply/#voltage-regulators">Voltage Regulators</a></li>
-  							
-  							
-  					</ul>
-  			</nav>
-  	</div>
-  </nav>
-  
-
       <main class="docs-content col-lg-11 col-xl-9">
         <h1>Power Supply &#x2F; Battery</h1>
 	
-          
-          <p>A stable power supply and power distribution system is an integral part of any underwater vehicle. The power supply needs to be able to power all the onboard electronics and keep up with the current draw of the thrusters.</p>
-<p>The working voltage is usually tied to the maximum voltage rating of the thrusters. Voltage regulators step down higher voltages into lower ones to power the electronics.</p>
-<h2 id="battery-power">Battery Power</h2>
-<p>For safety reasons, it is recommended to design an underwater vehicle to operate on battery power. Lithium type batteries are a popular choice due to their high storage capacity in a compact form factor. When selecting a battery for a new vehicle, here are a few important considerations:</p>
-<ul>
-<li>
-<p><strong>Voltage:</strong> Lithium batteries often specify their nominal pack voltage as well as a corresponding <strong>&quot;S&quot;</strong> rating indicating the number of 3.7V cells in wired in <strong>S</strong>eries inside the battery. The voltage of your battery needs to be matched to the ratings of your ESCs and thrusters.</p>
-<ul>
-<li>For example, <a href="https://bluerobotics.com/store/thrusters/speed-controllers/besc30-r3/">Blue Robotics Basic ESCs</a> support 2S through 6S (7-26V) batteries, however the <a href="https://bluerobotics.com/store/thrusters/t100-t200-thrusters/t200-thruster-r2-rp/">T200 Thruster</a> is only rated for a maximum of 20V. Therefore, the the maximum recommended battery to use in this system is a 4S battery as a fully charged battery is 16.8V.</li>
-</ul>
-</li>
-<li>
-<p><strong>Capacity</strong> Batteries usually specify their capacity in units of mAh, the larger this number, the more energy the battery will store, and the longer you can run your ROV.</p>
-</li>
-<li>
-<p><strong>Current Rating:</strong> Batteries usually specify a <strong>C</strong> rating for <strong>C</strong>urrent. In order to calculate the rated current in Amps, multiply the capacity of the battery in Ah (mAh/1000) times the <strong>C</strong> rating. For example, a 10000 mAh (10 Ah) battery with a 10C rating is rated for 100 Amps. As a general rule of thumb, your battery should be rated for a continuous current draw of 15 Amps times the number of thrusters.</p>
-</li>
-</ul>
-<p>A battery will also need its own <a href="https://bluerobotics.com/product-category/watertight-enclosures/">watertight enclosure (WTE)</a> unless space is allocated inside the main electronics enclosure.</p>
-<div style="padding-bottom:15px;">
-<img src="battery.png" alt="Battery" width=500 >
-</div>
-<p>These batteries are known to fit inside a 3&quot; inner diameter (WTE):</p>
-<ul>
-<li><a href="https://bluerobotics.com/store/comm-control-power/powersupplies-batteries/battery-li-4s-18ah-r3/">Blue Robotics Lithium-ion Battery (14.8V, 18Ah)</a></li>
-<li><a href="https://bluerobotics.com/store/comm-control-power/powersupplies-batteries/battery-li-4s-15-6ah/">Blue Robotics Lithium-ion Battery (14.8V, 15.6Ah)</a></li>
-<li><a href="https://bluerobotics.com/store/comm-control-power/powersupplies-batteries/battery-lp-4s-10ah/">Blue Robotics Lithium-Polymer Battery (14.8V, 10Ah)</a></li>
-</ul>
-<p>There is a comparison of the main properties <a href="https://bluerobotics.com/learn/technical-reference/#power-supplies-batteries-and-chargers">in the Blue Robotics Technical Reference</a>.</p>
-<h2 id="power-over-tether-high-voltage">Power Over Tether (High Voltage)</h2>
-<p><strong>With the inherent danger of high voltage around water, the ArduSub developers highly discourage users from making their own high voltage power supplies.</strong></p>
-<p>If a power over tether solution is required, then Blue Robotics sells the <a href="https://bluerobotics.com/store/comm-control-power/powersupplies-batteries/otps1kw/">Outland Technology Power Supply (OTPS) for the BlueROV2</a>. Although the OTPS system was resigned to replace the battery enclosure on the BlueROV2, it can be adapted for other vehicle projects.</p>
-<div style="padding-bottom:15px;">
-<img src="otps.png" alt="Otps" width=400 >
-</div>
-<h2 id="voltage-regulators">Voltage Regulators</h2>
-<p>Depending on the electronics used, the primary voltage of the vehicle will most likely need to be stepped down and regulated more more sensitive electronics such as Companion Computers and autopilots. </p>
-<p>The following regulators have been tested to provide adequate power:</p>
-<ul>
-<li><a href="https://bluerobotics.com/store/comm-control-power/elec-packages/bec-5v6a-r1/">Blue Robotics 5V 6A Power Supply</a></li>
-</ul>
-
-          
-            
-<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;hardware&#x2F;required&#x2F;power-supply.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
-
-          
-          
-<div class="docs-navigation d-flex justify-content-between">
-  
-  
-  
-  
-  
-    
-    
-    
-    
-      
-    
-  
-
-  
-  
-  
-  
-  
-    
-    
-    
-      
-      
-        
-      
-    
-      
-      
-        
-          
-          
-          <a class="ms-auto" href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;hardware&#x2F;recommended&#x2F;tether-interface&#x2F;">
-            <div class="card my-1">
-              <div class="card-body py-2">
-                Tether Interface &rarr;
-              </div>
-            </div>
-          </a>
-          
-          
-          
-        
-      
-    
-      
-      
-        
-      
-    
-  
-</div>
-
+          <p>This documentation has been moved to <a href="https:&#x2F;&#x2F;blueos.cloud&#x2F;docs&#x2F;latest&#x2F;integrations&#x2F;hardware&#x2F;required&#x2F;power-supply&#x2F;">https:&#x2F;&#x2F;blueos.cloud&#x2F;docs&#x2F;latest&#x2F;integrations&#x2F;hardware&#x2F;required&#x2F;power-supply&#x2F;</a>.</p>
+          <p>You should be automatically redirected.</p>
         
       </main>
     </div>

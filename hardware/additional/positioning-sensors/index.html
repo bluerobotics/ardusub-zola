@@ -202,7 +202,7 @@
 	</div>
 </header>
 
-  
+  <meta http-equiv="refresh" content="0; URL=https:&#x2F;&#x2F;blueos.cloud&#x2F;docs&#x2F;latest&#x2F;integrations&#x2F;hardware&#x2F;additional&#x2F;positioning-sensors&#x2F;" />
 
 
   
@@ -247,181 +247,11 @@
 </div>
 
           
-  
-  <nav class="docs-toc d-none d-xl-block col-xl-4 xr-0" aria-label="Secondary navigation">
-  	<div class="page-links">
-  			<h3>On this page</h3>
-  			<nav id="TableOfContents">
-  					<ul>
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/positioning-sensors/#gps-module">GPS Module</a></li>
-  							
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/positioning-sensors/#sbl-positioning-systems">SBL Positioning Systems</a></li>
-  							
-  									<ul>
-  											
-  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/positioning-sensors/#supported-sbl-systems">Supported SBL Systems</a>
-											
-											</li>
-  											
-  									</ul>
-  							
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/positioning-sensors/#usbl-positioning-systems">USBL Positioning Systems</a></li>
-  							
-  									<ul>
-  											
-  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/positioning-sensors/#supported-usbl-systems">Supported USBL Systems</a>
-											
-											</li>
-  											
-  									</ul>
-  							
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/positioning-sensors/#dvl-positioning-systems">DVL Positioning Systems</a></li>
-  							
-  									<ul>
-  											
-  											<li><a href="https://docs.bluerobotics.com/ardusub-zola/hardware/additional/positioning-sensors/#supported-dvl-systems">Supported DVL Systems</a>
-											
-											</li>
-  											
-  									</ul>
-  							
-  							
-  					</ul>
-  			</nav>
-  	</div>
-  </nav>
-  
-
       <main class="docs-content col-lg-11 col-xl-9">
         <h1>Positioning Sensors (GPS &#x2F; DVL)</h1>
 	
-          
-          <p>A positioning system is a useful addition to an ArduSub vehicle either for displaying numerical location coordinates or the position of the vehicle on a map in QGroundControl. </p>
-<p>Below is an example of a Water Linked Underwater GPS System being used to locate a shipwreck:</p>
-<iframe frameborder="0" width=640 height=360 allow="autoplay" src="https://www.youtube.com/embed/NpAClMNhno0"></iframe>
-<br><br>
-<blockquote>
-<p>💡 The <a href="/introduction/hardware-options/required-hardware/autopilot.md">autopilot</a> has the capability of utilizing an external positioning system to perform autonomous maneuvers like station keeping, 'click to go here', transects, and pre-planned waypoint missions, however this is IN DEVELOPMENT.</p>
-</blockquote>
-<h2 id="gps-module">GPS Module</h2>
-<p>ArduSub maintains the same <a href="https://ardupilot.org/copter/docs/common-positioning-landing-page.html">GPS module drivers</a> as the rest of the ArduPilot family of firmwares, so a compatible GPS module may be directly connected to the GPS port on the autopilot. Positioning information will only be available when the vehicle is on the surface and the module is out of the water. The module will not be able to obtain a fix if it is underwater due to high frequency radio waves being unable to penetrate the water medium.</p>
-<p>Acoustic positioning systems are the only reliable way of providing positioning information underwater.</p>
-<h2 id="sbl-positioning-systems">SBL Positioning Systems</h2>
-<p>A <a href="https://en.wikipedia.org/wiki/Short_baseline_acoustic_positioning_system">short baseline (SBL) acoustic positioning system</a> uses an acoustic transmitter on the vehicle to transmit timed acoustic pulses. These pulses are received by a series of multiple receivers on the surface in an arranged geometric pattern. The <a href="https://en.wikipedia.org/wiki/Time_of_flight">&quot;time of flight&quot;</a> is calculated to when each receiver records the acoustic pulse and then a consolidated position for the underwater vehicle can be plotted.</p>
-<p>SBL systems can produce better positioning accuracy in highly reflective environments due to the adjustable receiver locations.</p>
-<div style="padding-bottom:15px;">
-<img src="SBL-WL.png" alt="Sbl Wl" width=500 >
-</div>
-<p><sup style="color:grey;">Image Credit: Water Linked</sup></p>
-<h3 id="supported-sbl-systems">Supported SBL Systems</h3>
-<ul>
-<li><a href="https://store.waterlinked.com/underwater-gps/">Water Linked Underwater GPS Explorer Kit</a></li>
-</ul>
-<h2 id="usbl-positioning-systems">USBL Positioning Systems</h2>
-<p>An <a href="https://en.wikipedia.org/wiki/Ultra-short_baseline">ultra-short baseline acoustic positioning system</a> is similar to SBL system where an acoustic pulse is transmitted from a tranciever on the vehicle and then recieved by a receiver on the surface. Instead of simply calculating time of flight, range and bearing are calculated by USBLs.</p>
-<p>USBLs are more compact than SBL systems where the receiver's transducers are fixed in one tranciever head.</p>
-<div style="padding-bottom:15px;">
-<img src="USBL-CS.png" alt="Usbl Cs" width=500 >
-</div>
-<p><sup style="color:grey;">Image Credit: Cerulean Sonar</sup></p>
-<h3 id="supported-usbl-systems">Supported USBL Systems</h3>
-<ul>
-<li><a href="https://ceruleansonar.com/products/rovl-mkii?variant=39414929915970">Cerulean Sonar ROV Locator</a></li>
-</ul>
-<h2 id="dvl-positioning-systems">DVL Positioning Systems</h2>
-<p>A <a href="https://en.wikipedia.org/wiki/Acoustic_Doppler_current_profiler#Bottom_tracking">doppler velocity log</a> sends multiple acoustic pulses in different directions, and measures the frequency change (doppler shift) from the transmitted pulses to estimate velocity of the vehicle relative to the bottom. Combining the velocity estimate with measurements from the accelerometers, compass, and gyroscopes in the onboard inertial measurement unit (IMU), the vehicle's orientation and relative position can be estimated via dead-reckoning. If the time of flight of the pulses is measured, it is also possible to estimate vehicle altitude above the bottom, similar to an <a href="../sonars/#echosounders-and-altimeters">altimeter</a>.</p>
-<div style="padding-bottom:15px;">
-<img src="WL-DVL.png" alt="Wl Dvl"  height=300>
-</div>
-<p><sup style="color:grey;">Image Credit: Water Linked</sup></p>
-<p>DVLs do not require external acoustic hardware or infrastructure, so are better suited to long distance autonomous missions than an SBL or USBL system.</p>
-<p>The relative positioning estimates from a DVL system mean the estimate is prone to drift over time. Accurate long term positioning requires occasional corrections from an absolute positioning system (like a GPS Module at the surface).</p>
-<h3 id="supported-dvl-systems">Supported DVL Systems</h3>
-<ul>
-<li><a href="https://store.waterlinked.com/product/dvl-a50/?hsCtaTracking=b79feacb-c824-4524-b3e0-2f6513163a7f%7C44cc28cf-75a8-4e25-ac64-ee6bc3e9e5e8">Water Linked DVL-A50</a></li>
-<li><a href="https://ceruleansonar.com/products/dvl-75?variant=32632308760642">Cerulean Sonar DVL-75</a></li>
-<li><a href="http://www.teledynemarine.com/Wayfinder">Teledyne Wayfinder</a></li>
-</ul>
-<p>There is a comparison of some common DVLs in <a href="https://discuss.bluerobotics.com/t/dvl-recommendations/10775/2#comparisons-1">this forum comment</a>.</p>
-
-          
-            
-<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;hardware&#x2F;additional&#x2F;positioning-sensors.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
-
-          
-          
-<div class="docs-navigation d-flex justify-content-between">
-  
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        
-          
-        
-      
-        
-        
-          
-            
-              
-              <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;hardware&#x2F;recommended&#x2F;lights&#x2F;">
-                <div class="card my-1">
-                  <div class="card-body py-2">
-                    &larr; Lights
-                  </div>
-                </div>
-              </a>
-            
-            
-            
-          
-        
-      
-        
-        
-          
-        
-      
-    
-  
-
-  
-  
-  
-  
-  
-    
-    
-    
-      
-      
-        
-      
-    
-      
-      
-        
-      
-    
-      
-      
-        
-      
-    
-  
-</div>
-
+          <p>This documentation has been moved to <a href="https:&#x2F;&#x2F;blueos.cloud&#x2F;docs&#x2F;latest&#x2F;integrations&#x2F;hardware&#x2F;additional&#x2F;positioning-sensors&#x2F;">https:&#x2F;&#x2F;blueos.cloud&#x2F;docs&#x2F;latest&#x2F;integrations&#x2F;hardware&#x2F;additional&#x2F;positioning-sensors&#x2F;</a>.</p>
+          <p>You should be automatically redirected.</p>
         
       </main>
     </div>

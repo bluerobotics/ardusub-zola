@@ -238,7 +238,7 @@
 	</div>
 </header>
 
-  
+  <meta http-equiv="refresh" content="0; URL=https:&#x2F;&#x2F;blueos.cloud&#x2F;docs&#x2F;1.2&#x2F;development&#x2F;bootstrap&#x2F;" />
 
 
   
@@ -269,121 +269,11 @@
 </div>
 
           
-  
-  <nav class="docs-toc d-none d-xl-block col-xl-4 xr-0" aria-label="Secondary navigation">
-  	<div class="page-links">
-  			<h3>On this page</h3>
-  			<nav id="TableOfContents">
-  					<ul>
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.2/development/bootstrap/#function">Function</a></li>
-  							
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.2/development/bootstrap/#codebase">Codebase</a></li>
-  							
-  							
-  							<li><a href="https://docs.bluerobotics.com/ardusub-zola/software/onboard/BlueOS-1.2/development/bootstrap/#updating">Updating</a></li>
-  							
-  							
-  					</ul>
-  			</nav>
-  	</div>
-  </nav>
-  
-
       <main class="docs-content col-lg-11 col-xl-9">
         <h1>BlueOS-bootstrap</h1>
 	
-          
-          <h2 id="function">Function</h2>
-<p>BlueOS-bootstrap is responsible for making sure <a href="../core">BlueOS-core</a> is running as expected, as well as gracefully restarting core during BlueOS updates and if it is detected to have unexpectedly stopped/crashed. 
-For an update the current core image gets shut down and the newly installed image gets started in its place, whereas in the case of a crash bootstrap reverts to running a known working core image, which is currently the one tagged as <code>factory</code> (which is whatever it was first flashed with), so that it's at least possible to access the interface.</p>
-<h2 id="codebase">Codebase</h2>
-<p><a href="https://github.com/bluerobotics/BlueOS/tree/master/bootstrap">BlueOS-bootstrap</a> is open source, and lives within the broader <a href="https://github.com/bluerobotics/BlueOS">BlueOS</a> GitHub repository. <a href="https://github.com/bluerobotics/BlueOS/issues">Issues</a> can be used to report bugs or suggest features, and <a href="https://github.com/bluerobotics/BlueOS/pulls">Pull Requests</a> fixing bugs or adding new features are welcomed.</p>
-<p>BlueOS is set up with a <a href="https://docs.github.com/en/actions">GitHub Action</a> that <a href="https://github.com/bluerobotics/BlueOS/blob/master/.github/workflows/test-and-deploy.yml#L90">automatically builds and deploys</a> a BlueOS-bootstrap image when changes are pushed to the GitHub repository.
-If you want to make use of that functionality you'll need a <a href="https://hub.docker.com">DockerHub</a> account, and will need to specify your DockerHub username (<code>DOCKER_USERNAME</code>) and password (<code>DOCKER_PASSWORD</code>) in your fork's <a href="https://docs.github.com/en/actions/security-guides/encrypted-secrets">GitHub secrets</a>.</p>
-<h2 id="updating">Updating</h2>
-<blockquote>
-<p>⚠️ BlueOS-bootstrap is a critical component of running BlueOS, and can significantly affect the system stability. It should only be updated when necessary, and preferably at times where the onboard computer hardware is accessible in case something goes wrong. For normal users it is strongly recommended to only update BlueOS-bootstrap to match stable releases of BlueOS, and even then only if there is a known issue an update is expected to fix or improve.</p>
-</blockquote>
-<p>BlueOS-bootstrap versions are built at the same time as BlueOS-core versions, and they get bundled together in the Raspberry Pi images that can be flashed onto an SD card to install BlueOS onto it. For official BlueOS releases it is possible to update the BlueOS-bootstrap image to match the BlueOS release through the <a href="../../advanced-usage#blueos-version">BlueOS Version</a> chooser, and is the recommended process.</p>
-<p>Manually updating to a non-matched and/or custom bootstrap image requires using the <a href="../../advanced-usage#terminal">Terminal</a>:</p>
-<pre data-lang="sh" style="background-color:#2b303b;color:#c0c5ce;" class="language-sh "><code class="language-sh" data-lang="sh"><span style="color:#65737e;"># drop down from blueos-core into the underlying operating system:
-</span><span style="color:#bf616a;">red-pill
-</span><span style="color:#65737e;"># get the running bootstrap container id
-</span><span style="color:#bf616a;">CURRENT_BOOTSTRAP_CONTAINER</span><span>=$</span><span style="color:#a3be8c;">(</span><span style="color:#bf616a;">docker</span><span style="color:#a3be8c;"> ps</span><span style="color:#bf616a;"> -aq --filter</span><span style="color:#a3be8c;"> name=blueos-bootstrap)
-</span><span style="color:#65737e;"># stop the bootstrap container (takes 10 seconds)
-</span><span style="color:#bf616a;">docker</span><span> stop $</span><span style="color:#bf616a;">CURRENT_BOOTSTRAP_CONTAINER
-</span><span style="color:#65737e;"># remove the container from local memory
-</span><span style="color:#65737e;"># (the underlying image remains on the system, unused)
-</span><span style="color:#bf616a;">docker</span><span> container rm $</span><span style="color:#bf616a;">CURRENT_BOOTSTRAP_CONTAINER
-</span><span style="color:#65737e;"># specify the Docker image source (use your account if testing a change)
-</span><span style="color:#bf616a;">BOOTSTRAP_REPO</span><span>=</span><span style="color:#a3be8c;">bluerobotics
-</span><span style="color:#bf616a;">BOOTSTRAP_IMAGE</span><span>=</span><span style="color:#a3be8c;">blueos-bootstrap
-</span><span style="color:#65737e;"># specify the new version to use (e.g. 1.1.0-beta.27, or master)
-</span><span style="color:#bf616a;">NEW_BOOTSTRAP_VERSION</span><span>=</span><span style="color:#a3be8c;">1.1.0-beta.27
-</span><span style="color:#65737e;"># start running the new version
-</span><span style="color:#65737e;"># (will automatically download if it&#39;s not already available locally)
-</span><span style="color:#bf616a;">docker</span><span> run \
-</span><span style="color:#bf616a;">    -d -t </span><span>\
-</span><span style="color:#bf616a;">    --restart</span><span> unless-stopped \
-</span><span style="color:#bf616a;">    --name</span><span> blueos-bootstrap \
-</span><span style="color:#bf616a;">    --net</span><span>=host \
-</span><span style="color:#bf616a;">    -v</span><span> /root/.config/blueos/bootstrap:/root/.config/bootstrap \
-</span><span style="color:#bf616a;">    -v</span><span> /var/run/docker.sock:/var/run/docker.sock \
-</span><span style="color:#bf616a;">    -e</span><span> BLUEOS_CONFIG_PATH=/root/.config/blueos \
-</span><span>    $</span><span style="color:#bf616a;">BOOTSTRAP_REPO</span><span>/$</span><span style="color:#bf616a;">BOOTSTRAP_IMAGE</span><span>:$</span><span style="color:#bf616a;">NEW_BOOTSTRAP_VERSION
-</span><span style="color:#65737e;"># view the logs, to check for any error or progress messages
-</span><span style="color:#bf616a;">docker</span><span> logs</span><span style="color:#bf616a;"> -f </span><span>$</span><span style="color:#bf616a;">BOOTSTRAP_IMAGE
-</span><span style="color:#65737e;"># press ctrl+c to return to the terminal, and you&#39;re done
-</span><span style="color:#65737e;"># if you want, type &#39;exit&#39; or &#39;logout&#39; to return to the BlueOS-core container
-</span></code></pre>
-
-          
-            
-<p class="edit-page"><a href="https:&#x2F;&#x2F;github.com&#x2F;bluerobotics&#x2F;ardusub-zola/blob/main/content&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.2&#x2F;development&#x2F;bootstrap.md"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit-2"><path d="M17 3a2.828 2.828 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5L17 3z"></path></svg>Edit this page on GitHub</a></p>
-
-          
-          
-<div class="docs-navigation d-flex justify-content-between">
-  
-  
-  
-  
-  
-    
-    
-    
-    
-      
-        
-        <a href="https:&#x2F;&#x2F;docs.bluerobotics.com&#x2F;ardusub-zola&#x2F;software&#x2F;onboard&#x2F;BlueOS-1.2&#x2F;advanced-usage&#x2F;">
-          <div class="card my-1">
-            <div class="card-body py-2">
-              &larr; Advanced Usage
-            </div>
-          </div>
-        </a>
-      
-    
-  
-
-  
-  
-  
-  
-  
-    
-    
-    
-      
-      
-        
-      
-    
-  
-</div>
-
+          <p>This documentation has been moved to <a href="https:&#x2F;&#x2F;blueos.cloud&#x2F;docs&#x2F;1.2&#x2F;development&#x2F;bootstrap&#x2F;">https:&#x2F;&#x2F;blueos.cloud&#x2F;docs&#x2F;1.2&#x2F;development&#x2F;bootstrap&#x2F;</a>.</p>
+          <p>You should be automatically redirected.</p>
         
       </main>
     </div>
