@@ -11,6 +11,7 @@ draft = false
 lead = 'BlueOS is a modular, robust, and efficient platform for managing a vehicle or robot from its onboard computer.'
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/1.1/usage/overview/"
 +++
 
 ## A bit of context...

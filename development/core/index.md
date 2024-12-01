@@ -11,6 +11,7 @@ draft = false
 lead = ''
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/1.1/development/core/"
 +++
 
 ## Function

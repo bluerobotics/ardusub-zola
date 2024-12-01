@@ -10,6 +10,7 @@ draft = false
 [extra]
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/1.1/usage/installation/"
 +++
 ## Download
 
