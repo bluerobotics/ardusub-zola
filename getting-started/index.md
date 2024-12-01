@@ -12,6 +12,7 @@ aliases = ['/software/onboard/BlueOS-latest/getting-started', '/blueos/latest/ge
 lead = ''
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/1.2/usage/getting-started/"
 +++
 ## Network Configuration
 

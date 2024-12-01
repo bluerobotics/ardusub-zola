@@ -13,6 +13,7 @@ lead = ''
 toc = true
 top = false
 link_base = "https://github.com/bluerobotics/BlueOS/tree/1.2.3/core"
+external_redirect = "https://blueos.cloud/docs/1.2/usage/advanced/"
 +++
 
 ## General Information

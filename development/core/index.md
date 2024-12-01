@@ -12,6 +12,7 @@ aliases = ['software/onboard/BlueOS-latest/development/core', '/blueos/latest/de
 lead = ''
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/1.2/development/core/"
 +++
 
 ## Function

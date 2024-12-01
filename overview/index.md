@@ -12,6 +12,7 @@ aliases = ['/software/onboard/BlueOS-latest/overview', '/blueos/latest/overview'
 lead = 'BlueOS is a modular, robust, and efficient platform for managing a vehicle or robot from its onboard computer.'
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/1.2/usage/overview/"
 +++
 
 ## A bit of context...

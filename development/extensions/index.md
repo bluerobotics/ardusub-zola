@@ -12,6 +12,7 @@ aliases = ['software/onboard/BlueOS-latest/development/extensions', 'software/on
 lead = ''
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/1.2/development/extensions/"
 +++
 
 {% note() %}

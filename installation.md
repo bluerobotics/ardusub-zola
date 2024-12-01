@@ -11,6 +11,7 @@ aliases = ['/software/onboard/BlueOS-latest/installation', '/blueos/latest/insta
 [extra]
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/1.2/usage/installation/"
 +++
 ## Download
 
