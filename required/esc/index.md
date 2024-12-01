@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/required/esc/"
 +++
 
 ArduSub is designed to work with brushless and brushed Electronic Speed Controllers (ESCs) to control motors and [thrusters](../thrusters/). Different motor types require different ESCs, so the ESCs must match the motor type they are being used to control.

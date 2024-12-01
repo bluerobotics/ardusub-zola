@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/additional/other-sensors/"
 +++
 
 A variety of other sensors types can be useful in a marine environment, for research and/or to measure phenomena that improve the accuracy of other sensors and vehicle control. Sensors that may be of interest include

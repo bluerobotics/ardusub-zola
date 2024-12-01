@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/additional/leak-sensors/"
 +++
 
 Leak sensors are an important addition for saving an electronics enclosure should a leak occur.

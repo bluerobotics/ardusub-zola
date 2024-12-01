@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/additional/grippers-manipulators/"
 +++
 
 A gripper is a useful tool for picking up small objects, attaching recovery lines, or freeing a snagged tether. Other manipulators may be useful in cleaning, inspection, or repair tasks.

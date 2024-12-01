@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/required/control-computer/"
 +++
 
 The Control Station Computer is the operator's primary interface to their vehicle(s). In subsea applications it is often referred to as the Topside Computer or Surface Computer, whereas for rovers and aerial vehicles it is normally called the Ground Control Station (GCS) Computer.

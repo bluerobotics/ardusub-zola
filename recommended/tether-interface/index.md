@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/recommended/tether-interface/"
 +++
 
 Although optional and not necessary for basic functionality, tether interfaces increase the **range** and **reliability** of Ethernet communications.

@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/required/power-sensor/"
 +++
 
 A power sensing module provides analog current and voltage sensing to an autopilot onboard the vehicle. ArduSub supports various modules in the firmware and when properly set, QGroundControl will give visual indications of battery level and current consumption.

@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/required/onboard-computer/"
 +++
 
 Onboard Computers are usually small single board computers (SBCs) which can be connected to an [Autopilot Board](../autopilot/), and can facilitate [MAVLink](https://ardupilot.org/dev/docs/mavlink-basics.html) communications with the [Control Station](../control-computer/) as well as enable interfacing and processing of sensors the autopilot is poorly suited to handle.

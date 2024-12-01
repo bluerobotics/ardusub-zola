@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/required/joystick/"
 +++
 
 A joystick (also known as a hand controller, gamepad, etc) when connected to the topside computer is how the user provides control inputs to the vehicle. These inputs may be in the form of movement (stick control) or action items (button presses).

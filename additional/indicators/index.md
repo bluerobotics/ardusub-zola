@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/additional/indicators/"
 +++
 
 Depth-rated indicator lights can provide visual indications of the status of electronics (e.g. when diving), the location of a device, or can be used as a light display (for visual appeal, or to attract marine life for study).

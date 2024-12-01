@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/recommended/pressure-sensor/"
 +++
 
 An external pressure sensor is required for obtaining depth readings and enabling Depth Hold functionality. Only one sensor may be connected at a time.

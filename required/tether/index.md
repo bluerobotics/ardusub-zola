@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/required/tether/"
 +++
 
 A tether is a length of cable which connects the [Onboard Computer](../onboard-computer/) to the [Topside Computer](../control-computer/). Radio frequency (RF) waves do not travel far through water and acoustic modems have limited bandwidth, so a tether is a critical component to connect the vehicle to a surface computer.

@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/required/power-supply/"
 +++
 
 A stable power supply and power distribution system is an integral part of any underwater vehicle. The power supply needs to be able to power all the onboard electronics and keep up with the current draw of the thrusters.

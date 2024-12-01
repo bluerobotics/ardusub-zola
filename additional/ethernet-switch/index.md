@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/additional/ethernet-switch/"
 +++
 
 An Ethernet Switch (sometimes called a Network Switch) allows connecting multiple Ethernet-based connections to the same network. It allows IP cameras, imaging sonars, and other sensors and actuators to communicate directly over the tether without needing to go via the Onboard Computer.

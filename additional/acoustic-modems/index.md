@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/additional/acoustic-modems/"
 +++
 
 Acoustic modems enable wireless data transmission through water. With two omni-directional transceivers, bidirectional communication is possible. 

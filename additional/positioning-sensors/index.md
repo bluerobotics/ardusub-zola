@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/additional/positioning-sensors/"
 +++
 
 A positioning system is a useful addition to an ArduSub vehicle either for displaying numerical location coordinates or the position of the vehicle on a map in QGroundControl. 

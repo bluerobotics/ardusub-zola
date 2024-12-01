@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/additional/electrical-switch/"
 +++
 
 A depth-rated electrical switch allows turning a circuit in an enclosure on and off from outside the enclosure. It can be used

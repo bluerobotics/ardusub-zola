@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/required/flight-controller/"
 +++
 
 In the ArduSub control system, the flight controller board is the hardware component which the ArduSub autopilot firmware is loaded onto. The autopilot processes the pilot input and sensor data, and controls the motors, lights, servos, and relays on the vehicle.

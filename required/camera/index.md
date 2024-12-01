@@ -10,6 +10,7 @@ draft = false
 lead = ""
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/docs/latest/integrations/hardware/required/camera/"
 +++
 
 A valuable aspect of subsea robotics is being able to see underwater and at high pressures for extended periods, which aids navigation, inspections, exploration, and cleaning and repair work. Cameras can be located inside an electronics enclosure, or can be depth-rated and operate on the outside of the vehicle.
