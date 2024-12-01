@@ -12,6 +12,7 @@ aliases = ['/software/control-station/Cockpit-latest/advanced-usage']
 lead = ''
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/cockpit/docs/latest/usage/advanced/"
 +++
 
 ## Display Breakdown

@@ -12,6 +12,7 @@ aliases = ['/software/control-station/Cockpit-latest/overview']
 lead = 'Cockpit is an intuitive and customizable cross-platform control station software for remote vehicles of all types.'
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/cockpit/docs/latest/usage/overview/"
 +++
 
 {{ easy_image(src="cockpit-banner", width=460, center=true) }}

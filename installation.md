@@ -11,6 +11,7 @@ aliases = ['/software/control-station/Cockpit-latest/installation']
 [extra]
 toc = true
 top = false
+external_redirect = "https://blueos.cloud/cockpit/docs/latest/usage/installation/"
 +++
 
 ## BlueOS Extension
