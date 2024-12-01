@@ -8,4 +8,8 @@ weight = 3
 template = "docs/section.html"
 +++
 
-{{ mermaid(path="overview.mermaid", width="220%", curve="monotoneY") }}
+<meta http-equiv="refresh" content="0; URL=https://blueos.cloud/docs/latest/integrations/" />
+
+This documentation has been moved to [https://blueos.cloud/docs/latest/integrations/](https://blueos.cloud/docs/latest/integrations/).
+
+You should be automatically redirected.
