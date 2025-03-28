@@ -9,6 +9,7 @@ draft = false
 [extra]
 toc = true
 top = false
+external_redirect = "https://ardupilot.org/sub/docs/logmessages.html"
 +++
 
 <!-- Dynamically generated using Tools/autotest/logger_metadata/parse.py

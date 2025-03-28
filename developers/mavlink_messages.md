@@ -9,6 +9,7 @@ draft = false
 [extra]
 toc = true
 top = false
+external_redirect = "https://ardupilot.org/sub/docs/ArduSub_MAVLink_Messages.html"
 +++
 The [MAVLink](https://mavlink.io/en/) protocol supports a variety of features and functionalities, but not all [messages](https://mavlink.io/en/messages/) or [commands](https://mavlink.io/en/services/command.html) are implemented by the ArduPilot ecosystem, or relevant to a particular autopilot firmware.
 
