@@ -9,6 +9,7 @@ draft = false
 [extra]
 toc = true
 top = false
+external_redirect = "https://ardupilot.org/sub/docs/parameters.html"
 +++
 
 This is a complete list of the parameters which can be set via the MAVLink protocol in the EEPROM of your autopilot to control vehicle behaviour. Some parameters may only be available for developers, and are enabled at compile-time.
